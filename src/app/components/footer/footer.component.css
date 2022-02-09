@@ -6,6 +6,16 @@ footer {
   
     /* background-color: rgb(172, 56, 56); */
     /* background-color:rgb(194, 64, 64); */
+    background-color:rgb(240, 84, 84);
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+ }
+
+ .copyright{
+    background-color:rgb(48, 71, 94);
+    color:rgb(231, 233, 235);
     background-color:rgb(238, 84, 84);
 
     position: relative;
