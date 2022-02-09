@@ -1,0 +1,23 @@
+body{
+    font-family: 'Artifika', serif;
+}
+
+footer {
+  
+    /* background-color: rgb(172, 56, 56); */
+    /* background-color:rgb(194, 64, 64); */
+    background-color:rgb(238, 84, 84);
+
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 16px;
+ }
+
+ .copyright{
+    background-color:rgb(31, 43, 56);
+    color:rgb(231, 233, 235);
+    font-size: 15px;
+
+
+ }
