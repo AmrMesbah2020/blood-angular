@@ -6,9 +6,7 @@ footer {
   
     background-color:rgb(53, 72, 90);
 
-    
-
-    position: absolute;
+    position:fixed;
     bottom: 0;
     width: 100%;
  }
@@ -17,6 +15,8 @@ footer {
     background-color:rgb(27, 34, 41);
     color:rgb(231, 233, 235);
     font-size: 15px;
+    position:relative;
+    bottom: 0;
 
 
  }
