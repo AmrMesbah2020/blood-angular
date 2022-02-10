@@ -4,22 +4,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
 
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { DashCounterComponent } from './components/dash-counter/dash-counter.component';
+import { DashCounterComponent } from './components/home/dash-counter/dash-counter.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { HeaderComponent } from './components/shard/header/header.component';
+import { FooterComponent } from './components/shard/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EligibilityQuizComponent,
     HeaderComponent,
     FooterComponent,
-    DashCounterComponent
+    DashCounterComponent,
+    HomeComponent,
+    ProfileComponent,
+    LayoutComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,  

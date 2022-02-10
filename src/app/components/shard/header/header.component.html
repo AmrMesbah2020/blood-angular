@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>donatelife</title>
+</head>
+<body>
+
+
+  <nav class="navbar navbar-expand-lg  fixed-top  shadow-sm " (scroll)='onScroll()' [ngClass]=" navbarfixed ?'fixed':'nofixed' ">
+    <div class="container-fluid">
+      <a class="navbar-brand " routerLink="home" routerLinkActive="router-link-active" > <i class="bi bi-chat-right-heart "></i> donatelife </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> 
+      </button>
+  
+
+
+        
+      <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+        <div class="navbar-nav   ms-auto">
+            <ul class=" nav nav-pills  ms-auto ">
+                <li class="nav-item "><a class="nav-link scrollto" routerLink="home" routerLinkActive="router-link-active" > Home </a></li>
+                <li class="nav-item "><a class="nav-link scrollto" routerLink="/donate blood"> Donate Blood </a></li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" routerLink="/healthcare" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Health Care                     </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item"routerLink="/action">Action</a></li>
+                      <li><a class="dropdown-item"routerLink="/Action">Another action</a></li>
+                      <li><a class="dropdown-item"routerLink="/Action">Something else here</a></li>
+                    </ul>
+                  </li>  
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#navbarNavAltMarkup" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Articles & Posts                    </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item"routerLink="/Action">Action</a></li>
+                    <li><a class="dropdown-item"routerLink="/Action">Another action</a></li>
+                    <li><a class="dropdown-item"routerLink="/Action">Something else here</a></li>
+                  </ul>
+                </li> 
+
+                  <li class="nav-item"><a class="nav-link scrollto" routerLink="/contact us"> Contact Us </a></li>
+
+                  <ul  class="nav me-2">
+                    <li class="nav-item"><a class="nav-link scrollto"  routerLink="/nafication"><i class="bi bi-bell-fill"></i></a></li>
+                    <li class="nav-item"><a class="nav-link scrollto"  routerLink="profile" routerLinkActive="router-link-active" ><i class="bi bi-person-fill"></i></a></li>
+        </ul> 
+                 
+          </ul>
+        
+        </div>
+      </div>
+    </div>
+  </nav>
+ 
+ 
+
+       
+</body>
+</html>
