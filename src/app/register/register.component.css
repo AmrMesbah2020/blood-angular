@@ -1,0 +1,55 @@
+
+  #h3,#firstname,#lastname,#gender,#blood,#date,#donate,#rhd,#password{
+    background: -webkit-linear-gradient(#ee7724, #d8363a, #dd3675, #b44593);
+    /* background-color: #F05454; */
+    /* background-color: #30475E; */
+    background-clip:text;
+    -webkit-text-fill-color: transparent;
+  }
+  @media (min-width: 768px) {
+    .gradient-form {
+      height: 100vh !important;
+    }
+  }
+  @media (min-width: 769px) {
+    .gradient-custom-2 {
+      border-top-right-radius: .3rem;
+      border-bottom-right-radius: .3rem;
+    }
+  }
+  @media (min-width: 1025px) {
+    .h-custom {
+      height: 100vh !important;
+    }
+  }
+  .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+  }
+  .card-registration .select-arrow {
+    top: 13px;
+  }
+  .gradient-custom-2 {
+    /* background: #a1c4fd; */
+    /* background: -webkit-linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1)); */
+  background-color: #F05454;
+    /* background: linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1)) */
+  }
+  .bg-indigo {
+    /* background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593); */
+background-color: #F05454;
+  }
+  @media (min-width: 992px) {
+    .card-registration-2 .bg-indigo {
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+  }
+  @media (max-width: 991px) {
+    .card-registration-2 .bg-indigo {
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+  }

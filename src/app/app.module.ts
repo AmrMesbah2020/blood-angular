@@ -9,6 +9,9 @@ import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibil
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DashCounterComponent } from './components/dash-counter/dash-counter.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { DashCounterComponent } from './components/dash-counter/dash-counter.com
     EligibilityQuizComponent,
     HeaderComponent,
     FooterComponent,
-    DashCounterComponent
+    DashCounterComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
