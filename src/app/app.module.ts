@@ -10,6 +10,9 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { PostsComponent } from './components/posts/posts.component';
+import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,11 @@ import { RegisterComponent } from './register/register.component';
     ArticlesComponent,
     ArticleDetailsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PostsComponent,
+    EligibilityQuizComponent,
+    
+  
   ],
   imports: [
   BrowserModule,
