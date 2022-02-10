@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { DashCounterComponent } from './components/home/dash-counter/dash-counter.component';
 import { HeaderComponent } from './components/shard/header/header.component';
 import { FooterComponent } from './components/shard/footer/footer.component';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -15,6 +17,8 @@ import { RegisterComponent } from './register/register.component';
     HeaderComponent,
     FooterComponent,
     DashCounterComponent,
+    ArticlesComponent,
+    ArticleDetailsComponent,
     LoginComponent,
     RegisterComponent
   ],
