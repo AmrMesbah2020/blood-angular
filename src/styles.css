@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Artifika&display=swap');
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    font-family: 'Artifika', serif;
+}
+
+.link_decoration{
+    text-decoration: none;
+}
+.list_style{
+    list-style-type: none;
+    display: inline;
+    
+}
+
+.card_button_size{
+    width: 40%;
+}
+
+.pink_text{
+    color: rgb(155, 52, 52);}
+
+
+.form_button{
+    color: rgb(207, 75, 75);
+    border: 1px solid;
+    border-color: rgb(207, 75, 75);
+    background-color:rgb(248, 248, 248);
+    border-radius: 2px;
+    width: 40%;
+    
+}
+.form_button:hover{
+    background-color: rgb(76, 107, 138);
+    color: rgb(248, 248, 248);
+    border-color: rgb(76, 107, 138);
+}
+
+
+
