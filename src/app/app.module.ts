@@ -9,6 +9,8 @@ import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibil
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DashCounterComponent } from './components/dash-counter/dash-counter.component';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -20,6 +22,8 @@ import { RegisterComponent } from './register/register.component';
     HeaderComponent,
     FooterComponent,
     DashCounterComponent,
+    ArticlesComponent,
+    ArticleDetailsComponent,
     LoginComponent,
     RegisterComponent
   ],
