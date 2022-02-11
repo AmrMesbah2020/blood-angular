@@ -15,6 +15,10 @@ body{
 .link_decoration{
     text-decoration: none;
 }
+
+.link_decoration:hover{
+    color: black;
+}
 .list_style{
     list-style-type: none;
     display: inline;
@@ -26,7 +30,9 @@ body{
 }
 
 .pink_text{
-    color: rgb(155, 52, 52);}
+    color: rgb(155, 52, 52);
+ }
+
 
 .gray_background{
     background-color: rgb(248, 248, 248);
