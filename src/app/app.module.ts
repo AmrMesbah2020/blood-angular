@@ -1,3 +1,4 @@
+import { MatExpansionModule } from '@angular/material/expansion';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,6 +12,9 @@ import { ArticleDetailsComponent } from './components/article-details/article-de
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
+import { FaqComponent } from './components/FAQ/faq/faq.component';
+import { MedicationAndMedicalDevicesComponent } from './components/FAQ/medication-and-medical-devices/medication-and-medical-devices.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostsComponent } from './components/posts/posts.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
@@ -27,6 +31,10 @@ import { MakeRequestsComponent } from './components/make-requests/make-requests.
     LoginComponent,
     RegisterComponent,
     EligibilityQuizComponent,
+    FaqComponent,
+    MedicationAndMedicalDevicesComponent,
+    
+  
     PostsComponent,
     UserProfileComponent,
     MakeRequestsComponent
@@ -35,7 +43,9 @@ import { MakeRequestsComponent } from './components/make-requests/make-requests.
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,  
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,  
   ],
   providers: [],
   bootstrap: [AppComponent]
