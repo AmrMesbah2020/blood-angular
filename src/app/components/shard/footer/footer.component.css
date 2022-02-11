@@ -1,11 +1,13 @@
 
 body{
     font-family: 'Artifika', serif;
-    
+    height: 100%;
+
+
 }
 footer{
     position:relative;
-    margin-top: 15%;
+ /* margin-top: 10%; */
     width: 100%;
     bottom: 0px;
     background-color:rgb(50, 68, 87);

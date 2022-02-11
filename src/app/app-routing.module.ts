@@ -5,22 +5,40 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { DashCounterComponent } from './components/home/dash-counter/dash-counter.component';
+import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
 
 const routes: Routes = [
 
   {path:'eligibilty-quiz',component:EligibilityQuizComponent},
 
-  {path:'home',component:HomeComponent},
-  {path:'profile',component:ProfileComponent},
+  {path:'home',
+  children:[
+    {
+    path:'', component:HomeComponent
+},
+{
+  path:'dash-counter', component:DashCounterComponent
+  },
+
+  ]
+  
+},
   {path:'articles',component:ArticlesComponent},
   {path:'article/details',component:ArticleDetailsComponent},
   {path:'login' , component:LoginComponent},
   {path:'register' , component:RegisterComponent},
   {path:'posts',component:PostsComponent},
+  {path:'profile',component:UserProfileComponent},
+  {path:'profile/:id',component:UserProfileComponent},
+  {path:'make-request',component:MakeRequestsComponent},
+
+
+
 
 
 ];

@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { PostsComponent } from './components/posts/posts.component';
     LoginComponent,
     RegisterComponent,
     EligibilityQuizComponent,
-    PostsComponent
+    PostsComponent,
+    UserProfileComponent,
+    MakeRequestsComponent
   ],
   imports: [
     BrowserModule,
