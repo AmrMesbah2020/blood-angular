@@ -1,4 +1,5 @@
 
+import { PostsComponent } from './components/posts/posts.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { NgModule } from '@angular/core';
@@ -10,14 +11,16 @@ import { RegisterComponent } from './register/register.component';
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
 
 const routes: Routes = [
+
   {path:'eligibilty-quiz',component:EligibilityQuizComponent},
+
   {path:'home',component:HomeComponent},
   {path:'profile',component:ProfileComponent},
   {path:'articles',component:ArticlesComponent},
   {path:'article/details',component:ArticleDetailsComponent},
-  // {path:'', redirectTo:'login' , pathMatch:'full'},
   {path:'login' , component:LoginComponent},
-  {path:'register' , component:RegisterComponent}
+  {path:'register' , component:RegisterComponent},
+  {path:'posts',component:PostsComponent},
 
 
 ];

@@ -11,6 +11,8 @@ import { ArticleDetailsComponent } from './components/article-details/article-de
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
+import { PostsComponent } from './components/posts/posts.component';
+
 
 @NgModule({
   declarations: [
@@ -22,10 +24,11 @@ import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibil
     ArticleDetailsComponent,
     LoginComponent,
     RegisterComponent,
-    EligibilityQuizComponent
+    EligibilityQuizComponent,
+    PostsComponent
   ],
   imports: [
-   BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,  

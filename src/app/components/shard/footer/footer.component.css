@@ -1,22 +1,19 @@
+
 body{
     font-family: 'Artifika', serif;
+    
 }
-
-footer { 
-  
-    background-color:rgb(53, 72, 90);
-
-    position:fixed;
-    bottom: 0;
-    width: 100%;
- }
-
- footer >.copyright{
-    background-color:rgb(27, 34, 41);
-    color:rgb(231, 233, 235);
-    font-size: 15px;
+footer{
     position:relative;
-    bottom: 0;
+    margin-top: 15%;
+    width: 100%;
+    bottom: 0px;
+    background-color:rgb(50, 68, 87);
+    
 
+}
+footer >.copy{
+    background-color:rgb(27, 40, 53);
+    font-size: 15px;
 
- }
+}
