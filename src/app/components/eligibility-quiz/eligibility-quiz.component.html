@@ -1,21 +1,22 @@
-<div class="mt-5 fs-4 h-auto  d-flex justify-content-center" *ngIf="question_num !=8" >Blood eligibility quiz</div>
+
+<div class="mt-5 fs-3 text-center d-flex justify-content-center" *ngIf="question_num !=8" >Blood eligibility quiz</div>
 
         <div id="question1" *ngIf="question_num ==1">
         <div class="d-flex justify-content-center ">
         <div class="" style="width: 18rem;" >
             
-            <img src="../assets/img/age.png" class="card-img-top w-50 mt-5 ms-5" alt="..." >
-            <div class="card-body">
-              <h5 class="card-title mt-3 text-center fs-3 pink_text" >Are you 18-75 years old?</h5>
+            <img src="../assets/img/age.png" class=" w-50 mt-5 eligibilty_form_img" alt="..." >
+            <div class="">
+              <p class="mt-3 text-center fs-4 pink_text lh-sm" >Are you 18-75 years old?</p>
               
-              <a href="#" target="_blank" class="card-link pink_text ms-5 link_decoration" >
+              <a href="#"  target="_blank" class=" eligibilty_form_text pink_text  link_decoration" >
                   
-                <span class="mt-3 ms-4 ">More Info <i class="fa fa-arrow-right" ></i></span>
+               More Info <i class="fa fa-arrow-right" ></i>
                 
             </a>
             <div class="mt-3  w-100 "> 
-                <button (click)="nextQuation()" type="button" class=" form_button fs-5 rounded-pill card_button_size" >Yes</button>
-                <button (click)="ineligiblMessage()" type="button" class="form_button fs-5 ms-5 rounded-pill card_button_size" >No</button>
+                <button (click)="nextQuation()" type="button" class=" btn btn-outline-danger rounded-pill card_button_size" >Yes</button>
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger ms-5 rounded-pill card_button_size" >No</button>
             </div>
             
             
@@ -40,18 +41,18 @@
 
         <div  style="width: 18rem;" >
             
-            <img src="../assets/img/tatto.png" class="card-img-top w-50 mt-5 ms-5" alt="..." >
-            <div class="card-body">
-              <h5 class="card-title mt-3 text-center fs-3 pink_text" >Had a tattoo in the last 4 months?</h5>
+            <img src="../assets/img/tatto.png" class="eligibilty_form_img w-50 " alt="..." >
+            <div class="">
+              <h5 class="mt-3 text-center fs-4 pink_text lh-sm" >Had a tattoo in the last 4 months?</h5>
               
-              <a href="#" target="_blank" class="card-link pink_text ms-5 link_decoration" >
+              <a href="#" target="_blank" class="eligibilty_form_text pink_text  link_decoration" >
                   
-                <span class="mt-3 ms-4">More Info <i class="fa fa-arrow-right" ></i></span>
+                More Info <i class="fa fa-arrow-right" ></i>
                 
             </a>
             <div class="mt-3  w-100"> 
-                <button (click)="ineligiblMessage()" type="button" class="form_button fs-5  rounded-pill card_button_size" >Yes</button>
-                <button (click)="nextQuation()" type="button" class="form_button fs-5 ms-5  rounded-pill card_button_size" >No</button>
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger   rounded-pill card_button_size" >Yes</button>
+                <button (click)="nextQuation()" type="button" class="btn btn-outline-danger  ms-5  rounded-pill card_button_size" >No</button>
             </div>
             
             
@@ -76,20 +77,19 @@
 
         <div  style="width: 18rem;" >
             
-            <img src="../assets/img/pregnant.png" class="card-img-top w-50 mt-5 ms-5" alt="..." >
-            <div class="card-body">
-              <h5 class="card-title mt-3 text-center fs-3 pink_text" >Are you pregnant or recently given birth?</h5>
+            <img src="../assets/img/pregnant.png" class="eligibilty_form_img w-50  " alt="..." >
+            <div class="">
+              <h5 class="card-title mt-3 text-center fs-4 pink_text lh-sm" >Are you pregnant or recently given birth?</h5>
               
-              <a href="#" target="_blank" class="card-link pink_text ms-5 link_decoration" >
+              <a href="#" target="_blank" class="eligibilty_form_text pink_text  link_decoration" >
                   
-                <span class="mt-3 ms-4">More Info <i class="fa fa-arrow-right" ></i></span>
+               More Info <i class="fa fa-arrow-right" ></i>
                 
             </a>
             <div class="mt-3  w-100"> 
-                <button (click)="ineligiblMessage()" type="button" class="form_button fs-5  rounded-pill card_button_size" >Yes</button>
-                <button (click)="nextQuation()" type="button" class="form_button fs-5 ms-5  rounded-pill card_button_size" >No</button>
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger rounded-pill card_button_size" >Yes</button>
+                <button (click)="nextQuation()" type="button" class="btn btn-outline-danger ms-5  rounded-pill card_button_size" >No</button>
             </div>
-            
             
             </div>
           </div>
@@ -112,18 +112,18 @@
 
         <div  style="width: 18rem;" >
             
-            <img src="../assets/img/heart.png" class="card-img-top w-50 mt-5 ms-5" alt="..." >
+            <img src="../assets/img/heart.png" class="eligibilty_form_img w-50 " alt="..." >
             <div class="card-body">
-              <h5 class="card-title mt-3 text-center fs-3 pink_text" >Do you have a heart condition?</h5>
+              <h5 class=" mt-3 text-center fs-4 pink_text lh-sm" >Do you have a heart condition?</h5>
               
-              <a href="#" target="_blank" class="card-link pink_text ms-5 link_decoration" >
+              <a href="#" target="_blank" class="eligibilty_form_text pink_text pink_text link_decoration" >
                   
-                <span class="mt-3 ms-4">More Info <i class="fa fa-arrow-right" ></i></span>
+                More Info <i class="fa fa-arrow-right" ></i>
                 
             </a>
             <div class="mt-3  w-100"> 
-                <button (click)="ineligiblMessage()" type="button" class="form_button fs-5  rounded-pill card_button_size" >Yes</button>
-                <button (click)="nextQuation()" type="button" class="form_button fs-5 ms-5  rounded-pill card_button_size" >No</button>
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger rounded-pill card_button_size" >Yes</button>
+                <button (click)="nextQuation()" type="button" class="btn btn-outline-danger ms-5  rounded-pill card_button_size" >No</button>
             </div>
             
             
@@ -148,18 +148,18 @@
 
         <div  style="width: 18rem;" >
             
-            <img src="../assets/img/iron.png" class="card-img-top w-50 mt-5 ms-5" alt="..." >
+            <img src="../assets/img/iron.png" class="eligibilty_form_img w-50 " alt="..." >
             <div class="card-body">
-              <h5 class="card-title mt-3 text-center fs-3 pink_text" >Are you low in iron?</h5>
+              <h5 class=" mt-3 text-center fs-4 pink_text lh-sm" >Are you low in iron?</h5>
               
-              <a href="#" target="_blank" class="card-link pink_text ms-5 link_decoration" >
+              <a href="#" target="_blank" class="eligibilty_form_text pink_text  link_decoration" >
                   
-                <span class="mt-3 ms-4">More Info <i class="fa fa-arrow-right" ></i></span>
+               More Info <i class="fa fa-arrow-right" ></i>
                 
             </a>
             <div class="mt-3  w-100"> 
-                <button (click)="ineligiblMessage()" type="button" class="form_button fs-5 rounded-pill card_button_size" >Yes</button>
-                <button (click)="nextQuation()" type="button" class="form_button fs-5 ms-5  rounded-pill card_button_size" >No</button>
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger rounded-pill card_button_size" >Yes</button>
+                <button (click)="nextQuation()" type="button" class="btn btn-outline-danger ms-5  rounded-pill card_button_size" >No</button>
             </div>
             
             
@@ -184,18 +184,18 @@
 
         <div style="width: 18rem;" >
             
-            <img src="../assets/img/drugs.png" class="card-img-top w-50 mt-5 ms-5" alt="..." >
+            <img src="../assets/img/drugs.png" class="eligibilty_form_img w-50 " alt="..." >
             <div class="card-body">
-              <h5 class="card-title mt-3 text-center fs-3 pink_text" >Have you injected recreational drugs in the past 5 years?</h5>
+              <h5 class="card-title mt-3 text-center fs-4 pink_text lh-sm" >Have you injected recreational drugs in the past 5 years?</h5>
               
-              <a href="#" target="_blank" class="card-link pink_text ms-5 link_decoration" >
+              <a href="#" target="_blank" class="eligibilty_form_text pink_text link_decoration" >
                   
-                <span class="mt-3 ms-4">More Info <i class="fa fa-arrow-right" ></i></span>
+               More Info <i class="fa fa-arrow-right" ></i>
                 
             </a>
             <div class="mt-3  w-100"> 
-                <button (click)="ineligiblMessage()" type="button" class="form_button fs-5 rounded-pill card_button_size" >Yes</button>
-                <button (click)="nextQuation()" type="button" class="form_button fs-5 ms-5  rounded-pill card_button_size" >No</button>
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger rounded-pill card_button_size" >Yes</button>
+                <button (click)="nextQuation()" type="button" class="btn btn-outline-danger ms-5  rounded-pill card_button_size" >No</button>
             </div>
             
             
@@ -220,18 +220,18 @@
 
         <div style="width: 18rem;" >
             
-            <img src="../assets/img/travel.png" class="card-img-top w-50 mt-5 ms-5" alt="..." >
+            <img src="../assets/img/travel.png" class="eligibilty_form_img w-50 " alt="..." >
             <div class="card-body">
-              <h5 class="card-title mt-2 text-center pink_text fs-3" >Will you travel overseas 4 months before your donation?</h5>
+              <h5 class="card-title mt-2 text-center pink_text fs-4 lh-sm" >Will you travel overseas 4 months before your donation?</h5>
               
-              <a href="#" target="_blank" class="card-link pink_text ms-5 link_decoration" >
+              <a href="#" target="_blank" class="eligibilty_form_text pink_text link_decoration" >
                   
-                <span class="mt-3 ms-4">More Info <i class="fa fa-arrow-right" ></i></span>
+               More Info <i class="fa fa-arrow-right" ></i>
                 
             </a>
             <div class="mt-3  w-100"> 
-                <button (click)="ineligiblMessage()" type="button" class="form_button fs-5 rounded-pill card_button_size" >Yes</button>
-                <button (click)="nextQuation()" type="button" class="form_button ms-5 fs-5 rounded-pill card_button_size" >No</button>
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger rounded-pill card_button_size" >Yes</button>
+                <button (click)="nextQuation()" type="button" class="btn btn-outline-danger ms-5  rounded-pill card_button_size" >No</button>
             </div>
             
             
@@ -248,7 +248,7 @@
             
             <img src="../assets/img/congratolation.png" class="card-img-top w-75 ms-5" alt="..." >
             <div class="card-body">
-              <h5 class=" mt-3 text-center pink_text fs-3" >Congratulations! You should be able to give blood. </h5>
+              <h5 class="  text-center pink_text fs-3 lh-sm" >Congratulations! You should be able to give blood. </h5>
 
 
             </div>
@@ -300,7 +300,7 @@
                <div *ngIf="isInValidAndTouched('lastdonatedate')">
                 <small class="form-text text-danger" *ngIf="isControlHasError('lastdonatedate','required')">required field</small>
                </div>
-               <div><button  class="form_button mt-3">Become a Donner</button></div>
+               <div><button  class="btn btn-outline-danger mt-3 rounded-pill">Become a Donner</button></div>
                
             </div>
         </div>
@@ -313,9 +313,9 @@
 
         <div class="" style="width: 18rem;" >
             
-            <img src="../assets/img/ineligible.png" class="card-img-top w-50 mt-5 ms-5" alt="..." >
-            <div class="card-body">
-              <h5 class=" mt-3 text-center fs-3" >Sorry, you are ineligible to donate.</h5>
+            <img src="../assets/img/ineligible.png" class=" w-50 mt-5 eligibilty_form_img" alt="..." >
+            <div class="">
+              <p class=" mt-3 text-center fs-4 lh-sm pink_text" >Sorry, you are ineligible to donate.</p>
            <a class="link_decoration pink_text" routerLink="/faq"><p class=" mt-3 text-center">Read More About Eligibility</p></a>   
 
   
