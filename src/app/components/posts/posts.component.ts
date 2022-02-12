@@ -12,4 +12,9 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+   vote(post:any) {
+    post.liked = !post.liked;
+    
+  }
+
 }
