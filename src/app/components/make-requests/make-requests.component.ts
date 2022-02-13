@@ -8,18 +8,15 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class MakeRequestsComponent implements OnInit {
 
-  formRequest = new FormGroup ({
-    phone:new FormControl(),
-    description:new FormControl(),
+public formRequest !: FormGroup;
 
-  });
-
-  constructor(private fb: FormBuilder){}
+  constructor(private formBuilder: FormBuilder){}
 
   ngOnInit(): void {
 
-    this.formRequest = this.fb.group({
+    this.formRequest = this.formBuilder.group({
 
+      // phone:[''],
       'phone' :new FormControl(" ",
       [Validators.required,
        Validators.pattern('/^(?=\d{11}$)(011|012|015)\d+/')

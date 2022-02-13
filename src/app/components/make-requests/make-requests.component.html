@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" [formGroup]="formRequest" >
+      <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" [formGroup]="formRequest">
         <div class="card h-100">
           <div class="card-body">
             <div class="row gutters">
@@ -52,7 +52,7 @@
               
 
 
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 " [formGroup]="formRequest" >
                 <div class="form-group ">
                   <label for="phone">Phone Number</label>
                   <input type="text" class="form-control" id="phone" 
@@ -154,10 +154,14 @@
                     <label class="form-check-label" for="exampleCheck1">Accept Our Roles </label>
                   </div>
                   <br>
+                  
                   <button type="button" id="submit" name="submit" class="btn btn-info">Cancel</button>
                   <button type="button" id="submit" name="submit" class="btn btn-danger m-2">Create
                     Request </button>
+
                 </div>
+                <a routerLink="/register"  class="text-info fw-blod mb-2"> <span class="text-dark">New user ? </span>click to Register</a>
+
               </div>
             </div>
           </div>

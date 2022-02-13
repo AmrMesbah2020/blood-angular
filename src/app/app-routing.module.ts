@@ -32,7 +32,7 @@ const routes: Routes = [
 
 
   {path:'eligibilty-quiz',component:EligibilityQuizComponent},
-
+  // {path:' ' , redirectTo:'login',pathMatch:'fully'},
 
   {path:'articles',component:ArticlesComponent},
   {path:'article/details',component:ArticleDetailsComponent},

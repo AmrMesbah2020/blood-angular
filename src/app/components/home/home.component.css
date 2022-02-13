@@ -5,19 +5,26 @@ body{
 
 .first-part{
     
-    background-image: url('../../../assets/img/bloodho.png');
-padding-top: 10%;
-    background-position: center ;
-    background-size: cover;
+    /* background-image: url('../../../assets/img/bloodho.png'); */
+    background-image: url('../../../assets/img/pexels-puwadon.jpg');
+    background-repeat: no-repeat;
+     padding-top: 10%;
+   
+    background-size: 100% 100%;
     margin-bottom: 10%;
-    height: 700px;
+    height: 600px;
     
 }
-.container-fluid > h1{
-    font-weight: 1000;
+.container-fluid > h2{
+    font-weight: 700;
     font-size: 55px;
-    color:rgb(233, 125, 125);
+    /* color:rgb(233, 125, 125); */
+    color: rgb(240, 84, 84);
 }
 .container-fluid >.btn{
     font-size: 21px;
+}
+
+.heading_color{
+    color: rgb(240, 84, 84);
 }
