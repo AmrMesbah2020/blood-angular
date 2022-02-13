@@ -71,3 +71,6 @@ body {
 .form-group{
     padding-top: 3%;
 }
+a{
+    text-decoration: none;
+}
