@@ -8,6 +8,12 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
 
+  isActive: boolean | undefined;
+
+  active() {
+      this.isActive= true;
+    }
+
   navbarfixed:boolean = false;
   @HostListener('window:scroll',['$event'])onScroll(){
     if(window.scrollY >100){
@@ -17,6 +23,7 @@ export class HeaderComponent implements OnInit {
       this.navbarfixed = false;
     }
   }
+  
   constructor() { }
 
   ngOnInit(): void {

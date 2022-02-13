@@ -47,6 +47,5 @@ li >.nav-link{
 }
 li >.nav-link:hover{
     color:rgb(240, 84, 84);
+    background-color:transparent ;
 }
-
- 
