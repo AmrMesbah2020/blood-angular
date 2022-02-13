@@ -47,7 +47,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PregencyComponent,
     WorkAndTravelComponent,
     MedicalConditionsComponent,
-    OtherComponent
+    OtherComponent,
   ],
   imports: [
     BrowserModule,

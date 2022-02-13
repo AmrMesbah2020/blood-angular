@@ -52,14 +52,14 @@
             <!-- drooop -->
 
 
-            <li ngbDropdown class="d-inline-block">
-              <a id="dropdownBasic1" ngbDropdownToggle (click)="active()"
-                [ngStyle]="{'background-color':isActive? 'transparent' : 'transparent' }"
-                class="nav-link dropdown-toggle ">
+            <li ngbDropdown class="nav-item">
+              <a class="nav-link dropdown-toggle" (click)="active()"
+              [ngStyle]="{'background-color':isActive? 'transparent' : 'transparent' }" routerLink="/healthcare"
+              id="navbarDropdownMenuLink" ngbDropdownToggle role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
                 Articles & Posts </a>
-              <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" ngbDropdownItem routerLink="articles"> Articles</a></li>
-                <li><a class="dropdown-item" ngbDropdownItem routerLink="article/details">Main Article</a></li>
                 <li><a class="dropdown-item" ngbDropdownItem routerLink="posts"> Posts</a></li>
               </ul>
             </li>
