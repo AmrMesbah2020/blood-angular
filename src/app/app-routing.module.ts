@@ -6,32 +6,29 @@ import { ArticleDetailsComponent } from './components/article-details/article-de
 import { ArticlesComponent } from './components/articles/articles.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
 import { FaqComponent } from './components/FAQ/faq/faq.component';
 
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { DashCounterComponent } from './components/home/dash-counter/dash-counter.component';
 import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
+import { HomeComponent } from './components/home/home.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
+// lazy load //
 const routes: Routes = [
+  {
+    component:HomeComponent,
+    path:'home', 
+
+    loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
+  },
+
 
   {path:'eligibilty-quiz',component:EligibilityQuizComponent},
 
-  {path:'home',
-  children:[
-    {
-    path:'', component:HomeComponent
-},
-{
-  path:'dash-counter', component:DashCounterComponent
-  },
 
-  ]
-  
-},
   {path:'articles',component:ArticlesComponent},
   {path:'article/details',component:ArticleDetailsComponent},
   {path:'login' , component:LoginComponent},
@@ -42,6 +39,8 @@ const routes: Routes = [
   {path:'profile',component:UserProfileComponent},
   {path:'profile/:id',component:UserProfileComponent},
   {path:'make-request',component:MakeRequestsComponent},
+  {path:'contact-us',component:ContactUsComponent},
+
 
 
 

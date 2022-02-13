@@ -1,3 +1,4 @@
+
 body{
   color: #6F8BA4;
   margin-top:20px;
@@ -335,10 +336,6 @@ body{margin-top:20px;
   
   /* //////////////////////////////////////////////////// */
 
-  body{
-    margin-top:20px;
-    background:#f3f3f3;
-}
 
 .card.user-card {
     border-top: none;
@@ -525,8 +522,10 @@ body{margin-top:20px;
 body {
 margin: 0;
 line-height: 1.5385;
-color: #333;
+/* color: #333; */
 text-align: left;
+
+font-family: 'Artifika', serif;
 /* background-color: #eee */
 }
 
@@ -563,3 +562,4 @@ max-height: 5rem
 .checked {
 color: orange;
 }
+

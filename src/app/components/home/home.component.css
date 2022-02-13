@@ -1,0 +1,23 @@
+body{
+    font-family: 'Artifika', serif;
+}
+
+
+.first-part{
+    
+    background-image: url('../../../assets/img/bloodho.png');
+padding-top: 10%;
+    background-position: center ;
+    background-size: cover;
+    margin-bottom: 10%;
+    height: 700px;
+    
+}
+.container-fluid > h1{
+    font-weight: 1000;
+    font-size: 55px;
+    color:rgb(233, 125, 125);
+}
+.container-fluid >.btn{
+    font-size: 21px;
+}
