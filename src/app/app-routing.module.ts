@@ -30,12 +30,12 @@ const routes: Routes = [
   },
 
   ]
-  
+
 },
   {path:'articles',component:ArticlesComponent},
   {path:'article/details',component:ArticleDetailsComponent},
   {path:'login' , component:LoginComponent},
-  {path:'register' , component:RegisterComponent},
+  {path:'register', component:RegisterComponent},
   {path:'faq',component:FaqComponent},
   {path:'faq/medication-and-medical-devices',component:MedicationAndMedicalDevicesComponent},
   {path:'posts',component:PostsComponent},
