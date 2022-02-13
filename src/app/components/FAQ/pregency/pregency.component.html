@@ -1,0 +1,68 @@
+<div class="w-100 gray_background mt-5 p-5">
+    <p class="h3 pink_text text-center ">Pregnancy and childbirth</p>
+    <p class="text-center">It’s important you don’t put your body under unnecessary strain. Find out how long you need to wait before you can donate. </p>
+</div>
+
+<hr class="btmspace-80 m-5 ">
+
+<div>
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+
+    </mat-expansion-panel>
+    <div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+          I am pregnant. Can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="mt-3 opacity-75">Not right now, no. This is to protect your health and avoid causing stress to you and your baby’s circulation.   After you give birth, you’ll need to wait another nine months from delivery date to allow your body enough time to replenish its iron. There are also donation restrictions related to breastfeeding. But, even if you can’t donate blood temporarily, you may be able to donate breast milk…</p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false" class="">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+          I have had a pregnancy loss. Can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">You’ll need to wait a little while before donating to allow time for your body to replenish its iron. If the pregnancy was lost during the first or second trimester, you’ll need to wait six months. For a third-trimester pregnancy loss, you’ll need to wait nine months.  Please be aware that one of the questions we ask new donors relates to whether you have ever been pregnant, and for existing…</p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+          How long after the birth of my baby can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">At least nine months and when your baby is significantly weaned (that is, getting most of his/her nutrition from solids). But you may still be able to help in a different, and very special, way. If you have excess breast milk you may be able to donate it to help premature babies. </p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+          I’m breastfeeding. Can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">Not right away. For your health, following childbirth you need to wait at least nine months and until your baby is significantly weaned (that is, getting most of his/her nutrition from solids) before you donate blood.   But you may still be able to help in a different, and very special, way. If you have excess breast milk you may be able to donate it to help premature babies. </p>
+    </mat-expansion-panel>
+</div>
+  </mat-accordion>
+</div>
+  
+
+

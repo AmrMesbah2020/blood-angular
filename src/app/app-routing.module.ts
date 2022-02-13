@@ -1,3 +1,8 @@
+import { WorkAndTravelComponent } from './components/FAQ/work-and-travel/work-and-travel.component';
+import { PregencyComponent } from './components/FAQ/pregency/pregency.component';
+import { OtherComponent } from './components/FAQ/other/other.component';
+import { MedicalConditionsComponent } from './components/FAQ/medical-conditions/medical-conditions.component';
+import { LifestyleComponent } from './components/FAQ/lifestyle/lifestyle.component';
 import { MedicationAndMedicalDevicesComponent } from './components/FAQ/medication-and-medical-devices/medication-and-medical-devices.component';
 import { PostsComponent } from './components/posts/posts.component';
 
@@ -35,6 +40,11 @@ const routes: Routes = [
   {path:'register' , component:RegisterComponent},
   {path:'faq',component:FaqComponent},
   {path:'faq/medication-and-medical-devices',component:MedicationAndMedicalDevicesComponent},
+  {path:'faq/lifestyle',component:LifestyleComponent},
+  {path:'faq/medical-conditions',component:MedicalConditionsComponent},
+  {path:'faq/other',component:OtherComponent},
+  {path:'faq/pregency',component:PregencyComponent},
+  {path:'faq/work-and-travel',component:WorkAndTravelComponent},
   {path:'posts',component:PostsComponent},
   {path:'profile',component:UserProfileComponent},
   {path:'profile/:id',component:UserProfileComponent},

@@ -18,10 +18,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostsComponent } from './components/posts/posts.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
-import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { LifestyleComponent } from './components/FAQ/lifestyle/lifestyle.component';
+import { PregencyComponent } from './components/FAQ/pregency/pregency.component';
+import { WorkAndTravelComponent } from './components/FAQ/work-and-travel/work-and-travel.component';
+import { MedicalConditionsComponent } from './components/FAQ/medical-conditions/medical-conditions.component';
+import { OtherComponent } from './components/FAQ/other/other.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
 
 
 @NgModule({
@@ -41,7 +43,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PostsComponent,
     UserProfileComponent,
     MakeRequestsComponent,
-    ContactUsComponent
+    LifestyleComponent,
+    PregencyComponent,
+    WorkAndTravelComponent,
+    MedicalConditionsComponent,
+    OtherComponent
   ],
   imports: [
     BrowserModule,

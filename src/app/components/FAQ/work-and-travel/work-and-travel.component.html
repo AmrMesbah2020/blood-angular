@@ -1,0 +1,56 @@
+<div class="w-100 gray_background mt-5 p-5">
+    <p class="h3 pink_text text-center ">Work, travel and living overseas</p>
+    <p class="text-center">Some places you travel to or live in can affect whether you can donate, or when. Find out how. </p>
+</div>
+
+<hr class="btmspace-80 m-5 ">
+
+<div>
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+
+    </mat-expansion-panel>
+    <div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+          Does my job affect whether I can donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="mt-3 opacity-75">For most people, not at all.   You can still donate blood if you work in an abattoir, or as a healthcare worker. But, if you're a professional athlete there are some things to consider before you donate.  We don't recommend giving blood during a competitive period or season. It could have a minor, temporary impact on performance — it’s common to feel a bit tired after donating. Consider…</p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false" class="">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+          I had a vaccination for a trip. Can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">It depends on the type of vaccine. Check yours here.  Some vaccines don't include any live material and you can donate straight away after having one. Other vaccines are made from live material, meaning you can give plasma right away but need to wait four weeks before donating blood or platelets. You’ll need to wait 2 weeks before donating anything if your vaccine was for Hepatitis B</p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+          I've recently been overseas. Can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">It depends where you’ve travelled – most commonly, either you may only be able to donate plasma for a period, or you may be able to donate blood or plasma immediately. The best thing to do is double check before you book. Check the travel page to see when you can donate.</p>
+    </mat-expansion-panel>
+</div>
+
+  </mat-accordion>
+</div>
+  
+
+
