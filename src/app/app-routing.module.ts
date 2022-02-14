@@ -35,7 +35,7 @@ const routes: Routes = [
   // {path:' ' , redirectTo:'login',pathMatch:'fully'},
 
   {path:'articles',component:ArticlesComponent},
-  {path:'article/details',component:ArticleDetailsComponent},
+  {path:'article/details/:id',component:ArticleDetailsComponent},
   {path:'login' , component:LoginComponent},
   {path:'register', component:RegisterComponent},
   {path:'faq',component:FaqComponent},

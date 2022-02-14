@@ -27,6 +27,7 @@ import { MedicalConditionsComponent } from './components/FAQ/medical-conditions/
 import { OtherComponent } from './components/FAQ/other/other.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { MaxLengthPipe } from './pipes/max-length.pipe';
 
 
 
@@ -51,6 +52,7 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
     MedicalConditionsComponent,
     OtherComponent,
     ContactFormComponent,
+    MaxLengthPipe,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,7 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
     NgbModule,
     HttpClientModule,
     // MatToolbarModule,
+  
   ],
 
   providers: [],
