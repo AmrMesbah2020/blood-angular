@@ -1,3 +1,4 @@
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { WorkAndTravelComponent } from './components/FAQ/work-and-travel/work-and-travel.component';
 import { PregencyComponent } from './components/FAQ/pregency/pregency.component';
 import { OtherComponent } from './components/FAQ/other/other.component';
@@ -19,7 +20,6 @@ import { FaqComponent } from './components/FAQ/faq/faq.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
 import { HomeComponent } from './components/home/home.component';
-import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 // lazy load //
 const routes: Routes = [
@@ -49,7 +49,7 @@ const routes: Routes = [
   {path:'profile',component:UserProfileComponent},
   {path:'profile/:id',component:UserProfileComponent},
   {path:'make-request',component:MakeRequestsComponent},
-  {path:'contact-us',component:ContactUsComponent},
+  {path:'contact-us',component:ContactFormComponent},
 
 
 

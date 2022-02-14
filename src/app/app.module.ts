@@ -26,6 +26,7 @@ import { WorkAndTravelComponent } from './components/FAQ/work-and-travel/work-an
 import { MedicalConditionsComponent } from './components/FAQ/medical-conditions/medical-conditions.component';
 import { OtherComponent } from './components/FAQ/other/other.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     WorkAndTravelComponent,
     MedicalConditionsComponent,
     OtherComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
