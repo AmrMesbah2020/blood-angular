@@ -14,6 +14,9 @@
 
     <section class="h-100 gradient-form" style="background-color: #eee;">
         <div class="container py-5 h-100">
+          <div class="alert alert-danger text-center" role="alert" *ngIf="errMsg">
+           This Email Already has Account ya 3sl.......
+          </div>
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-xl-10">
               <div class="card rounded-3 text-black">
@@ -30,7 +33,7 @@
                                type="text" formControlName="firstName" [class.is-valid]="isValid('firstName')" class="form-control form-control-lg" />
                                <div *ngIf="registerForm.controls['firstName'].errors">
                                 <small class="form-text text-black ">
-                                  invalid first name 
+                                  invalid first name
                                 </small>
                               </div>
                               </div>
@@ -43,29 +46,29 @@
                                   <small class="form-text text-black">
                                     invalid last name
                                   </small>
-                                  
+
                                 </div>
                               </div>
                             </div>
-                            
+
                           </div>
-      
-                       
-                          
-                        
+
+
+
+
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form2Example22" id="donate">Date of Birth</label>
-                            <input type="date" formControlName="dateOfBirth"[class.is-valid]="isValid('dateOfBirth')" class="form-control" />
-                            <div *ngIf="registerForm.controls['dateOfBirth'].errors">
+                            <input type="date" formControlName="birthdate"[class.is-valid]="isValid('birthdate')" class="form-control" />
+                            <div *ngIf="registerForm.controls['birthdate'].errors">
                               <small class="form-text text-black">
                                 Date is required
                               </small>
                             </div>
                           </div>
-                     
+
                           <div class="form-outline mb-4">
                             <label class="form-label" for="form2Example22" id="gender">Gender</label>
-                            <select  formControlName="gender" [class.is-valid]="isValid('gender')" class="select" style="margin-left: 80px; padding-right: 95px;"> 
+                            <select  formControlName="gender" [class.is-valid]="isValid('gender')" class="select" style="margin-left: 80px; padding-right: 95px;">
                                 <option disabled selected value>Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -74,7 +77,7 @@
                                     Gender is required
                                   </small>
                                 </div>
-                               
+
                             </select>
                           </div>
                           <div class="form-outline mb-4">
@@ -88,12 +91,12 @@
                               </div>
 
                             <!-- </div> -->
-                           
+
                           </div>
                           <div class="form-outline mb-4">
                             <label class="form-label"  for="form2Example22" id="password">Confirm Password</label>
                             <input  type="password" formControlName="confirmPassword"[class.is-valid]="isValid('confirmPassword')"  class="form-control" />
-        
+
                             <div *ngIf="registerForm.controls['confirmPassword'].errors">
                               <small class="form-text text-black">
                                 invalid password
@@ -101,10 +104,10 @@
                           </div>
                           </div>
                       </form>
-      
+
                     </div>
                   </div>
-                  
+
                   <div class="col-lg-6 bg-indigo text-white" >
                     <div class="p-5">
                       <h3 class="fw-normal mb-5">Contact Details</h3>
@@ -129,8 +132,8 @@
                       </div>
                       <div class="form-outline mb-4"[formGroup]="registerForm">
                         <label class="form-label" for="form3Examplea2">Address</label><br>
-                        <input    type="text" formControlName="address" [class.is-valid]="isValid('address')" class="form-control" />
-                        <div *ngIf="registerForm.controls['address'].errors">
+                        <input    type="text" formControlName="street" [class.is-valid]="isValid('street')" class="form-control" />
+                        <div *ngIf="registerForm.controls['street'].errors">
                           <small class="form-text text-black">
                             invalid address
                           </small>
@@ -166,26 +169,26 @@
                             <input
                               class="form-check-input me-2"
                               type="checkbox"
-                           
+
                             />
                             <label class="form-check-label" for="form2Example3g">
                               I agree all statements in <a routerLink="/login" class="text-body"><u>Terms of service</u></a>
                             </label>
                           </div>
-          
+
                         </div>
                       </div>
-                      
-                  <button type="button" [disabled]="registerForm.invalid"class="btn btn-light btn-lg" data-mdb-ripple-color="dark" routerLink="/login" >Register</button>
-                  <p class="text-center" style="color:white;">Have already an account? <a routerLink="/login"  class="fw-bold text-body"><u>Login here</u></a></p>  
+
+                  <button type="button" [disabled]="registerForm.invalid"class="btn btn-light btn-lg" data-mdb-ripple-color="dark" (click)="sign_up()" >Register</button>
+                  <p class="text-center" style="color:white;">Have already an account? <a routerLink="/login"  class="fw-bold text-body"><u>Login here</u></a></p>
                 </div>
-                    
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>      
+        </div>
       </section>
 
       <script src="/path/to/cdn/jquery.min.js"></script>

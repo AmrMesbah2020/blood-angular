@@ -1,8 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 import {FormGroup,FormBuilder} from "@angular/forms";
 import { Validators } from '@angular/forms';
+import { User } from './../../models/user';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,8 +15,11 @@ import { Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   registerForm =new FormGroup({});
+  user=new User;
+  errMsg = [];
 
-  constructor(private _formBuilder:FormBuilder){
+
+  constructor(private _formBuilder:FormBuilder,private _httpClient:HttpClient,private router: Router){
   }
   ngOnInit(): void {
     this.registerForm=this._formBuilder.group({
@@ -26,13 +31,13 @@ export class RegisterComponent implements OnInit {
       // {
       //   validator:this.confirmPasswordMatch('password','confirmPassword')
       // }),
-  email:['x.name@gmail.com',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"),Validators.minLength(7),Validators.maxLength(20)]],
+  email:['abc@.com',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"),Validators.minLength(7),Validators.maxLength(40)]],
   firstName:["",[Validators.required,Validators.minLength(3),Validators.maxLength(10)]],
   lastName:["",[Validators.required,Validators.minLength(3),Validators.maxLength(10)]],
-  dateOfBirth:["",Validators.required],
+  birthdate:["",Validators.required],
   gender:["",[Validators.required]],
   phone:["",[Validators.required,Validators.pattern("^01[0-2,5]{1}[0-9]{8}$")]],
-  address:["",[Validators.required,Validators.minLength(4),Validators.maxLength(15)]],
+  street:["",[Validators.required,Validators.minLength(4),Validators.maxLength(15)]],
   city:["",[Validators.required,Validators.minLength(4),Validators.maxLength(15)]],
   state:["",[Validators.required,Validators.minLength(4),Validators.maxLength(15)]],
 
@@ -52,9 +57,49 @@ export class RegisterComponent implements OnInit {
   //   }
 
   // }
-  
+
+
+
+
+  sign_up():void{
+    let user=new User();
+
+      user.firstName=this.registerForm.value.firstName
+      user.lastName=this.registerForm.value.lastName
+      user.birthdate=this.registerForm.value.birthdate
+      user.email=this.registerForm.value.email
+      user.phone=this.registerForm.value.phone
+      user.wieght=50;
+      user.street=this.registerForm.value.street
+      user.city=this.registerForm.value.city
+      user.state=this.registerForm.value.state
+      user.password=this.registerForm.value.password
+      user.gender=this.registerForm.value.gender
+      user.name=user.getFullName();
+      user.address=user.Adress();
+
+      // console.log(user);
+
+      this._httpClient.post('http://localhost:8000/api/register',user).subscribe(
+        (response:any)=>{
+        // this.students.push(student)
+        console.log(JSON.stringify(response.date));
+        console.log(response);
+        this.router.navigate(['home']);
+        localStorage.setItem("Token",response[1].token)},
+        (error:any)=>{
+          // console.log();
+          this.errMsg = error.error;
+          console.log(this.errMsg);
+        }
+      )
+
+
+
+  }
+
   login():void{
-  
+
   }
   isValid(name:string):boolean{
     return this.registerForm.controls[name].valid;

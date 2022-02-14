@@ -11,22 +11,25 @@
 <body>
     <section class="h-100 gradient-form" style="background-color: #eee;">
         <div class="container py-5 h-100">
+          <div class="alert alert-danger text-center" role="alert" *ngIf="errMsg.error">
+            This Email Already has Account ya 3sl.......
+           </div>
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-xl-10">
               <div class="card rounded-3 text-black">
                 <div class="row g-0">
                   <div class="col-lg-6">
                     <div class="card-body p-md-5 mx-md-4">
-      
+
                       <div class="text-center">
                         <i class="bi bi-chat-right-heart "></i>
                         <h4 class="mt-3 mb-5 pb-1 text-danger">We are The Donatelife Team</h4>
                       </div>
-      
-                      <form [formGroup]="loginForm" 
+
+                      <form [formGroup]="loginForm"
                       >
                         <p>Please login to your account</p>
-      
+
                         <div class="form-outline mb-4">
                           <label class="form-label" for="form2Example11">Username</label>
                           <input
@@ -37,8 +40,8 @@
                           </small>
                         </div>
                         </div>
-                  
-                   
+
+
                         <div class="form-outline mb-4">
                           <label class="form-label" for="form2Example22">Password</label>
                           <input type="password"
@@ -51,23 +54,23 @@
                           </small>
                         </div>
                         </div>
-                     
-                  
+
+
                       <!-- </div> -->
                         <div class="pt-1 mb-4">
-                            <button [disabled]="loginForm.invalid" routerLink="/component" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log in</button>
+                            <button [disabled]="loginForm.invalid" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" (click)="login()">Log in</button>
                           </div>
-                     
+
                         <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
                         <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a routerLink="/register" style="color: #393f81;">Register here</a></p>
                         <!-- <a href="#!" class="small text-muted">Terms of use.</a> -->
                         <!-- <a href="#!" class="small text-muted">Privacy policy</a> -->
-      
+
                       </form>
-      
+
                     </div>
                   </div>
-      
+
                   <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                     <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                       <h4 class="mb-4">We are more than just a company</h4>
