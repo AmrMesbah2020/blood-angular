@@ -1,5 +1,7 @@
+import { Feedback } from './../../models/feedback.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact-form',
@@ -8,7 +10,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactFormComponent implements OnInit {
   contactForm=new FormGroup({});
-  constructor(private _formBuilder:FormBuilder) { }
+ Feedback=new Feedback();
+ flagList:any=[];
+ name:string = '';
+ email:string = '';
+ message:string = '';
+  constructor(private _formBuilder:FormBuilder,private _httpClient:HttpClient) { }
 
   ngOnInit(): void {
     this.contactForm=this._formBuilder.group({
@@ -32,6 +39,35 @@ export class ContactFormComponent implements OnInit {
   isControlHasError(name:string,error:string):boolean
   {
     return  this.contactForm.controls[name].invalid && this.contactForm.controls[name].errors?.[error];
+  }
+
+  feedback(flag:string):void{
+  
+   let feedback=new Feedback();
+
+
+
+   feedback.message=this.contactForm.value.message;
+   feedback.email=this.contactForm.value.email;
+   feedback.name=this.contactForm.value.name;
+
+   this._httpClient.post("http://localhost:8000/api/feedback",feedback).subscribe(
+
+      (response:any)=>{
+        
+         console.log(JSON.stringify(response));
+         
+      },
+      (error:any)=>{
+         
+      }
+   )
+   this.flagList=flag;
+   this.name = ' ';
+   this.email = ' ';
+   this.message = ' ';
+
+
   }
 
 }

@@ -1,44 +1,57 @@
+<div class="d-flex justify-content-center mt-4"> 
+<div class="alert alert-success text-center w-75 p-3" role="alert" *ngIf="flagList[0]">
+    Thank you ya 3asl
+  </div>
+</div>
 <div class="wrapper rounded d-flex align-items-stretch">
     <div class="bg-yellow">
+      
         <div class="ms-4 pt-5"> <img src="../assets/img/icons8.png"> </div>
+     
         <div class="pt-3 cursive text-white"> Please tell us your feedback </div>
         <div class="pt-5 cursive mt-sm-5 text-white"> We need your email to reach you back </div>
     </div>
-    <div class="contact-form" >
+              
+    <div class="contact-form">
         <div class="h3">Contact Us</div>
-        <div [formGroup]="contactForm" >
+        <div [formGroup]="contactForm">
             <div class="form-group pt-3">
-                 <label for="message" class="form-label">Message</label> 
-                 <textarea name="message" class="form-control" required formControlName="message" 
-                 [class.is-invalid]="isInValidAndTouched('message')" [class.is-valid]="isValidControl('message')"></textarea>
-                 </div>
-                 <div *ngIf="isInValidAndTouched('message')">
-                    <small class="form-text text-danger" *ngIf="isControlHasError('message','required')">required field</small>
-                   </div>
+                <label for="message" class="form-label">Message</label>
+                <textarea [(ngModel)]="message" class="form-control" required formControlName="message"
+                    [class.is-invalid]="isInValidAndTouched('message')"
+                    [class.is-valid]="isValidControl('message')"></textarea>
+            </div>
+            <div *ngIf="isInValidAndTouched('message')">
+                <small class="form-text text-danger" *ngIf="isControlHasError('message','required')">required
+                    field</small>
+            </div>
             <div class="d-flex align-items-center flex-wrap justify-content-between pt-4">
-                <div class="form-group pt-lg-2 pt-3"> 
-                    <label for="name" class="form-label">Your Name</label> 
-                    <input type="text" name="name" class="form-control" required formControlName="name"
-                    [class.is-invalid]="isInValidAndTouched('name')" [class.is-valid]="isValidControl('name')">
-                 </div>
-                 <div *ngIf="isInValidAndTouched('name')">
-                    <small class="form-text text-danger" *ngIf="isControlHasError('name','required')">required field</small>
-                   </div>
                 <div class="form-group pt-lg-2 pt-3">
-                     <label for="name"  class="form-label">Your Email</label>
-                      <input type="email" name="email" class="form-control" required formControlName="email"
-                      [class.is-invalid]="isInValidAndTouched('email')" [class.is-valid]="isValidControl('email')">
-                     </div>
-                     <div *ngIf="isInValidAndTouched('email')">
-                        <small class="form-text text-danger" *ngIf="isControlHasError('email','required')">required field</small>
-                        <small class="form-text text-danger" *ngIf="isControlHasError('email','pattern')">invalid email</small>
-                       </div>
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" [(ngModel)]="name" class="form-control" required formControlName="name"
+                        [class.is-invalid]="isInValidAndTouched('name')" [class.is-valid]="isValidControl('name')">
+                </div>
+                <div *ngIf="isInValidAndTouched('name')">
+                    <small class="form-text text-danger" *ngIf="isControlHasError('name','required')">required
+                        field</small>
+                </div>
+                <div class="form-group pt-lg-2 pt-3">
+                    <label for="name" class="form-label">Your Email</label>
+                    <input type="email" [(ngModel)]="email" class="form-control" required formControlName="email"
+                        [class.is-invalid]="isInValidAndTouched('email')" [class.is-valid]="isValidControl('email')">
+                </div>
+                <div *ngIf="isInValidAndTouched('email')">
+                    <small class="form-text text-danger" *ngIf="isControlHasError('email','required')">required
+                        field</small>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('email','pattern')">invalid
+                        email</small>
+                </div>
             </div>
             <div class="d-flex align-items-center flex-wrap justify-content-between pt-lg-5 mt-lg-4 mt-5">
                 <div class="btn btn-default"> Cancel </div>
-                <div class="btn btn-primary"> Submit </div>
+                <button class="btn btn-primary" [disabled]="contactForm.invalid" type="submit" (click)="feedback('feed')"> Submit </button>
             </div>
         </div>
+
+
     </div>
-
-
