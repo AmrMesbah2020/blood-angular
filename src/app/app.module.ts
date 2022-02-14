@@ -1,3 +1,5 @@
+
+import { HttpClientModule } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 // import {MatToolbarModule} from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
@@ -38,8 +40,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EligibilityQuizComponent,
     FaqComponent,
     MedicationAndMedicalDevicesComponent,
-    
-  
     PostsComponent,
     UserProfileComponent,
     MakeRequestsComponent,
@@ -56,10 +56,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    NgbModule, 
-    // MatToolbarModule,  
+    NgbModule,
+    HttpClientModule,
+    // MatToolbarModule,
   ],
-  
+
   providers: [],
   bootstrap: [AppComponent]
 })
