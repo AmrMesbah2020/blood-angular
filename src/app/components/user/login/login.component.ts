@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 import { User } from 'src/app/models/user';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../../services/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

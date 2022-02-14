@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
-import { Request } from './../../models/request';
-import { Post } from './../../models/post';
+import { Request } from '../../../models/request';
+import { Post } from '../../../models/post';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { HttpClient,HttpHeaders} from '@angular/common/http';
