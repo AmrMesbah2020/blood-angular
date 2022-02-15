@@ -26,9 +26,9 @@
          </textarea>
          <div *ngIf="addArtical.controls['title'].errors && (addArtical.controls['title'].touched)"> 
            <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors && addArtical.controls['title'].errors ['required']">title is requierd</small>
-           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['minlength'] "> min length is 6 </small>
-           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['pattern']"> just lett</small>
-           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['maxlength']"> max length is 50</small>
+           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['minlength'] "> minimum length is 6 </small>
+           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['pattern']"> title should be containe only letters</small>
+           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['maxlength']"> maximum length is 50</small>
          </div>
          
       </div>

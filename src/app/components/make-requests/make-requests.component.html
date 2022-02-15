@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -158,3 +159,180 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make-Reqiest</title>
+</head>
+
+<body class="">
+
+  <div class="container">
+    <div class="row gutters">
+      <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="account-settings">
+              <div class="user-profile">
+                <div class="user-avatar">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
+                </div>
+                <h5 class="user-name">Ali Mohamed</h5>
+                <h6 class="user-email">Ali123@mail.com</h6>
+              </div>
+              <div class="about">
+                <h5 class="text-info">About</h5>
+                <p>I'm from egypt ,and I'm working as software engineer</p>
+              </div>
+            </div>
+            <div class="container">
+
+              <a class="btn btn-outline-primary btn-floating m-1" href="#!" role="button">
+                <i class="bi bi-facebook"></i></a>
+              <a class="btn btn-outline-danger btn-floating m-1" href="#!" role="button">
+                <i class="bi bi-google"></i></a>
+              <a class="btn btn-outline-success btn-floating m-1" href="#!" role="button" target="_blank">
+                <i class="bi bi-whatsapp"></i></a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" [formGroup]="formRequest">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="row gutters">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                <h6 class="mb-2 main  fs-3">Request Details</h6>
+              </div>
+              
+
+
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 " [formGroup]="formRequest" >
+                <div class="form-group ">
+                  <label for="phone">Phone Number</label>
+                  <input type="text" class="form-control" id="phone" 
+                  formControlName="phone" placeholder="Enter phone number">
+                  <small   class="text-danger">Invailed Phone Number</small>
+
+                </div>
+              </div>
+            
+            </div>
+            <div class="row gutters">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <h6 class="mt-3 mb-2 text-dark  fs-5">Address :-</h6>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="Street">Street</label>
+                  <input type="name" class="form-control" id="Street" 
+                  formControlName="address" placeholder="Enter Street">
+                  <small class="text-danger">Invailed Street</small>
+
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="ciTy">City</label>
+                  <input type="name" class="form-control"
+                  formControlName="address" id="ciTy" placeholder="Enter City">
+                  <small class="text-danger">Invailed City</small>
+
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="sTate">State</label>
+                  <input type="text" class="form-control" 
+                  formControlName="address" id="sTate" placeholder="Enter State">
+                  <small class="text-danger">Invailed State</small>
+
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="zIp">Zip Code</label>
+                  <input type="text" class="form-control" 
+                  formControlName="address" id="zIp" placeholder="Zip Code">
+                  <small class="text-danger">Invailed Zip Code</small>
+
+                </div>
+
+              </div>
+              <div class="form-group">
+                <label for="fullName">Description</label>
+                <textarea class="form-control" placeholder="Leave a description here"
+                formControlName="address"  id="floatingTextarea2"
+                  style="height: 100px"></textarea>
+                  <small class="text-danger">Invailed Description</small>
+
+              </div>
+
+              <div class="form-group">
+                <label for="fullName">Blood Group</label>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                  <option selected value="o"> O</option>
+                  <option value="B"> B </option>
+                  <option value="AB"> AB </option>
+                  <option value="A">A</option>
+                  <option value="null">Dont-know</option>
+                </select>
+
+              </div>
+              <div class="form-group">
+                <label for="fullName">RH</label>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                  <option selected value="+">positive</option>
+                  <option value="-">negative</option>
+                  <option value="null">Dont-know</option>
+                </select>
+
+              </div>
+
+              <div class="form-group">
+                <label for="fullName">Quantity</label>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                  <option selected value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+
+              </div>
+
+
+            </div>
+            <div class="row gutters">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="text-right">
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Accept Our Roles </label>
+                  </div>
+                  <br>
+                  
+                  <button type="button" id="submit" name="submit" class="btn btn-info">Cancel</button>
+                  <button type="button" id="submit" name="submit" class="btn btn-danger m-2">Create
+                    Request </button>
+
+                </div>
+                <a routerLink="/register"  class="text-info fw-blod mb-2"> <span class="text-dark">New user ? </span>click to Register</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+>>>>>>> b67066c359c0da758243db92d1df366b25ff6bfb
