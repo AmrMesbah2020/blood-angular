@@ -1,0 +1,21 @@
+
+body{
+    font-family: 'Artifika', serif;
+    height: 100%;
+
+
+}
+footer{
+    position:relative;
+ /* margin-top: 10%; */
+    width: 100%;
+    bottom: 0px;
+    background-color:rgb(50, 68, 87);
+    
+
+}
+footer >.copy{
+    background-color:rgb(27, 40, 53);
+    font-size: 15px;
+
+}

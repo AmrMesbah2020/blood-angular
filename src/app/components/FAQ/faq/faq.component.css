@@ -1,0 +1,8 @@
+.faq_div{
+       background:rgb(248, 248, 248);
+    
+    }
+.faq_div:hover{
+        background-color: rgb(223, 230, 236);;
+        transform: scale(1.05);
+    }

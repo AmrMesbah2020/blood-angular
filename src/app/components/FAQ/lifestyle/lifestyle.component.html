@@ -1,0 +1,56 @@
+<div class="w-100 gray_background mt-5 p-5">
+    <p class="h3 pink_text text-center ">Lifestyle</p>
+    <p class="text-center">Unsure whether you can donate blood if you've had a drink, got a tattoo? Let's talk about it.  </p>
+</div>
+
+<hr class="btmspace-80 m-5 ">
+
+<div>
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+
+    </mat-expansion-panel>
+    <div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+          Can I donate blood if I’ve used drugs recreationally before?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="mt-3 opacity-75">Maybe. It depends on the type of drug and how and when it was taken.  We don’t take blood from anyone under the influence of drugs. Being intoxicated affects your ability to understand and answer the donor questionnaire and declaration, as well as your body’s ability to tolerate blood being taken.</p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false" class="">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+          I have a tattoo or piercing. Can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">Yes, but if it was recent you may need to wait for a bit. It depends what you got, where and when. </p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+          I had several alcoholic drinks before going to give blood. Can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">No. We don’t take blood from anyone under the influence of alcohol. Being intoxicated affects your ability to understand and answer the donor questionnaire and declaration, as well as your body’s ability to tolerate blood being taken.</p>
+    </mat-expansion-panel>
+</div>
+
+  </mat-accordion>
+</div>
+  
+
+

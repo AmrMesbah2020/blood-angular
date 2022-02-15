@@ -1,0 +1,122 @@
+
+<div class="w-100 gray_background mt-5 p-5">
+    <p class="h3 pink_text text-center ">Medical conditions and procedures</p>
+    <p class="text-center">Some medical conditions mean you need to wait before donating blood. Find yours in the list below.</p>
+</div>
+
+<hr class="btmspace-80 m-5 ">
+
+<div>
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+
+    </mat-expansion-panel>
+    <div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+            Hydration - How much water should I drink?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="mt-3 opacity-75">Your blood volume goes down a little when you donate. It’s important to be well hydrated so that you can feel well after.  On the day before your donation, we recommend: 10 glasses of fluid if you are a man 8 glasses of fluid if you are a woman   In the three hours before you donate, drink three good-sized glasses of fluid (that’s 750 mL).  If you’re a new donor and haven’t had enough water…</p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false" class="">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+            I have wart (human papilloma) virus. Can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">Yes, as long as there’s no broken skin or local infection around the wart.  </p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+            I have surgery planned or recently had it. Can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">Maybe.It depends on the type of surgery and the recovery period.   Upcoming surgery: If you have surgery planned within 84 days (that’s about three months) of your donation, you may need to wait before donating. Please contact us to discuss your eligibility.   Recent surgery: How long you need to wait to give blood after surgery depends on a number of things</p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+            I've had a stroke, but I'm doing well now. Can I donate blood?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">We’re glad you’re doing better now. Unfortunately, though, to protect your health you’re not able to donate blood.  Don't be disappointed though, because there are other ways you can help. You can spread the word about how blood saves lives on social media (find us @lifebloodau), register your intent to be an organ donor (if you’re 16 or over)</p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+            I had my spleen removed. Can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">If your spleen was removed due to trauma or physical injury, you can donate six months after you’ve made a full recovery. If you received a blood transfusion as well, you’ll need to wait 12 months after the transfusion.   However, if your spleen was removed to treat a chronic illness such as immune thrombocytopaenic purpura (ITP) or lymphoma, you won’t be able to donate blood</p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+            I have recently had shingles. Can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">Yes, as long as you’re feeling well and the rash is completely clean and dry, you can donate plasma straight away. In fact, the plasma you donate after you recover is full of valuable antibodies (proteins that your body makes to fight infections) that can be used to help people at risk of shingles or chicken pox.</p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+            I have polycythaemia (rubra) vera. Can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">We can help with regular therapeutic removal of blood (called ‘venesection’) as a treatment, and your doctor may have even referred you to Lifeblood for it. However, your blood can’t be given to patients. Check with your GP if therapeutic venesection is right for you.</p>
+    </mat-expansion-panel>
+</div>
+
+<div class="row d-flex justify-content-center m-5 shadow p-3">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="ms-5 h6">
+            I’ve had a bone density scan confirming I have osteoporosis. Can I donate?
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p class="opacity-75">Yes, but you can only donate either blood or plasma. At the moment, we don’t know how collecting platelets from people with osteoporosis affects their bone density. That’s why, to protect your health, you won’t be able to donate platelets. If you have any questions, please contact us.  </p>
+    </mat-expansion-panel>
+</div>
+
+
+  </mat-accordion>
+</div>
+  
+

@@ -1,0 +1,80 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Artifika&display=swap');
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    font-family: 'Artifika', serif;
+}
+
+.eligibilty_form_img{
+    margin-left: 25%;
+}
+.eligibilty_form_text{
+    margin-left: 33%;
+}
+
+
+
+.link_decoration{
+    text-decoration: none;
+}
+
+.link_decoration:hover{
+    color: black;
+}
+.list_style{
+    list-style-type: none;
+    display: inline;
+    
+}
+
+.card_button_size{
+    width: 40%;
+}
+
+.pink_text{
+    color: rgb(155, 52, 52);
+ }
+
+
+.gray_background{
+    background-color: rgb(248, 248, 248);
+}
+
+.list_type_none{
+    list-style-type: none;
+}
+.checked {
+    color: orange;
+  }
+.profile_img{
+    width: 12%;
+    border-radius: 50%;
+    float: left;
+}
+
+/* .form_button{
+    color: rgb(207, 75, 75);
+    border: 1px solid;
+    border-color: rgb(207, 75, 75);
+    background-color:rgb(248, 248, 248);
+    border-radius: 2px;
+    width: 50%;
+    
+    
+}
+.form_button:hover{
+    background-color: rgb(76, 107, 138);
+    color: rgb(248, 248, 248);
+    border-color: rgb(76, 107, 138);
+} */
+/* 
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  } */

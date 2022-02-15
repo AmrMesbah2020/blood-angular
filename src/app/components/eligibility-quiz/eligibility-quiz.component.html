@@ -1,0 +1,327 @@
+
+<div class="mt-5 fs-3 text-center d-flex justify-content-center" *ngIf="question_num !=8" >Blood eligibility quiz</div>
+
+        <div id="question1" *ngIf="question_num ==1">
+        <div class="d-flex justify-content-center ">
+        <div class="" style="width: 18rem;" >
+            
+            <img src="../assets/img/age.png" class=" w-50 mt-5 eligibilty_form_img" alt="..." >
+            <div class="">
+              <p class="mt-3 text-center fs-4 pink_text lh-sm" >Are you 18-75 years old?</p>
+              
+              <a href="#"  target="_blank" class=" eligibilty_form_text pink_text  link_decoration" >
+                  
+               More Info <i class="fa fa-arrow-right" ></i>
+                
+            </a>
+            <div class="mt-3  w-100 "> 
+                <button (click)="nextQuation()" type="button" class=" btn btn-outline-danger rounded-pill card_button_size" >Yes</button>
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger ms-5 rounded-pill card_button_size" >No</button>
+            </div>
+            
+            
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="question2" *ngIf="question_num ==2">
+
+        <div class="d-flex justify-content-center">
+            <div class="w-50" style="height: 2px;">
+                <button (click)="previoustQuation()"  target="_blank" class="card-link text-dark  text-start btn btn-light" >
+                      
+                    <i class="fa fa-arrow-left " ></i>  <span class="mt-3 ms-4">Back </span>
+                    
+                </button>
+            </div></div>
+
+        <div class="d-flex justify-content-center">
+
+
+        <div  style="width: 18rem;" >
+            
+            <img src="../assets/img/tatto.png" class="eligibilty_form_img w-50 " alt="..." >
+            <div class="">
+              <h5 class="mt-3 text-center fs-4 pink_text lh-sm" >Had a tattoo in the last 4 months?</h5>
+              
+              <a href="#" target="_blank" class="eligibilty_form_text pink_text  link_decoration" >
+                  
+                More Info <i class="fa fa-arrow-right" ></i>
+                
+            </a>
+            <div class="mt-3  w-100"> 
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger   rounded-pill card_button_size" >Yes</button>
+                <button (click)="nextQuation()" type="button" class="btn btn-outline-danger  ms-5  rounded-pill card_button_size" >No</button>
+            </div>
+            
+            
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="question3" *ngIf="question_num ==3">
+
+        <div class="d-flex justify-content-center">
+            <div class="w-50" style="height: 2px;">
+                <button (click)="previoustQuation()"  target="_blank" class="card-link text-dark  text-start btn btn-light" >
+                      
+                    <i class="fa fa-arrow-left " ></i>  <span class="mt-3 ms-4">Back </span>
+                    
+                </button>
+            </div></div>
+
+        <div class="d-flex justify-content-center">
+
+
+        <div  style="width: 18rem;" >
+            
+            <img src="../assets/img/pregnant.png" class="eligibilty_form_img w-50  " alt="..." >
+            <div class="">
+              <h5 class="card-title mt-3 text-center fs-4 pink_text lh-sm" >Are you pregnant or recently given birth?</h5>
+              
+              <a href="#" target="_blank" class="eligibilty_form_text pink_text  link_decoration" >
+                  
+               More Info <i class="fa fa-arrow-right" ></i>
+                
+            </a>
+            <div class="mt-3  w-100"> 
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger rounded-pill card_button_size" >Yes</button>
+                <button (click)="nextQuation()" type="button" class="btn btn-outline-danger ms-5  rounded-pill card_button_size" >No</button>
+            </div>
+            
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="question4" *ngIf="question_num ==4">
+
+        <div class="d-flex justify-content-center">
+            <div class="w-50" style="height: 2px;">
+                <button (click)="previoustQuation()"  target="_blank" class="card-link text-dark  text-start btn btn-light" >
+                      
+                    <i class="fa fa-arrow-left " ></i>  <span class="mt-3 ms-4">Back </span>
+                    
+                </button>
+            </div></div>
+
+        <div class="d-flex justify-content-center">
+
+
+        <div  style="width: 18rem;" >
+            
+            <img src="../assets/img/heart.png" class="eligibilty_form_img w-50 " alt="..." >
+            <div class="card-body">
+              <h5 class=" mt-3 text-center fs-4 pink_text lh-sm" >Do you have a heart condition?</h5>
+              
+              <a href="#" target="_blank" class="eligibilty_form_text pink_text pink_text link_decoration" >
+                  
+                More Info <i class="fa fa-arrow-right" ></i>
+                
+            </a>
+            <div class="mt-3  w-100"> 
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger rounded-pill card_button_size" >Yes</button>
+                <button (click)="nextQuation()" type="button" class="btn btn-outline-danger ms-5  rounded-pill card_button_size" >No</button>
+            </div>
+            
+            
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="question5" *ngIf="question_num ==5">
+
+        <div class="d-flex justify-content-center">
+            <div class="w-50" style="height: 2px;">
+                <button (click)="previoustQuation()"  target="_blank" class="card-link text-dark  text-start btn btn-light" >
+                      
+                    <i class="fa fa-arrow-left " ></i>  <span class="mt-3 ms-4">Back </span>
+                    
+                </button>
+            </div></div>
+
+        <div class="d-flex justify-content-center">
+
+
+        <div  style="width: 18rem;" >
+            
+            <img src="../assets/img/iron.png" class="eligibilty_form_img w-50 " alt="..." >
+            <div class="card-body">
+              <h5 class=" mt-3 text-center fs-4 pink_text lh-sm" >Are you low in iron?</h5>
+              
+              <a href="#" target="_blank" class="eligibilty_form_text pink_text  link_decoration" >
+                  
+               More Info <i class="fa fa-arrow-right" ></i>
+                
+            </a>
+            <div class="mt-3  w-100"> 
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger rounded-pill card_button_size" >Yes</button>
+                <button (click)="nextQuation()" type="button" class="btn btn-outline-danger ms-5  rounded-pill card_button_size" >No</button>
+            </div>
+            
+            
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="question6" *ngIf="question_num ==6">
+
+        <div class="d-flex justify-content-center">
+            <div class="w-50" style="height: 2px;">
+                <button (click)="previoustQuation()"  target="_blank" class="card-link text-dark  text-start btn btn-light" >
+                      
+                    <i class="fa fa-arrow-left " ></i>  <span class="mt-3 ms-4">Back </span>
+                    
+                </button>
+            </div></div>
+
+        <div class="d-flex justify-content-center">
+
+
+        <div style="width: 18rem;" >
+            
+            <img src="../assets/img/drugs.png" class="eligibilty_form_img w-50 " alt="..." >
+            <div class="card-body">
+              <h5 class="card-title mt-3 text-center fs-4 pink_text lh-sm" >Have you injected recreational drugs in the past 5 years?</h5>
+              
+              <a href="#" target="_blank" class="eligibilty_form_text pink_text link_decoration" >
+                  
+               More Info <i class="fa fa-arrow-right" ></i>
+                
+            </a>
+            <div class="mt-3  w-100"> 
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger rounded-pill card_button_size" >Yes</button>
+                <button (click)="nextQuation()" type="button" class="btn btn-outline-danger ms-5  rounded-pill card_button_size" >No</button>
+            </div>
+            
+            
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="question7" *ngIf="question_num ==7">
+
+        <div class="d-flex justify-content-center">
+            <div class="w-50" style="height: 2px;">
+                <button (click)="previoustQuation()"  target="_blank" class="card-link text-dark  text-start btn btn-light" >
+                      
+                    <i class="fa fa-arrow-left " ></i>  <span class="mt-3 ms-4">Back </span>
+                    
+                </button>
+            </div></div>
+
+        <div class="d-flex justify-content-center">
+
+
+        <div style="width: 18rem;" >
+            
+            <img src="../assets/img/travel.png" class="eligibilty_form_img w-50 " alt="..." >
+            <div class="card-body">
+              <h5 class="card-title mt-2 text-center pink_text fs-4 lh-sm" >Will you travel overseas 4 months before your donation?</h5>
+              
+              <a href="#" target="_blank" class="eligibilty_form_text pink_text link_decoration" >
+                  
+               More Info <i class="fa fa-arrow-right" ></i>
+                
+            </a>
+            <div class="mt-3  w-100"> 
+                <button (click)="ineligiblMessage()" type="button" class="btn btn-outline-danger rounded-pill card_button_size" >Yes</button>
+                <button (click)="nextQuation()" type="button" class="btn btn-outline-danger ms-5  rounded-pill card_button_size" >No</button>
+            </div>
+            
+            
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="question8" *ngIf="question_num ==8">
+
+        <div class="d-flex justify-content-center">
+
+        <div style="width: 18rem;" >
+            
+            <img src="../assets/img/congratolation.png" class="card-img-top w-75 ms-5" alt="..." >
+            <div class="card-body">
+              <h5 class="  text-center pink_text fs-3 lh-sm" >Congratulations! You should be able to give blood. </h5>
+
+
+            </div>
+          </div>
+          <div class="mt-5 ms-5" [formGroup]="addDonnerForm">              
+              <p class="fs-3">Please Answer To This Few Questions</p>
+            
+               
+                    <div class="mb-3">
+                <label class="form-label">Blood Group</label>
+                <select name="bloodgroup" class="form-select" formControlName="bloodgroup" 
+                [class.is-invalid]="isInValidAndTouched('bloodgroup')" [class.is-valid]="isValidControl('bloodgroup')">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>O</option>
+                    <option>AB</option>
+                    <option>Dont-know</option>
+                </select>
+               </div>
+               <div *ngIf="isInValidAndTouched('bloodgroup')">
+                <small class="form-text text-danger" *ngIf="isControlHasError('bloodgroup','required')">required field</small>
+               </div>
+               
+               <div class="mb-3">
+                <label class="form-label">RH</label>
+                <select name="bloodrh" class="form-select" formControlName="bloodrh"
+                [class.is-invalid]="isInValidAndTouched('bloodrh')" [class.is-valid]="isValidControl('bloodrh')">
+                    <option>negative</option>
+                    <option>positive</option>
+                    <option>Dont-know</option>
+                </select>
+               </div>
+               <div *ngIf="isInValidAndTouched('bloodrh')">
+                <small class="form-text text-danger" *ngIf="isControlHasError('bloodrh','required')">required field</small>
+               </div>
+               
+               <div class=" form-check-inline mt-3">
+                   <div>Have you ever donated blood before?</div>
+                  <input type="radio" class="form-check-input" [(ngModel)]="donatedbefore" formControlName="donatedbefore" name="donatedbefore" [value]="1" [checked]="isChecked">
+                  <label class="form-check-label" for="yes">Yes</label>
+                  <input type="radio" class="form-check-input ms-3" [(ngModel)]="donatedbefore" formControlName="donatedbefore" name="donatedbefore" [value]="0" [checked]="isChecked" >
+                  <label class="form-check-label" for="no">No</label>
+               </div>
+               <div class="mb-3 mt-3"  *ngIf="donatedbefore == 1">
+                   <div class="form-label">When was the last time you donated blood?</div>
+                   <input type="date" name="lastdonatedate" class="form-control" formControlName="lastdonatedate"
+                   [class.is-invalid]="isInValidAndTouched('lastdonatedate')" [class.is-valid]="isValidControl('lastdonatedate')">
+               </div>
+               <div *ngIf="isInValidAndTouched('lastdonatedate')">
+                <small class="form-text text-danger" *ngIf="isControlHasError('lastdonatedate','required')">required field</small>
+               </div>
+               <div><button  class="btn btn-outline-danger mt-3 rounded-pill">Become a Donner</button></div>
+               
+            </div>
+        </div>
+        </div>
+   
+
+    <div id="ineligible" *ngIf="question_num == 0">
+
+        <div class="d-flex justify-content-center">
+
+        <div class="" style="width: 18rem;" >
+            
+            <img src="../assets/img/ineligible.png" class=" w-50 mt-5 eligibilty_form_img" alt="..." >
+            <div class="">
+              <p class=" mt-3 text-center fs-4 lh-sm pink_text" >Sorry, you are ineligible to donate.</p>
+           <a class="link_decoration pink_text" routerLink="/faq"><p class=" mt-3 text-center">Read More About Eligibility</p></a>   
+
+  
+            
+            
+            </div>
+          </div>
+        </div>
+    </div>
