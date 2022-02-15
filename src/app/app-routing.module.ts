@@ -1,3 +1,5 @@
+import { AddArticalComponent } from './components/add-artical/add-artical.component';
+import { DonorsComponent } from './components/donors/donors.component';
 import { WorkAndTravelComponent } from './components/FAQ/work-and-travel/work-and-travel.component';
 import { PregencyComponent } from './components/FAQ/pregency/pregency.component';
 import { OtherComponent } from './components/FAQ/other/other.component';
@@ -20,6 +22,8 @@ import { FaqComponent } from './components/FAQ/faq/faq.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { DashCounterComponent } from './components/home/dash-counter/dash-counter.component';
 import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
+import { RequestsComponent } from './components/requests/requests.component';
+import { LocationComponent } from './components/location/location.component';
 
 const routes: Routes = [
 
@@ -35,7 +39,7 @@ const routes: Routes = [
   },
 
   ]
-  
+
 },
   {path:'articles',component:ArticlesComponent},
   {path:'article/details',component:ArticleDetailsComponent},
@@ -52,6 +56,13 @@ const routes: Routes = [
   {path:'profile',component:UserProfileComponent},
   {path:'profile/:id',component:UserProfileComponent},
   {path:'make-request',component:MakeRequestsComponent},
+  {path:'requests', component:RequestsComponent},
+  {path:'location',component:LocationComponent},
+  {path: 'donors',component:DonorsComponent},
+  {path: 'add-artical',component:AddArticalComponent},
+  // {path: 'location/location',component:LocationComponent}
+
+
 
 
 

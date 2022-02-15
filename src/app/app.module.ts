@@ -1,5 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgModule } from '@angular/core';
+// import { AgmCoreModule } from '@agm/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +25,10 @@ import { PregencyComponent } from './components/FAQ/pregency/pregency.component'
 import { WorkAndTravelComponent } from './components/FAQ/work-and-travel/work-and-travel.component';
 import { MedicalConditionsComponent } from './components/FAQ/medical-conditions/medical-conditions.component';
 import { OtherComponent } from './components/FAQ/other/other.component';
+import { RequestsComponent } from './components/requests/requests.component';
+import { LocationComponent } from './components/location/location.component';
+import { DonorsComponent } from './components/donors/donors.component';
+import { AddArticalComponent } from './components/add-artical/add-artical.component';
 
 
 @NgModule({
@@ -37,9 +43,11 @@ import { OtherComponent } from './components/FAQ/other/other.component';
     RegisterComponent,
     EligibilityQuizComponent,
     FaqComponent,
+    RequestsComponent,
     MedicationAndMedicalDevicesComponent,
-    
-  
+    AddArticalComponent,
+
+
     PostsComponent,
     UserProfileComponent,
     MakeRequestsComponent,
@@ -47,7 +55,12 @@ import { OtherComponent } from './components/FAQ/other/other.component';
     PregencyComponent,
     WorkAndTravelComponent,
     MedicalConditionsComponent,
-    OtherComponent
+    OtherComponent,
+    RequestsComponent,
+    LocationComponent,
+    DonorsComponent,
+    AddArticalComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -55,7 +68,11 @@ import { OtherComponent } from './components/FAQ/other/other.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatExpansionModule,  
+    MatExpansionModule,
+    HttpClientModule,
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'AIzaSyCXJfgC7dkpJB_vdkoK31hqOolDRnILoG0'
+    // }),
   ],
   providers: [],
   bootstrap: [AppComponent]

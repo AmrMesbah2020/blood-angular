@@ -1,87 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./login.component.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="./login.component.css">
+  <title>Document</title>
 </head>
+
 <body>
-    <section class="h-100 gradient-form" style="background-color: #eee;">
-        <div class="container py-5 h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-xl-10">
-              <div class="card rounded-3 text-black">
-                <div class="row g-0">
-                  <div class="col-lg-6">
-                    <div class="card-body p-md-5 mx-md-4">
-      
-                      <div class="text-center">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm_2jB3H7aL-SCSxkGgirjQzDrx58oGwlqzA&usqp=CAU" style="width: 185px;" alt="logo">
-                        <h4 class="mt-1 mb-5 pb-1">We are The Donatelife Team</h4>
+  <section class="h-100 gradient-form" style="background-color: white;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+
+                  <div class="text-center">
+                    <a class="navbar-brand  "> <i class="bi bi-chat-right-heart " style="color: red;"></i></a>
+
+                    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm_2jB3H7aL-SCSxkGgirjQzDrx58oGwlqzA&usqp=CAU" style="width: 185px;" alt="logo"> -->
+                    <h4 class="mt-1 mb-5 pb-1">We are The Donatelife Team</h4>
+                  </div>
+
+                  <form [formGroup]="loginForm">
+                    <p>Please login to your account</p>
+
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form2Example11">Username</label>
+                      <input type="email" class="form-control" placeholder="email address" formControlName="email" />
+                      <div *ngIf="loginForm.controls['email'].errors">
+                        <small class="form-text text-danger">
+                          invalid email address
+                        </small>
                       </div>
-      
-                      <form [formGroup]="loginForm" 
-                      >
-                        <p>Please login to your account</p>
-      
-                        <div class="form-outline mb-4">
-                          <label class="form-label" for="form2Example11">Username</label>
-                          <input
-                         type="email"  class="form-control" placeholder="email address" formControlName="email"/>
-                         <div *ngIf="loginForm.controls['email'].errors">
-                          <small class="form-text text-danger">
-                            invalid email address
-                          </small>
-                        </div>
-                        </div>
-                  
-                   
-                        <div class="form-outline mb-4">
-                          <label class="form-label" for="form2Example22">Password</label>
-                          <input type="password"
-                          class="form-control"
-                        formControlName="password" placeholder="password"
-                         />
-                         <div *ngIf="loginForm.controls['password'].errors">
-                          <small class="form-text text-danger">
-                            invalid email address
-                          </small>
-                        </div>
-                        </div>
-                     
-                  
-                      <!-- </div> -->
-                        <div class="pt-1 mb-4">
-                            <button [disabled]="loginForm.invalid" routerLink="/component" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log in</button>
-                          </div>
-                     
-                        <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
-                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a routerLink="/register" style="color: #393f81;">Register here</a></p>
-                        <!-- <a href="#!" class="small text-muted">Terms of use.</a> -->
-                        <!-- <a href="#!" class="small text-muted">Privacy policy</a> -->
-      
-                      </form>
-      
                     </div>
-                  </div>
-      
-                  <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-                    <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                      <h4 class="mb-4">We are more than just a company</h4>
-                      <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form2Example22">Password</label>
+                      <input type="password" class="form-control" formControlName="password" placeholder="password" />
+                      <div *ngIf="loginForm.controls['password'].errors">
+                        <small class="form-text text-danger">
+                          invalid email address
+                        </small>
+                      </div>
                     </div>
-                  </div>
+
+
+                    <!-- </div> -->
+                    <div class="pt-1 mb-4">
+                      <button [disabled]="loginForm.invalid" routerLink="/component"
+                        class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log in</button>
+                    </div>
+
+                    <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
+                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a routerLink="/register"
+                        style="color: #393f81;">Register here</a></p>
+                    <!-- <a href="#!" class="small text-muted">Terms of use.</a> -->
+                    <!-- <a href="#!" class="small text-muted">Privacy policy</a> -->
+
+                  </form>
+
+                </div>
+              </div>
+
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4">Terms of use</h4>
+                  <p class="small mb-0">If you access any part of the donatelife <br>
+                    you agree:
+                    <br>
+                    To ensure that any details which you supply to us to register for such access are accurate and to
+                    update your profile promptly if any of the details which you have supplied to us about you change;
+                    To keep any personal login name and any password confidential, and to be responsible for any loss or
+                    damage resulting from use of your password by any third party;
+                    That we reserve the right to terminate your access to the Service should we consider that your use
+                    of the service is detrimental to the Service or to other users.
+                    We shall use any personal information you submit to the Service and other information we hold about
+                    you in accordance with our Privacy Policy. In particular, we shall use the information (including
+                    sensitive personal information relating to your physical health) to provide you with a donor
+                    information service as described. By registering for the service through this form, you give your
+                    consent to such use of your personal information.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
 </body>
+
 </html>

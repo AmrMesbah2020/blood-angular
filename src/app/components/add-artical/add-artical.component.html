@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Form</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./add-artical.component.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+
+<body>
+  <h1 class="text-center text-uppercase " style="color: red;padding-top: 10px;">
+    add new artical
+  </h1>
+
+
+
+  <div class="container">
+    <form [formGroup]="addArtical">
+      <div class="form-group">
+        <label for="title">Titel : </label>
+        <textarea type="text" class="form-control" formControlName="title" required>
+         </textarea>
+         <div *ngIf="addArtical.controls['title'].errors && (addArtical.controls['title'].touched)"> 
+           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors && addArtical.controls['title'].errors ['required']">title is requierd</small>
+           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['minlength'] "> min length is 6 </small>
+           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['pattern']"> just lett</small>
+           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['maxlength']"> max length is 50</small>
+         </div>
+         
+      </div>
+      <div class="form-group">
+        <label  for="resources">Resources : </label>
+        <textarea type="text" class="form-control" formControlName="resources">
+         </textarea>
+      </div>
+      <div class="form-group">
+        <label for="content">Content : </label>
+        <textarea style="resize: none; resize: vertical; height: 250px;" formControlName="content" type="text" class="form-control">
+         </textarea>
+      </div>
+      <div class="form-group">
+        <label for="img" id="image">Upload Your photo</label><br>
+
+        <div class="col-sm-8 img-upload-section">
+          <input name="image3" type="file" accept="image/*" id="menu_images" />
+          <img id="menu_image" class="preview_img" />
+        </div>
+      </div>
+      <div  class="text-right">
+        <button type="button" class="btn btn-success btn-lg " [disabled]="addArtical.invalid">
+          + ADD ARTICAL
+        </button>
+      </div>
+  
+    </form>
+  </div>
+  <br>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+  </script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+  </script>
+</body>
+
+</html>
