@@ -43,13 +43,16 @@
         </div>
       </div>
 
+
       <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" >
         <div class="card h-100">
           <div class="card-body" [formGroup]="formRequest">
+
             <div class="row gutters">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                 <h6 class="mb-2 main  fs-3">Request Details</h6>
               </div>
+
 
 
 
@@ -65,26 +68,30 @@
                         phone number</small>
                 </div>
 
+
                 </div>
               </div>
 
             </div>
             <div class="row gutters">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <h6 class="mt-3 mb-2 text-dark  fs-5">Address :-</h6>
+                <h6 class="mt-3 mb-2 text-dark  fs-6">Address :-</h6>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
                   <label for="Street">Street</label>
+
                   <input type="text" class="form-control" id="Street"
                   formControlName="street" placeholder="Enter Street">
                   <div *ngIf="isInValidAndTouched('street')">
                     <small class="form-text text-danger" *ngIf="isControlHasError('street','required')">Street is Required </small>
                 </div>
+
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
+
                   <label for="ciTy">City</label>
                   <input type="text" class="form-control"
                   formControlName="city" id="ciTy" placeholder="Enter City">
@@ -92,10 +99,12 @@
                     <small class="form-text text-danger" *ngIf="isControlHasError('city','required')">City is Required</small>
                 </div>
 
+
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
+
                   <label for="sTate">State</label>
                   <input type="text" class="form-control"
                   formControlName="state" id="sTate" placeholder="Enter State">
@@ -103,10 +112,12 @@
                     <small class="form-text text-danger" *ngIf="isControlHasError('state','required')">State is Required</small>
                 </div>
 
+
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
+
                   <label for="zIp">Zip Code</label>
                   <input type="text" class="form-control"
                   formControlName="zip" id="zIp" placeholder="Zip Code">
@@ -116,8 +127,10 @@
 
                 </div>
 
+
               </div>
               <div class="form-group">
+
                 <label for="fullName">Description</label>
                 <textarea class="form-control" placeholder="Leave a description here"
                 formControlName="description"  id="floatingTextarea2"
@@ -126,11 +139,14 @@
                     <small class="form-text text-danger" *ngIf="isControlHasError('description','required')">Description is Required</small>
                 </div>
 
+
               </div>
 
               <div class="form-group">
                 <label for="fullName">Blood Group</label>
+
                 <select class="form-select form-select-sm" aria-label=".form-select-sm example" formControlName="blood_group">
+
                   <option selected value="o"> O</option>
                   <option value="B"> B </option>
                   <option value="AB"> AB </option>
@@ -140,7 +156,9 @@
               </div>
               <div class="form-group">
                 <label for="fullName">RH</label>
+
                 <select class="form-select form-select-sm" aria-label=".form-select-sm example" formControlName="rhd">
+
                   <option selected value="+">positive</option>
                   <option value="-">negative</option>
                 </select>
@@ -149,8 +167,10 @@
 
               <div class="form-group">
                 <label for="fullName">Quantity</label>
+
                 <select class="form-select form-select-sm" aria-label=".form-select-sm example" formControlName="quantity">
                   <option selected value="1">1</option>
+
                   <option value="2">2</option>
                   <option value="3">3</option>
                 </select>
@@ -177,9 +197,8 @@
 
                   <br>
 
-                  <button type="button" id="submit" name="submit" class="btn btn-info">Cancel</button>
-                  <button id="submit" class="btn btn-danger m-2" (click)="onSubmit()">Create
-                    Request </button>
+                  <button type="button" id="submit" name="submit" [routerLink]="['/home']" routerLinkActive="router-link-active"  class="btn btn-info">Cancel</button>
+                  <button type="button" id="submit" name="submit" routerLink="/profile" class="btn btn-danger m-2" (click)="onSubmit()">Create Request </button>
 
                 </div>
 

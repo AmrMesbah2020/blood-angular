@@ -1,4 +1,3 @@
-
 import { HttpClientModule } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 // import {MatToolbarModule} from '@angular/material/toolbar';
@@ -7,12 +6,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/shard/header/header.component';
-import { FooterComponent } from './components/shard/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegisterComponent } from './components/user/register/register.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
 import { FaqComponent } from './components/FAQ/faq/faq.component';
 import { MedicationAndMedicalDevicesComponent } from './components/FAQ/medication-and-medical-devices/medication-and-medical-devices.component';
@@ -26,6 +25,7 @@ import { WorkAndTravelComponent } from './components/FAQ/work-and-travel/work-an
 import { MedicalConditionsComponent } from './components/FAQ/medical-conditions/medical-conditions.component';
 import { OtherComponent } from './components/FAQ/other/other.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminModule } from './components/admin/admin.module';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { MaxLengthPipe } from './pipes/max-length.pipe';
 
@@ -43,6 +43,8 @@ import { MaxLengthPipe } from './pipes/max-length.pipe';
     EligibilityQuizComponent,
     FaqComponent,
     MedicationAndMedicalDevicesComponent,
+    
+  
     PostsComponent,
     UserProfileComponent,
     MakeRequestsComponent,
@@ -61,13 +63,16 @@ import { MaxLengthPipe } from './pipes/max-length.pipe';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    NgbModule,
+    NgbModule, 
+    AdminModule,
     HttpClientModule,
-    // MatToolbarModule,
-  
+
+    // MatToolbarModule,  
   ],
+
 
   providers: [],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
