@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-articles',
-  templateUrl: './articles.component.html',
-  styleUrls: ['./articles.component.css']
-})
-export class ArticlesComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
-=======
 import { Article } from './../../models/article';
 import { ArticleService } from './../../services/article.service';
 import { Component, OnInit } from '@angular/core';
@@ -64,4 +47,3 @@ export class ArticlesComponent implements OnInit {
   }
 
 }
->>>>>>> b67066c359c0da758243db92d1df366b25ff6bfb

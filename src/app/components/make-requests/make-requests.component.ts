@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-make-requests',
-  templateUrl: './make-requests.component.html',
-  styleUrls: ['./make-requests.component.css']
-})
-export class MakeRequestsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
-=======
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -50,4 +33,3 @@ public formRequest !: FormGroup;
   }
 
 }
->>>>>>> b67066c359c0da758243db92d1df366b25ff6bfb

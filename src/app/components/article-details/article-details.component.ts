@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-article-details',
-  templateUrl: './article-details.component.html',
-  styleUrls: ['./article-details.component.css']
-})
-export class ArticleDetailsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
-=======
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -67,4 +50,3 @@ this._httpClient.get(`http://localhost:8000/api/articles/${id}`)
   }
 
 }
->>>>>>> b67066c359c0da758243db92d1df366b25ff6bfb

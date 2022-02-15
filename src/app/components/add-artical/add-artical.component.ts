@@ -17,7 +17,7 @@ export class AddArticalComponent implements OnInit  {
   ngOnInit(): void {
     this.addArtical=this._formBuilder.group({
   title:["",[Validators.required,Validators.minLength(6),Validators.maxLength(50),Validators.pattern('^[a-zA-Z \-\']+')]],
-  resources:["",[Validators.required,Validators.minLength(6),Validators.maxLength(50)]],
+  resources:["",[Validators.required,Validators.minLength(6),Validators.maxLength(50),Validators.pattern('^[a-zA-Z \-\']+')]],
   content:["",[Validators.required,Validators.minLength(50),Validators.maxLength(500)]],
   img:["",[Validators.required,]],
   
