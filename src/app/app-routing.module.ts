@@ -25,12 +25,12 @@ import { AuthGuard } from './guards/auth.guard';
 // lazy load //
 const routes: Routes = [
   {
-    path:'', 
+    path:'',
 
     loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
   },
   {
-    path:'admin', 
+    path:'admin',
 
     loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule)
   },{
@@ -65,13 +65,6 @@ const routes: Routes = [
   {path:'profile',component:UserProfileComponent},
   {path:'profile/:id',component:UserProfileComponent},
   {path:'contact-us',component:ContactFormComponent},
-
-
-
-
-
-
-
 
 
 
