@@ -25,7 +25,7 @@ import { HomeComponent } from './components/home/home.component';
 const routes: Routes = [
   {
     component:HomeComponent,
-    path:'home',
+    path:'',
 
     loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
   },
