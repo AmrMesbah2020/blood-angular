@@ -44,9 +44,9 @@ export class EligibilityQuizComponent implements OnInit {
      this.question_num =0;
    } 
 
-   addDonner():void{
-    student:[]=this.addDonnerForm.value
-   }
+  //  addDonner():void{
+  //   student:[]=this.addDonnerForm.value
+  //  }
 
 
    isValidControl(name:string):boolean

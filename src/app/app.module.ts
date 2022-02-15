@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 // import {MatToolbarModule} from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
@@ -7,10 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ArticlesComponent } from './components/articles/articles.component';
-import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
 import { FaqComponent } from './components/FAQ/faq/faq.component';
 import { MedicationAndMedicalDevicesComponent } from './components/FAQ/medication-and-medical-devices/medication-and-medical-devices.component';
@@ -25,6 +26,9 @@ import { MedicalConditionsComponent } from './components/FAQ/medical-conditions/
 import { OtherComponent } from './components/FAQ/other/other.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminModule } from './components/admin/admin.module';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { MaxLengthPipe } from './pipes/max-length.pipe';
+
 
 
 @NgModule({
@@ -49,6 +53,8 @@ import { AdminModule } from './components/admin/admin.module';
     WorkAndTravelComponent,
     MedicalConditionsComponent,
     OtherComponent,
+    ContactFormComponent,
+    MaxLengthPipe,
   ],
   imports: [
     BrowserModule,
@@ -58,11 +64,15 @@ import { AdminModule } from './components/admin/admin.module';
     BrowserAnimationsModule,
     MatExpansionModule,
     NgbModule, 
-    AdminModule
+    AdminModule,
+    HttpClientModule,
+
     // MatToolbarModule,  
   ],
-  
+
+
   providers: [],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
