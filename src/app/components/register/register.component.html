@@ -104,18 +104,17 @@
                         <option disabled selected value>Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
-                     
+
 
                       </select>
-                      <div
-                      *ngIf="registerForm.controls['gender'].errors && (registerForm.controls['gender'].touched)">
-                      <small class="form-text text-dark "
-                        *ngIf="registerForm.controls['gender'].errors && registerForm.controls['gender'].errors ['required']">
-                        gender
-                        is
-                        requierd</small>
+                      <div *ngIf="registerForm.controls['gender'].errors && (registerForm.controls['gender'].touched)">
+                        <small class="form-text text-dark "
+                          *ngIf="registerForm.controls['gender'].errors && registerForm.controls['gender'].errors ['required']">
+                          gender
+                          is
+                          requierd</small>
 
-                    </div>
+                      </div>
                     </div>
                     <div class="form-outline mb-4">
                       <label class="form-label" for="form2Example22" id="password">Password</label>
@@ -131,8 +130,7 @@
                           *ngIf="registerForm.controls['password'].errors['minlength'] ">
                           minimum
                           length is 6 </small>
-                        <small class="form-text text-dark "
-                          *ngIf="registerForm.controls['password'].errors['pattern']">
+                        <small class="form-text text-dark " *ngIf="registerForm.controls['password'].errors['pattern']">
                           email should be
                           containe numbers and capital letters </small>
                         <small class="form-text text-dark "
@@ -154,7 +152,7 @@
                           *ngIf="registerForm.controls['confirmPassword'].errors && registerForm.controls['confirmPassword'].errors ['required']">password
                           is
                           requierd</small>
-                        
+
 
                       </div>
                     </div> -->
@@ -173,8 +171,7 @@
                           *ngIf="registerForm.controls['weight'].errors['minlength'] ">
                           minimum
                           length is 1 </small>
-                        <small class="form-text text-dark "
-                          *ngIf="registerForm.controls['weight'].errors['maxlength']">
+                        <small class="form-text text-dark " *ngIf="registerForm.controls['weight'].errors['maxlength']">
                           maximum length
                           is 3</small>
 

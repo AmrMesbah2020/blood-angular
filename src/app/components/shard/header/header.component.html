@@ -34,6 +34,7 @@
             <li class="nav-item "><a class="nav-link scrollto" routerLink="home" routerLinkActive="router-link-active">
                 Home </a></li>
             <li class="nav-item "><a class="nav-link scrollto" routerLink="eligibilty-quiz" target="_blank">  Donate Blood </a></li>
+
             <!-- droooooop -->
 
             <li class="nav-item " ngbDropdown>
@@ -60,22 +61,10 @@
                 Articles & Posts </a>
               <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" ngbDropdownItem routerLink="articles"> Articles</a></li>
-                <li><a class="dropdown-item" ngbDropdownItem routerLink="add-artical" target="_blank"> Add Article</a></li>
                 <li><a class="dropdown-item" ngbDropdownItem routerLink="posts"> Posts</a></li>
               </ul>
             </li>
-            <li class="nav-item " ngbDropdown>
-              <a class="nav-link dropdown-toggle" (click)="active()"
-                [ngStyle]="{'background-color':isActive? 'transparent' : 'transparent' }" routerLink="/healthcare"
-                id="navbarDropdownMenuLink" ngbDropdownToggle role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Other </a>
-              <ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
-                <li><a class="dropdown-item" ngbDropdownItem routerLink="/requests" target="_blank">Blood Requests</a></li>
-                <li><a class="dropdown-item" ngbDropdownItem routerLink="/donors" target="_blank">Donors </a></li>
 
-              </ul>
-            </li>
             <li class="nav-item"><a class="nav-link scrollto" routerLink="contact-us"> Contact Us </a></li>
 
             <ul class="nav me-2">

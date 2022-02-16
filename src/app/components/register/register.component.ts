@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   }
   ngOnInit(): void {
     this.registerForm=this._formBuilder.group({
-      
+
    password:["",[Validators.required,Validators.minLength(6),Validators.maxLength(20),Validators.pattern("(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$" )]],
   // confirmPassword:["",[Validators.required,Validators.minLength(6),Validators.maxLength(20),Validators.pattern("(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$" )]],
 
@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
 
     });
   }
-  
+
   // confirmPasswordMatch(controlName:string,matchingControlName:string){
   //   return (formGroup: FormGroup) => {
   //     const control = formGroup.controls[controlName];
@@ -105,20 +105,20 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.controls[name].valid;
 
   }
- 
+
   }
 
-function confirmValidatorPassword(arg0: string): any {
-  throw new Error('Function not implemented.');
-}
+// function confirmValidatorPassword(arg0: string): any {
+//   throw new Error('Function not implemented.');
+// }
   // export function matchValidator(
-  //   matchTo: string, 
+  //   matchTo: string,
   //   reverse?: boolean
   // ): ValidatorFn {
-  //   return (control: AbstractControl): 
+  //   return (control: AbstractControl):
   //   ValidationErrors | null => {
   //     if (control.parent && reverse) {
-  //       const c = (control.parent?.controls as any)[matchTo] 
+  //       const c = (control.parent?.controls as any)[matchTo]
   //       as AbstractControl;
   //       if (c) {
   //         c.updateValueAndValidity();
@@ -127,7 +127,7 @@ function confirmValidatorPassword(arg0: string): any {
   //     }
   //     return !!control.parent &&
   //       !!control.parent.value &&
-  //       control.value === 
+  //       control.value ===
   //       (control.parent?.controls as any)[matchTo].value
   //       ? null
   //       : { matching: true };
