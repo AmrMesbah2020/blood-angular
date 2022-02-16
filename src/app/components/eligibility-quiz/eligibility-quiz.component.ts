@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -13,9 +14,13 @@ export class EligibilityQuizComponent implements OnInit {
   isChecked: boolean = false;
   addDonnerForm=new FormGroup({});
   donatedbefore: any=this.addDonnerForm.value.donatedbefore;
-  constructor(private _formBuilder:FormBuilder) { }
+  constructor(private _formBuilder:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
+
+    if(localStorage.getItem('Token')==null){
+      this.router.navigate(['/login']);
+  }
    
     this.addDonnerForm=this._formBuilder.group({
       bloodgroup:['' , [Validators.required],],

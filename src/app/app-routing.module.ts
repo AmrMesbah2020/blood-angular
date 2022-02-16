@@ -12,8 +12,7 @@ import { ArticleDetailsComponent } from './components/article-details/article-de
 import { ArticlesComponent } from './components/articles/articles.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/user/login/login.component';
-import { RegisterComponent } from './components/user/register/register.component';
+
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
 import { FaqComponent } from './components/FAQ/faq/faq.component';
 
@@ -21,6 +20,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 // lazy load //
 const routes: Routes = [
@@ -49,8 +50,6 @@ const routes: Routes = [
   {path:'login' , component:LoginComponent},
   {path:'register' , component:RegisterComponent},
   {path:'article/details/:id',component:ArticleDetailsComponent},
-  {path:'login' , component:LoginComponent},
-  {path:'register', component:RegisterComponent},
   {path:'faq',component:FaqComponent},
   {path:'faq/medication-and-medical-devices',component:MedicationAndMedicalDevicesComponent},
   {path:'faq/lifestyle',component:LifestyleComponent},

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Article } from './../../models/article';
 import { ArticleService } from './../../services/article.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,13 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticlesComponent implements OnInit {
 
+  
+
   article:Article=new Article();
   articles:Article[]=[];
   lastArticle:Article[]=[];
 
-  constructor(private _articleService:ArticleService) { }
+  constructor(private _articleService:ArticleService ,private router:Router) { }
 
   ngOnInit(): void {
+
+    if(localStorage.getItem('Token')==null){
+      this.router.navigate(['/login']);
+  }
 
     this._articleService.get()
     .subscribe(

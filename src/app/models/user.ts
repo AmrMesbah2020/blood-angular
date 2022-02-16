@@ -9,7 +9,7 @@ export class User {
   street:string="";
   city:string="";
   state:string="";
-  birthdate:Date=new Date(10);
+ birthdate:Date=new Date(10);
   wieght:number=NaN;
   avatar:string="";
   address:string="";

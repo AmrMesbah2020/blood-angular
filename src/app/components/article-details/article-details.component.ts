@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from 'src/app/models/article';
 import { ArticleService } from 'src/app/services/article.service';
 
@@ -14,9 +14,13 @@ export class ArticleDetailsComponent implements OnInit {
   articles:Article[]=[];
   article_details:Article[]=[];
 
-  constructor(private _activatedRoute:ActivatedRoute , private _httpClient:HttpClient,private _articleService:ArticleService) { }
+  constructor(private _activatedRoute:ActivatedRoute , private _httpClient:HttpClient,private _articleService:ArticleService,private router:Router) { }
 
   ngOnInit(): void {
+
+    if(localStorage.getItem('Token')==null){
+      this.router.navigate(['/login']);
+  }
 
     this._activatedRoute.paramMap.subscribe(params=>{
       
