@@ -10,35 +10,31 @@ import { PostsComponent } from './components/posts/posts.component';
 
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { ArticlesComponent } from './components/articles/articles.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
 import { FaqComponent } from './components/FAQ/faq/faq.component';
 
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
-import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 // lazy load //
 const routes: Routes = [
   {
-    path:'',
+    // component:LayoutComponent,
+
+    path:'', 
 
     loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
   },
   {
-    path:'admin',
-
+    path:'', 
     loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule)
-  },{
-    component:HomeComponent,
-    path:'',
-
-    loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
   },
+
 
 
   {path:'eligibilty-quiz',component:EligibilityQuizComponent},
@@ -49,8 +45,7 @@ const routes: Routes = [
   {path:'login' , component:LoginComponent},
   {path:'register' , component:RegisterComponent},
   {path:'article/details/:id',component:ArticleDetailsComponent},
-  {path:'login' , component:LoginComponent},
-  {path:'register', component:RegisterComponent},
+
   {path:'faq',component:FaqComponent},
   {path:'faq/medication-and-medical-devices',component:MedicationAndMedicalDevicesComponent},
   {path:'faq/lifestyle',component:LifestyleComponent},
@@ -65,6 +60,15 @@ const routes: Routes = [
   {path:'profile',component:UserProfileComponent},
   {path:'profile/:id',component:UserProfileComponent},
   {path:'contact-us',component:ContactFormComponent},
+
+
+
+
+
+
+
+
+
 
 
 
