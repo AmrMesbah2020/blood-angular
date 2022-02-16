@@ -8,8 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { LoginComponent } from './components/user/login/login.component';
-import { RegisterComponent } from './components/user/register/register.component';
+;
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
@@ -28,6 +27,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminModule } from './components/admin/admin.module';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { MaxLengthPipe } from './pipes/max-length.pipe';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { LayoutComponent } from './layout/layout.component';
 
 
 
@@ -55,6 +57,7 @@ import { MaxLengthPipe } from './pipes/max-length.pipe';
     OtherComponent,
     ContactFormComponent,
     MaxLengthPipe,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
