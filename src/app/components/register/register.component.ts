@@ -98,9 +98,9 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  login():void{
+  // login():void{
 
-  }
+  // }
   isValid(name:string):boolean{
     return this.registerForm.controls[name].valid;
 
