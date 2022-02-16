@@ -37,7 +37,7 @@ login():void{
         console.log(JSON.stringify(response.date));
         console.log(response);
         this.router.navigate(['home']);
-        localStorage.setItem("Token",response[1].token)
+        localStorage.setItem("Token",response)
       },
         (error:any)=>{
           this.errMsg = error;

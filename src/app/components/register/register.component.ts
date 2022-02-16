@@ -90,7 +90,7 @@ export class RegisterComponent implements OnInit {
         (error:any)=>{
           // console.log();
           this.errMsg = error.error;
-          console.log(this.errMsg);
+          console.log(error.error);
         }
       )
 
@@ -98,9 +98,9 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  login():void{
+  // login():void{
 
-  }
+  // }
   isValid(name:string):boolean{
     return this.registerForm.controls[name].valid;
 

@@ -15,51 +15,47 @@
       <div class="row align-items-center flex-row-reverse">
         <div class="col-lg-6">
           <div class="about-text go-to">
-            <h3 class=" text-dark">Ahmed Ali</h3>
-            <h6 class="theme-color lead fs-6">An Egyption Designer love donation</h6>
+            <h3 class=" text-dark">{{user.name}}</h3>
             <div class="row about-list fs-6">
               <div class="col-md-6">
                 <div class="media">
                   <label>Birthday</label>
-                  <p>3th april 1998</p>
+                  <p>{{user.birthdate}}</p>
                 </div>
                 <div class="media">
                   <label>Age</label>
-                  <p>23 Yr</p>
+                  <p>{{user.age}}</p>
                 </div>
-                <div class="media">
-                  <label>Country</label>
-                  <p>Egypt</p>
-                </div>
+
                 <div class="media">
                   <label>Address</label>
-                  <p>Cairo</p>
+                  <p>{{user.address}}</p>
                 </div>
-                <div class="media">
+                <div class="media" *ngIf="donnationData[0]" >
                   <label>Last Date domain</label>
-                  <p>null</p>
+                  <p>{{user.donnation_data.last_date_of_donnation}}</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="media">
                   <label>E-mail</label>
-                  <p>info@domain.com</p>
+                  <p>{{user.email}}</p>
                 </div>
                 <div class="media">
                   <label>Phone</label>
-                  <p>820-885-3321</p>
+                  <p>{{user.phone}}</p>
                 </div>
                 <div class="media">
                   <label>Gender</label>
-                  <p>male</p>
+                  <p>{{user.gender}}</p>
                 </div>
-                <div class="media">
+                <div class="media" *ngIf="donnationData[0]" >
                   <label>Blood Group</label>
-                  <p>O</p>
+                  <p>{{user.donnation_data.blood_id.blood_group}}</p>
                 </div>
-                <div class="media">
-                  <label>RH</label>
-                  <p>+</p>
+                <div class="media" *ngIf="donnationData[0]" >
+                  <label>RHD</label>
+                  <p>{{user.donnation_data.blood_id.rhd}}</p>
                 </div>
 
                 <br><br>
@@ -77,27 +73,22 @@
       </div>
       <div class="counter mt-2">
         <div class="row">
-          <div class="col-6 col-lg-3">
+          <div class="col-6 col-lg-4">
             <div class="count-data text-center">
-              <h6 class="count h4" data-to="500" data-speed="500">100</h6>
+              <h6 class="count h4" data-to="500" data-speed="500">{{numberOfPosts}}</h6>
               <p class="m-0px font-w-600">Posts</p>
             </div>
           </div>
-          <div class="col-6 col-lg-3">
+          <div class="col-6 col-lg-4">
             <div class="count-data text-center">
-              <h6 class="count h4" data-to="150" data-speed="150">30</h6>
+              <h6 class="count h4" data-to="150" data-speed="150">{{numberOfRequests}}</h6>
               <p class="m-0px font-w-600">Requests</p>
             </div>
           </div>
-          <div class="col-6 col-lg-3">
+
+          <div class="col-6 col-lg-4">
             <div class="count-data text-center">
-              <h6 class="count h4" data-to="850" data-speed="850">30</h6>
-              <p class="m-0px font-w-600">Response</p>
-            </div>
-          </div>
-          <div class="col-6 col-lg-3">
-            <div class="count-data text-center">
-              <h6 class="count h4" data-to="190" data-speed="190">10</h6>
+              <h6 class="count h4" data-to="190" data-speed="190">{{numberOfDonnation}}</h6>
               <p class="m-0px font-w-600">Donation</p>
             </div>
           </div>
@@ -333,3 +324,4 @@
     </main>
 
     <!--///// Requuests-////////////////////////////////////-->
+<!-- about user prev -create posts -create requests   -->

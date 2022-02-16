@@ -33,9 +33,17 @@
           <ul class=" nav nav-pills  ms-auto ">
             <li class="nav-item "><a class="nav-link scrollto" routerLink="home" routerLinkActive="router-link-active">
                 Home </a></li>
-            <li class="nav-item "><a class="nav-link scrollto" routerLink="eligibilty-quiz" target="_blank">  Donate Blood </a></li>
-
-            <!-- droooooop -->
+                <li class="nav-item " ngbDropdown>
+                  <a class="nav-link dropdown-toggle" (click)="active()"
+                    [ngStyle]="{'background-color':isActive? 'transparent' : 'transparent' }" routerLink="/healthcare"
+                    id="navbarDropdownMenuLink" ngbDropdownToggle role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Donate Blood </a>
+                  <ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
+                    <li><a class="dropdown-item" ngbDropdownItem routerLink="/eligibilty-quiz"> Eligibilty Quiz</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem routerLink="/make-request"> Make Request </a></li>
+                  </ul>
+                </li>            <!-- droooooop -->
 
             <li class="nav-item " ngbDropdown>
               <a class="nav-link dropdown-toggle" (click)="active()"
@@ -45,8 +53,6 @@
                 Health Care </a>
               <ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
                 <li><a class="dropdown-item" ngbDropdownItem routerLink="/faq">Frequently questions</a></li>
-                <li><a class="dropdown-item" ngbDropdownItem routerLink="/Action">Another action</a></li>
-                <li><a class="dropdown-item" ngbDropdownItem routerLink="/Action">Something else here</a></li>
               </ul>
             </li>
 
@@ -68,8 +74,7 @@
             <li class="nav-item"><a class="nav-link scrollto" routerLink="contact-us"> Contact Us </a></li>
 
             <ul class="nav me-2">
-              <li class="nav-item"><a class="nav-link scrollto" routerLink="/nafication"><i
-                    class="bi bi-bell-fill"></i></a></li>
+              <li class="nav-item"><a class="nav-link scrollto" routerLink="/login"> Log in</a></li>
               <li class="nav-item"><a class="nav-link scrollto" routerLink="profile"
                   routerLinkActive="router-link-active"><i class="bi bi-person-fill"></i></a></li>
             </ul>
