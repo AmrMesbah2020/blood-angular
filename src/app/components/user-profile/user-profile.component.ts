@@ -21,6 +21,9 @@ export class UserProfileComponent implements OnInit {
   numberOfPosts:number=0;
   numberOfRequests:number=0;
   numberOfDonnation:number=0;
+  userRequests:Request[]=[];
+  userPosts:Post[]=[];
+
 
   constructor(private _httpClient:HttpClient) { }
 
@@ -41,10 +44,12 @@ export class UserProfileComponent implements OnInit {
    this._httpClient.get("http://localhost:8000/api/userposts", { headers: this.headers }).subscribe(
 
     (response:any)=>{
-       this.post=response;
+      this.userPosts=response[0];
+      console.log(this.userPosts);
+      
        this .numberOfPosts=response[1];
 
-       console.log(this.post);
+      //  console.log(this.post);
     },
     (error:any)=>{
       console.log(error);
@@ -54,9 +59,11 @@ export class UserProfileComponent implements OnInit {
  this._httpClient.get("http://localhost:8000/api/userrequests", { headers: this.headers }).subscribe(
 
   (response:any)=>{
-    //  this.request=response;
+    this.userRequests=response[0];
+console.log(this.userRequests);
+
     this.numberOfRequests=response[1];
-     console.log(response);
+    //  console.log(response);
   },
   (error:any)=>{
     console.log(error);

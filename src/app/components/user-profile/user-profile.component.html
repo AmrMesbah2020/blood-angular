@@ -31,7 +31,7 @@
                   <label>Address</label>
                   <p>{{user.address}}</p>
                 </div>
-                <div class="media" *ngIf="donnationData[0]" >
+                <div class="media" *ngIf="donnationData[0]">
                   <label>Last Date domain</label>
                   <p>{{user.donnation_data.last_date_of_donnation}}</p>
                 </div>
@@ -49,11 +49,11 @@
                   <label>Gender</label>
                   <p>{{user.gender}}</p>
                 </div>
-                <div class="media" *ngIf="donnationData[0]" >
+                <div class="media" *ngIf="donnationData[0]">
                   <label>Blood Group</label>
                   <p>{{user.donnation_data.blood_id.blood_group}}</p>
                 </div>
-                <div class="media" *ngIf="donnationData[0]" >
+                <div class="media" *ngIf="donnationData[0]">
                   <label>RHD</label>
                   <p>{{user.donnation_data.blood_id.rhd}}</p>
                 </div>
@@ -108,146 +108,37 @@
 
         </div>
 
-        <div class="card p-3 mt-2">
+        <div class="card p-3 mt-2" *ngFor="let request of userRequests">
           <div class="d-flex align-items-center justify-content-between px-4">
             <div class="d-flex align-items-center">
               <i class="fab fa-cc-visa fa-2x cc-color-visa"></i>
               <div class="ms-4">
-                <div> <span class="text-danger fw-bold fs-4"> - </span> <span class="text-danger fw-bold fs-4"> O
-                  </span>
+                <div> <span class="text-danger fw-bold fs-4">{{request.blood.rhd}}</span>
+                   <span class="text-danger fw-bold fs-4"> {{request.blood.blood_group}}</span>
                   <div>
-                    <small class="text-xs text-muted">04/6/2020 </small>
+                    <small class="text-xs text-muted">{{request.date}}</small>
 
-                    <div class="text-info text-xs"><i class="bi bi-geo-alt-fill"></i> Mansoura,Egypt </div>
-                    <div class="text-info text-xs"><i class="bi bi-phone-fill"></i> 011-233-567</div>
-                    <div class="text-info text-xs"><i class="bi bi-suit-diamond-fill"></i> quantity : 1 </div>
+                    <div class="text-info text-xs"><i class="bi bi-geo-alt-fill"></i> {{request.address}} </div>
+                    <div class="text-info text-xs"><i class="bi bi-phone-fill"></i>{{request.phone}}</div>
+                    <div class="text-info text-xs"><i class="bi bi-suit-diamond-fill"></i> quantity :{{request.quantity}} </div>
 
 
                   </div>
-                  <div class="small">Lorem ipsum dolor sit amet consecteturpudiandae veniam sapiente quidem esse
-                    necessitatibus accusamus laboriosam commodi repellat, quaerat aliquid excepturi sequi a maiores
-                    reprehenderit in, vitae optio debitis!</div>
+                  <div class="small">Description : {{request.description}}</div>
 
                 </div>
               </div>
 
-              <div class="ms-4 small text-danger ">
+              <div class="ms-4 small text-danger">
                 <h6>Applay
-                  <p class=" p-3">10</p>
+                  <p class=" p-3">{{request.number_of_donners}}</p>
                 </h6>
 
               </div>
 
-
-
             </div>
 
-
-
-
-
           </div>
-
-
-
-
-        </div>
-
-        <div class="card p-3 mt-2">
-          <div class="d-flex align-items-center justify-content-between px-4">
-            <div class="d-flex align-items-center">
-              <i class="fab fa-cc-visa fa-2x cc-color-visa"></i>
-              <div class="ms-4">
-                <div> <span class="text-danger fw-bold fs-4"> + </span> <span class="text-danger fw-bold fs-4"> B
-                  </span>
-                  <div>
-                    <small class="text-xs text-muted">04/5/2020 </small>
-
-                    <div class="text-info text-xs"><i class="bi bi-geo-alt-fill"></i> Cairo,Egypt </div>
-                    <div class="text-info text-xs"><i class="bi bi-phone-fill"></i> 011-233-567</div>
-                    <div class="text-info text-xs"><i class="bi bi-suit-diamond-fill"></i> quantity : 1 </div>
-
-
-                  </div>
-                  <div class="small">Lorem ipsum dolor sit amet consecteturpudiandae veniam sapiente quidem esse
-                    necessitatibus accusamus laboriosam commodi repellat, quaerat aliquid excepturi sequi a maiores
-                    reprehenderit in, vitae optio debitis!</div>
-
-                </div>
-              </div>
-
-              <div class="ms-4 small text-danger ">
-                <h6>Applay
-                  <p class=" p-3">10</p>
-                </h6>
-
-              </div>
-
-
-
-            </div>
-
-
-            <!-- //// -->
-
-
-
-
-
-          </div>
-
-
-
-
-        </div>
-
-        <!-- //// -->
-
-        <div class="card p-3 mt-2">
-          <div class="d-flex align-items-center justify-content-between px-4">
-            <div class="d-flex align-items-center">
-              <i class="fab fa-cc-visa fa-2x cc-color-visa"></i>
-              <div class="ms-4">
-                <div> <span class="text-danger fw-bold fs-4"> + </span> <span class="text-danger fw-bold fs-4"> AB
-                  </span>
-                  <div>
-                    <small class="text-xs text-muted">04/5/2020 </small>
-
-                    <div class="text-info text-xs"><i class="bi bi-geo-alt-fill"></i> Cairo,Egypt </div>
-                    <div class="text-info text-xs"><i class="bi bi-phone-fill"></i> 011-233-567</div>
-                    <div class="text-info text-xs"><i class="bi bi-suit-diamond-fill"></i> quantity : 1 </div>
-
-
-                  </div>
-                  <div class="small">Lorem ipsum dolor sit amet consecteturpudiandae veniam sapiente quidem esse
-                    necessitatibus accusamus laboriosam commodi repellat, quaerat aliquid excepturi sequi a maiores
-                    reprehenderit in, vitae optio debitis!</div>
-
-                </div>
-              </div>
-
-              <div class="ms-4 small text-danger ">
-                <h6>Applay
-                  <p class=" p-3">10</p>
-                </h6>
-
-              </div>
-
-
-            </div>
-
-
-            <!-- //// -->
-
-
-
-
-
-          </div>
-
-
-
-
         </div>
 
       </div>
@@ -266,62 +157,21 @@
 
       </div>
 
-      <div class="my-3 p-3 bg-white rounded box-shadow">
+      <div class="my-3 p-3 bg-white rounded box-shadow " *ngFor="let post of userPosts">
         <div class="media text-muted pt-3">
           <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="mr-2 rounded" width="32"
             height="32">
           <p class="media-body pb-3 mb-0  lh-125 border-bottom border-gray">
-            <small class="text-muted"> 1/2/2020</small>
-            <strong class="d-block text-info">@username</strong>
-            <strong class="d-block text-danger"><i class="bi bi-heart-fill"></i></strong>
-
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh, ut fermentum massa justo sit amet risus.
+            <!-- <small class="text-muted">{{posts}}</small> -->
+            <strong class="d-block text-info">{{post.title}}</strong>
+            <img src="{{post.image}}">
+              {{post.content}}
           </p>
+          <strong class="d-block text-danger"><i class="bi bi-heart-fill"></i> {{post.rate}}</strong>
+
         </div>
-        <div class="media text-muted pt-3">
-          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="mr-2 rounded" width="32"
-            height="32">
-          <p class="media-body pb-3 mb-0  lh-125 border-bottom border-gray">
-            <small class="text-muted"> 1/2/2021</small>
-            <strong class="d-block text-info">@username</strong>
-            <strong class="d-block text-danger"><i class="bi bi-heart-fill"></i></strong>
-
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="mr-2 rounded" width="32"
-            height="32">
-          <p class="media-body pb-3 mb-0  lh-125 border-bottom border-gray">
-            <small class="text-muted"> 1/2/2020</small>
-            <strong class="d-block text-info">@username</strong>
-            <strong class="d-block text-danger"><i class="bi bi-heart"></i></strong>
-
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="mr-2 rounded" width="32"
-            height="32">
-          <p class="media-body pb-3 mb-0  lh-125 border-bottom border-gray">
-            <small class="text-muted"> 1/2/2020</small>
-
-            <strong class="d-block text-info">@username</strong>
-            <strong class="d-block text-danger"><i class="bi bi-heart-fill"></i></strong>
-
-
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-        </div>
-        <small class="d-block text-right mt-3 ">
-          <a class="text-danger " href="#">All Posts</a>
-        </small>
       </div>
+
     </main>
 
-    <!--///// Requuests-////////////////////////////////////-->
-<!-- about user prev -create posts -create requests   -->
+    
