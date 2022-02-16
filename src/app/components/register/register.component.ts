@@ -90,7 +90,7 @@ export class RegisterComponent implements OnInit {
         (error:any)=>{
           // console.log();
           this.errMsg = error.error;
-          console.log(this.errMsg);
+          console.log(error.error);
         }
       )
 

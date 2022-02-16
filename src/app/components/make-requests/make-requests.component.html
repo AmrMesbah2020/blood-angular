@@ -20,12 +20,13 @@
                 <div class="user-avatar">
                   <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
                 </div>
-                <h5 class="user-name">Ali Mohamed</h5>
-                <h6 class="user-email">Ali123@mail.com</h6>
+                <h5 class="user-name">{{user.name}}</h5>
+                <h6 class="user-email">{{user.email}}</h6>
               </div>
               <div class="about">
                 <h5 class="text-info">About</h5>
-                <p>I'm from egypt ,and I'm working as software engineer</p>
+                <p> Address: {{user.address}}</p>
+                <p>Phone: {{user.phone}}</p>
               </div>
             </div>
             <div class="container">
@@ -42,9 +43,11 @@
         </div>
       </div>
 
-      <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+
+      <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" >
         <div class="card h-100">
-          <div class="card-body" [formGroup]="reqForm">
+          <div class="card-body" [formGroup]="formRequest">
+
             <div class="row gutters">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                 <h6 class="mb-2 main  fs-3">Request Details</h6>
@@ -52,16 +55,20 @@
 
 
 
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 " >
                 <div class="form-group ">
                   <label for="phone">Phone Number</label>
-                  <input type="text" class="form-control" id="phone" formControlName="phone"
-                    placeholder="Enter phone number" [class.is-invalid]="isInValidAndTouched('phone')"
-                    [class.is-valid]="isValidControl('phone')">
+                  <input type="text" class="form-control" id="phone"
+                  formControlName="phone" placeholder="Enter phone number">
                   <div *ngIf="isInValidAndTouched('phone')">
-                    <small class="form-text text-danger" *ngIf="isControlHasError('phone','required')">invailed phone
-                      Number </small>
-                  </div>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('phone','required')">required
+                        field</small>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('phone','pattern')">invalid
+                        phone number</small>
+                </div>
+
+
                 </div>
               </div>
 
@@ -73,89 +80,97 @@
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
                   <label for="Street">Street</label>
-                  <input type="name" name="street" required class="form-control" id="Street" formControlName="street"
-                    placeholder="Enter Street" [class.is-invalid]="isInValidAndTouched('street')"
-                    [class.is-valid]="isValidControl('street')">
+
+                  <input type="text" class="form-control" id="Street"
+                  formControlName="street" placeholder="Enter Street">
                   <div *ngIf="isInValidAndTouched('street')">
-                    <small class="form-text text-danger" *ngIf="isControlHasError('street','required')">invailed
-                      street</small>
-                  </div>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('street','required')">Street is Required </small>
+                </div>
+
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
-                  <label for="city">City</label>
-                  <input type="name" class="form-control" name="city" formControlName="city" required id="city"
-                    placeholder="Enter City" [class.is-invalid]="isInValidAndTouched('city')"
-                    [class.is-valid]="isValidControl('city')">
+
+                  <label for="ciTy">City</label>
+                  <input type="text" class="form-control"
+                  formControlName="city" id="ciTy" placeholder="Enter City">
                   <div *ngIf="isInValidAndTouched('city')">
-                    <small class="form-text text-danger" *ngIf="isControlHasError('city','required')">invailed
-                      city</small>
-                  </div>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('city','required')">City is Required</small>
+                </div>
+
+
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
-                  <label for="state" class="form-label">State</label>
-                  <input type="text" name="state" class="form-control" formControlName="state" required id="state"
-                    placeholder="Enter State" [class.is-invalid]="isInValidAndTouched('state')"
-                    [class.is-valid]="isValidControl('state')">
+
+                  <label for="sTate">State</label>
+                  <input type="text" class="form-control"
+                  formControlName="state" id="sTate" placeholder="Enter State">
                   <div *ngIf="isInValidAndTouched('state')">
-                    <small class="form-text text-danger" *ngIf="isControlHasError('state','required')">invailed
-                      state</small>
-                  </div>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('state','required')">State is Required</small>
+                </div>
+
+
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
-                  <label for="zip" class="form-label">Zip Code</label>
-                  <input type="text" name="zip" class="form-control" formControlName="zip" id="zip" required
-                    placeholder="Zip Code" [class.is-invalid]="isInValidAndTouched('zip')"
-                    [class.is-valid]="isValidControl('zip')">
+
+                  <label for="zIp">Zip Code</label>
+                  <input type="text" class="form-control"
+                  formControlName="zip" id="zIp" placeholder="Zip Code">
                   <div *ngIf="isInValidAndTouched('zip')">
-                    <small class="form-text text-danger" *ngIf="isControlHasError('zip','required')">invailed Zip
-                      code</small>
-                  </div>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('zip','required')">Zip Code is Required</small>
+                </div>
+
                 </div>
 
 
               </div>
               <div class="form-group">
-                <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" name="description" required placeholder="Leave a description here"
-                  formControlName="description" id="description" [class.is-invalid]="isInValidAndTouched('description')"
-                  [class.is-valid]="isValidControl('description')" style="height: 100px"></textarea>
-                <div *ngIf="isInValidAndTouched('description')">
-                  <small class="form-text text-danger" *ngIf="isControlHasError('description','required')">invailed
-                    Description</small>
+
+                <label for="fullName">Description</label>
+                <textarea class="form-control" placeholder="Leave a description here"
+                formControlName="description"  id="floatingTextarea2"
+                  style="height: 100px"></textarea>
+                  <div *ngIf="isInValidAndTouched('description')">
+                    <small class="form-text text-danger" *ngIf="isControlHasError('description','required')">Description is Required</small>
                 </div>
+
+
               </div>
 
               <div class="form-group">
                 <label for="fullName">Blood Group</label>
-                <select class="form-select form-select-sm" required aria-label=".form-select-sm example">
+
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" formControlName="blood_group">
+
                   <option selected value="o"> O</option>
                   <option value="B"> B </option>
                   <option value="AB"> AB </option>
                   <option value="A">A</option>
-                  <option value="null">Dont-know</option>
                 </select>
 
               </div>
               <div class="form-group">
                 <label for="fullName">RH</label>
-                <select class="form-select form-select-sm" required aria-label=".form-select-sm example">
+
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" formControlName="rhd">
+
                   <option selected value="+">positive</option>
                   <option value="-">negative</option>
-                  <option value="null">Dont-know</option>
                 </select>
 
               </div>
 
               <div class="form-group">
                 <label for="fullName">Quantity</label>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                  <option selected value="1" required>1</option>
+
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" formControlName="quantity">
+                  <option selected value="1">1</option>
+
                   <option value="2">2</option>
                   <option value="3">3</option>
                 </select>
@@ -164,6 +179,18 @@
 
 
             </div>
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 " >
+              <div class="form-group ">
+                <label for="date">Date</label>
+                <input type="date" class="form-control" id="date"
+                formControlName="date">
+                <div *ngIf="isInValidAndTouched('date')">
+                  <small class="form-text text-danger" *ngIf="isControlHasError('date','required')">Date is Required</small>
+              </div>
+              </div>
+            </div>
+
             <div class="row gutters">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="text-right">
@@ -171,11 +198,9 @@
                   <br>
 
                   <button type="button" id="submit" name="submit" [routerLink]="['/home']" routerLinkActive="router-link-active"  class="btn btn-info">Cancel</button>
-                  <button type="button" id="submit" name="submit" routerLink="/profile" class="btn btn-danger m-2">Create Request </button>
+                  <button type="button" id="submit" name="submit" routerLink="/profile" class="btn btn-danger m-2" (click)="onSubmit()">Create Request </button>
 
                 </div>
-                <a routerLink="/register" class="text-info fw-blod mb-2"> <span class="text-dark">New user ?
-                  </span>click to Register</a>
 
               </div>
             </div>

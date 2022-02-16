@@ -1,5 +1,11 @@
+import { User } from 'src/app/models/user';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient,HttpHeaders} from '@angular/common/http';
+import { Request } from 'src/app/models/request';
+
+
 
 @Component({
   selector: 'app-make-requests',
@@ -8,35 +14,86 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class MakeRequestsComponent implements OnInit {
 
-  reqForm=new FormGroup({});
 
-constructor(private _formBuilder:FormBuilder) { }
+  formRequest=new FormGroup({});
+  request=new Request();
+  user=new User;
+  token:any=localStorage.getItem('Token');
+  headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+  constructor(private _formBuilder: FormBuilder,private _httpClient:HttpClient){}
 
   ngOnInit(): void {
 
-    this.reqForm=this._formBuilder.group({
-      description:['' , [Validators.required , Validators.minLength(6)],],
-      zip:['' , [Validators.required , Validators.minLength(4),Validators.maxLength(8)],],
-      state:['' , [Validators.required , Validators.minLength(4),Validators.maxLength(8)],],
-      city:['' , [Validators.required , Validators.minLength(3),Validators.maxLength(8)],],
-      street:['' , [Validators.required , Validators.minLength(4),Validators.maxLength(8)],],
-      phone:['', [Validators.required, Validators.pattern("01[0125][0-9]{8}$")],]
-    });
+    this._httpClient.get("http://localhost:8000/api/user", { headers: this.headers }).subscribe(
+
+      (response:any)=>{
+         this.user=response.data[0];
+         console.log(this.user);
+      },
+      (error:any)=>{
+        console.log(error);
+      }
+   )
+    this.formRequest = this._formBuilder.group({
+      phone :new FormControl("",
+      [Validators.required,
+       Validators.pattern("^01[0-2,5]{1}[0-9]{8}$")
+    ]),
+      address :new FormControl("",Validators.required),
+      city :new FormControl("",Validators.required),
+      street :new FormControl("",Validators.required),
+      state :new FormControl("",Validators.required),
+      zip :new FormControl("",Validators.required),
+      description :new FormControl("",[Validators.required]),
+      date: new FormControl("",Validators.required),
+      blood_group:new FormControl(),rhd:new FormControl(),quantity:new FormControl()
+    })
+
   }
 
   isValidControl(name:string):boolean
   {
-    return this.reqForm.controls[name].valid;
+    return this.formRequest.controls[name].valid;
   }
 
   isInValidAndTouched(name:string):boolean
   {
-    return  this.reqForm.controls[name].invalid && (this.reqForm.controls[name].dirty || this.reqForm.controls[name].touched);
+    return  this.formRequest.controls[name].invalid && (this.formRequest.controls[name].dirty || this.formRequest.controls[name].touched);
   }
 
   isControlHasError(name:string,error:string):boolean
   {
-    return  this.reqForm.controls[name].invalid && this.reqForm.controls[name].errors?.[error];
+    return  this.formRequest.controls[name].invalid && this.formRequest.controls[name].errors?.[error];
+  }
+
+
+  onSubmit() {
+    let request=new Request();
+    let token=localStorage.getItem('Token');
+    request.phone=this.formRequest.value.phone;
+    request.description=this.formRequest.value.description;
+    request.date=this.formRequest.value.date;
+    request.quantity=this.formRequest.value.quantity;
+    request.city=this.formRequest.value.city;
+    request.state=this.formRequest.value.state;
+    request.street=this.formRequest.value.street;
+    request.blood_group=this.formRequest.value.blood_group;
+    request.rhd=this.formRequest.value.rhd;
+    request.zip=this.formRequest.value.zip;
+
+    request.address=request.getAddress();
+
+    console.log(request);
+    this._httpClient.post("http://localhost:8000/api/request",request, { headers: this.headers }).subscribe(
+
+      (response:any)=>{
+         console.log(response);
+      },
+      (error:any)=>{
+        console.log(error);
+      }
+   )
+
   }
 
 }
