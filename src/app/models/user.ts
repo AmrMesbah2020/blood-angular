@@ -1,3 +1,4 @@
+import { DonnationData } from './donnationData';
 export class User {
   firstName: string="";
   lastName: string="";
@@ -9,10 +10,14 @@ export class User {
   street:string="";
   city:string="";
   state:string="";
- birthdate:Date=new Date(10);
-  wieght:number=NaN;
+  birthdate:Date=new Date(10);
+  wieght:number=0;
   avatar:string="";
   address:string="";
+  age:number=0;
+  donnation_data=new DonnationData();
+
+
 
 
   getFullName():string {

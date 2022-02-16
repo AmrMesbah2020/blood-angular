@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center">
     <div class="row p-5  " *ngFor="let item of lastArticle">
-      
+
         <div class="col-lg-8 d-flex justify-content-center"><img class="w-100" src="{{item.image}}" alt=""></div>
         <div class="col-lg-4">
           <h6 class="h4">{{item.title}}</h6>
@@ -9,10 +9,10 @@
             <li class="list_style ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">{{item.date}}</span> </li>
           </ul>
           <p>{{item.content | maxLength:300}}</p>
-          
+
           <footer class=""><a class="link_decoration pink_text" routerLink="/article/details/{{item.article_id}}">Show More &raquo;</a></footer>
         </div>
-      
+
 </div>
 </div>
 
@@ -25,7 +25,7 @@
 <div class="container d-flex justify-content-center ">
     <div class="row p-5 ">
         <div class="col-lg-4 mb-3" *ngFor="let item of articles">
-            <img class="w-100" src="{{item.image}}" alt=""> 
+            <img class="w-100" src="{{item.image}}" alt="">
             <h6 class="h5">{{item.title}}</h6>
           <ul >
             <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li>
@@ -37,7 +37,6 @@
         </div>
     </div>
 </div>
-      
-      
-      
-      
+
+
+
