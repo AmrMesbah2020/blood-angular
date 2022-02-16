@@ -9,7 +9,7 @@
             <div class="">
               <p class="mt-3 text-center fs-4 pink_text lh-sm" >Are you 18-75 years old?</p>
               
-              <a href="#"  target="_blank" class=" eligibilty_form_text pink_text  link_decoration" >
+              <a routerLink="/faq"  target="_blank" class=" eligibilty_form_text pink_text  link_decoration" >
                   
                More Info <i class="fa fa-arrow-right" ></i>
                 
@@ -45,7 +45,7 @@
             <div class="">
               <h5 class="mt-3 text-center fs-4 pink_text lh-sm" >Had a tattoo in the last 4 months?</h5>
               
-              <a href="#" target="_blank" class="eligibilty_form_text pink_text  link_decoration" >
+              <a routerLink="/faq" target="_blank" class="eligibilty_form_text pink_text  link_decoration" >
                   
                 More Info <i class="fa fa-arrow-right" ></i>
                 
@@ -81,7 +81,7 @@
             <div class="">
               <h5 class="card-title mt-3 text-center fs-4 pink_text lh-sm" >Are you pregnant or recently given birth?</h5>
               
-              <a href="#" target="_blank" class="eligibilty_form_text pink_text  link_decoration" >
+              <a routerLink="/faq" target="_blank" class="eligibilty_form_text pink_text  link_decoration" >
                   
                More Info <i class="fa fa-arrow-right" ></i>
                 
@@ -116,7 +116,7 @@
             <div class="card-body">
               <h5 class=" mt-3 text-center fs-4 pink_text lh-sm" >Do you have a heart condition?</h5>
               
-              <a href="#" target="_blank" class="eligibilty_form_text pink_text pink_text link_decoration" >
+              <a routerLink="/faq" target="_blank" class="eligibilty_form_text pink_text pink_text link_decoration" >
                   
                 More Info <i class="fa fa-arrow-right" ></i>
                 
@@ -152,7 +152,7 @@
             <div class="card-body">
               <h5 class=" mt-3 text-center fs-4 pink_text lh-sm" >Are you low in iron?</h5>
               
-              <a href="#" target="_blank" class="eligibilty_form_text pink_text  link_decoration" >
+              <a routerLink="/faq" target="_blank" class="eligibilty_form_text pink_text  link_decoration" >
                   
                More Info <i class="fa fa-arrow-right" ></i>
                 
@@ -188,7 +188,7 @@
             <div class="card-body">
               <h5 class="card-title mt-3 text-center fs-4 pink_text lh-sm" >Have you injected recreational drugs in the past 5 years?</h5>
               
-              <a href="#" target="_blank" class="eligibilty_form_text pink_text link_decoration" >
+              <a routerLink="/faq" target="_blank" class="eligibilty_form_text pink_text link_decoration" >
                   
                More Info <i class="fa fa-arrow-right" ></i>
                 
@@ -224,7 +224,7 @@
             <div class="card-body">
               <h5 class="card-title mt-2 text-center pink_text fs-4 lh-sm" >Will you travel overseas 4 months before your donation?</h5>
               
-              <a href="#" target="_blank" class="eligibilty_form_text pink_text link_decoration" >
+              <a routerLink="/faq" target="_blank" class="eligibilty_form_text pink_text link_decoration" >
                   
                More Info <i class="fa fa-arrow-right" ></i>
                 
@@ -261,11 +261,10 @@
                 <label class="form-label">Blood Group</label>
                 <select name="bloodgroup" class="form-select" formControlName="bloodgroup" 
                 [class.is-invalid]="isInValidAndTouched('bloodgroup')" [class.is-valid]="isValidControl('bloodgroup')">
-                    <option>A</option>
-                    <option>B</option>
-                    <option>O</option>
-                    <option>AB</option>
-                    <option>Dont-know</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="O">O</option>
+                    <option value="AB">AB</option>
                 </select>
                </div>
                <div *ngIf="isInValidAndTouched('bloodgroup')">
@@ -276,23 +275,15 @@
                 <label class="form-label">RH</label>
                 <select name="bloodrh" class="form-select" formControlName="bloodrh"
                 [class.is-invalid]="isInValidAndTouched('bloodrh')" [class.is-valid]="isValidControl('bloodrh')">
-                    <option>negative</option>
-                    <option>positive</option>
-                    <option>Dont-know</option>
+                    <option value="-">negative</option>
+                    <option value="+">positive</option>
                 </select>
                </div>
                <div *ngIf="isInValidAndTouched('bloodrh')">
                 <small class="form-text text-danger" *ngIf="isControlHasError('bloodrh','required')">required field</small>
                </div>
                
-               <div class=" form-check-inline mt-3">
-                   <div>Have you ever donated blood before?</div>
-                  <input type="radio" class="form-check-input" [(ngModel)]="donatedbefore" formControlName="donatedbefore" name="donatedbefore" [value]="1" [checked]="isChecked">
-                  <label class="form-check-label" for="yes">Yes</label>
-                  <input type="radio" class="form-check-input ms-3" [(ngModel)]="donatedbefore" formControlName="donatedbefore" name="donatedbefore" [value]="0" [checked]="isChecked" >
-                  <label class="form-check-label" for="no">No</label>
-               </div>
-               <div class="mb-3 mt-3"  *ngIf="donatedbefore == 1">
+               <div class="mb-3 mt-3"  >
                    <div class="form-label">When was the last time you donated blood?</div>
                    <input type="date" name="lastdonatedate" class="form-control" formControlName="lastdonatedate"
                    [class.is-invalid]="isInValidAndTouched('lastdonatedate')" [class.is-valid]="isValidControl('lastdonatedate')">
@@ -300,7 +291,7 @@
                <div *ngIf="isInValidAndTouched('lastdonatedate')">
                 <small class="form-text text-danger" *ngIf="isControlHasError('lastdonatedate','required')">required field</small>
                </div>
-               <div><button  class="btn btn-outline-danger mt-3 rounded-pill">Become a Donner</button></div>
+               <div><button  class="btn btn-outline-danger mt-3 rounded-pill" [disabled]="addDonnerForm.invalid" (click)="addDonner()">Become a Donner</button></div>
                
             </div>
         </div>
