@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color:rgb(248, 248, 248);
+  position: relative;
+  height: 100%;
+}
+.nav .show>.nav-link.nav-link-faded, .nav-link.nav-link-faded.active, .nav-link.nav-link-faded:active, .nav-pills .nav-link.nav-link-faded.active, .navbar-nav .show>.nav-link.nav-link-faded:hover {
+
+   color: red;
+  background-color: #c9d8f0;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: #467bcb;
+}
+.nav-link.has-icon {
+  display: flex;
+  align-items: center;
+}
+.nav-link.active {
+  color: #467bcb;
+}
+.nav-pills .nav-link {
+  border-radius: .25rem;
+}
+.card {
+  background: #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 0;
+  margin-bottom: 2%;
+}
+.bg-light-blue {
+  background-color: #e9f7fe !important;
+  color: #3184ae;
+  padding: 7px 18px;
+  border-radius: 4px;
+}
+.go{
+  padding-top: 30px;
+  font-size: 15px;
+
+  }
+  .go:hover{
+  color: red;
+  }

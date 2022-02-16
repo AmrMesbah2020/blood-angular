@@ -18,7 +18,7 @@ img {
   vertical-align: middle;
   border-style: none;
 }
-/* About Me 
+/* About Me
 ---------------------*/
 .about-text h3 {
 font-size: 37px;
@@ -129,7 +129,7 @@ mark {
 /* body{
   background:#eee;
   } */
-  
+
   .white-bg {
       background-color: #ffffff;
   }
@@ -137,7 +137,7 @@ mark {
       border-top: 0;
       padding: 0 10px 20px 10px;
   }
-  
+
   .forum-post-container .media {
     margin: 10px 10px 10px 10px;
     padding: 20px 10px 20px 10px;
@@ -253,11 +253,11 @@ mark {
       float: none !important;
     }
   }
-  
-  
-  
-  
-  
+
+
+
+
+
   .ibox {
     clear: both;
     margin-bottom: 25px;
@@ -308,7 +308,7 @@ mark {
     background: #ffffff;
     padding: 10px 15px;
   }
-  
+
   .message-input {
       height: 90px !important;
   }
@@ -333,7 +333,7 @@ mark {
   .m-b-sm {
       margin-bottom: 10px;
   }
-  
+
   /* //////////////////////////////////////////////////// */
 
 

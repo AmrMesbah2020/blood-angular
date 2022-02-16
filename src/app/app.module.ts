@@ -1,5 +1,7 @@
-
-
+import { LocationComponent } from './components/location/location.component';
+import { DonorsComponent } from './components/donors/donors.component';
+import { RequestsComponent } from './components/requests/requests.component';
+import { AddArticalComponent } from './components/add-artical/add-artical.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 // import {MatToolbarModule} from '@angular/material/toolbar';
@@ -46,8 +48,9 @@ import { LayoutComponent } from './layout/layout.component';
     EligibilityQuizComponent,
     FaqComponent,
     MedicationAndMedicalDevicesComponent,
-
-
+    RequestsComponent,
+    DonorsComponent,
+    AddArticalComponent,
     PostsComponent,
     UserProfileComponent,
     MakeRequestsComponent,
@@ -59,6 +62,7 @@ import { LayoutComponent } from './layout/layout.component';
     ContactFormComponent,
     MaxLengthPipe,
     LayoutComponent,
+    LocationComponent,
   ],
   imports: [
     BrowserModule,

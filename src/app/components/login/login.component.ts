@@ -19,7 +19,7 @@ constructor(private _formBuilder:FormBuilder,private _httpClient:HttpClient,priv
 }
 ngOnInit(): void {
   this.loginForm=this._formBuilder.group({
-email:['x.name@gmail.com',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"),Validators.minLength(7),Validators.maxLength(40)]],
+email:['',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"),Validators.minLength(7),Validators.maxLength(40)]],
 password:["",[Validators.required,Validators.minLength(6),Validators.maxLength(20),Validators.pattern("(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$" )]]
 
 
@@ -37,7 +37,7 @@ login():void{
         console.log(JSON.stringify(response.date));
         console.log(response);
         this.router.navigate(['home']);
-        localStorage.setItem("Token",response[1].token)
+        localStorage.setItem("Token",response)
       },
         (error:any)=>{
           this.errMsg = error;
