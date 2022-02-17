@@ -1,3 +1,4 @@
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { LocationComponent } from './components/location/location.component';
 import { DonorsComponent } from './components/donors/donors.component';
 import { RequestsComponent } from './components/requests/requests.component';
@@ -64,10 +65,10 @@ const routes: Routes = [
   {path:'profile',component:UserProfileComponent},
   {path:'profile/:id',component:UserProfileComponent},
   {path:'contact-us',component:ContactFormComponent},
-{path:'requests',component:RequestsComponent},
-{path:'donors',component:DonorsComponent},
-{path:'location',component:LocationComponent},
-
+  {path:'requests',component:RequestsComponent},
+  {path:'donors',component:DonorsComponent},
+  {path:'location',component:LocationComponent},
+  {path: 'edit-profile',component:EditProfileComponent}
 
 
 

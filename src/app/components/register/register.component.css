@@ -1,5 +1,5 @@
 
-  #h3,#firstname,#lastname,#gender,#blood,#date,#donate,#rhd,#password{
+  #h3,#firstname,#lastname,#gender,#blood,#date,#date,#rhd,#password,#weight{
     background: -webkit-linear-gradient(#ee7724, #d8363a, #dd3675, #b44593);
     /* background-color: #F05454; */
     /* background-color: #30475E; */
@@ -14,7 +14,7 @@
   @media (min-width: 768px) {
     .gradient-form {
       height: 100vh !important;
-      
+
     }
   }
   @media (min-width: 769px) {
