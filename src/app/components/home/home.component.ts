@@ -9,19 +9,18 @@ import { ArticleService } from 'src/app/services/article.service';
 })
 export class HomeComponent implements OnInit {
   article:Article=new Article();
-  articles:Article[]=[];
-  lenght:number=0;
+  lastArticles:Article[]=[];
+
   constructor(private _articleService:ArticleService) { }
 
   ngOnInit(): void {
 
-    this._articleService.get()
+    this._articleService.getLastArticle()
     .subscribe(
       (response:any)=>{
-       JSON.stringify(response.data);
-        this.articles=response;
-        console.log(this.articles)
-        this.lenght=this.articles.length;
+      JSON.stringify(response.data);
+        this.lastArticles=response;
+        console.log(this.lastArticles)
       }
       ,
       (error:any)=>{

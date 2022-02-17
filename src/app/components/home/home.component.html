@@ -104,39 +104,17 @@
 </div>
 <div class="container d-flex justify-content-center">
   <div class="row p-5">
-      <div class="col-4">
-          <img class="w-100" src="{{articles[lenght-1].image}}" alt="">
-          <h6 class="h5">{{articles[lenght-1].title}}</h6>
+      <div class="col-4" *ngFor="let item of lastArticles">
+          <img class="w-100" src="{{item.image}}" alt="">
+          <h6 class="h5">{{item.title}}</h6>
         <ul >
           <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li>
-          <li class="list_style ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">{{articles[lenght-1].date }}</span> </li>
+          <li class="list_style ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">{{item.date }}</span> </li>
         </ul>
-        <p>{{articles[lenght-1].content }}</p>
-      <a class="link_decoration pink_text"  routerLink="/article/details/{{articles[lenght-1].article_id}}">Show More  &raquo;</a>
+        <p>{{item.content | slice:0:200}}</p>
+      <a class="link_decoration pink_text"  routerLink="/article/details/{{item.article_id}}">Show More  &raquo;</a>
 
       </div>
-      <div class="col-4">
-        <img class="w-100" src="{{articles[lenght-2].image}}" alt="">
-        <h6 class="h5">{{articles[lenght-2].title}}</h6>
-      <ul >
-        <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li>
-        <li class="list_style ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">{{articles[lenght-2].date }}</span> </li>
-      </ul>
-      <p>{{articles[lenght-2].content}}</p>
-    <a class="link_decoration pink_text"  routerLink="/article/details/{{articles[lenght-2].article_id}}">Show More  &raquo;</a>
-
-    </div>
-    <div class="col-4">
-      <img class="w-100" src="{{articles[lenght-3].image}}" alt="">
-      <h6 class="h5">{{articles[lenght-3].title}}</h6>
-    <ul >
-      <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li>
-      <li class="list_style ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">{{articles[lenght-3].date }}</span> </li>
-    </ul>
-    <p>{{articles[lenght-3].content }}</p>
-  <a class="link_decoration pink_text"  routerLink="/article/details/{{articles[lenght-3].article_id}}">Show More  &raquo;</a>
-
-  </div>
   </div>
 </div>
 <div>

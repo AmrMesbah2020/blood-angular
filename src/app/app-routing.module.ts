@@ -1,3 +1,4 @@
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { LocationComponent } from './components/location/location.component';
 import { DonorsComponent } from './components/donors/donors.component';
 import { RequestsComponent } from './components/requests/requests.component';
@@ -35,7 +36,7 @@ const routes: Routes = [
     loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
   },
   {
-    path:'',
+    path:'admin',
     loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule)
   },
 
@@ -50,7 +51,6 @@ const routes: Routes = [
   {path:'register' , component:RegisterComponent},
   {path:'article/details/:id',component:ArticleDetailsComponent},
   {path: 'add-artical',component:AddArticalComponent},
-
   {path:'faq',component:FaqComponent},
   {path:'faq/medication-and-medical-devices',component:MedicationAndMedicalDevicesComponent},
   {path:'faq/lifestyle',component:LifestyleComponent},
@@ -64,12 +64,12 @@ const routes: Routes = [
   {path:'profile/:id',component:UserProfileComponent},
   {path:'make-request',component:MakeRequestsComponent},
   {path:'profile',component:UserProfileComponent},
-  // {path:'profile/:id',component:UserProfileComponent},
-{path:'contact-us',component:ContactFormComponent},
-{path:'requests',component:RequestsComponent},
-{path:'donors',component:DonorsComponent},
-{path:'location',component:LocationComponent},
-
+  {path:'profile/:id',component:UserProfileComponent},
+  {path:'contact-us',component:ContactFormComponent},
+  {path:'requests',component:RequestsComponent},
+  {path:'donors',component:DonorsComponent},
+  {path:'location',component:LocationComponent},
+  {path: 'edit-profile',component:EditProfileComponent}
 
 
 

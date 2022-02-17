@@ -19,7 +19,7 @@ export class ArticlesComponent implements OnInit {
   constructor(private _articleService:ArticleService ,private router:Router) { }
 
   ngOnInit(): void {
-
+  
     if(localStorage.getItem('Token')==null){
       this.router.navigate(['/login']);
   }

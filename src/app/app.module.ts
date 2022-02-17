@@ -34,6 +34,7 @@ import { MaxLengthPipe } from './pipes/max-length.pipe';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './layout/layout.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 
 
@@ -64,6 +65,7 @@ import { LayoutComponent } from './layout/layout.component';
     MaxLengthPipe,
     LayoutComponent,
     LocationComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
