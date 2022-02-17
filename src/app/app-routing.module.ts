@@ -49,7 +49,8 @@ const routes: Routes = [
   {path:'login' , component:LoginComponent},
   {path:'register' , component:RegisterComponent},
   {path:'article/details/:id',component:ArticleDetailsComponent},
-{path: 'add-artical',component:AddArticalComponent},
+  {path: 'add-artical',component:AddArticalComponent},
+
   {path:'faq',component:FaqComponent},
   {path:'faq/medication-and-medical-devices',component:MedicationAndMedicalDevicesComponent},
   {path:'faq/lifestyle',component:LifestyleComponent},
@@ -64,7 +65,7 @@ const routes: Routes = [
   {path:'make-request',component:MakeRequestsComponent},
   {path:'profile',component:UserProfileComponent},
   // {path:'profile/:id',component:UserProfileComponent},
-  {path:'contact-us',component:ContactFormComponent},
+{path:'contact-us',component:ContactFormComponent},
 {path:'requests',component:RequestsComponent},
 {path:'donors',component:DonorsComponent},
 {path:'location',component:LocationComponent},
