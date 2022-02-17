@@ -1,4 +1,4 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminPannelComponent } from './admin-pannel/admin-pannel.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -6,15 +6,25 @@ import { PostsComponent } from './posts/posts.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { RequestsComponent } from './requests/requests.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddAdminComponent } from './add-admin/add-admin.component';
 
 const routes: Routes = [
-  {path:'admin',component:AdminPannelComponent},
-  {path:'posts-admin',component:PostsComponent},
-  {path:'articles-admin',component:ArticlesComponent},
-  {path:'requests-admin',component:RequestsComponent},
-  {path:'feedback-admin',component:FeedbackComponent},
+  {
+    path: 'adminn',
+    children: [
+      { path: 'dashboard', component: AdminPannelComponent },
+      { path: 'posts-admin', component: PostsComponent },
+      { path: 'articles-admin', component: ArticlesComponent },
+      { path: 'requests-admin', component: RequestsComponent },
+      { path: 'feedback-admin', component: FeedbackComponent },
+      { path: 'add-admin', component: AddAdminComponent },
 
+
+    ]
+  }
 ];
+
 
 @NgModule({
   declarations: [
@@ -22,12 +32,17 @@ const routes: Routes = [
     PostsComponent,
     ArticlesComponent,
     RequestsComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    AddAdminComponent,
+
   ],
   imports: [
- 
 
-    CommonModule,RouterModule.forChild(routes)
+    CommonModule,
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule
+
   ]
 })
 export class AdminModule { }
