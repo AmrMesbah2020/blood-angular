@@ -117,7 +117,7 @@
                       </div>
                     </div>
                     <div class="form-outline mb-4">
-                      <label class="form-label " for="form2Example22" id="password">Password</label>
+                      <label class="form-label" for="form2Example22" id="password">Password</label>
                       <input type="password" formControlName="password" [class.is-valid]="isValid('password')" required
                         class="form-control" />
                       <div
@@ -157,8 +157,8 @@
                       </div>
                     </div> -->
                     <div class="form-outline mb-4">
-                      <label class="form-label text-danger" for="form2Example22" id="weight">Weight</label>
-                      <input type="number" formControlName="weight" [class.is-valid]="isValid('weight')"
+                      <label class="form-label" for="form2Example22" id="password">Weight</label>
+                      <input type="password" formControlName="weight" [class.is-valid]="isValid('weight')"
                         class="form-control" required />
 
                       <div *ngIf="registerForm.controls['weight'].errors && (registerForm.controls['weight'].touched)">
@@ -302,17 +302,16 @@
 
                     </div>
                   </div>
-
                   <button type="button" [disabled]="registerForm.invalid" class="btn btn-light btn-lg"
                     data-mdb-ripple-color="dark" (click)="sign_up()">Register</button>
                   <p class="text-center" style="color:white;">Have already an account? <a routerLink="/login"
                       class="fw-bold text-body"><u>Login here</u></a></p>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
+
       </div>
       <br>
     </div>
