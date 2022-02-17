@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { LocationComponent } from './components/location/location.component';
 import { DonorsComponent } from './components/donors/donors.component';
 import { RequestsComponent } from './components/requests/requests.component';
@@ -79,7 +80,7 @@ import { LayoutComponent } from './layout/layout.component';
   ],
 
 
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 
 })

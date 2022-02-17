@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { DonnationData } from './../../models/donnationData';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
@@ -25,9 +26,13 @@ export class EligibilityQuizComponent implements OnInit {
 
   token:any=localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
-  constructor(private _formBuilder: FormBuilder,private _httpClient:HttpClient){}
+  constructor(private _formBuilder: FormBuilder,private _httpClient:HttpClient,private router:Router){}
  
   ngOnInit(): void {
+
+    if(localStorage.getItem('Token')==null){
+      this.router.navigate(['/login']);
+  }
    
     this.addDonnerForm=this._formBuilder.group({
       bloodgroup:['' , [Validators.required],],

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Request } from './../../models/request';
 import { Post } from './../../models/post';
 import { Component, OnInit } from '@angular/core';
@@ -25,9 +26,14 @@ export class UserProfileComponent implements OnInit {
   userPosts:Post[]=[];
 
 
-  constructor(private _httpClient:HttpClient) { }
+  constructor(private _httpClient:HttpClient,private router:Router) { }
 
   ngOnInit(): void {
+
+
+    if(localStorage.getItem('Token')==null){
+      this.router.navigate(['/login']);
+  }
     this._httpClient.get("http://localhost:8000/api/user", { headers: this.headers }).subscribe(
 
       (response:any)=>{
