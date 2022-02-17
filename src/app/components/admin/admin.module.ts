@@ -18,6 +18,8 @@ const routes: Routes = [
       { path: 'articles-admin', component: ArticlesComponent },
       { path: 'requests-admin', component: RequestsComponent },
       { path: 'feedback-admin', component: FeedbackComponent },
+      { path: 'add-admin', component: AddAdminComponent },
+
 
     ]
   }

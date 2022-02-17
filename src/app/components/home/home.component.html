@@ -1,4 +1,6 @@
-<div class="first-part ">
+  
+  <body class=" w-100">
+  <div class="first-part ">
     <div class='container-fluid'>
       <div class="gray_background w-25 p-5 ">
       <h2 class="heading_color">
@@ -13,7 +15,7 @@
     
     </div>
   </div>
-
+  
 <div class="row d-flex justify-content-center">
   <div class="col-6 pb-5">
 <p class="h2 text-center heading_color ">We Save Lives</p>
@@ -63,19 +65,19 @@
   </div>
 
 </div>
-
+<div>
 <hr class="btmspace-80 m-5 ">
 <p class="text-center heading_color h4">BLOOD DONATION: HOW IT WORKS</p>
-
-<div class="container-fluid">
+</div>
+<div class="container-fluid p-3">
   <div class="row d-flex justify-content-center p-5 ">
-    <div class="col-4">
+    <div class="col w-100">
       <div class="row gray_background h-100">
       <p class="text-center m-3 h6">BEFORE YOUR APPOINTMENT:</p>
       <img src="../assets/img/Preparing-to-donate.jpg" class="w-100" style="height: 90%;">
     </div>
     </div>
-    <div class="col-4  ">
+    <div class="col h-100 w-100 ">
       <div class="row ms-2 me-2 gray_background h-100">
       <p class="text-center mt-3 h6">THE DONATION PROCESS:</p>
       <img src="../assets/img/ThinkstockPhotos.jpg" class="w-100 h-50 mt-2">
@@ -88,62 +90,59 @@
       </ul>
     </div>
   </div>
-    <div class="col-4">
-      <div class="row gray_background h-100">
+    <div class="col w-100">
+      <div class="row gray_background h-100 ">
       <p class="text-center m-3 h6">BEFORE YOUR APPOINTMENT:</p>
       <img src="../assets/img/post-donation.jpg" class="w-100" style="height: 90%;">
     </div>
     </div>
   </div>
 </div>
-
+<div>
 <hr class="btmspace-80 m-5 ">
 <p class="text-center heading_color h4">Latest Articles About Health</p>
+</div>
 <div class="container d-flex justify-content-center">
   <div class="row p-5">
       <div class="col-4">
-          <img class="w-100" src="../assets/img/img.png" alt=""> 
-          <h6 class="h5">Per inceptos himenaeos donec lacinia mollis vel</h6>
+          <img class="w-100" src="{{articles[lenght-1].image}}" alt=""> 
+          <h6 class="h5">{{articles[lenght-1].title}}</h6>
         <ul >
           <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li>
-          <li class="list_style ms-3"><i class="fa fa-tag"></i> <span class="pink_text ">Tag Name</span></li>
+          <li class="list_style ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">{{articles[lenght-1].date }}</span> </li>
         </ul>
-        <p>Aliquam mauris morbi tristique orci sit amet sapien tincidunt ut rutrum dui tincidunt.</p>
-        <p class="">Cras eget lacinia magna nunc ut est est cras aliquam erat sem at dapibus lorem luctus sed nunc sagittis leo in&hellip;</p>
-        <footer class=""><a class="link_decoration pink_text" href="#">Show More  &raquo;</a></footer>
+        <p>{{articles[lenght-1].content }}</p>
+      <a class="link_decoration pink_text"  routerLink="/article/details/{{articles[lenght-1].article_id}}">Show More  &raquo;</a>
 
       </div>
       <div class="col-4">
+        <img class="w-100" src="{{articles[lenght-2].image}}" alt=""> 
+        <h6 class="h5">{{articles[lenght-2].title}}</h6>
+      <ul >
+        <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li>
+        <li class="list_style ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">{{articles[lenght-2].date }}</span> </li>
+      </ul>
+      <p>{{articles[lenght-2].content}}</p>
+    <a class="link_decoration pink_text"  routerLink="/article/details/{{articles[lenght-2].article_id}}">Show More  &raquo;</a>
 
-          <img class="w-100" src="../assets/img/img.png" alt=""> 
-          <h6 class="h5">Per inceptos himenaeos donec lacinia mollis vel</h6>
-        <ul class="">
-          <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li>
-          <li class="list_style ms-3"><i class="fa fa-tag"></i> <span class="pink_text ">Tag Name</span></li>
-        </ul>
-        <p>Aliquam mauris morbi tristique orci sit amet sapien tincidunt ut rutrum dui tincidunt.</p>
-        <p class="">Cras eget lacinia magna nunc ut est est cras aliquam erat sem at dapibus lorem luctus sed nunc sagittis leo in&hellip;</p>
-        <footer class=""><a class="link_decoration pink_text" href="#">Show More  &raquo;</a></footer>
+    </div>
+    <div class="col-4">
+      <img class="w-100" src="{{articles[lenght-3].image}}" alt=""> 
+      <h6 class="h5">{{articles[lenght-3].title}}</h6>
+    <ul >
+      <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li>
+      <li class="list_style ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">{{articles[lenght-3].date }}</span> </li>
+    </ul>
+    <p>{{articles[lenght-3].content }}</p>
+  <a class="link_decoration pink_text"  routerLink="/article/details/{{articles[lenght-3].article_id}}">Show More  &raquo;</a>
 
-      </div>
-      <div class="col-4 ">
-          <img class="w-100" src="../assets/img/img.png" alt=""> 
-          <h6 class="h5">Per inceptos himenaeos donec lacinia mollis vel</h6>
-        <ul class="">
-          <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li>
-          <li class="list_style ms-3"><i class="fa fa-tag"></i> <span class="pink_text ">Tag Name</span></li>
-        </ul>
-        <p>Aliquam mauris morbi tristique orci sit amet sapien tincidunt ut rutrum dui tincidunt.</p>
-        <p class="">Cras eget lacinia magna nunc ut est est cras aliquam erat sem at dapibus lorem luctus sed nunc sagittis leo in&hellip;</p>
-        <footer class=""><a class="link_decoration pink_text" href="#">Show More  &raquo;</a></footer>
-
-      </div>
+  </div>
   </div>
 </div>
-
+<div>
 <hr class="btmspace-80 m-5 ">
 <p class="text-center heading_color h4">You May Also Like</p>
-
+</div>
 <div class="container d-flex justify-content-center">
   <div class="row p-5">
       <div class="col-4">
@@ -176,7 +175,7 @@
       </div>
   </div>
 </div>
-
+  </body>
 
 
 

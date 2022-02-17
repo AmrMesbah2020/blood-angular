@@ -1,3 +1,7 @@
+import { LocationComponent } from './components/location/location.component';
+import { DonorsComponent } from './components/donors/donors.component';
+import { RequestsComponent } from './components/requests/requests.component';
+import { AddArticalComponent } from './components/add-artical/add-artical.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { WorkAndTravelComponent } from './components/FAQ/work-and-travel/work-and-travel.component';
 import { PregencyComponent } from './components/FAQ/pregency/pregency.component';
@@ -12,7 +16,6 @@ import { ArticleDetailsComponent } from './components/article-details/article-de
 import { ArticlesComponent } from './components/articles/articles.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
 import { FaqComponent } from './components/FAQ/faq/faq.component';
 
@@ -27,7 +30,7 @@ const routes: Routes = [
   {
     // component:LayoutComponent,
 
-    path:'', 
+    path:'',
 
     loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
   },
@@ -46,7 +49,7 @@ const routes: Routes = [
   {path:'login' , component:LoginComponent},
   {path:'register' , component:RegisterComponent},
   {path:'article/details/:id',component:ArticleDetailsComponent},
-
+  {path: 'add-artical',component:AddArticalComponent},
   {path:'faq',component:FaqComponent},
   {path:'faq/medication-and-medical-devices',component:MedicationAndMedicalDevicesComponent},
   {path:'faq/lifestyle',component:LifestyleComponent},
@@ -61,7 +64,9 @@ const routes: Routes = [
   {path:'profile',component:UserProfileComponent},
   {path:'profile/:id',component:UserProfileComponent},
   {path:'contact-us',component:ContactFormComponent},
-
+{path:'requests',component:RequestsComponent},
+{path:'donors',component:DonorsComponent},
+{path:'location',component:LocationComponent},
 
 
 

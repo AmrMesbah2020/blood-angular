@@ -1,5 +1,15 @@
+import { Router } from '@angular/router';
+import { DonnationData } from './../../models/donnationData';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { HttpClient,HttpHeaders} from '@angular/common/http';
+
+class DonnerData{
+  last_date_of_donnation=new Date(10);
+  blood_group:string='';
+  rhd:string='';
+}
+
 
 
 @Component({
@@ -12,20 +22,62 @@ export class EligibilityQuizComponent implements OnInit {
   
   isChecked: boolean = false;
   addDonnerForm=new FormGroup({});
-  donatedbefore: any=this.addDonnerForm.value.donatedbefore;
-  constructor(private _formBuilder:FormBuilder) { }
+  donnatinData=new DonnationData();
 
+  token:any=localStorage.getItem('Token');
+  headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+  constructor(private _formBuilder: FormBuilder,private _httpClient:HttpClient,private router:Router){}
+ 
   ngOnInit(): void {
+
+    if(localStorage.getItem('Token')==null){
+      this.router.navigate(['/login']);
+  }
    
     this.addDonnerForm=this._formBuilder.group({
       bloodgroup:['' , [Validators.required],],
       bloodrh:['' , [Validators.required],],
-      donatedbefore:['' , [Validators.required],],
-      lastdonatedate:['' , [Validators.required],],
+      lastdonatedate:['' , [Validators.required],]
 
     });
 
   }
+
+
+
+  addDonner():void{
+
+  let  donnatinData=new DonnerData();
+
+   donnatinData.last_date_of_donnation=this.addDonnerForm.value.lastdonatedate;
+   donnatinData.blood_group=this.addDonnerForm.value.bloodgroup;
+   donnatinData.rhd=this.addDonnerForm.value.bloodrh;
+
+
+   this._httpClient.post("http://localhost:8000/api/donnation",donnatinData,{headers:this.headers}).subscribe(
+
+      (response:any)=>{
+        
+         console.log((response));
+      },
+      (error:any)=>{
+        console.log(error);
+
+      }
+   )
+
+
+  }
+
+
+
+
+
+
+
+
+
+
   
 
    nextQuation():void {
@@ -43,11 +95,6 @@ export class EligibilityQuizComponent implements OnInit {
    ineligiblMessage():void{
      this.question_num =0;
    } 
-
-  //  addDonner():void{
-  //   student:[]=this.addDonnerForm.value
-  //  }
-
 
    isValidControl(name:string):boolean
   {
