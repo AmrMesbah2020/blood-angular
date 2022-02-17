@@ -31,10 +31,9 @@
                   </div>
 
                   <form [formGroup]="loginForm">
-                    <p>Please login to your account</p>
 
                     <div class="form-outline mb-4">
-                      <label class="form-label" for="form2Example11">Username</label>
+                      <label class="form-label" for="form2Example11">Email</label>
                       <input type="email" class="form-control" placeholder="email address" formControlName="email" required />
                       <div *ngIf="loginForm.controls['email'].errors && (loginForm.controls['email'].touched)">
                         <small class="form-text text-danger "

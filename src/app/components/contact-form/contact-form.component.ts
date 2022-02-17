@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Feedback } from './../../models/feedback.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -15,9 +16,14 @@ export class ContactFormComponent implements OnInit {
  name:string = '';
  email:string = '';
  message:string = '';
-  constructor(private _formBuilder:FormBuilder,private _httpClient:HttpClient) { }
+  constructor(private _formBuilder:FormBuilder,private _httpClient:HttpClient,private router:Router) { }
 
   ngOnInit(): void {
+   
+    if(localStorage.getItem('Token')==null){
+      this.router.navigate(['/login']);
+  }
+
     this.contactForm=this._formBuilder.group({
       message:['' , [Validators.required],],
       name:['' , [Validators.required],],

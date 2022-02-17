@@ -13,7 +13,7 @@ address:string='';
 blood_group:string='';
 rhd:string='';
 ownerDetails=new User();
-numberOfDonners:number=0;
+number_of_donners:number=0;
 blood=new Blood();
 
 

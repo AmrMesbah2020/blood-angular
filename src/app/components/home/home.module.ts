@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
+import { AppModule } from 'src/app/app.module';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { DashCounterComponent } from './dash-counter/dash-counter.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MaxLengthPipe } from 'src/app/pipes/max-length.pipe';
+
 
 
 
@@ -16,7 +19,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HomeComponent,
-    DashCounterComponent
+    DashCounterComponent,
+  
   ],
   imports: [
     CommonModule,

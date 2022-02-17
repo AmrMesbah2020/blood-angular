@@ -1,10 +1,12 @@
 import { User } from 'src/app/models/user';
-export class Post{
 
+export class Post{
+    id:number=0;
     title:string='';
     content:string='';
     image:string='';
-    owner=new User();
-    rate:number=NaN;
+    owner=new User;
+    rate:number=0;
+    
 
 }

@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { LocationComponent } from './components/location/location.component';
 import { DonorsComponent } from './components/donors/donors.component';
 import { RequestsComponent } from './components/requests/requests.component';
@@ -12,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-;
+
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
@@ -81,7 +82,7 @@ DonorsComponent,
   ],
 
 
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 
 })
