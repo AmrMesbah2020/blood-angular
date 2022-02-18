@@ -1,5 +1,8 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-add-admin',
@@ -9,16 +12,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddAdminComponent implements OnInit {
 
   adminForm=new FormGroup({});
-
-  constructor(private _formBuilder:FormBuilder) { }
+  token: any = localStorage.getItem('Token');
+  headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+admin=new User()
+email:string = '';
+  constructor(private _formBuilder:FormBuilder,private _httpClient:HttpClient,private router:Router) { }
 
   ngOnInit(): void {
+
+    if(localStorage.getItem('Token')==null){
+      this.router.navigate(['/login']);
+  }
+
 
     this.adminForm=this._formBuilder.group({
 
       email:['' , [Validators.required ,
         Validators.pattern(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)],],
-    password:['',[Validators.required,Validators.minLength(6),Validators.maxLength(20)]]
       });
   
     }
@@ -38,4 +48,31 @@ export class AddAdminComponent implements OnInit {
     {
       return  this.adminForm.controls[name].invalid && this.adminForm.controls[name].errors?.[error];
     }
-}
+
+
+
+  add(){
+    let admin=new User()
+    admin.email=this.adminForm.value.email;
+
+    this._httpClient.post('http://localhost:8000/api/add-admin',admin,{ headers: this.headers }).subscribe(
+      (response:any)=>{
+        console.log(response);
+            },
+      (error:any)=>{
+        this.errMsg = error;
+        console.log(this.errMsg);
+
+      }
+    )
+  }
+  errMsg(errMsg: any) {
+    throw new Error('Method not implemented.');
+  }
+  }
+  
+  
+
+     
+
+

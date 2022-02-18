@@ -198,17 +198,9 @@
       </div>
 
 
-      <div class="form-group mb-3">
-        <label for="password" class="form-label">Password :</label>
-        <input type="password" class="form-control" formControlName="password" name="password" required id="password"
-          [class.is-invalid]="isInValidAndTouched('password')" [class.is-valid]="isValidControl('password')">
-        <div *ngIf="isInValidAndTouched('password')">
-          <small class="form-text text-danger" *ngIf="isControlHasError('password','required')">password is required
-          </small>
-        </div>
-      </div>
 
-      <button type="submit" class="btn btn-danger">Add Admin </button>
+
+      <button type="submit" class="btn btn-danger"  (click)="add()">Add Admin </button>
     </form>
   </div>
 

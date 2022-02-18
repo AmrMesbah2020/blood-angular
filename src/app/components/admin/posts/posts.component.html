@@ -347,8 +347,8 @@
                   <th scope="col">Name</th>
                   <th scope="col">title</th>
                   <th scope="col">state</th>
-                  <th scope="col  ms-3">Actions</th>
-                  <th></th>
+                  <th scope="col  ms-3">Publish</th>
+                  <th cope="col  ms-3"> Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -363,11 +363,13 @@
                   <td>
                     {{post.title}}
                   </td>
-
                   <td>
-                    <span class="badge badge-lg badge-dot">
-                      <i class="bg-success"></i> {{post.access}}
-                    </span>
+                    {{post.access}}
+                  </td>
+                  <td>
+                    <a class="btn-sm btn-neutral badge-dot btn" (click)="puplish(post.id)">
+                      <i class="bg-success"></i> publish
+                    </a>
                   </td>
                   <td class="text-end">
                     <a href="#" class="btn btn-sm btn-neutral" > {{post.content}} </a>
