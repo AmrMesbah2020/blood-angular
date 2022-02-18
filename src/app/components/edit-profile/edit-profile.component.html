@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>requests</title>
+  <title>edit-profile</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./edit-profile.component.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,249 +14,179 @@
     integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
 </head>
 <body>
-    <h3 class="text-center text-uppercase " style="color:rgb(240, 84, 84) ;">
+  <h4 class="text-center text-uppercase " style="color:rgb(240, 84, 84) ; margin-left: 10px; margin-bottom: 10px;">
     Edit your profile
-  </h3>
+  </h4>
   <div class="container" [formGroup]="editProfile">
     <div class="row gutters">
       <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
         <div class="card h-100">
           <div class="card-body">
-            <div class="account-settings">
-              <div class="user-profile">
-                <div class="user-avatar">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=" Admin"
-                    style="width: 100%; height: 100%;">
-                </div>
-                <br><br>
-                <div class="form-group">
-                  <label for="img">Upload a different photo. <br>Allowed JPG, GIF or PNG</label><br><br>
-                  <div class="col-sm-8 img-upload-section">
-                    <input formControlName="img" type="file" accept="image/*" />
-                    <img id="menu_image" class="preview_img" />
-                  </div>
-
+            <div class="user-profile">
+              <div class="user-avatar">
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=" Admin"
+                  style="width: 100%; height: 100%;">
+              </div>
+              <br><br>
+              <div class="form-group">
+                <label for="img">Upload a different photo. <br>Allowed JPG, GIF or PNG</label><br><br>
+                <div class="col-sm-8 img-upload-section">
+                  <input formControlName="img" type="file" accept="image/*" />
+                  <img id="menu_image" class="preview_img" />
                 </div>
 
               </div>
+
             </div>
           </div>
         </div>
       </div>
-      <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+      <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12 form-group row">
         <div class="card h-100">
-          <div class="card-body">
+          <div class="card-body" style="margin-left: 20px;">
             <div class="row gutters">
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <h6 class="mb-2 " style="color:rgb(240, 84, 84) ;">Personal Details</h6>
-              </div>
-              <br>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="form-group">
-                  <label for="firstName">First Name</label>
-                  <br>
-                  <input type="text" class="form-control" formControlName="firstName" value="{{name[0]}}" [class.is-valid]="isValid('firstName')"
-                  required placeholder="Enter first name">
-                </div>
-                <div
-                *ngIf="editProfile.controls['firstName'].errors && (editProfile.controls['firstName'].touched)">
-                <small class="form-text text-danger "
-                  *ngIf="editProfile.controls['firstName'].errors && editProfile.controls['firstName'].errors ['required']">First
-                  name
-                  is
-                  requierd</small>
-                <small class="form-text text-danger "
-                  *ngIf="editProfile.controls['firstName'].errors['minlength'] ">
-                  minimum
-                  length is 3 </small>
-                <small class="form-text text-danger "
-                  *ngIf="editProfile.controls['firstName'].errors['maxlength']">
-                  maximum length
-                  is 30</small>
-                  <small class="form-text text-danger "
-                  *ngIf="editProfile.controls['firstName'].errors['pattern']">
-                  only letters
-                  </small>
-              </div>
-                <br>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="form-group">
-                  <label for="">Last Name </label>
-                  <input type="text" class="form-control" placeholder="Enter last name" value="{{name[1]}}" formControlName="lastName" [class.is-valid]="isValid('lastName')"
-                  required>
-                </div>
-                <div
-                *ngIf="editProfile.controls['lastName'].errors && (editProfile.controls['lastName'].touched)">
-                <small class="form-text text-danger "
-                  *ngIf="editProfile.controls['lastName'].errors && editProfile.controls['lastName'].errors ['required']">Last
-                  name
-                  is
-                  requierd</small>
-                <small class="form-text text-danger "
-                  *ngIf="editProfile.controls['lastName'].errors['minlength'] ">
-                  minimum
-                  length is 3 </small>
-                <small class="form-text text-danger "
-                  *ngIf="editProfile.controls['lastName'].errors['maxlength']">
-                  maximum length
-                  is 30</small>
-                  <small class="form-text text-danger "
-                  *ngIf="editProfile.controls['lastName'].errors['pattern']">
-                  only letters
-                  </small>
-              </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="form-group">
-                  <label for="phone">Phone</label>
-                  <input type="text" class="form-control" placeholder="Enter phone number" value="{{userInfo.phone}}"  formControlName="phone" [class.is-valid]="isValid('phone')"
-                  required>
-                </div>
-                <div *ngIf="editProfile.controls['phone'].errors && (editProfile.controls['phone'].touched)">
-                  <small class="form-text text-danger "
-                    *ngIf="editProfile.controls['phone'].errors && editProfile.controls['phone'].errors ['required']">
-                    phone
-                    is
-                    requierd</small>
-                  <small class="form-text text-danger" *ngIf="editProfile.controls['phone'].errors['minlength'] ">
-                    minimum
-                    length is 11 </small><br>
-                  <small class="form-text text-danger " *ngIf="editProfile.controls['phone'].errors['maxlength']">
-                    maximum length
-                    is 15</small>
-                  <small class="form-text text-danger " *ngIf="editProfile.controls['phone'].errors['pattern']">
-                    phone number should be started with 010 or 011 or 012 or 015</small>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="firstName" class="control-label col-sm-2">First Name</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" formControlName="firstName"
+                    [class.is-valid]="isValid('firstName')" required placeholder="Enter first name">
+                  <div *ngIf="editProfile.controls['firstName'].errors && (editProfile.controls['firstName'].touched)">
+                    <small class="form-text text-danger "
+                      *ngIf="editProfile.controls['firstName'].errors && editProfile.controls['firstName'].errors ['required']">First
+                      name
+                      is
+                      requierd</small>
+                    <small class="form-text text-danger "
+                      *ngIf="editProfile.controls['firstName'].errors['minlength'] ">
+                      minimum
+                      length is 3 </small>
+                    <small class="form-text text-danger " *ngIf="editProfile.controls['firstName'].errors['maxlength']">
+                      maximum length
+                      is 30</small>
+                    <small class="form-text text-danger " *ngIf="editProfile.controls['firstName'].errors['pattern']">
+                      only letters
+                    </small>
+                  </div>
                 </div>
               </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="form-group">
-                  <label for="website"> Email </label>
-                  <input type="url" class="form-control" placeholder="Enter email" value="{{userInfo.email}}"  formControlName="email" [class.is-valid]="isValid('email')"
-                  required>
+                <div class="form-group row" style="margin-top: 10px;">
+                  <label for="lastName" class="control-label col-sm-2">Last Name </label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" placeholder="Enter last name" formControlName="lastName"
+                    [class.is-valid]="isValid('lastName')" required>
+                    <div *ngIf="editProfile.controls['lastName'].errors && (editProfile.controls['lastName'].touched)">
+                      <small class="form-text text-danger "
+                        *ngIf="editProfile.controls['lastName'].errors && editProfile.controls['lastName'].errors ['required']">Last
+                        name
+                        is
+                        requierd</small>
+                      <small class="form-text text-danger " *ngIf="editProfile.controls['lastName'].errors['minlength'] ">
+                        minimum
+                        length is 3 </small>
+                      <small class="form-text text-danger " *ngIf="editProfile.controls['lastName'].errors['maxlength']">
+                        maximum length
+                        is 30</small>
+                      <small class="form-text text-danger " *ngIf="editProfile.controls['lastName'].errors['pattern']">
+                        only letters
+                      </small>
+                    </div>
                 </div>
-                <div *ngIf="editProfile.controls['email'].errors && (editProfile.controls['email'].touched)">
-                  <small class="form-text text-danger "
-                    *ngIf="editProfile.controls['email'].errors && editProfile.controls['email'].errors ['required']">email
-                    is
-                    requierd</small>
-                  <small class="form-text text-danger " *ngIf="editProfile.controls['email'].errors['minlength'] ">
-                    minimum
-                    length is 7 </small>
-                  <small class="form-text text-danger " *ngIf="editProfile.controls['email'].errors['pattern']">
-                    email should be
-                    containe @ </small>
-                  <small class="form-text text-danger " *ngIf="editProfile.controls['email'].errors['maxlength']">
-                    maximum length
-                    is 40</small>
-                </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="form-group">
-                  <label for="website"> Weight </label>
-                  <input type="number" class="form-control" placeholder="Enter weight" value="{{userInfo.wieght}}"  formControlName="weight" [class.is-valid]="isValid('weight')"
-                  required>
-                </div>
-                <div *ngIf="editProfile.controls['weight'].errors && (editProfile.controls['weight'].touched)">
-                  <small class="form-text text-danger "
-                    *ngIf="editProfile.controls['weight'].errors && editProfile.controls['weight'].errors ['required']">
-                    weight
-                    is
-                    requierd</small>
-                  <small class="form-text text-danger "
-                    *ngIf="editProfile.controls['weight'].errors['minlength'] ">
-                    minimum
-                    length is 1 </small>
-                  <small class="form-text text-danger " *ngIf="editProfile.controls['weight'].errors['maxlength']">
-                    maximum length
-                    is 3</small>
-                  <small class="form-text text-danger " *ngIf="editProfile.controls['weight'].errors['pattern'] ">
-                    only numbers</small>
-
-                </div>
-              </div>
-            </div>
-            <div class="row gutters">
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <h5 class="mt-3 mb-2" style="color:rgb(240, 84, 84) ;">Address</h5>
-              </div>
-              <br>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="form-group">
-                  <label for="Street">Street</label>
-                  <input type="name" class="form-control" placeholder="Enter Street"  formControlName="street" [class.is-valid]="isValid('street')"
-                  required>
-                </div>
-                <div *ngIf="editProfile.controls['street'].errors && (editProfile.controls['street'].touched)">
-                  <small class="form-text text-danger"
-                    *ngIf="editProfile.controls['street'].errors && editProfile.controls['street'].errors ['required']">
-                    street
-                    is
-                    requierd</small>
-                  <small class="form-text text-danger "
-                    *ngIf="editProfile.controls['street'].errors['minlength'] ">
-                    minimum
-                    length is 4 </small>
-                  <small class="form-text text-danger " *ngIf="editProfile.controls['street'].errors['maxlength']">
-                    maximum length
-                    is 50</small>
-                  <small class="form-text text-danger " *ngIf="editProfile.controls['street'].errors['pattern']">
-                    only letters </small>
-                </div>
-                <br>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="form-group">
-                  <label for="ciTy">City</label>
-                  <input type="name" class="form-control" placeholder="Enter City"  formControlName="city" [class.is-valid]="isValid('city')"
-                  required>
-                </div>
-                <div *ngIf="editProfile.controls['city'].errors && (editProfile.controls['city'].touched)">
-                  <small class="form-text text-danger "
-                    *ngIf="editProfile.controls['city'].errors && editProfile.controls['city'].errors ['required']">
-                    city
-                    is
-                    requierd</small>
-                  <small class="form-text text-danger "
-                    *ngIf="editProfile.controls['city'].errors['minlength'] ">
-                    minimum
-                    length is 20 </small>
-                  <small class="form-text text-danger "
-                    *ngIf="editProfile.controls['city'].errors['maxlength']">
-                    maximum length
-                    is 50</small>
-                    <small class="form-text text-danger " *ngIf="editProfile.controls['city'].errors['pattern']">
-                      only letters </small>
-                </div>
-                <br>
-              </div>
-              <br>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="form-group">
-                  <label for="sTate">State</label>
-                  <input type="text" class="form-control" placeholder="Enter State"  formControlName="state" [class.is-valid]="isValid('state')"
-                  required>
-                </div>
-                <div
-                *ngIf="editProfile.controls['state'].errors && (editProfile.controls['state'].touched) ">
-                <small class="form-text text-danger "
-                  *ngIf="editProfile.controls['state'].errors && editProfile.controls['state'].errors ['required']">
-                  state
-                  is
-                  requierd</small>
-                <small class="form-text text-danger "
-                  *ngIf="editProfile.controls['state'].errors['minlength'] ">
-                  minimum
-                  length is 20 </small>
-                <small class="form-text text-danger "
-                  *ngIf="editProfile.controls['state'].errors['maxlength']">
-                  maximum length
-                  is 50</small>
-                  <small class="form-text text-danger " *ngIf="editProfile.controls['state'].errors['pattern']">
-                    only letters </small>
 
               </div>
-                <br>
+
+              </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                  <label for="phone" class="control-label col-sm-2">Phone</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" placeholder="Enter phone number" formControlName="phone"
+                    [class.is-valid]="isValid('phone')" required>
+                    <div *ngIf="editProfile.controls['phone'].errors && (editProfile.controls['phone'].touched)">
+                      <small class="form-text text-danger "
+                        *ngIf="editProfile.controls['phone'].errors && editProfile.controls['phone'].errors ['required']">
+                        Phone
+                        is
+                        requierd</small>
+                      <small class="form-text text-danger" *ngIf="editProfile.controls['phone'].errors['minlength'] ">
+                        minimum
+                        length is 11 </small><br>
+                      <small class="form-text text-danger " *ngIf="editProfile.controls['phone'].errors['maxlength']">
+                        maximum length
+                        is 15</small>
+                      <small class="form-text text-danger " *ngIf="editProfile.controls['phone'].errors['pattern']">
+                        phone number should be started with 010 or 011 or 012 or 015</small>
+                    </div>
+                </div>
+
+              </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                  <label for="email" class="control-label col-sm-2"> Email </label>
+                <div class="col-sm-7">
+                  <input type="email" class="form-control" placeholder="Enter email" formControlName="email"
+                    [class.is-valid]="isValid('email')" required>
+                    <div *ngIf="editProfile.controls['email'].errors && (editProfile.controls['email'].touched)">
+                      <small class="form-text text-danger "
+                        *ngIf="editProfile.controls['email'].errors && editProfile.controls['email'].errors ['required']">Email
+                        is
+                        requierd</small>
+                      <small class="form-text text-danger " *ngIf="editProfile.controls['email'].errors['minlength'] ">
+                        minimum
+                        length is 7 </small>
+                      <small class="form-text text-danger " *ngIf="editProfile.controls['email'].errors['pattern']">
+                        email should be
+                        containe @ </small>
+                      <small class="form-text text-danger " *ngIf="editProfile.controls['email'].errors['maxlength']">
+                        maximum length
+                        is 40</small>
+                    </div>
+                </div>
+
+              </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                  <label for="weight" class="control-label col-sm-2"> Weight </label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" placeholder="Enter weight" formControlName="weight"
+                    [class.is-valid]="isValid('weight')" required>
+                    <div *ngIf="editProfile.controls['weight'].errors && (editProfile.controls['weight'].touched)">
+                      <small class="form-text text-danger "
+                        *ngIf="editProfile.controls['weight'].errors && editProfile.controls['weight'].errors ['required']">
+                        weight
+                        is
+                        requierd</small>
+                      <small class="form-text text-danger " *ngIf="editProfile.controls['weight'].errors['minlength'] ">
+                        minimum
+                        length is 1 </small>
+                      <small class="form-text text-danger " *ngIf="editProfile.controls['weight'].errors['maxlength']">
+                        maximum length
+                        is 3</small>
+                      <small class="form-text text-danger " *ngIf="editProfile.controls['weight'].errors['pattern'] ">
+                        only numbers</small>
+
+                    </div>
+                </div>
+
+              </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="address" class="control-label col-sm-2"> Address </label>
+              <div class="col-sm-7">
+                <textarea type="text" class="form-control" placeholder="Enter address" formControlName="address"
+                  [class.is-valid]="isValid('address')" required style="resize: vertical;"></textarea>
+                  <div *ngIf="editProfile.controls['address'].errors && (editProfile.controls['address'].touched)">
+                    <small class="form-text text-danger "
+                      *ngIf="editProfile.controls['address'].errors && editProfile.controls['address'].errors ['required']">
+                      Address
+                      is
+                      requierd</small>
+                    <small class="form-text text-danger "
+                      *ngIf="editProfile.controls['address'].errors['minlength'] ">
+                      minimum
+                      length is 20 </small>
+                    <small class="form-text text-danger "
+                      *ngIf="editProfile.controls['address'].errors['maxlength']">
+                      maximum length
+                      is 50</small>
+                      <small class="form-text text-danger " *ngIf="editProfile.controls['address'].errors['pattern']">
+                        only letters </small>
+                  </div>
               </div>
 
               <div class="container">
@@ -267,16 +197,17 @@
                   </div>
                 </div>
               </div>
-              <br>
             </div>
+            <br>
           </div>
         </div>
-
       </div>
 
     </div>
 
   </div>
+
+
 
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

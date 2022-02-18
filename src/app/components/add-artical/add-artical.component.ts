@@ -16,21 +16,21 @@ export class AddArticalComponent implements OnInit  {
   }
   ngOnInit(): void {
     this.addArtical=this._formBuilder.group({
-  title:["",[Validators.required,Validators.minLength(6),Validators.maxLength(50),Validators.pattern('^[a-zA-Z \-\']+')]],
-  resources:["",[Validators.required,Validators.minLength(6),Validators.maxLength(50),Validators.pattern('^[a-zA-Z \-\']+')]],
+  title:["",[Validators.required,Validators.minLength(6),Validators.maxLength(50),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
+  resources:["",[Validators.required,Validators.minLength(6),Validators.maxLength(100)]],
   content:["",[Validators.required,Validators.minLength(50),Validators.maxLength(500)]],
   img:["",[Validators.required,]],
-  
-  
+
+
     });
   }
-  
+
   login():void{
-  
+
   }
   isValid(name:string):boolean{
     return this.addArtical.controls[name].valid;
-  
+
   }
   isValidControl(name:string):boolean{
     return this.addArtical.controls[name].valid;
@@ -40,4 +40,3 @@ export class AddArticalComponent implements OnInit  {
   //   return this.addArtical.controls[name].errors? && (this.addArtical.controls[name].touched) && (this.addArtical.controls[name].dirty);
   // }
   }
-   
