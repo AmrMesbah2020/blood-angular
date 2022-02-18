@@ -33,18 +33,19 @@
                   <form [formGroup]="loginForm">
 
                     <div class="form-outline mb-4">
-                      <label class="form-label" for="form2Example11">Email</label>
-                      <input type="email" class="form-control" placeholder="email address" formControlName="email" required />
+                      <label class="form-label" for="email">Email</label>
+                      <input type="email" class="form-control" placeholder="email address" formControlName="email"
+                        required />
                       <div *ngIf="loginForm.controls['email'].errors && (loginForm.controls['email'].touched)">
                         <small class="form-text text-danger "
-                          *ngIf="loginForm.controls['email'].errors && loginForm.controls['email'].errors ['required']">email
+                          *ngIf="loginForm.controls['email'].errors && loginForm.controls['email'].errors ['required']">Email
                           is
                           requierd</small>
                         <small class="form-text text-danger " *ngIf="loginForm.controls['email'].errors['minlength'] ">
                           minimum
                           length is 7 </small>
                         <small class="form-text text-danger " *ngIf="loginForm.controls['email'].errors['pattern']">
-                          email should be
+                          Email should be
                           containe @ </small>
                         <small class="form-text text-danger " *ngIf="loginForm.controls['email'].errors['maxlength']">
                           maximum length
@@ -54,11 +55,12 @@
 
 
                     <div class="form-outline mb-4">
-                      <label class="form-label" for="form2Example22">Password</label>
-                      <input type="password" class="form-control" formControlName="password" placeholder="password" required/>
+                      <label class="form-label" for="password">Password</label>
+                      <input type="password" class="form-control" formControlName="password" placeholder="password"
+                        required />
                       <div *ngIf="loginForm.controls['password'].errors && (loginForm.controls['password'].touched)">
                         <small class="form-text text-danger "
-                          *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].errors ['required']">password
+                          *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].errors ['required']">Password
                           is
                           requierd</small>
                         <small class="form-text text-danger "
@@ -74,21 +76,13 @@
                           is 20</small>
                       </div>
                     </div>
-
-
-                    <!-- </div> -->
                     <div class="pt-1 mb-4">
                       <button [disabled]="loginForm.invalid"
                         class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit"
                         (click)="login()">Log in</button>
                     </div>
-
-                    <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
                     <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a routerLink="/register"
                         style="color: #393f81;">Register here</a></p>
-                    <!-- <a href="#!" class="small text-muted">Terms of use.</a> -->
-                    <!-- <a href="#!" class="small text-muted">Privacy policy</a> -->
-
                   </form>
 
                 </div>
