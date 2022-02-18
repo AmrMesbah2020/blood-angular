@@ -20,7 +20,9 @@ export class PostsComponent implements OnInit {
   posts:Post[]=[];
   //rate:number=0;
   topRatePost:Post[]=[];
-  imageSrc:string="";
+   liked_posts:number[]=[];
+
+
 
   user=new User;
   token:any=localStorage.getItem('Token');
@@ -35,7 +37,7 @@ export class PostsComponent implements OnInit {
     if(localStorage.getItem('Token')==null){
       this.router.navigate(['/login']);
   }
-
+    console.log(this.liked_posts)
     // get the user
     this._httpClient.get("http://localhost:8000/api/user",
     { headers: this.headers }).subscribe(
@@ -90,7 +92,7 @@ export class PostsComponent implements OnInit {
 
   }
 
-
+  //add post
   addPost():void{
     let post=new Post();
     post.title=this.formPost.value.title;
@@ -129,21 +131,27 @@ export class PostsComponent implements OnInit {
   }
 
 
-  //like function
-  like:boolean=false;
+  //post like function
+
    postLike(rate:number,id:number):void {
-    this.like= !this.like;
-     if(this.like==true){
-       rate++;
+    let postid=id;
+     if(this.liked_posts.includes(postid)){
+       rate--;
+       let index = this.liked_posts.findIndex(x => x== postid);
+        this.liked_posts.splice(index, 1);
+        console.log(this.liked_posts);
+
 
      }
      else{
-      rate--;
+      rate++;
+      this.liked_posts.push(postid);
+      console.log(this.liked_posts);
      }
 
      console.log(rate)
 
-    let postid=id;
+
      console.log(postid)
      this._httpClient.post(`http://localhost:8000/api/rate/`+postid,rate,
      { headers: this.headers }).subscribe(
@@ -155,7 +163,9 @@ export class PostsComponent implements OnInit {
         console.log(error);
       }
    )
-
   }
+
+
+
 
 }
