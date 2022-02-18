@@ -5,18 +5,18 @@
             <div class="card-body gray_background border">
                 <div class="" >
                     <img class="rounded-circle" width="12%" src="../assets/img/avatar.png" alt="profile picture" style="">
-                    <a class="link_decoration pink_text" href="#"> mariam raslan</a> 
+                    <a class="link_decoration pink_text" href="#"> mariam raslan</a>
                 </div>
-                <div class="post" [formGroup]="formPost">
-                    <input type="text" placeholder="Title" class="form-control mt-3" 
-                     required formControlName="title" 
+                <form class="post" [formGroup]="formPost" accept=".png, .jpg, .jpeg, .svg" enctype="multipart/form-data">
+                    <input type="text" placeholder="Title" class="form-control mt-3"
+                     required formControlName="title"
                      [class.is-invalid]="isInValidAndTouched('title')"
                      [class.is-valid]="isValidControl('title')">
                      <div *ngIf="isInValidAndTouched('title')">
                         <small class="form-text text-danger" *ngIf="isControlHasError('title','required')">Title is required </small>
                     </div>
                     <textarea class="form-control mt-3" placeholder="content" rows="4"
-                    required formControlName="content" 
+                    required formControlName="content"
                     [class.is-invalid]="isInValidAndTouched('content')"
                     [class.is-valid]="isValidControl('content')"></textarea>
                     <div *ngIf="isInValidAndTouched('content')">
@@ -28,7 +28,7 @@
                     <div class="">
                         <button (click)="addPost()" class="btn btn-primary mt-3">Post</button>
                     </div>
-                </div>
+                  </form>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
 <p class="h3 pink_text text-center mt-3 mb-4">Top Rated Post</p>
 <div class="row d-flex justify-content-center "*ngFor="let item of topRatePost">
     <div class="row border p-5 mt-3 gray_background " style="width: 65%;">
-        
+
         <div class="col-lg-6 d-flex justify-content-center">
             <img class="w-100" src="{{item.image}}" alt=""></div>
         <div class="col-lg-6">
@@ -51,20 +51,20 @@
                          <li class="list_type_none ms-3"> {{item.owner.name}}</li>
                          <li class="list_type_none ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">03 Dec 2020</span></li>
                      </ul>
-                     
+
                 </div>
                 <p class="mt-3 h6">{{item.title}}</p>
-                <p class=" mt-3"> {{item.content}}</p> 
-               
+                <p class=" mt-3"> {{item.content}}</p>
+
                 <div class=" mt-3">
               <a class="btn"  [ngStyle]="{'color':like==false?'gray':'red'}"><i class="fa fa-heart"></i> </a><span class="ms-2">{{item.rate}} liks</span>
 
-                </div>    
-              
-              
+                </div>
+
+
                    </div>
         </div>
-      
+
     </div>
 </div>
 <hr class="btmspace-80 m-5 ">
@@ -82,21 +82,21 @@
                   <li class="list_type_none ms-3"> {{item.owner.name}}</li>
                   <li class="list_type_none ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">03 Dec 2020</span></li>
               </ul>
-              
+
          </div>
          <p class="mt-3 h6">{{item.title}}</p>
-         <p class=" mt-3"> {{item.content}}</p> 
-         <img class="w-100 mt-3" src="{{item.image}}" alt="">  
+         <p class=" mt-3"> {{item.content}}</p>
+         <img class="w-100 mt-3" src="{{item.image}}" alt="">
          <div class=" mt-3">
-            <a class="btn" (click)="postLike(item.rate,item.id)" [ngClass]="{'liked':like}"><i class="fa fa-heart"></i> </a><span class="ms-2">{{item.rate}} liks</span>    
+            <a class="btn" (click)="postLike(item.rate,item.id)" [ngClass]="{'liked':like}"><i class="fa fa-heart"></i> </a><span class="ms-2">{{item.rate}} liks</span>
 
-         </div>   
- 
-       
-       
+         </div>
+
+
+
             </div>
-            
-     
+
+
         </div>
 
     </div>
