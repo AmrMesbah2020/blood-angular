@@ -23,5 +23,10 @@ export class PostService {
      return this._apiService.post(`post`,post)
       
     }
+    delete(id:Number){
+      return this._apiService.post(`post`,`/${id}`)
 
+    }
+    
+    
 }
