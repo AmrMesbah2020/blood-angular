@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { Component, OnInit } from '@angular/core';
 
@@ -20,9 +21,13 @@ export class MakeRequestsComponent implements OnInit {
   user=new User;
   token:any=localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
-  constructor(private _formBuilder: FormBuilder,private _httpClient:HttpClient){}
+  constructor(private _formBuilder: FormBuilder,private _httpClient:HttpClient,private router:Router){}
 
   ngOnInit(): void {
+
+    if(localStorage.getItem('Token')==null){
+      this.router.navigate(['/login']);
+  }
 
     this._httpClient.get("http://localhost:8000/api/user", { headers: this.headers }).subscribe(
 
