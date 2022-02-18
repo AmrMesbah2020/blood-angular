@@ -45,7 +45,7 @@ this.editProfile=this. _formBuilder.group({
   phone:[``,[Validators.required,Validators.pattern("^01[0-2,5]{1}[0-9]{8}$"),Validators.maxLength(15),Validators.minLength(11)]],
   email:['',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"),Validators.minLength(7),Validators.maxLength(40)]],
   weight:["",[Validators.required,Validators.maxLength(3),Validators.minLength(1),Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-  address:["",[Validators.required,Validators.minLength(20),Validators.maxLength(50),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*') ]],
+  address:["",[Validators.required,Validators.minLength(20),Validators.maxLength(150),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*') ]],
 
 
 
