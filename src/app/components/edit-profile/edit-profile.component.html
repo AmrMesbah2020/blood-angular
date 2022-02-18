@@ -55,7 +55,7 @@
                 <div class="form-group">
                   <label for="firstName">First Name</label>
                   <br>
-                  <input type="text" class="form-control" formControlName="firstName" [class.is-valid]="isValid('firstName')"
+                  <input type="text" class="form-control" formControlName="firstName" value="{{name[0]}}" [class.is-valid]="isValid('firstName')"
                   required placeholder="Enter first name">
                 </div>
                 <div
@@ -82,8 +82,8 @@
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
-                  <label for="eMail">Last Name </label>
-                  <input type="email" class="form-control" placeholder="Enter last name" formControlName="lastName" [class.is-valid]="isValid('lastName')"
+                  <label for="">Last Name </label>
+                  <input type="text" class="form-control" placeholder="Enter last name" value="{{name[1]}}" formControlName="lastName" [class.is-valid]="isValid('lastName')"
                   required>
                 </div>
                 <div
@@ -110,7 +110,7 @@
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
                   <label for="phone">Phone</label>
-                  <input type="text" class="form-control" placeholder="Enter phone number"  formControlName="phone" [class.is-valid]="isValid('phone')"
+                  <input type="text" class="form-control" placeholder="Enter phone number" value="{{userInfo.phone}}"  formControlName="phone" [class.is-valid]="isValid('phone')"
                   required>
                 </div>
                 <div *ngIf="editProfile.controls['phone'].errors && (editProfile.controls['phone'].touched)">
@@ -132,7 +132,7 @@
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
                   <label for="website"> Email </label>
-                  <input type="url" class="form-control" placeholder="Enter email"  formControlName="email" [class.is-valid]="isValid('email')"
+                  <input type="url" class="form-control" placeholder="Enter email" value="{{userInfo.email}}"  formControlName="email" [class.is-valid]="isValid('email')"
                   required>
                 </div>
                 <div *ngIf="editProfile.controls['email'].errors && (editProfile.controls['email'].touched)">
@@ -154,7 +154,7 @@
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
                   <label for="website"> Weight </label>
-                  <input type="url" class="form-control" placeholder="Enter weight"  formControlName="weight" [class.is-valid]="isValid('weight')"
+                  <input type="number" class="form-control" placeholder="Enter weight" value="{{userInfo.wieght}}"  formControlName="weight" [class.is-valid]="isValid('weight')"
                   required>
                 </div>
                 <div *ngIf="editProfile.controls['weight'].errors && (editProfile.controls['weight'].touched)">
@@ -263,7 +263,7 @@
                 <div class="row">
                   <div class="col-md-12 bg-light text-right ">
                     <button type="button" class="btn btn-dark" style="margin-right: 5px;">Cancel</button>
-                    <button type="button" class="btn btn-success" [disabled]="editProfile.invalid">Save</button>
+                    <button type="button" class="btn btn-success" (click)="update()" [disabled]="editProfile.invalid">Save</button>
                   </div>
                 </div>
               </div>

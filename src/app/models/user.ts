@@ -11,7 +11,7 @@ export class User {
   city:string="";
   state:string="";
   birthdate:Date=new Date(10);
-  weight:number=0;
+  wieght:number=0;
   avatar:string="";
   address:string="";
   age:number=0;

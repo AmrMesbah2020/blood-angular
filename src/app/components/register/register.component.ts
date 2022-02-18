@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
       user.birthdate=this.registerForm.value.birthdate
       user.email=this.registerForm.value.email
       user.phone=this.registerForm.value.phone
-      user.weight=this.registerForm.value.weight;
+      user.wieght=this.registerForm.value.weight;
       user.street=this.registerForm.value.street
       user.city=this.registerForm.value.city
       user.state=this.registerForm.value.state
