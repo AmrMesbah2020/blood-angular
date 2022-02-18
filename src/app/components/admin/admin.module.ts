@@ -8,6 +8,8 @@ import { RequestsComponent } from './requests/requests.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddAdminComponent } from './add-admin/add-admin.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 const routes: Routes = [
   {
@@ -41,7 +43,10 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    
+    
 
   ]
 })

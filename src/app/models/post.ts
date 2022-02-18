@@ -7,6 +7,8 @@ export class Post{
     image:string='';
     owner=new User;
     rate:number=0;
+    access:number=0;
+    name:string='';
     
 
 }
