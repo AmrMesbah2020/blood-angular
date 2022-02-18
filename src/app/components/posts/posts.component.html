@@ -8,7 +8,7 @@
                     <img class="rounded-circle" width="12%" src="{{user.avatar}}" alt="profile picture" style="">
                     <a class="link_decoration pink_text" href="#"> {{user.name}}</a> 
                 </div>
-                <div class="post" [formGroup]="formPost">
+                <form class="post" [formGroup]="formPost" >
                     <input type="text" placeholder="Title" class="form-control mt-3" 
                      required formControlName="title" 
                      [class.is-invalid]="isInValidAndTouched('title')"
@@ -25,11 +25,11 @@
                     </div>
 
 
-                    <input type="file" class="form-cotrol mt-3" formControlName="img">
+                    <input type="file" class="form-cotrol mt-3" (change)="onfile($event)" >
                     <div class="">
-                        <button (click)="addPost()" class="btn btn-primary mt-3">Post</button>
+                        <button  (click)="addPost()" class="btn btn-primary mt-3">Post</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -58,10 +58,10 @@
                 <p class="mt-3 h6">{{item.title}}</p>
                 <p class=" mt-3"> {{item.content}}</p> 
                
-                <div class=" mt-3">
-                    <span class="ms-2">{{item.rate}} liks</span>
-                    <a class="btn text-danger"  (click)="postLike(item.rate,item.id)"  *ngIf="liked_posts.includes(item.id)"><i class="fa fa-heart"></i> </a>
-                    <a class="btn " (click)="postLike(item.rate,item.id)" *ngIf="!liked_posts.includes(item.id)"><i class="fa fa-heart"></i> </a>
+                <div class=" mt-3" >
+                    
+                    <a class="btn text-danger border border-danger"  (click)="postLike(item.rate,item.id)"  *ngIf="liked_posts.includes(item.id)"><i class="fa fa-heart"></i> </a>
+                    <a class="btn text-secondary border border-secondary" (click)="postLike(item.rate,item.id)" *ngIf="!liked_posts.includes(item.id)"><i class="fa fa-heart"></i> </a><span class="ms-2">{{item.rate}} likes</span>
                 </div>    
               
             </div>
@@ -95,10 +95,10 @@
          <div class="mt-3 h6 card-title">{{item.title}}</div>
          <div class=" mt-3 card-body"> {{item.content}}</div> 
          <img class="w-100 mt-3" src="{{item.image}}" alt="">  
-         <div class=" mt-3">
-            <span class="ms-2">{{item.rate}} liks</span>
-            <a class="btn text-danger"  (click)="postLike(item.rate,item.id)"  *ngIf="liked_posts.includes(item.id)"><i class="fa fa-heart"></i> </a>
-            <a class="btn " (click)="postLike(item.rate,item.id)" *ngIf="!liked_posts.includes(item.id)"><i class="fa fa-heart"></i> </a>
+         <div class=" mt-3 mb-3">
+            
+            <a class="btn text-danger border border-danger"  (click)="postLike(item.rate,item.id)"  *ngIf="liked_posts.includes(item.id)"><i class="fa fa-heart"></i> </a>
+            <a class="btn text-secondary border border-secondary" (click)="postLike(item.rate,item.id)" *ngIf="!liked_posts.includes(item.id)"><i class="fa fa-heart"></i> </a><span class="ms-2">{{item.rate}} likes</span>
 
          </div>   
  
