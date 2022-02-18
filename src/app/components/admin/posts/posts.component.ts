@@ -10,7 +10,7 @@ import { Post } from '../../../models/post';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-
+ 
   posts: Post[] = [];
   token: any = localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);

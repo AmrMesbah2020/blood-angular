@@ -28,13 +28,13 @@
                     <div class="form-group row">
                       <div class="col-md-6 mb-4 pb-2">
                         <div class="form-outline">
-                          <label class="form-label" for="form3Examplev2" id="firstname">First name</label>
+                          <label class="form-label" for="firstname" id="firstname">First name</label>
                           <input type="text" formControlName="firstName" [class.is-valid]="isValid('firstName')"
                             required class="form-control form-control-lg" />
                           <div
                             *ngIf="registerForm.controls['firstName'].errors && (registerForm.controls['firstName'].touched)">
                             <small class="form-text text-dark "
-                              *ngIf="registerForm.controls['firstName'].errors && registerForm.controls['firstName'].errors ['required']">first
+                              *ngIf="registerForm.controls['firstName'].errors && registerForm.controls['firstName'].errors ['required']">First
                               name
                               is
                               requierd</small>
@@ -46,16 +46,16 @@
                               *ngIf="registerForm.controls['firstName'].errors['maxlength']">
                               maximum length
                               is 30</small>
-                              <small class="form-text text-dark "
+                            <small class="form-text text-dark "
                               *ngIf="registerForm.controls['firstName'].errors['pattern']">
                               only letters
-                              </small>
+                            </small>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-6 mb-4 pb-2">
                         <div class="form-outline">
-                          <label class="form-label" for="form3Examplev3" id="lastname">Last name</label>
+                          <label class="form-label" for="lastname" id="lastname">Last name</label>
                           <input formControlName="lastName" [class.is-valid]="isValid('lastName')" type="text" required
                             class="form-control form-control-lg" />
                           <div
@@ -73,16 +73,16 @@
                               *ngIf="registerForm.controls['lastName'].errors['maxlength']">
                               maximum length
                               is 30</small>
-                              <small class="form-text text-dark "
+                            <small class="form-text text-dark "
                               *ngIf="registerForm.controls['lastName'].errors['pattern']">
                               only letters
-                              </small>
+                            </small>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="form-outline mb-4">
-                      <label class="form-label" for="form2Example22" id="date">Date of Birth</label>
+                      <label class="form-label" for="date" id="date">Date of Birth</label>
                       <input type="date" formControlName="birthdate" [class.is-valid]="isValid('birthdate')" required
                         class="form-control" />
                       <div
@@ -95,7 +95,7 @@
                       </div>
                     </div>
                     <div class="form-outline mb-4">
-                      <label class="form-label" for="form2Example22" id="gender">Gender</label>
+                      <label class="form-label" for="gender" id="gender">Gender</label>
                       <select formControlName="gender" [class.is-valid]="isValid('gender')" class="select"
                         style="margin-left: 80px; padding-right: 95px;">
                         <option disabled selected value>Gender</option>
@@ -111,7 +111,7 @@
                       </div>
                     </div>
                     <div class="form-outline mb-4">
-                      <label class="form-label" for="form2Example22" id="password">Password</label>
+                      <label class="form-label" for="password" id="password">Password</label>
                       <input type="password" formControlName="password" [class.is-valid]="isValid('password')" required
                         class="form-control" />
                       <div
@@ -134,8 +134,8 @@
                       </div>
                     </div>
                     <div class="form-outline mb-4">
-                      <label class="form-label" for="form2Example22" id="weight">Weight</label>
-                      <input type="text"  formControlName="weight" [class.is-valid]="isValid('weight')"
+                      <label class="form-label" for="weight" id="weight">Weight</label>
+                      <input type="text" formControlName="weight" [class.is-valid]="isValid('weight')"
                         class="form-control" required />
                       <div *ngIf="registerForm.controls['weight'].errors && (registerForm.controls['weight'].touched)">
                         <small class="form-text text-dark "
@@ -164,7 +164,7 @@
                 <div class="p-5">
                   <h3 class="fw-normal mb-5">Contact Details</h3>
                   <div class="form-outline mb-4" [formGroup]="registerForm">
-                    <label class="form-label" for="form2Example11">Email</label>
+                    <label class="form-label" for="email">Email</label>
                     <input type="email" class="form-control" [class.is-valid]="isValid('email')" required
                       formControlName="email" />
                     <div *ngIf="registerForm.controls['email'].errors && (registerForm.controls['email'].touched)">
@@ -184,7 +184,7 @@
                     </div>
                   </div>
                   <div class="form-outline mb-4" [formGroup]="registerForm">
-                    <label class="form-label" for="form3Examplea2">Phone Number</label>
+                    <label class="form-label" for="phone">Phone Number</label>
                     <input type="text" formControlName="phone" [class.is-valid]="isValid('phone')" required
                       class="form-control" />
                     <div *ngIf="registerForm.controls['phone'].errors && (registerForm.controls['phone'].touched)">
@@ -204,7 +204,7 @@
                     </div>
                   </div>
                   <div class="form-outline mb-4" [formGroup]="registerForm">
-                    <label class="form-label" for="form3Examplea2">Address</label><br>
+                    <label class="form-label" for="street">Address</label><br>
                     <input type="text" formControlName="street" [class.is-valid]="isValid('street')" requierd
                       class="form-control" />
                     <div *ngIf="registerForm.controls['street'].errors && (registerForm.controls['street'].touched)">
@@ -213,8 +213,7 @@
                         street
                         is
                         requierd</small>
-                      <small class="form-text text-dark "
-                        *ngIf="registerForm.controls['street'].errors['minlength'] ">
+                      <small class="form-text text-dark " *ngIf="registerForm.controls['street'].errors['minlength'] ">
                         minimum
                         length is 4 </small>
                       <small class="form-text text-dark " *ngIf="registerForm.controls['street'].errors['maxlength']">
@@ -244,10 +243,10 @@
                               *ngIf="registerForm.controls['city'].errors['maxlength']">
                               maximum length
                               is 50</small>
-                              <small class="form-text text-dark " *ngIf="registerForm.controls['city'].errors['pattern']">
-                                only letters </small>
+                            <small class="form-text text-dark " *ngIf="registerForm.controls['city'].errors['pattern']">
+                              only letters </small>
                           </div>
-                          <label class="form-label" for="form3Examplev2">City</label>
+                          <label class="form-label" for="city">City</label>
 
                         </div>
                       </div>
@@ -270,17 +269,18 @@
                               *ngIf="registerForm.controls['state'].errors['maxlength']">
                               maximum length
                               is 50</small>
-                              <small class="form-text text-dark " *ngIf="registerForm.controls['state'].errors['pattern']">
-                                only letters </small>
+                            <small class="form-text text-dark "
+                              *ngIf="registerForm.controls['state'].errors['pattern']">
+                              only letters </small>
 
                           </div>
-                          <label class="form-label" for="form3Examplev3">State / Province</label>
+                          <label class="form-label" for="state">State / Province</label>
 
                         </div>
                       </div>
                       <div class="form-check d-flex justify-content-center mb-5">
                         <input class="form-check-input me-2" type="checkbox" />
-                        <label class="form-check-label" for="form2Example3g">
+                        <label class="form-check-label" for="Terms">
                           I agree all statements in <a routerLink="/login" class="text-body"><u>Terms of service</u></a>
                         </label>
                       </div>
