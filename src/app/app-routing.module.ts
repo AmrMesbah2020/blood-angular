@@ -58,6 +58,7 @@ const routes: Routes = [
   {path:'faq/other',component:OtherComponent},
   {path:'faq/pregency',component:PregencyComponent},
   {path:'faq/work-and-travel',component:WorkAndTravelComponent},
+
   {path:'posts',component:PostsComponent},
   {path:'profile',component:UserProfileComponent,canActivateChild:[AuthGuard]},
   {path:'profile/:id',component:UserProfileComponent},

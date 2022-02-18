@@ -1,4 +1,6 @@
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Request } from 'src/app/models/request' ;
 // import { Router } from '@angular/router';
 
 @Component({
@@ -9,12 +11,36 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class RequestsComponent implements OnInit {
-  // constructor(private router: Router) {
-
-  // }
-  constructor() { }
+  requests:Request[]=[];
+  token:any=localStorage.getItem('Token');
+  headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+  constructor(private _httpClint:HttpClient) { }
 
   ngOnInit(): void {
+
+    this._httpClint.get('http://127.0.0.1:8000/api/allrequests').subscribe(
+      (response:any)=>{
+        this.requests=response.data
+        console.log(this.requests);
+      },
+      (error:any)=>{
+
+      }
+    )
+
+
+  }
+
+  apply(id:number):void{
+    this._httpClint.post(`http://127.0.0.1:8000/api/apply/${id}`,null,{headers:this.headers}).subscribe(
+      (response:any)=>{
+        console.log(response);
+      },
+      (error:any)=>{
+        console.log(error.error);
+        alert(error.error);
+      }
+    )
   }
 
 }

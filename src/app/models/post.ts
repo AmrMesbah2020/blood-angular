@@ -9,6 +9,6 @@ export class Post{
     rate:number=0;
     access:number=0;
     name:string='';
-    
+
 
 }

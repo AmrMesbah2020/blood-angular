@@ -16,6 +16,7 @@ export class PostsComponent implements OnInit {
 
  
   formPost=new FormGroup({});
+  fileToUpload: File | null = null;
   //post:Post=new Post();
   posts:Post[]=[];
   //rate:number=0;
@@ -31,7 +32,7 @@ export class PostsComponent implements OnInit {
 
 
   constructor(private _activatedRoute:ActivatedRoute , private _httpClient:HttpClient,private _postService:PostService,private _formBuilder: FormBuilder,private router:Router) { }
-   
+
   ngOnInit(): void {
      
     //navigation to login page to unauthorized users
@@ -43,7 +44,7 @@ export class PostsComponent implements OnInit {
     this.getAllPosts();
  
     // get the user
-    this._httpClient.get("http://localhost:8000/api/user", 
+    this._httpClient.get("http://localhost:8000/api/user",
     { headers: this.headers }).subscribe(
 
       (response:any)=>{
@@ -155,7 +156,7 @@ export class PostsComponent implements OnInit {
   
 
   //post like function
-  
+
    postLike(rate:number,id:number):void {
     let postid=id;
      if(this.liked_posts.includes(postid)){
@@ -172,10 +173,10 @@ export class PostsComponent implements OnInit {
       this.liked_posts.push(postid);
       console.log(this.liked_posts);
      }
-     
+
      console.log(rate)
-    
-    
+
+
      console.log(postid)
      this._httpClient.post(`http://localhost:8000/api/rate/`+postid,rate,
      { headers: this.headers }).subscribe(
@@ -195,6 +196,6 @@ export class PostsComponent implements OnInit {
   }
 
 
-  
+
 
 }

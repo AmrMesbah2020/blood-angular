@@ -1,8 +1,6 @@
 
   #h3,#firstname,#lastname,#gender,#blood,#date,#date,#rhd,#password,#weight{
     background: -webkit-linear-gradient(#ee7724, #d8363a, #dd3675, #b44593);
-    /* background-color: #F05454; */
-    /* background-color: #30475E; */
     background-clip:text;
     -webkit-text-fill-color: transparent;
   }
@@ -38,13 +36,10 @@
     top: 13px;
   }
   .gradient-custom-2 {
-    /* background: #a1c4fd; */
-    /* background: -webkit-linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1)); */
+
   background-color: #F05454;
-    /* background: linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1)) */
   }
   .bg-indigo {
-    /* background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593); */
 background-color: #F05454;
   }
   @media (min-width: 992px) {

@@ -13,7 +13,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
@@ -46,13 +45,13 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     FooterComponent,
     ArticlesComponent,
     ArticleDetailsComponent,
-    LoginComponent,
     RegisterComponent,
+    LoginComponent,
     EligibilityQuizComponent,
     FaqComponent,
     MedicationAndMedicalDevicesComponent,
-RequestsComponent,
-DonorsComponent,
+    RequestsComponent,
+    DonorsComponent,
     AddArticalComponent,
     PostsComponent,
     UserProfileComponent,
@@ -78,7 +77,6 @@ DonorsComponent,
     NgbModule,
     AdminModule,
     HttpClientModule,
-
 
     // MatToolbarModule,
   ],

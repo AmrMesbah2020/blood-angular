@@ -20,7 +20,7 @@
       <h3 class="text-uppercase text-center mb-4" style="color: red;">
         Blood Requests
       </h3>
-      <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+      <!-- <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
         <div class="card h-100">
           <div class="card-body">
             <div>
@@ -35,7 +35,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
         <div class="card h-100">
@@ -43,7 +43,7 @@
             <div class="row gutters">
               <div class="inner-main">
                 <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
-                  <div class="card mb-2">
+                  <div class="card mb-2" *ngFor="let item of requests">
                     <div class="card-body p-2 p-sm-3">
                       <div class="media forum-item">
                         <a href="#" data-toggle="collapse" data-target=".forum-content"><img
@@ -51,40 +51,44 @@
                             width="50" alt="User" /></a>
                         <br>
                         <div class="media-body">
-                          <h6 data-toggle="collapse" data-target=".forum-content" class="text-body">Ahmad Ali
-                          </h6>
+                          <h6 data-toggle="collapse" data-target=".forum-content" class="text-body">{{item.owner_details.name}}</h6>
                           <p class="text-secondary">
-                            lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                            {{item.description}}
                           </p>
                           <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Blood Type& RH :
+                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0"><i class="bi bi-droplet-fill" style="color: red;"></i>Blood Type& RH :
                             </span>
-                            <span class="bg-light-blue"> O-</span>
+                            <span class="bg-light-blue">{{item.blood.blood_group}} {{item.blood.rhd}}</span>
                           </div>
                           <div class="mb-3">
                             <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Quantity : </span>
-                            <span class="bg-light-blue">1</span>
+                            <span class="bg-light-blue">{{item.quantity}}</span>
                           </div>
                           <div class="mb-3">
                             <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Phone : </span>
-                            <span class="bg-light-blue">0101234323</span>
+                            <span class="bg-light-blue">{{item.phone}}</span>
                           </div>
                           <div class="mb-3">
                             <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Date : </span>
-                            <span class="bg-light-blue"> 02.03.2020 </span>
+                            <span class="bg-light-blue"> {{item.date}} </span>
                           </div>
                           <div class="mb-3">
                             <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Email : </span>
-                            <span class="bg-light-blue">mohamad@gmail.com</span>
+                            <span class="bg-light-blue">{{item.owner_details.email}}</span>
                           </div>
                           <div class="mb-3">
                             <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Address : </span>
-                            <span class="bg-light-blue">Cairo</span>
+                            <span class="bg-light-blue">{{item.address}}</span>
+                          </div>
+                          <div class="mb-3">
+                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Nubmer of Applies : </span>
+                            <span class="bg-light-blue">{{item.number_of_donners}}</span>
                             <br>
-                            <div>
-                              <br>
-                              <a class="go" href="../location/" target="_blank"> <i
-                                  class="fas fa-map-marker-alt pr-1"></i> GO TO GOOGLE MAP</a>
+                            <div class="d-flex justify-content-between mt-5">
+                              <div><a class="go" href="../location/" target="_blank"> <i
+                                  class="fas fa-map-marker-alt pr-1"></i> GO TO GOOGLE MAP</a></div>
+                             <a class="btn btn-danger" style="line-height:2;" (click)="apply(item.id)" >Apply</a>
+
                             </div>
 
                           </div>
@@ -92,149 +96,7 @@
 
                       </div>
                     </div>
-                  </div>
-                  <div class="card mb-2">
-                    <div class="card-body p-2 p-sm-3">
-                      <div class="media forum-item">
-                        <a href="#" data-toggle="collapse" data-target=".forum-content"><img
-                            src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle"
-                            width="50" alt="User" /></a>
-                        <div class="media-body">
-                          <h6 data-toggle="collapse" data-target=".forum-content" class="text-body">Ahmad Ali
-                          </h6>
-                          <p class="text-secondary">
-                            lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-                          </p>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Blood Type& RH :
-                            </span>
-                            <span class="bg-light-blue"> O-</span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Quantity : </span>
-                            <span class="bg-light-blue">1</span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Phone : </span>
-                            <span class="bg-light-blue">0101234323</span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Date : </span>
-                            <span class="bg-light-blue"> 02.03.2020 </span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Email : </span>
-                            <span class="bg-light-blue">mohamad@gmail.com</span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Address : </span>
-                            <span class="bg-light-blue">Cairo</span>
-                            <br>
-                            <div>
-                              <br>
-                              <a class="go" href="../location/" target="_blank"> <i
-                                  class="fas fa-map-marker-alt pr-1"></i> GO TO GOOGLE MAP</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-2">
-                    <div class="card-body p-2 p-sm-3">
-                      <div class="media forum-item">
-                        <a href="#" data-toggle="collapse" data-target=".forum-content"><img
-                            src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle"
-                            width="50" alt="User" /></a>
-                        <div class="media-body">
-                          <h6 data-toggle="collapse" data-target=".forum-content" class="text-body">Ahmad Ali
-                          </h6>
-                          <p class="text-secondary">
-                            lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-                          </p>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Blood Type& RH :
-                            </span>
-                            <span class="bg-light-blue"> O-</span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Quantity : </span>
-                            <span class="bg-light-blue">1</span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Phone : </span>
-                            <span class="bg-light-blue">0101234323</span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Date : </span>
-                            <span class="bg-light-blue"> 02.03.2020 </span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Email : </span>
-                            <span class="bg-light-blue">mohamad@gmail.com</span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Address : </span>
-                            <span class="bg-light-blue">Cairo</span>
-                            <br>
-                            <div>
-                              <br>
-                              <a class="go" href="../location/" target="_blank"> <i
-                                  class="fas fa-map-marker-alt pr-1"></i> GO TO GOOGLE MAP</a>
-                            </div>
-
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-2">
-                    <div class="card-body p-2 p-sm-3">
-                      <div class="media forum-item">
-                        <a href="#" data-toggle="collapse" data-target=".forum-content"><img
-                            src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle"
-                            width="50" alt="User" /></a>
-                        <div class="media-body">
-                          <h6 data-toggle="collapse" data-target=".forum-content" class="text-body">Ahmad Ali
-                          </h6>
-                          <p class="text-secondary">
-                            lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-                          </p>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Blood Type& RH :
-                            </span>
-                            <span class="bg-light-blue"> O-</span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Quantity : </span>
-                            <span class="bg-light-blue">1</span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Phone : </span>
-                            <span class="bg-light-blue">0101234323</span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Date : </span>
-                            <span class="bg-light-blue"> 02.03.2020 </span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Email : </span>
-                            <span class="bg-light-blue">mohamad@gmail.com</span>
-                          </div>
-                          <div class="mb-3">
-                            <span class="text-uppercase  mr-2 d-block d-sm-inline-block mb-2 mb-sm-0">Address : </span>
-                            <span class="bg-light-blue">Cairo</span>
-                            <br>
-                            <div>
-                              <br>
-                              <a class="go" href="../location/" target="_blank"> <i
-                                  class="fas fa-map-marker-alt pr-1"></i> GO TO GOOGLE MAP</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <hr>
                   </div>
                 </div>
               </div>

@@ -10,18 +10,20 @@ import { Post } from '../../../models/post';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-
-  Post=new Post;
+ 
   posts: Post[] = [];
   token: any = localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   errorMessage: any;
+  post = new Post;
+  formPost: any;
+  value: any;
 
   constructor(private _httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     console.log(this.token);
-    
+
     if (localStorage.getItem('Token') == null) {
       this.router.navigate(['/login']);
     }
@@ -29,21 +31,22 @@ export class PostsComponent implements OnInit {
 
       (response: any) => {
         this.posts = response.data;
-        console.log(this.posts);
+        console.log(this.token);
+        console.log(response);
       },
       (error: any) => {
         console.log(error);
       }
     )
- 
-  
+
+
   }
 
 
-  delete(id:number):void{
-    this._httpClient.post(`http://localhost:8000/api/delete-post/`+id, { headers: this.headers }).subscribe(
+  delete(id: number): void {
+    this._httpClient.post(`http://localhost:8000/api/delete-post/`+ id,null,{ headers: this.headers }).subscribe(
 
-   
+
       (response: any) => {
         this.posts = response.data;
         console.log(this.posts);
@@ -52,19 +55,21 @@ export class PostsComponent implements OnInit {
         console.log(error);
       }
     )
-    }
+  }
 
-    // puplish(id:number):void{
-    //   this._httpClient.post(`http://localhost:8000/api/delete-post/`+id, { headers: this.headers }).subscribe(
-  
-     
-    //     (response: any) => {
-    //       this.posts = response.data;
-    //       console.log(this.posts);
-    //     },
-    //     (error: any) => {
-    //       console.log(error);
-    //     }
-    //   )
-    //   }
+
+  puplish(id: number): void {
+
+
+    this._httpClient.post(`http://localhost:8000/api/publishpost/` + id,null, { headers: this.headers }).subscribe(
+
+      (response: any) => {
+        this.posts = response.data;
+        console.log(this.posts);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    )
+  }
 }
