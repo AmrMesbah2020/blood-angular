@@ -1,6 +1,7 @@
 import { Blood } from './blood';
-import { User } from 'src/app/models/user';
+import { User } from  'src/app/models/user';
 export class Request{
+id:number=NaN;
 phone:string='';
 description:string='';
 quantity:number=NaN;
@@ -12,7 +13,7 @@ zip:string='';
 address:string='';
 blood_group:string='';
 rhd:string='';
-ownerDetails=new User();
+owner_details=new User();
 number_of_donners:number=0;
 blood=new Blood();
 

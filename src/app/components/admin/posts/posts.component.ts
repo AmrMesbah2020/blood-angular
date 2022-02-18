@@ -31,7 +31,8 @@ export class PostsComponent implements OnInit {
 
       (response: any) => {
         this.posts = response.data;
-        console.log(this.posts);
+        console.log(this.token);
+        console.log(response);
       },
       (error: any) => {
         console.log(error);

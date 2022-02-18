@@ -189,12 +189,12 @@
                   </div>
               </div>
 
-            </div>
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12 bg-light text-right ">
-                  <button type="button" class="btn btn-dark" style="margin-right: 5px;">Cancel</button>
-                  <button type="button" class="btn btn-success" [disabled]="editProfile.invalid">Save</button>
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12 bg-light text-right ">
+                    <button type="button" class="btn btn-dark" style="margin-right: 5px;">Cancel</button>
+                    <button type="button" class="btn btn-success" (click)="update()" [disabled]="editProfile.invalid">Save</button>
+                  </div>
                 </div>
               </div>
             </div>

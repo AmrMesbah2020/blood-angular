@@ -35,89 +35,40 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="candidates-list">
-                  <td class="candidate-list-favourite-time">
+
+                <tr class="candidates-list" *ngFor="let item of donners">
+                  <td  class="candidate-list-favourite-time">
+
+
                     <div class="thumb">
                       <img width="40" class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar7.png">
                     </div>
                     <div class="candidate-list-details">
                       <div class="candidate-list-info">
                         <div class="candidate-list-title">
-                          <h5 class="mb-0"> Ahmad Ali </h5>
+                          <h5 class="mb-0">{{item.donner_data.name}} </h5>
                         </div>
                         <div class="candidate-list-option">
                           <ul class="list-unstyled">
                             <li>
-                              <span class="candidate-list-time order-1">
-                                Lorem ipsum dolor sit, amet consec
-                              </span>
+                              <i class="bi bi-envelope-fill"></i> {{item.donner_data.email}}
+                            </li>
+                            <li>
+                              <i class="bi bi-phone-fill"></i> {{item.donner_data.phone}}
+
                             </li>
                           </ul>
                         </div>
                       </div>
                     </div>
                   </td>
-                  <td class="candidate-list-favourite-time ">
-                    <span class="candidate-list-time order-1"> Lorem ipsum dolor sit, amet consec </span>
-                  </td>
-                  <td class="candidate-list-favourite-time text-center">
-                    <span class="candidate-list-time order-1"> A + </span>
-                  </td>
-                </tr>
-                <tr class="candidates-list">
                   <td class="candidate-list-favourite-time">
-                    <div class="thumb">
-                      <img width="40" class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar4.png">
-                    </div>
-                    <div class="candidate-list-details">
-                      <div class="candidate-list-info">
-                        <div class="candidate-list-title">
-                          <h5 class="mb-0"> Ahmad Ali </h5>
-                        </div>
-                        <div class="candidate-list-option">
-                          <ul class="list-unstyled">
-                            <li>
-                              <span class="candidate-list-time order-1">
-                                Lorem ipsum dolor sit, amet consec
-                              </span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="candidate-list-favourite-time ">
-                    <span class="candidate-list-time order-1"> Lorem ipsum dolor sit, amet consec </span>
+
+                  <span class="candidate-list-time order-1"> {{item.donner_data.address}}</span>
+
                   </td>
                   <td class="candidate-list-favourite-time text-center">
-                    <span class="candidate-list-time order-1"> A + </span>
-                  </td>
-                </tr>
-                <tr class="candidates-list">
-                  <td class="candidate-list-favourite-time">
-                    <div class="thumb">
-                      <img width="40" class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png">
-                    </div>
-                    <div class="candidate-list-details">
-                      <div class="candidate-list-info">
-                        <div class="candidate-list-title">
-                          <h5 class="mb-0"> Ahmad Ali </h5>
-                        </div>
-                        <div class="candidate-list-option">
-                          <ul class="list-unstyled">
-                            <li>
-                              Lorem ipsum dolor sit, amet consec
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="candidate-list-favourite-time ">
-                    <span class="candidate-list-time order-1"> Lorem ipsum dolor sit, amet consec  </span>
-                  </td>
-                  <td class="candidate-list-favourite-time text-center">
-                    <span class="candidate-list-time order-1"> AB + </span>
+                    <span class="candidate-list-time order-1"> {{item.blood_id.blood_group}} {{item.blood_id.rhd}} </span>
                   </td>
                 </tr>
               </tbody>
