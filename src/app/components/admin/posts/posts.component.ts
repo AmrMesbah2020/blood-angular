@@ -16,8 +16,7 @@ export class PostsComponent implements OnInit {
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   errorMessage: any;
   post = new Post;
-  formPost: any;
-  value: any;
+ 
 
   constructor(private _httpClient: HttpClient, private router: Router) { }
 

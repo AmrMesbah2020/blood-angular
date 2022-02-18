@@ -188,40 +188,42 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col">id</th>
-                  <th scope="col">Name</th>
                   <th scope="col">title</th>
-                  <th scope="col">state</th>
-                  <th scope="col">Actions</th>
+                  <th scope="col"> Admin</th>
+                  <th scope="col">Resource</th>
+                  <th scope="col">Action</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr *ngFor="let article  of articles">
                   <td>
-                    1
+                    {{article.article_id}}
                   </td>
                   <td>
-                    Robert Fox
+                    {{article.title}}
                   </td>
                   <td>
-                    healthy lifestyle
-                  </td>
+                  {{article.admin_id}}            
+                 </td>
 
                   <td>
-                    <span class="badge badge-lg badge-dot">
+                    {{article.resources}}
+                    <!-- <span class="badge badge-lg badge-dot">
                       <i class="bg-warning"></i>pending
-                    </span>
+                    </span> -->
                   </td>
                   <td class="text-end">
                     <a href="#" class="btn btn-sm btn-neutral">View</a>
-                    <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                    <button type="button" class="btn btn-sm btn-square btn-neutral
+                     text-danger-hover" (click)="deleteArticle(article.article_id)">
                       <i class="bi bi-trash"></i>
                     </button>
                   </td>
                 </tr>
                 <!-- //// -->
 
-                <tr>
+                <!-- <tr>
                   <td>
                     2
                   </td>
@@ -243,8 +245,8 @@
                       <i class="bi bi-trash"></i>
                     </button>
                   </td>
-                </tr>
-                <tr>
+                </tr> -->
+                <!-- <tr>
                   <td>
                     4
                   </td>
@@ -266,7 +268,7 @@
                       <i class="bi bi-trash"></i>
                     </button>
                   </td>
-                </tr>
+                </tr> -->
 
 
 

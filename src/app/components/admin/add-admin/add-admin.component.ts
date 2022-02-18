@@ -11,55 +11,52 @@ import { User } from 'src/app/models/user';
 })
 export class AddAdminComponent implements OnInit {
 
-  adminForm=new FormGroup({});
+  adminForm = new FormGroup({});
   token: any = localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
-admin=new User()
-email:string = '';
-  constructor(private _formBuilder:FormBuilder,private _httpClient:HttpClient,private router:Router) { }
+  admin = new User()
+  email: string = '';
+  constructor(private _formBuilder: FormBuilder, private _httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
 
-    if(localStorage.getItem('Token')==null){
+    if (localStorage.getItem('Token') == null) {
       this.router.navigate(['/login']);
+    }
+
+
+    this.adminForm = this._formBuilder.group({
+
+      email: ['', [Validators.required,
+      Validators.pattern(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)],],
+    });
+
   }
 
 
-    this.adminForm=this._formBuilder.group({
+  isValidControl(name: string): boolean {
+    return this.adminForm.controls[name].valid;
+  }
 
-      email:['' , [Validators.required ,
-        Validators.pattern(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)],],
-      });
-  
-    }
+  isInValidAndTouched(name: string): boolean {
+    return this.adminForm.controls[name].invalid && (this.adminForm.controls[name].dirty || this.adminForm.controls[name].touched);
+  }
 
-
-    isValidControl(name:string):boolean
-    {
-      return this.adminForm.controls[name].valid;
-    }
-  
-    isInValidAndTouched(name:string):boolean
-    {
-      return  this.adminForm.controls[name].invalid && (this.adminForm.controls[name].dirty || this.adminForm.controls[name].touched);
-    }
-  
-    isControlHasError(name:string,error:string):boolean
-    {
-      return  this.adminForm.controls[name].invalid && this.adminForm.controls[name].errors?.[error];
-    }
+  isControlHasError(name: string, error: string): boolean {
+    return this.adminForm.controls[name].invalid && this.adminForm.controls[name].errors?.[error];
+  }
 
 
 
-  add(){
-    let admin=new User()
-    admin.email=this.adminForm.value.email;
+  add() {
+    let admin = new User()
+    admin.email = this.adminForm.value.email;
 
-    this._httpClient.post('http://localhost:8000/api/add-admin',admin,{ headers: this.headers }).subscribe(
-      (response:any)=>{
+    this._httpClient.post('http://localhost:8000/api/add-admin', admin, { headers: this.headers }).subscribe(
+      (response: any) => {
         console.log(response);
-            },
-      (error:any)=>{
+      },
+      (error: any) => {
         this.errMsg = error;
         console.log(this.errMsg);
 
@@ -69,10 +66,10 @@ email:string = '';
   errMsg(errMsg: any) {
     throw new Error('Method not implemented.');
   }
-  }
-  
-  
+}
 
-     
+
+
+
 
 
