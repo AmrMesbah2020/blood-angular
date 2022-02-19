@@ -14,7 +14,7 @@ export class ArticlesComponent implements OnInit {
 
   articles: Article[] = [];
 
-  article =new Article;
+  // article =new Article;
   token: any = localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
  
@@ -29,10 +29,10 @@ export class ArticlesComponent implements OnInit {
   }
 
 
-this._httpClient.get("http://localhost:8000/api/allarticles",{ headers: this.headers }).subscribe(
+this._httpClient.get("http://localhost:8000/api/allarticles").subscribe(
 
       (response: any) => {
-        this.articles = response.data;
+        this.articles = response;
         // console.log(this.token);
         console.log(response);
       },
@@ -52,7 +52,7 @@ this._httpClient.get("http://localhost:8000/api/allarticles",{ headers: this.hea
 
 
       (response: any) => {
-        this.articles = response.data;
+        this.articles = response[0];
         console.log(this.articles);
       },
       (error: any) => {
@@ -61,6 +61,19 @@ this._httpClient.get("http://localhost:8000/api/allarticles",{ headers: this.hea
     )
   }
 
+  // viewArticle(id: number): void {
+  //   this._httpClient.post(`http://localhost:8000/api/articles/`+ id,null).subscribe(
+
+
+  //     (response: any) => {
+  //       this.articles = response[0];
+  //       console.log(this.articles);
+  //     },
+  //     (error: any) => {
+  //       console.log(error);
+  //     }
+  //   )
+  // }
 
 }
     

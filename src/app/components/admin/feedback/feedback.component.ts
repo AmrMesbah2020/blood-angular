@@ -30,7 +30,7 @@ export class FeedbackComponent implements OnInit {
     this._httpClient.get("http://localhost:8000/api/all-feedback",{ headers: this.headers }).subscribe(
 
       (response: any) => {
-        this.feedbacks = response.data;
+        this.feedbacks = response;
         console.log(this.token);
         console.log(response);
       },
