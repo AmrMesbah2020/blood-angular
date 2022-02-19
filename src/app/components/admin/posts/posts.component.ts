@@ -75,5 +75,9 @@ export class PostsComponent implements OnInit {
         console.log(error);
       }
     )
+    this.router.navigate(['/admin/adminn/posts-admin'])
+    .then(() => {
+      window.location.reload();
+    });
   }
 }
