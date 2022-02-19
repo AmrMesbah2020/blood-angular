@@ -10,7 +10,9 @@ import { Post } from '../../../models/post';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  clickMessage = '';
+
+  // isActive:boolean = true ;
+
 
   posts: Post[] = [];
   token: any = localStorage.getItem('Token');
@@ -55,10 +57,11 @@ export class PostsComponent implements OnInit {
         console.log(error);
       }
     )
-    this.router.navigate(['/admin/adminn/posts-admin'])
-    .then(() => {
-      window.location.reload();
-    });
+    // this.router.navigate(['/admin/adminn/posts-admin'])
+    // .then(() => {
+      
+    //   window.location.reload();
+    // });
   }
 
 
@@ -68,8 +71,11 @@ export class PostsComponent implements OnInit {
     this._httpClient.post(`http://localhost:8000/api/publishpost/` + id,null, { headers: this.headers }).subscribe(
 
       (response: any) => {
+        
         this.posts = response.data;
+        // this.isActive = !this.isActive;
         console.log(this.posts);
+       
       },
       (error: any) => {
         console.log(error);

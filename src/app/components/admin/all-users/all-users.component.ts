@@ -27,7 +27,7 @@ export class AllUsersComponent implements OnInit {
 
       (response: any) => {
         this.users = response;
-        console.log(this.token);
+        // console.log(this.token);
         console.log(response);
       },
       (error: any) => {
