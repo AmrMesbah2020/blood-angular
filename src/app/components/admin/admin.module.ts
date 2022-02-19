@@ -9,6 +9,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AllUsersComponent } from './all-users/all-users.component';
 // import { HttpClientModule } from '@angular/common/http';
 
 
@@ -24,6 +25,7 @@ const routes: Routes = [
         { path: 'requests-admin', component: RequestsComponent },
         { path: 'feedback-admin', component: FeedbackComponent },
         { path: 'add-admin', component: AddAdminComponent },
+        {path: 'users-admin',component:AllUsersComponent}
       ]},
 
 
@@ -40,7 +42,8 @@ const routes: Routes = [
     RequestsComponent,
     FeedbackComponent,
     AddAdminComponent,
-    DashboardComponent
+    DashboardComponent,
+    AllUsersComponent
   ],
   imports: [
 

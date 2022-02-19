@@ -1,5 +1,6 @@
 import { DonnationData } from './donnationData';
 export class User {
+  id:number=0;
   firstName: string="";
   lastName: string="";
   name:string=this.getFullName();
