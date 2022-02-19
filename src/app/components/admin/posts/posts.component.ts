@@ -10,12 +10,14 @@ import { Post } from '../../../models/post';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
+  clickMessage = '';
 
-  Post=new Post;
   posts: Post[] = [];
   token: any = localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   errorMessage: any;
+  post = new Post;
+ 
 
   constructor(private _httpClient: HttpClient, private router: Router) { }
 
@@ -41,8 +43,8 @@ export class PostsComponent implements OnInit {
   }
 
 
-  delete(id:number):void{
-    this._httpClient.post(`http://localhost:8000/api/delete-post/`+id,null,{ headers: this.headers }).subscribe(
+  delete(id: number): void {
+    this._httpClient.post(`http://localhost:8000/api/delete-post/`+ id,null,{ headers: this.headers }).subscribe(
 
 
       (response: any) => {
@@ -53,20 +55,29 @@ export class PostsComponent implements OnInit {
         console.log(error);
       }
     )
-    
-    }
+    this.router.navigate(['/admin/adminn/posts-admin'])
+    .then(() => {
+      window.location.reload();
+    });
+  }
 
-    // puplish(id:number):void{
-    //   this._httpClient.post(`http://localhost:8000/api/delete-post/`+id, { headers: this.headers }).subscribe(
+
+  puplish(id: number): void {
 
 
-    //     (response: any) => {
-    //       this.posts = response.data;
-    //       console.log(this.posts);
-    //     },
-    //     (error: any) => {
-    //       console.log(error);
-    //     }
-    //   )
-    //   }
+    this._httpClient.post(`http://localhost:8000/api/publishpost/` + id,null, { headers: this.headers }).subscribe(
+
+      (response: any) => {
+        this.posts = response.data;
+        console.log(this.posts);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    )
+    this.router.navigate(['/admin/adminn/posts-admin'])
+    .then(() => {
+      window.location.reload();
+    });
+  }
 }

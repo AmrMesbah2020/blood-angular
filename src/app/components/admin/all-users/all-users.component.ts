@@ -1,36 +1,32 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { Feedback } from 'src/app/models/feedback.model';
-import { Feedback } from '../../../models/feedback.model';
-
-
+import { User } from '../../../models/user';
 
 @Component({
-  selector: 'app-feedback',
-  templateUrl: './feedback.component.html',
-  styleUrls: ['./feedback.component.css']
+  selector: 'app-all-users',
+  templateUrl: './all-users.component.html',
+  styleUrls: ['./all-users.component.css']
 })
-export class FeedbackComponent implements OnInit {
+export class AllUsersComponent implements OnInit {
 
-  feedbacks: Feedback[] = [];
+
+  users: User[] = [];
   token: any = localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
-  feedback = new Feedback;
+  user = new User;
   
-
   constructor(private _httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
-
-    
     if (localStorage.getItem('Token') == null) {
       this.router.navigate(['/login']);
     }
-    this._httpClient.get("http://localhost:8000/api/all-feedback",{ headers: this.headers }).subscribe(
+
+    this._httpClient.get("http://localhost:8000/api/users",{ headers: this.headers }).subscribe(
 
       (response: any) => {
-        this.feedbacks = response;
+        this.users = response;
         console.log(this.token);
         console.log(response);
       },
@@ -39,9 +35,6 @@ export class FeedbackComponent implements OnInit {
       }
     )
 
-
   }
 
-  }
-
-
+}

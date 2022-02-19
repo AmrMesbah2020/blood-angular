@@ -1,5 +1,9 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Article } from 'src/app/models/article';
+import { Router } from '@angular/router';
+import { Article } from '../../../models/article';
+
+
 
 @Component({
   selector: 'app-articles',
@@ -8,29 +12,76 @@ import { Article } from 'src/app/models/article';
 })
 export class ArticlesComponent implements OnInit {
 
+  articles: Article[] = [];
+
+  // article =new Article;
+  token: any = localStorage.getItem('Token');
+  headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
 
 
-  article:Article=new Article();
-  articles:Article[]=[];
-  router: any;
-  private _httpClient: any;
-
-  constructor() { }
+  constructor(private _httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
 
 
-    if(localStorage.getItem('Token')==null){
+    if (localStorage.getItem('Token') == null) {
       this.router.navigate(['/login']);
+    }
+
+
+    this._httpClient.get("http://localhost:8000/api/allarticles").subscribe(
+
+      (response: any) => {
+        this.articles = response;
+        // console.log(this.token);
+        console.log(response);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    )
+
+
+
+
   }
-}
-// public addPost(postData: Object) {
-//   let endPoints = "/posts"
-//   this._httpClient.post('https://jsonplaceholder.typicode.com/posts'), postData)
-//   .subscribe((data: any) => {
-//     console.log(data);
-//   });
-// }
 
 
+  deleteArticle(id: number): void {
+    this._httpClient.post(`http://localhost:8000/api/delete-article/` + id, null, { headers: this.headers }).subscribe(
+
+
+      (response: any) => {
+        this.articles = response[0];
+        console.log(this.articles);
+
+      },
+      (error: any) => {
+        console.log(error);
+      }
+
+
+    )
+    this.router.navigate(['/admin/adminn/articles-admin'])
+      .then(() => {
+        window.location.reload();
+      });
+
+  }
+
+  // viewArticle(id: number): void {
+  //   this._httpClient.post(`http://localhost:8000/api/articles/`+ id,null).subscribe(
+
+
+  //     (response: any) => {
+  //       this.articles = response[0];
+  //       console.log(this.articles);
+  //     },
+  //     (error: any) => {
+  //       console.log(error);
+  //     }
+  //   )
+  // }
+
 }
+

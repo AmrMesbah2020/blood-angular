@@ -8,19 +8,25 @@ import { RequestsComponent } from './requests/requests.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddAdminComponent } from './add-admin/add-admin.component';
-import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AllUsersComponent } from './all-users/all-users.component';
+// import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes = [
   {
     path: 'adminn',
     children: [
-      { path: 'dashboard', component: AdminPannelComponent },
-      { path: 'posts-admin', component: PostsComponent },
-      { path: 'articles-admin', component: ArticlesComponent },
-      { path: 'requests-admin', component: RequestsComponent },
-      { path: 'feedback-admin', component: FeedbackComponent },
-      { path: 'add-admin', component: AddAdminComponent },
+      { path: '', component: AdminPannelComponent 
+      ,children:[
+        { path: 'dashboard', component: DashboardComponent },
+        { path: 'posts-admin', component: PostsComponent },
+        { path: 'articles-admin', component: ArticlesComponent },
+        { path: 'requests-admin', component: RequestsComponent },
+        { path: 'feedback-admin', component: FeedbackComponent },
+        { path: 'add-admin', component: AddAdminComponent },
+        {path: 'users-admin',component:AllUsersComponent}
+      ]},
 
 
     ]
@@ -36,7 +42,8 @@ const routes: Routes = [
     RequestsComponent,
     FeedbackComponent,
     AddAdminComponent,
-
+    DashboardComponent,
+    AllUsersComponent
   ],
   imports: [
 
@@ -44,7 +51,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    // HttpClientModule,
     
     
 

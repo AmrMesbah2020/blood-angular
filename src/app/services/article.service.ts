@@ -24,5 +24,8 @@ export class ArticleService {
       
     }
 
- 
+    deleteArticle(id:number){
+      return this._apiService.post(`delete-article`,id)
+    }
+
 }
