@@ -17,19 +17,19 @@ export class ArticlesComponent implements OnInit {
   // article =new Article;
   token: any = localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
- 
+
 
   constructor(private _httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
 
 
-    if(localStorage.getItem('Token')==null){
+    if (localStorage.getItem('Token') == null) {
       this.router.navigate(['/login']);
-  }
+    }
 
 
-this._httpClient.get("http://localhost:8000/api/allarticles").subscribe(
+    this._httpClient.get("http://localhost:8000/api/allarticles").subscribe(
 
       (response: any) => {
         this.articles = response;
@@ -42,23 +42,31 @@ this._httpClient.get("http://localhost:8000/api/allarticles").subscribe(
     )
 
 
-  
+
 
   }
 
 
   deleteArticle(id: number): void {
-    this._httpClient.post(`http://localhost:8000/api/delete-article/`+ id,null,{ headers: this.headers }).subscribe(
+    this._httpClient.post(`http://localhost:8000/api/delete-article/` + id, null, { headers: this.headers }).subscribe(
 
 
       (response: any) => {
         this.articles = response[0];
         console.log(this.articles);
+
       },
       (error: any) => {
         console.log(error);
       }
+
+
     )
+    this.router.navigate(['/admin/adminn/articles-admin'])
+      .then(() => {
+        window.location.reload();
+      });
+
   }
 
   // viewArticle(id: number): void {
@@ -76,4 +84,4 @@ this._httpClient.get("http://localhost:8000/api/allarticles").subscribe(
   // }
 
 }
-    
+
