@@ -12,10 +12,9 @@ import { Article } from '../../../models/article';
 })
 export class ArticlesComponent implements OnInit {
 
-  articles:Article[]=[];
+  articles: Article[] = [];
 
-
-  article =new Article();
+  article =new Article;
   token: any = localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
  
@@ -30,11 +29,11 @@ export class ArticlesComponent implements OnInit {
   }
 
 
-this._httpClient.get("http://localhost:8000/api/allarticles").subscribe(
+this._httpClient.get("http://localhost:8000/api/allarticles",{ headers: this.headers }).subscribe(
 
       (response: any) => {
         this.articles = response.data;
-        console.log(this.token);
+        // console.log(this.token);
         console.log(response);
       },
       (error: any) => {
