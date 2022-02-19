@@ -16,13 +16,11 @@ export class PostsComponent implements OnInit {
 
  
   formPost=new FormGroup({});
-  fileToUpload: File | null = null;
   //post:Post=new Post();
   posts:Post[]=[];
-  //rate:number=0;
   topRatePost:Post[]=[];
   liked_posts:number[]=[];
-  image:File|any=null; 
+  image:any; 
    
 
   user=new User;
@@ -36,13 +34,14 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
      
     //navigation to login page to unauthorized users
+    
     if(localStorage.getItem('Token')==null){
       this.router.navigate(['/login']);
   }
 
     //getAllPosts function calling
     this.getAllPosts();
- 
+   this.createForm();
     // get the user
     this._httpClient.get("http://localhost:8000/api/user",
     { headers: this.headers }).subscribe(
@@ -71,13 +70,8 @@ export class PostsComponent implements OnInit {
      }
   )
 
-   //post form validation
-   this.formPost = this._formBuilder.group({
+   
 
-    title:['' , [Validators.required],],
-    content:['' , [Validators.required],],
- 
-  })
 
 
   //get top rated post
@@ -99,18 +93,32 @@ export class PostsComponent implements OnInit {
   
   //post image
   onfile(event:any){
-    this.image=<File>event.target.files[0];
+    this.image=event.target.files[0];
     console.log(this.image);
+   }
+
+   createForm(){
+    this.formPost = this._formBuilder.group({
+
+      title:['' , [Validators.required],],
+      content:['' , [Validators.required],],
+      image:[null,]
+   
+    })
    }
   
   //add post
   addPost():void{
     let post=new Post();
-    post.title=this.formPost.value.title;
-    post.content=this.formPost.value.content;
-    post.image=this.image;
-    console.log(post);
-    this._httpClient.post("http://localhost:8000/api/post",post,{ headers: this.headers }).subscribe(
+    let formData=new FormData();
+   formData.append("image",this.image,this.image.name);
+   formData.append("title",this.formPost.value.title);
+   formData.append("content",this.formPost.value.content)
+    // post.title=this.formPost.value.title;
+    // post.content=this.formPost.value.content;
+    formData.forEach(file => console.log("File:", file));
+  
+    this._httpClient.post("http://localhost:8000/api/post",formData,{ headers: this.headers }).subscribe(
 
       (response:any)=>{
          console.log(response);
