@@ -46,22 +46,27 @@ export class PostsComponent implements OnInit {
 
 
   delete(id: number): void {
+    
+    if(confirm("Are you sure to delete "+id)) {
+    
+    
     this._httpClient.post(`http://localhost:8000/api/delete-post/`+ id,null,{ headers: this.headers }).subscribe(
 
-
+   
       (response: any) => {
         this.posts = response.data;
         console.log(this.posts);
+        
       },
       (error: any) => {
         console.log(error);
       }
-    )
-    // this.router.navigate(['/admin/adminn/posts-admin'])
-    // .then(() => {
+    )}
+    this.router.navigate(['/admin/adminn/posts-admin'])
+    .then(() => {
       
-    //   window.location.reload();
-    // });
+      window.location.reload();
+    });
   }
 
 
