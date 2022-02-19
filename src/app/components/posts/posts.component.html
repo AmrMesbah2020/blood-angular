@@ -24,8 +24,8 @@
                         <small class="form-text text-danger" *ngIf="isControlHasError('content','required')">please add post </small>
                     </div>
 
-
-                    <input type="file" class="form-cotrol mt-3" (change)="onfile($event)" >
+                      <label>Post Image</label>
+                    <input type="file" class="form-cotrol mt-3" name="image" formControlName="image" (change)="onfile($event)" >
                     <div class="">
                         <button  (click)="addPost()" class="btn btn-primary mt-3">Post</button>
                     </div>
@@ -44,7 +44,8 @@
     <div class="row p-2 mt-3 mb-3 w-100" >
 
         <div class="col-lg-6 d-flex justify-content-center">
-            <img class="w-100" src="{{item.image}}" alt=""></div>
+            <img class="w-100" src="{{item.image}}" alt=""> 
+        </div>
         <div class="col-lg-6">
             <div class="row" >
                 <div class="col-lg">
@@ -94,7 +95,7 @@
              <div class=" ">
          <div class="mt-3 h6 card-title">{{item.title}}</div>
          <div class=" mt-3 card-body"> {{item.content}}</div> 
-         <img class="w-100 mt-3" src="{{item.image}}" alt="">  
+         <img class="w-100 mt-3" src="http://localhost:8000/storage/app/{{item.image}}" alt="">  
          <div class=" mt-3 mb-3">
             
             <a class="btn text-danger border border-danger"  (click)="postLike(item.rate,item.id)"  *ngIf="liked_posts.includes(item.id)"><i class="fa fa-heart"></i> </a>
