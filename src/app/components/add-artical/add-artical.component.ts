@@ -28,12 +28,12 @@ export class AddArticalComponent implements OnInit  {
     this.addArtical=this._formBuilder.group({
   title:["",[Validators.required,Validators.minLength(6),Validators.maxLength(50),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
   resources:["",[Validators.required,Validators.minLength(6),Validators.maxLength(100)]],
-  content:["",[Validators.required,Validators.minLength(50),Validators.maxLength(500)]],
+  content:["",[Validators.required,Validators.minLength(50),Validators.maxLength(1000)]],
   img:["",[,] ],
 
 
     });
-  
+
 
 
 
@@ -49,13 +49,13 @@ export class AddArticalComponent implements OnInit  {
   // isInValidAndTouched(name:string):boolean{
   //   return this.addArtical.controls[name].errors? && (this.addArtical.controls[name].touched) && (this.addArtical.controls[name].dirty);
   // }
-  
+
 
 
 addArticle(){
 
 let article=new Article()
-article.title=this.addArtical.value.message;
+article.title=this.addArtical.value.title;
 article.resources=this.addArtical.value.resources;
 article.content=this.addArtical.value.content;
 
@@ -69,6 +69,6 @@ this._httpClient.post('http://localhost:8000/api/add-article/', article, { heade
 
       }
     )
-  
+
 }
 }
