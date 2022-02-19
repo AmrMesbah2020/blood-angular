@@ -10,7 +10,8 @@ import { Post } from '../../../models/post';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
- 
+  clickMessage = '';
+
   posts: Post[] = [];
   token: any = localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
@@ -54,7 +55,7 @@ export class PostsComponent implements OnInit {
         console.log(error);
       }
     )
-    this.router.navigate(['/admin/adminn/articles-admin'])
+    this.router.navigate(['/admin/adminn/posts-admin'])
     .then(() => {
       window.location.reload();
     });
