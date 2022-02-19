@@ -35,6 +35,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -77,6 +78,8 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     NgbModule,
     AdminModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
 
     // MatToolbarModule,
   ],

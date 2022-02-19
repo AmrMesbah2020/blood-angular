@@ -49,3 +49,9 @@ li >.nav-link:hover{
     color:rgb(240, 84, 84);
     background-color:transparent ;
 }
+
+.drop{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
