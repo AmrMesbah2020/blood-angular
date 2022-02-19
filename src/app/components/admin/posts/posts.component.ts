@@ -54,6 +54,10 @@ export class PostsComponent implements OnInit {
         console.log(error);
       }
     )
+    this.router.navigate(['/admin/adminn/articles-admin'])
+    .then(() => {
+      window.location.reload();
+    });
   }
 
 

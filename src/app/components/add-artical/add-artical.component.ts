@@ -17,7 +17,7 @@ export class AddArticalComponent implements OnInit  {
   article=new Article();
   errMsg: any;
 
-  constructor(private _formBuilder: FormBuilder, private _httpClient: HttpClient, private router: Router){
+  constructor(private _formBuilder: FormBuilder, private _httpClient: HttpClient,private router: Router){
   }
   ngOnInit(): void {
 
