@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {FormGroup,FormBuilder, ValidationErrors, AbstractControl, ValidatorFn} from "@angular/forms";
 import { Validators } from '@angular/forms';
-import { User } from './../../models/user';
+import { User } from '../../../models/user';
 import { Router } from '@angular/router';
 
 
