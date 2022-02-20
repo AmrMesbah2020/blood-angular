@@ -13,9 +13,10 @@ export class EditProfileComponent implements OnInit {
   token:any=localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
 
-  userInfo=new User();
+  userInfo:any;
   editProfile =new FormGroup({});
   name:string[]=[];
+  image:any;
 
   constructor(private _formBuilder:FormBuilder,private _httpClient:HttpClient,private router: Router){
   }
@@ -26,29 +27,22 @@ export class EditProfileComponent implements OnInit {
       (response:any)=>{
 
         this.userInfo=response.data[0];
-        console.log(this.userInfo.wieght);
-        let name =this.userInfo.name.split(' ');
-        console.log(name[1]);
-
-
+        sessionStorage.setItem('user',JSON.stringify(this.userInfo))
+        console.log(this.userInfo);
       },
       (error:any)=>{
 
       }
     )
-
-   console.log(this.userInfo);
+    this.userInfo=sessionStorage.getItem('user');
+    let name =JSON.parse(this.userInfo).name.split(' ');
 this.editProfile=this. _formBuilder.group({
-
-  firstName:["",[Validators.required,Validators.minLength(3),Validators.maxLength(10),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
-  lastName:["",[Validators.required,Validators.minLength(3),Validators.maxLength(10),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
-  phone:[``,[Validators.required,Validators.pattern("^01[0-2,5]{1}[0-9]{8}$"),Validators.maxLength(15),Validators.minLength(11)]],
-  email:['',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"),Validators.minLength(7),Validators.maxLength(40)]],
-  weight:["",[Validators.required,Validators.maxLength(3),Validators.minLength(1),Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-  address:["",[Validators.required,Validators.minLength(20),Validators.maxLength(150),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*') ]],
-
-
-
+  firstName:[name[0],[Validators.required,Validators.minLength(3),Validators.maxLength(10),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
+  lastName:[name[1],[Validators.required,Validators.minLength(3),Validators.maxLength(10),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
+  phone:[JSON.parse(this.userInfo).phone,[Validators.required,Validators.pattern("^01[0-2,5]{1}[0-9]{8}$"),Validators.maxLength(15),Validators.minLength(11)]],
+  email:[JSON.parse(this.userInfo).email,[Validators.required,Validators.email,Validators.minLength(7),Validators.maxLength(40)]],
+  weight:[JSON.parse(this.userInfo).wieght,[Validators.required,Validators.maxLength(3),Validators.minLength(1),Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+  address:[JSON.parse(this.userInfo).address,[Validators.required,Validators.minLength(20),Validators.maxLength(150),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*') ]],
 })
 }
 
@@ -56,24 +50,37 @@ isValid(name:string):boolean{
   return this.editProfile.controls[name].valid;
 }
 
+onfile(event:any){
+this.image=event.target.files[0];
+}
+
 update():void{
 
   let user=new User();
+
+
   user.firstName=this.editProfile.value.firstName;
   user.lastName=this.editProfile.value.lastName;
   user.name=user.getFullName();
   user.email=this.editProfile.value.email;
   user.phone=this.editProfile.value.phone;
-  user.wieght=this.editProfile.value.wieght;
-  user.city=this.editProfile.value.city;
-  user.state=this.editProfile.value.state;
-  user.street=this.editProfile.value.street;
-  user.address=user.Adress();
+  user.wieght=this.editProfile.value.weight;
+  user.address=this.editProfile.value.address
+
+  let data=new FormData();
+  data.append('avatar',this.image,this.image.name);
+  data.append('name',user.name);
+  data.append('email',user.email)
+  data.append('phone',user.phone);
+  data.append('address',user.address);
+  data.append('wieght',this.editProfile.value.weight);
+
+
 
   console.log(user);
 
 
-  this._httpClient.post('http://localhost:8000/api/update-profile',user,{headers:this.headers}).subscribe(
+  this._httpClient.post('http://localhost:8000/api/update-profile',data,{headers:this.headers}).subscribe(
     (response:any)=>{
       console.log(response)
     },
@@ -83,6 +90,8 @@ update():void{
     }
   )
 
+sessionStorage.setItem('user',JSON.stringify(user));
+this.router.navigate(['/profile'])
 
 }
 

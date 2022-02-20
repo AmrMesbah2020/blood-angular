@@ -2,8 +2,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Request } from 'src/app/models/request';
 import { NotificationsService } from 'src/app/services/notifications.service';
-// import {NotificationsService} from '/services/notifications.service';
-// import { NotificationsService } from 'ngx-toastr';
+
 
 // import { Router } from '@angular/router';
 
@@ -43,7 +42,7 @@ export class RequestsComponent implements OnInit {
       (error:any)=>{
         console.log(error.error);
         // alert(error.error);
-        this.toast.toastrWarningOnTap(error.error,'sorry ya 3sl','eligibilty-quiz');
+        this.toast.tosterWarning(error.error,'Hint');
       }
     )
   }

@@ -50,7 +50,7 @@ const routes: Routes = [
   {path:'login' , component:LoginComponent},
   {path:'register' , component:RegisterComponent},
   {path:'article/details/:id',component:ArticleDetailsComponent},
-  {path: 'add-artical',component:AddArticalComponent},
+  {path:'add-artical',component:AddArticalComponent},
   {path:'faq',component:FaqComponent},
   {path:'faq/medication-and-medical-devices',component:MedicationAndMedicalDevicesComponent},
   {path:'faq/lifestyle',component:LifestyleComponent},

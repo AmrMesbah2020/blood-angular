@@ -59,7 +59,7 @@
                 </div>
 
                 <br><br>
-                <button class="btn btn-danger mt-3">Edit Profile </button>
+                <button class="btn btn-danger mt-3" routerLink="/edit-profile">Edit Profile </button>
               </div>
 
             </div>
@@ -67,7 +67,7 @@
         </div>
         <div class="col-lg-6 ">
           <div class="about-avatar">
-            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
+            <img src="http://localhost:8000/storage/{{user.avatar}}" title="" alt="">
           </div>
         </div>
       </div>
@@ -111,7 +111,7 @@
         <div class="card p-3 mt-2" *ngFor="let request of userRequests">
           <div class="d-flex align-items-center justify-content-between px-4">
             <div class="d-flex align-items-center">
-              <i class="fab fa-cc-visa fa-2x cc-color-visa"></i>
+              <i class="bi bi-chat-heart" style="font-size: 25px;color: red;"></i>
               <div class="ms-4">
                 <div> <span class="text-danger fw-bold fs-4">{{request.blood.rhd}}</span>
                    <span class="text-danger fw-bold fs-4"> {{request.blood.blood_group}}</span>
@@ -129,12 +129,13 @@
                 </div>
               </div>
 
-              <div class="ms-4 small text-danger">
-                <h6>Applay
-                  <p class=" p-3">{{request.number_of_donners}}</p>
-                </h6>
 
-              </div>
+
+            </div>
+            <div class="ms-4 small text-danger">
+              <h6>Applay
+                <p class=" p-3">{{request.number_of_donners}}</p>
+              </h6>
 
             </div>
 
@@ -174,4 +175,4 @@
 
     </main>
 
-    
+
