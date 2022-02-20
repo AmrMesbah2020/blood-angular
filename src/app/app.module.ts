@@ -1,8 +1,6 @@
 import { AuthGuard } from './guards/auth.guard';
 import { LocationComponent } from './components/location/location.component';
 import { DonorsComponent } from './components/donors/donors.component';
-import { RequestsComponent } from './components/requests/requests.component';
-import { AddArticalComponent } from './components/add-artical/add-artical.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 // import {MatToolbarModule} from '@angular/material/toolbar';
@@ -13,29 +11,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ArticlesComponent } from './components/articles/articles.component';
-import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { EligibilityQuizComponent } from './components/eligibility-quiz/eligibility-quiz.component';
-import { FaqComponent } from './components/FAQ/faq/faq.component';
-import { MedicationAndMedicalDevicesComponent } from './components/FAQ/medication-and-medical-devices/medication-and-medical-devices.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostsComponent } from './components/posts/posts.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
-import { LifestyleComponent } from './components/FAQ/lifestyle/lifestyle.component';
-import { PregencyComponent } from './components/FAQ/pregency/pregency.component';
-import { WorkAndTravelComponent } from './components/FAQ/work-and-travel/work-and-travel.component';
-import { MedicalConditionsComponent } from './components/FAQ/medical-conditions/medical-conditions.component';
-import { OtherComponent } from './components/FAQ/other/other.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminModule } from './components/admin/admin.module';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
-import { MaxLengthPipe } from './pipes/max-length.pipe';
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
-import { LayoutComponent } from './layout/layout.component';
-import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+// import { MaxLengthPipe } from './pipes/max-length.pipe';
 import { ToastrModule } from 'ngx-toastr';
+import { FaqModule } from './components/FAQ/faq.module';
+import { ProfileModule } from './components/profile/profile.module';
+import { UserModule } from './components/user/user.module';
+import { LayoutComponent } from './layout/layout.component';
+import { RequestsComponent } from './components/requests/requests.component';
+import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
 
 
 
@@ -44,41 +33,31 @@ import { ToastrModule } from 'ngx-toastr';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ArticlesComponent,
-    ArticleDetailsComponent,
-    RegisterComponent,
-    LoginComponent,
-    EligibilityQuizComponent,
-    FaqComponent,
-    MedicationAndMedicalDevicesComponent,
     RequestsComponent,
-    DonorsComponent,
-    AddArticalComponent,
-    PostsComponent,
-    UserProfileComponent,
     MakeRequestsComponent,
-    LifestyleComponent,
-    PregencyComponent,
-    WorkAndTravelComponent,
-    MedicalConditionsComponent,
-    OtherComponent,
+    EligibilityQuizComponent,
+    DonorsComponent,
+    PostsComponent,
     ContactFormComponent,
-    MaxLengthPipe,
-    LayoutComponent,
+    // MaxLengthPipe,
     LocationComponent,
-    EditProfileComponent,
+    LayoutComponent
+ 
   ],
   imports: [
-    BrowserModule,
+ BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatExpansionModule,
+    // MatExpansionModule,
     NgbModule,
     AdminModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FaqModule,
+    ProfileModule,
+    UserModule,
     ToastrModule.forRoot()
 
     // MatToolbarModule,

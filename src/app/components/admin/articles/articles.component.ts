@@ -48,6 +48,8 @@ export class ArticlesComponent implements OnInit {
 
 
   deleteArticle(id: number): void {
+
+    if(confirm("Are you sure to delete "+id)) {
     this._httpClient.post(`http://localhost:8000/api/delete-article/` + id, null, { headers: this.headers }).subscribe(
 
 
@@ -61,7 +63,7 @@ export class ArticlesComponent implements OnInit {
       }
 
 
-    )
+    )}
     this.router.navigate(['/admin/adminn/articles-admin'])
       .then(() => {
         window.location.reload();

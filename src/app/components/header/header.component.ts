@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 import { NotificationsService } from 'src/app/services/notifications.service';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
@@ -31,7 +32,7 @@ export class HeaderComponent implements OnInit {
       this.navbarfixed = false;
     }
   }
-
+isLogged=false;
   flag:any='';
   notificationInfo=new Request();
   token:any=localStorage.getItem("Token");
@@ -39,9 +40,14 @@ export class HeaderComponent implements OnInit {
   listOfNotification:any=[];
   numberOfNotification:number=0;
 
-  constructor(private toastr: NotificationsService,private router:Router,private _httpClint:HttpClient) { }
+  constructor(private toastr: NotificationsService,private router:Router,private _userService:UserService,private _httpClint:HttpClient) { }
 
   ngOnInit(): void {
+
+
+    this._userService.logged.subscribe(status=>{
+      this.isLogged=status;
+    });
 
 this.GetNotification();
 
@@ -113,5 +119,8 @@ this.GetNotification();
      }
      )
  }
+
+
+
 
 }

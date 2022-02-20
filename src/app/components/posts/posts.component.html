@@ -5,7 +5,7 @@
         <div class=" grid-margin">
             <div class="card-body gray_background border">
                 <div class="" *ngIf="user">
-                    <img class="rounded-circle" width="12%" src="{{user.avatar}}" alt="profile picture" style="">
+                    <img class="rounded-circle" width="12%" src="http://localhost:8000/storage/{{user.avatar}}" alt="profile picture">
                     <a class="link_decoration pink_text" href="#"> {{user.name}}</a>
                 </div>
                 <form class="post" [formGroup]="formPost" accept=".png, .jpg, .jpeg, .svg" enctype="multipart/form-data">
@@ -49,7 +49,7 @@
         <div class="col-lg-6">
             <div class="row" >
                 <div class="col-lg">
-                     <img class="profile_img" src="{{item.owner.avatar}}" alt="profile picture" style="">
+                     <img class="profile_img" src="http://localhost:8000/storage/{{item.owner.avatar}}" alt="profile picture" >
                      <ul class=" ms-5">
                          <li class="list_type_none ms-3"> {{item.owner.name}}</li>
                          <li class="list_type_none ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">03 Dec 2020</span></li>
@@ -83,7 +83,7 @@
 
         <div class="row m-3 " >
          <div class="col-lg">
-              <img class="profile_img" src="{{item.owner.avatar}}" alt="profile picture">
+              <img class="profile_img" src="http://localhost:8000/storage/{{item.owner.avatar}}" alt="profile picture">
               <ul class="mt-4 ms-5">
                   <li class="list_type_none ms-3"> {{item.owner.name}}</li>
                   <li class="list_type_none ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">03 Dec 2020</span></li>
