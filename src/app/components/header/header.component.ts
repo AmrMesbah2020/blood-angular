@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -23,10 +24,16 @@ export class HeaderComponent implements OnInit {
       this.navbarfixed = false;
     }
   }
-  
-  constructor() { }
+  isLogged=false;
+  constructor(private _userService:UserService) { }
 
   ngOnInit(): void {
-  }
+    // this.isLogged=this._userService,this.isLoggIn();
 
+ this._userService.logged.subscribe(status=>{
+   this.isLogged=status;
+ });
+  } 
+
+  
 }

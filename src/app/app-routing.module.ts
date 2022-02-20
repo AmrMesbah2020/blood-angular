@@ -2,7 +2,6 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { LocationComponent } from './components/location/location.component';
 import { DonorsComponent } from './components/donors/donors.component';
 import { RequestsComponent } from './components/requests/requests.component';
-import { AddArticalComponent } from './components/add-artical/add-artical.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { WorkAndTravelComponent } from './components/FAQ/work-and-travel/work-and-travel.component';
 import { PregencyComponent } from './components/FAQ/pregency/pregency.component';
@@ -25,6 +24,7 @@ import { MakeRequestsComponent } from './components/make-requests/make-requests.
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 // lazy load //
 const routes: Routes = [
@@ -50,7 +50,6 @@ const routes: Routes = [
   {path:'login' , component:LoginComponent},
   {path:'register' , component:RegisterComponent},
   {path:'article/details/:id',component:ArticleDetailsComponent},
-  {path: 'add-artical',component:AddArticalComponent},
   {path:'faq',component:FaqComponent},
   {path:'faq/medication-and-medical-devices',component:MedicationAndMedicalDevicesComponent},
   {path:'faq/lifestyle',component:LifestyleComponent},
@@ -69,7 +68,9 @@ const routes: Routes = [
   {path:'requests',component:RequestsComponent},
   {path:'donors',component:DonorsComponent},
   {path:'location',component:LocationComponent},
-  {path: 'edit-profile',component:EditProfileComponent}
+  {path: 'edit-profile',component:EditProfileComponent},
+  {path: 'logout',component:LogoutComponent}
+
 
 
 
@@ -84,6 +85,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-   exports: [RouterModule],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

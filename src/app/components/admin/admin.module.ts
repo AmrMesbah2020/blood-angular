@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminPannelComponent } from './admin-pannel/admin-pannel.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AllUsersComponent } from './all-users/all-users.component';
+import { AddArticalComponent } from './add-artical/add-artical.component';
 // import { HttpClientModule } from '@angular/common/http';
 
 
@@ -25,7 +26,8 @@ const routes: Routes = [
         { path: 'requests-admin', component: RequestsComponent },
         { path: 'feedback-admin', component: FeedbackComponent },
         { path: 'add-admin', component: AddAdminComponent },
-        {path: 'users-admin',component:AllUsersComponent}
+        {path: 'users-admin',component:AllUsersComponent},
+        {path:'add-article',component:AddArticalComponent},
       ]},
 
 
@@ -43,7 +45,8 @@ const routes: Routes = [
     FeedbackComponent,
     AddAdminComponent,
     DashboardComponent,
-    AllUsersComponent
+    AllUsersComponent,
+    AddArticalComponent
   ],
   imports: [
 

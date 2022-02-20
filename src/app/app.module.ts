@@ -2,7 +2,6 @@ import { AuthGuard } from './guards/auth.guard';
 import { LocationComponent } from './components/location/location.component';
 import { DonorsComponent } from './components/donors/donors.component';
 import { RequestsComponent } from './components/requests/requests.component';
-import { AddArticalComponent } from './components/add-artical/add-artical.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 // import {MatToolbarModule} from '@angular/material/toolbar';
@@ -35,6 +34,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 
@@ -52,7 +52,6 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     MedicationAndMedicalDevicesComponent,
     RequestsComponent,
     DonorsComponent,
-    AddArticalComponent,
     PostsComponent,
     UserProfileComponent,
     MakeRequestsComponent,
@@ -66,6 +65,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     LayoutComponent,
     LocationComponent,
     EditProfileComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
