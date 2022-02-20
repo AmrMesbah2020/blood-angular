@@ -25,7 +25,7 @@
 <div class="container d-flex justify-content-center ">
     <div class="row p-5 ">
         <div class="col-lg-4 mb-3" *ngFor="let item of articles">
-            <img class="w-100" src="{{item.image}}" alt="">
+            <img class="w-100"  src="http://localhost:8000/puplic/storage/{{item.image}}"  alt="">
             <h6 class="h5">{{item.title}}</h6>
           <ul >
             <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li>

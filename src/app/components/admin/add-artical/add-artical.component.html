@@ -11,7 +11,7 @@
   <h1 class="text-center text-uppercase " style="color: red;padding-top: 10px;">
     add new artical
   </h1>
-  <div class="container">
+  <div class="container ">
     <form [formGroup]="addArtical">
       <div class="form-group">
         <label for="title">Titel : </label>
@@ -65,7 +65,7 @@
 
         <div class="col-sm-8 img-upload-section">
           <input formControlName="img" type="file"  id="menu_images" (change)="onfile($event)" />
-          <img  class="preview_img" />
+          <img  class="preview_img"/>
         </div>
         <div *ngIf="addArtical.controls['img'].errors && (addArtical.controls['img'].touched)">
           <small class="form-text text-danger "
