@@ -34,11 +34,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
-<<<<<<< HEAD
 import { LogoutComponent } from './components/logout/logout.component';
-=======
 import { ToastrModule } from 'ngx-toastr';
->>>>>>> aa275dc35714c4e692c3488ad7664d43208023e8
 
 
 
