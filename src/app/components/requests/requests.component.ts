@@ -1,6 +1,10 @@
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Request } from 'src/app/models/request' ;
+import { Request } from 'src/app/models/request';
+import { NotificationsService } from 'src/app/services/notifications.service';
+// import {NotificationsService} from '/services/notifications.service';
+// import { NotificationsService } from 'ngx-toastr';
+
 // import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +18,7 @@ export class RequestsComponent implements OnInit {
   requests:Request[]=[];
   token:any=localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
-  constructor(private _httpClint:HttpClient) { }
+  constructor(private _httpClint:HttpClient,private toast:NotificationsService) { }
 
   ngOnInit(): void {
 
@@ -38,9 +42,12 @@ export class RequestsComponent implements OnInit {
       },
       (error:any)=>{
         console.log(error.error);
-        alert(error.error);
+        // alert(error.error);
+        this.toast.toastrWarningOnTap(error.error,'sorry ya 3sl','eligibilty-quiz');
       }
     )
   }
 
 }
+
+
