@@ -69,7 +69,7 @@ const routes: Routes = [
   {path:'donors',component:DonorsComponent},
   {path:'location',component:LocationComponent},
   {path: 'edit-profile',component:EditProfileComponent},
-  {path: 'logout',component:LogoutComponent}
+  {path: 'logout',component:LogoutComponent} 
 
 
 
