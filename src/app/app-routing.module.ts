@@ -1,3 +1,4 @@
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { LocationComponent } from './components/location/location.component';
 import { DonorsComponent } from './components/donors/donors.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
@@ -61,6 +62,7 @@ const routes: Routes = [
   {path:'location',component:LocationComponent},
   {path:'requests',component:RequestsComponent},
   {path:'make-request',component:MakeRequestsComponent},
+  {path:'profile-page', component:ProfilePageComponent}
   ]}
 
 
