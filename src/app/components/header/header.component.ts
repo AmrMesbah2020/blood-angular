@@ -15,7 +15,11 @@ import { Session } from 'inspector';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  isOpen:boolean= false;
 
+  toggleNavbar(){
+    this.isOpen=!this.isOpen
+  }
 
   isActive: boolean | undefined;
 
