@@ -62,7 +62,7 @@ const routes: Routes = [
   {path:'location',component:LocationComponent},
   {path:'requests',component:RequestsComponent},
   {path:'make-request',component:MakeRequestsComponent},
-  {path:'profile-page', component:ProfilePageComponent}
+  {path:'profile-page/:id', component:ProfilePageComponent}
   ]}
 
 

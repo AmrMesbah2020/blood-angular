@@ -24,7 +24,7 @@
           <div class="card-body">
             <div class="user-profile">
               <div class="user-avatar">
-                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=" Admin"
+                <img src="http://localhost:8000/storage/{{userInfo.avatar}}" alt=" Admin"
                   style="width: 100%; height: 100%;">
               </div>
               <br><br>
@@ -192,7 +192,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-12 bg-light text-right ">
-                    <button type="button" class="btn btn-dark" style="margin-right: 5px;">Cancel</button>
+                    <a type="button" class="btn btn-dark" style="margin-right: 5px;" routerLink="/profile">Cancel</a>
                     <button type="button" class="btn btn-success" (click)="update()" [disabled]="editProfile.invalid">Save</button>
                   </div>
                 </div>

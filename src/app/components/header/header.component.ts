@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
       this.navbarfixed = false;
     }
   }
-isLogged=false;
+  isLogged:boolean=false;
   flag:any='';
   notificationInfo=new Request();
   token:any=localStorage.getItem("Token");
@@ -103,7 +103,7 @@ this.GetNotification();
 
     }
   )
- }, 2000);
+ }, 10000);
 
 
 

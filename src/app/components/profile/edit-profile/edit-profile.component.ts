@@ -36,6 +36,7 @@ export class EditProfileComponent implements OnInit {
     )
     this.userInfo=sessionStorage.getItem('user');
     let name =JSON.parse(this.userInfo).name.split(' ');
+    
 this.editProfile=this. _formBuilder.group({
   firstName:[name[0],[Validators.required,Validators.minLength(3),Validators.maxLength(10),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
   lastName:[name[1],[Validators.required,Validators.minLength(3),Validators.maxLength(10),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],

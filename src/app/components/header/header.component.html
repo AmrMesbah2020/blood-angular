@@ -42,7 +42,7 @@
                   <i class="bi bi-bell" ></i><sup><span  class="rounded-circle bg-danger text-white">{{numberOfNotification}}</span></sup> </a>
                 <ul class="dropdown drop" ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink">
                   <li class="nav-link scrollto" routerLinkActive="router-link-active" [hidden]="!listOfNotification[0]" (click)="markAsRead()">Clear<i class="bi bi-check2-circle"></i></li>
-                  <li *ngFor="let item of listOfNotification"><a class="nav-link scrollto" routerLinkActive="router-link-active">{{item.notification_message}}</a></li>
+                  <li *ngFor="let item of listOfNotification"><a class="nav-link scrollto" routerLink="/profile-page/{{item.donner_id}}" routerLinkActive="router-link-active">{{item.notification_message}}</a></li>
                 </ul>
               </li>
               <!--end notification-->
