@@ -48,7 +48,7 @@
                               is 30</small>
                             <small class="form-text text-dark "
                               *ngIf="registerForm.controls['firstName'].errors['pattern']">
-                              only letters
+                              only characters
                             </small>
                           </div>
                         </div>
@@ -61,7 +61,7 @@
                           <div
                             *ngIf="registerForm.controls['lastName'].errors && (registerForm.controls['lastName'].touched)">
                             <small class="form-text text-dark "
-                              *ngIf="registerForm.controls['lastName'].errors && registerForm.controls['lastName'].errors ['required']">last
+                              *ngIf="registerForm.controls['lastName'].errors && registerForm.controls['lastName'].errors ['required']">Last
                               name
                               is
                               requierd</small>
@@ -75,7 +75,7 @@
                               is 30</small>
                             <small class="form-text text-dark "
                               *ngIf="registerForm.controls['lastName'].errors['pattern']">
-                              only letters
+                              only characters
                             </small>
                           </div>
                         </div>
@@ -89,7 +89,7 @@
                         *ngIf="registerForm.controls['birthdate'].errors && (registerForm.controls['birthdate'].touched)">
                         <small class="form-text text-dark "
                           *ngIf="registerForm.controls['birthdate'].errors && registerForm.controls['birthdate'].errors ['required']">
-                          date
+                          Date
                           is
                           requierd</small>
                       </div>
@@ -105,7 +105,7 @@
                       <div *ngIf="registerForm.controls['gender'].errors && (registerForm.controls['gender'].touched)">
                         <small class="form-text text-dark "
                           *ngIf="registerForm.controls['gender'].errors && registerForm.controls['gender'].errors ['required']">
-                          gender
+                          Gender
                           is
                           requierd</small>
                       </div>
@@ -117,7 +117,7 @@
                       <div
                         *ngIf="registerForm.controls['password'].errors && (registerForm.controls['password'].touched)">
                         <small class="form-text text-dark "
-                          *ngIf="registerForm.controls['password'].errors && registerForm.controls['password'].errors ['required']">password
+                          *ngIf="registerForm.controls['password'].errors && registerForm.controls['password'].errors ['required']">Password
                           is
                           requierd</small>
                         <small class="form-text text-dark"
@@ -125,8 +125,8 @@
                           minimum
                           length is 6 </small>
                         <small class="form-text text-dark " *ngIf="registerForm.controls['password'].errors['pattern']">
-                          email should be
-                          containe numbers and capital letters </small>
+                          Password should be
+                          containe numbers and at least one capital character </small>
                         <small class="form-text text-dark "
                           *ngIf="registerForm.controls['password'].errors['maxlength']">
                           maximum length
@@ -140,7 +140,7 @@
                       <div *ngIf="registerForm.controls['weight'].errors && (registerForm.controls['weight'].touched)">
                         <small class="form-text text-dark "
                           *ngIf="registerForm.controls['weight'].errors && registerForm.controls['weight'].errors ['required']">
-                          weight
+                          Weight
                           is
                           requierd</small>
                         <small class="form-text text-dark "
@@ -169,14 +169,14 @@
                       formControlName="email" />
                     <div *ngIf="registerForm.controls['email'].errors && (registerForm.controls['email'].touched)">
                       <small class="form-text text-dark "
-                        *ngIf="registerForm.controls['email'].errors && registerForm.controls['email'].errors ['required']">email
+                        *ngIf="registerForm.controls['email'].errors && registerForm.controls['email'].errors ['required']">Email
                         is
                         requierd</small>
                       <small class="form-text text-dark " *ngIf="registerForm.controls['email'].errors['minlength'] ">
                         minimum
                         length is 7 </small>
                       <small class="form-text text-dark " *ngIf="registerForm.controls['email'].errors['pattern']">
-                        email should be
+                        Email should be
                         containe @ </small>
                       <small class="form-text text-dark " *ngIf="registerForm.controls['email'].errors['maxlength']">
                         maximum length
@@ -190,7 +190,7 @@
                     <div *ngIf="registerForm.controls['phone'].errors && (registerForm.controls['phone'].touched)">
                       <small class="form-text text-dark "
                         *ngIf="registerForm.controls['phone'].errors && registerForm.controls['phone'].errors ['required']">
-                        phone
+                        Phone
                         is
                         requierd</small>
                       <small class="form-text text-dark" *ngIf="registerForm.controls['phone'].errors['minlength'] ">
@@ -200,7 +200,7 @@
                         maximum length
                         is 15</small>
                       <small class="form-text text-dark " *ngIf="registerForm.controls['phone'].errors['pattern']">
-                        phone number should be started with 010 or 011 or 012 or 015</small>
+                        Phone number should be started with 010 or 011 or 012 or 015</small>
                     </div>
                   </div>
                   <div class="form-outline mb-4" [formGroup]="registerForm">
@@ -210,7 +210,7 @@
                     <div *ngIf="registerForm.controls['street'].errors && (registerForm.controls['street'].touched)">
                       <small class="form-text text-dark"
                         *ngIf="registerForm.controls['street'].errors && registerForm.controls['street'].errors ['required']">
-                        street
+                        Street
                         is
                         requierd</small>
                       <small class="form-text text-dark " *ngIf="registerForm.controls['street'].errors['minlength'] ">
@@ -220,7 +220,7 @@
                         maximum length
                         is 50</small>
                       <small class="form-text text-dark " *ngIf="registerForm.controls['street'].errors['pattern']">
-                        only letters </small>
+                        only character </small>
                     </div>
                     <label class="form-label" for="form3Examplev2">Street Address</label>
 
@@ -232,7 +232,7 @@
                           <div *ngIf="registerForm.controls['city'].errors && (registerForm.controls['city'].touched)">
                             <small class="form-text text-dark "
                               *ngIf="registerForm.controls['city'].errors && registerForm.controls['city'].errors ['required']">
-                              city
+                              City
                               is
                               requierd</small>
                             <small class="form-text text-dark "
@@ -244,7 +244,7 @@
                               maximum length
                               is 50</small>
                             <small class="form-text text-dark " *ngIf="registerForm.controls['city'].errors['pattern']">
-                              only letters </small>
+                              only character </small>
                           </div>
                           <label class="form-label" for="city">City</label>
 
@@ -258,7 +258,7 @@
                             *ngIf="registerForm.controls['state'].errors && (registerForm.controls['state'].touched) ">
                             <small class="form-text text-dark "
                               *ngIf="registerForm.controls['state'].errors && registerForm.controls['state'].errors ['required']">
-                              state
+                              State
                               is
                               requierd</small>
                             <small class="form-text text-dark "
@@ -271,7 +271,7 @@
                               is 50</small>
                             <small class="form-text text-dark "
                               *ngIf="registerForm.controls['state'].errors['pattern']">
-                              only letters </small>
+                              only character </small>
 
                           </div>
                           <label class="form-label" for="state">State / Province</label>
@@ -300,9 +300,7 @@
       </div>
       <br>
     </div>
-
   </section>
-
   <script src="/path/to/cdn/jquery.min.js"></script>
   <script src="/path/to/jquery.picky.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"

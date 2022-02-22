@@ -29,9 +29,6 @@ export class LoginComponent implements OnInit {
 
   login(): void {
 
-    this._userService.login('');
-    this.router.navigateByUrl('/home');
-
     let user = new User();
     user.email = this.loginForm.value.email
     user.password = this.loginForm.value.password
@@ -41,8 +38,8 @@ export class LoginComponent implements OnInit {
 
         console.log(JSON.stringify(response.date));
         console.log(response);
-        this.router.navigate(['home']);
-        localStorage.setItem("Token", response)
+        this._userService.login(response);
+        this.router.navigateByUrl('/home');
       },
       (error: any) => {
         this.errMsg = error;

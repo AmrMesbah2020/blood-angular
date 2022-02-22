@@ -19,12 +19,12 @@
          </textarea>
         <div *ngIf="addArtical.controls['title'].errors && (addArtical.controls['title'].touched)">
           <small class="form-text text-danger "
-            *ngIf="addArtical.controls['title'].errors && addArtical.controls['title'].errors ['required']">title is
+            *ngIf="addArtical.controls['title'].errors && addArtical.controls['title'].errors ['required']">Title is
             requierd</small>
           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['minlength'] "> minimum
             length is 6 </small>
-          <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['pattern']"> title should be
-            containe only letters</small>
+          <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['pattern']"> Title should be
+            containe only characters</small>
           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['maxlength']"> maximum length
             is 50</small>
         </div>
@@ -35,13 +35,13 @@
          </textarea>
         <div *ngIf="addArtical.controls['resources'].errors && (addArtical.controls['resources'].touched)">
           <small class="form-text text-danger "
-            *ngIf="addArtical.controls['resources'].errors && addArtical.controls['resources'].errors ['required']">resources
+            *ngIf="addArtical.controls['resources'].errors && addArtical.controls['resources'].errors ['required']">Resources
             is requierd</small>
           <small class="form-text text-danger " *ngIf="addArtical.controls['resources'].errors['minlength'] "> minimum
             length is 6 </small>
           <!-- <small class="form-text text-danger " *ngIf="addArtical.controls['resources'].errors['pattern']"> resources
             should be containe only letters</small> -->
-          <small class="form-text text-danger " *ngIf="addArtical.controls['resources'].errors['maxlength']"> resources
+          <small class="form-text text-danger " *ngIf="addArtical.controls['resources'].errors['maxlength']"> Resources
             length is 100</small>
         </div>
       </div>
@@ -64,8 +64,8 @@
         <label for="img" id="image">Upload Your photo</label><br>
 
         <div class="col-sm-8 img-upload-section">
-          <input formControlName="img" type="file"  id="menu_images" (change)="onfile($event)" />
-          <img  class="preview_img"/>
+          <input formControlName="image" name="image"  type="file"  id="menu_images" (change)="onfile($event)" />
+          <!-- <img  class="preview_img"/> -->
         </div>
         <div *ngIf="addArtical.controls['img'].errors && (addArtical.controls['img'].touched)">
           <small class="form-text text-danger "
@@ -74,7 +74,7 @@
         </div>
       </div>
       <div class="text-right">
-        <button type="button" class="btn btn-danger btn-lg " (click)="addArticle()" [disabled]="addArtical.invalid">
+        <button type="button" class="btn btn-danger btn-lg "   (click)="addArticle()" [disabled]="addArtical.invalid">
           + ADD ARTICAL
         </button>
       </div>

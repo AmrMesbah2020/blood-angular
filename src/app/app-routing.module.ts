@@ -1,4 +1,5 @@
 import { CaloriesCalculaterComponent } from './components/calories-calculater/calories-calculater.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { LocationComponent } from './components/location/location.component';
 import { DonorsComponent } from './components/donors/donors.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
@@ -49,7 +50,7 @@ const routes: Routes = [
     loadChildren: () => import('./components/user/user.module').then(m => m.UserModule)
   },
 
-  { path:'', 
+  { path:'',
   component:LayoutComponent,
 
   children:[
@@ -63,6 +64,7 @@ const routes: Routes = [
   {path:'requests',component:RequestsComponent},
   {path:'make-request',component:MakeRequestsComponent},
   {path:'weight',component:CaloriesCalculaterComponent},
+  {path:'profile-page/:id', component:ProfilePageComponent}
   ]}
 
 
