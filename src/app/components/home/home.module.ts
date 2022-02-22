@@ -10,7 +10,8 @@ import { MaxLengthPipe } from 'src/app/pipes/max-length.pipe';
 
 
 const routes: Routes = [
-  {path:' ',component:HomeComponent},
+  {path:'',component:HomeComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {path:'home',component:HomeComponent},
   {path:'dash-counter',component:DashCounterComponent},
  
