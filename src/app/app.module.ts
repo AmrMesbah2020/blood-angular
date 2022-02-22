@@ -25,6 +25,7 @@ import { UserModule } from './components/user/user.module';
 import { LayoutComponent } from './layout/layout.component';
 import { RequestsComponent } from './components/requests/requests.component';
 import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
+import { CaloriesCalculaterComponent } from './components/calories-calculater/calories-calculater.component';
 
 
 
@@ -41,7 +42,8 @@ import { MakeRequestsComponent } from './components/make-requests/make-requests.
     ContactFormComponent,
     // MaxLengthPipe,
     LocationComponent,
-    LayoutComponent
+    LayoutComponent,
+    CaloriesCalculaterComponent,
  
   ],
   imports: [
