@@ -25,27 +25,29 @@ export class EditProfileComponent implements OnInit {
 
     this._httpClient.get('http://localhost:8000/api/user',{headers:this.headers}).subscribe(
       (response:any)=>{
-
         this.userInfo=response.data[0];
         sessionStorage.setItem('user',JSON.stringify(this.userInfo))
-        console.log(this.userInfo);
       },
-      (error:any)=>{
-
-      }
+      (error:any)=>{}
     )
     this.userInfo=sessionStorage.getItem('user');
-    let name =JSON.parse(this.userInfo).name.split(' ');
-    
+    let name =JSON.parse(this.userInfo.name).split(' ');
+
 this.editProfile=this. _formBuilder.group({
   firstName:[name[0],[Validators.required,Validators.minLength(3),Validators.maxLength(10),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
   lastName:[name[1],[Validators.required,Validators.minLength(3),Validators.maxLength(10),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
-  phone:[JSON.parse(this.userInfo).phone,[Validators.required,Validators.pattern("^01[0-2,5]{1}[0-9]{8}$"),Validators.maxLength(15),Validators.minLength(11)]],
-  email:[JSON.parse(this.userInfo).email,[Validators.required,Validators.email,Validators.minLength(7),Validators.maxLength(40)]],
-  weight:[JSON.parse(this.userInfo).wieght,[Validators.required,Validators.maxLength(3),Validators.minLength(1),Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-  address:[JSON.parse(this.userInfo).address,[Validators.required,Validators.minLength(20),Validators.maxLength(150),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*') ]],
+  phone:[this.userInfo.phone,[Validators.required,Validators.pattern("^01[0-2,5]{1}[0-9]{8}$"),Validators.maxLength(15),Validators.minLength(11)]],
+  email:[this.userInfo.email,[Validators.required,Validators.email,Validators.minLength(7),Validators.maxLength(40)]],
+  weight:[this.userInfo.wieght,[Validators.required,Validators.maxLength(3),Validators.minLength(1),Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+  address:[this.userInfo.address,[Validators.required,Validators.minLength(20),Validators.maxLength(150),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*') ]],
 })
 }
+
+
+
+
+
+
 
 isValid(name:string):boolean{
   return this.editProfile.controls[name].valid;
