@@ -14,14 +14,14 @@ import { User } from 'src/app/models/user';
 })
 export class PostsComponent implements OnInit {
 
- 
+
   formPost=new FormGroup({});
   //post:Post=new Post();
   posts:Post[]=[];
   topRatePost:Post[]=[];
   liked_posts:number[]=[];
-  image:any; 
-   
+  image:any;
+
 
   user=new User;
   token:any=localStorage.getItem('Token');
@@ -32,9 +32,9 @@ export class PostsComponent implements OnInit {
   constructor(private _activatedRoute:ActivatedRoute , private _httpClient:HttpClient,private _postService:PostService,private _formBuilder: FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
-     
+
     //navigation to login page to unauthorized users
-    
+
     if(localStorage.getItem('Token')==null){
       this.router.navigate(['/login']);
   }
@@ -58,7 +58,7 @@ export class PostsComponent implements OnInit {
 
    //get liked posts by the user
 
-   this._httpClient.get("http://localhost:8000/api/liked-posts", 
+   this._httpClient.get("http://localhost:8000/api/liked-posts",
    { headers: this.headers }).subscribe(
 
      (response:any)=>{
@@ -70,7 +70,7 @@ export class PostsComponent implements OnInit {
      }
   )
 
-   
+
 
 
 
@@ -84,13 +84,13 @@ export class PostsComponent implements OnInit {
       }
       ,
       (error:any)=>{
-        alert("error");
+        console.log(error);
       }
     );
 
 
   }
-  
+
   //post image
   onfile(event:any){
     this.image=event.target.files[0];
@@ -103,21 +103,21 @@ export class PostsComponent implements OnInit {
       title:['' , [Validators.required],],
       content:['' , [Validators.required],],
       image:[null,]
-   
+
     })
    }
-  
+
   //add post
   addPost():void{
     let post=new Post();
     let formData=new FormData();
    formData.append("image",this.image,this.image.name);
    formData.append("title",this.formPost.value.title);
-   formData.append("content",this.formPost.value.content)
+   formData.append("content",this.formPost.value.content);
     // post.title=this.formPost.value.title;
     // post.content=this.formPost.value.content;
     formData.forEach(file => console.log("File:", file));
-  
+
     this._httpClient.post("http://localhost:8000/api/post",formData,{ headers: this.headers }).subscribe(
 
       (response:any)=>{
@@ -152,6 +152,7 @@ export class PostsComponent implements OnInit {
       (response:any)=>{
        JSON.stringify(response.data);
       this.posts=response.data;
+      console.log(this.posts[0].image)
        // this.rate=response.data.rate;
         console.log(this.posts)
       }
@@ -161,7 +162,7 @@ export class PostsComponent implements OnInit {
       }
     );
   }
-  
+
 
   //post like function
 
@@ -172,9 +173,9 @@ export class PostsComponent implements OnInit {
        let index = this.liked_posts.findIndex(x => x== postid);
         this.liked_posts.splice(index, 1);
         console.log(this.liked_posts);
-        
-       
-       
+
+
+
      }
      else{
       rate++;
@@ -200,7 +201,7 @@ export class PostsComponent implements OnInit {
 
 
 
-  
+
   }
 
 

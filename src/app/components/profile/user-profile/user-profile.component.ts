@@ -40,7 +40,7 @@ export class UserProfileComponent implements OnInit {
          this.user=response.data[0];
          this.donnationData.push(this.user.donnation_data);
 
-        //  console.log(this.donnationData);
+         console.log(this.user.avatar);
       },
       (error:any)=>{
         console.log(error);
@@ -52,7 +52,7 @@ export class UserProfileComponent implements OnInit {
     (response:any)=>{
       this.userPosts=response[0];
       console.log(this.userPosts);
-      
+
        this .numberOfPosts=response[1];
 
       //  console.log(this.post);
@@ -66,7 +66,7 @@ export class UserProfileComponent implements OnInit {
 
   (response:any)=>{
     this.userRequests=response[0];
-console.log(this.userRequests);
+    console.log(this.userRequests);
 
     this.numberOfRequests=response[1];
     //  console.log(response);

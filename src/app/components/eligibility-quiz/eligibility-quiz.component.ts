@@ -1,8 +1,10 @@
+
 import { Router } from '@angular/router';
 import { DonnationData } from './../../models/donnationData';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { HttpClient,HttpHeaders} from '@angular/common/http';
+import { NotificationsService } from 'src/app/services/notifications.service';
 
 class DonnerData{
   last_date_of_donnation=new Date(10);
@@ -19,21 +21,22 @@ class DonnerData{
 })
 export class EligibilityQuizComponent implements OnInit {
   question_num:number=1;
-  
+
   isChecked: boolean = false;
   addDonnerForm=new FormGroup({});
   donnatinData=new DonnationData();
+  errMsg:string='';
 
   token:any=localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
-  constructor(private _formBuilder: FormBuilder,private _httpClient:HttpClient,private router:Router){}
- 
+  constructor(private _formBuilder: FormBuilder,private _httpClient:HttpClient,private router:Router,private toast:NotificationsService){}
+
   ngOnInit(): void {
 
     if(localStorage.getItem('Token')==null){
       this.router.navigate(['/login']);
   }
-   
+
     this.addDonnerForm=this._formBuilder.group({
       bloodgroup:['' , [Validators.required],],
       bloodrh:['' , [Validators.required],],
@@ -57,16 +60,17 @@ export class EligibilityQuizComponent implements OnInit {
    this._httpClient.post("http://localhost:8000/api/donnation",donnatinData,{headers:this.headers}).subscribe(
 
       (response:any)=>{
-        
          console.log((response));
+         this.router.navigate(['/requests'])
+
       },
       (error:any)=>{
         console.log(error);
-
+        this.errMsg=error.error.errors.last_date_of_donnation[0]
+        console.log(this.errMsg);
+        this.toast.tosterError(this.errMsg,'Sorry');
       }
    )
-
-
   }
 
 
@@ -78,23 +82,23 @@ export class EligibilityQuizComponent implements OnInit {
 
 
 
-  
+
 
    nextQuation():void {
 
    this.question_num++;
-    
+
   }
 
   previoustQuation():void {
 
     this.question_num--;
-     
+
    }
 
    ineligiblMessage():void{
      this.question_num =0;
-   } 
+   }
 
    isValidControl(name:string):boolean
   {

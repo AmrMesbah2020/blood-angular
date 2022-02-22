@@ -17,21 +17,21 @@
   <h4 class="text-center text-uppercase " style="color:rgb(240, 84, 84) ; margin-left: 10px; margin-bottom: 10px;">
     Edit your profile
   </h4>
-  <div class="container" [formGroup]="editProfile">
+  <div class="container" [formGroup]="editProfile" style="height: 100%;">
     <div class="row gutters">
       <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
         <div class="card h-100">
           <div class="card-body">
             <div class="user-profile">
               <div class="user-avatar">
-                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=" Admin"
+                <img src="http://localhost:8000/storage/{{userInfo.avatar}}" alt=" Admin"
                   style="width: 100%; height: 100%;">
               </div>
               <br><br>
               <div class="form-group">
                 <label for="img">Upload a different photo. <br>Allowed JPG, GIF or PNG</label><br><br>
                 <div class="col-sm-8 img-upload-section">
-                  <input formControlName="img" type="file" accept="image/*" />
+                  <input formControlName="img" type="file" accept=".gif,.png,.jpg,.jpeg"  (change)="onfile($event)" />
                   <img id="menu_image" class="preview_img" />
                 </div>
 
@@ -131,9 +131,9 @@
                       <small class="form-text text-danger " *ngIf="editProfile.controls['email'].errors['minlength'] ">
                         minimum
                         length is 7 </small>
-                      <small class="form-text text-danger " *ngIf="editProfile.controls['email'].errors['pattern']">
-                        Email should be
-                        containe @ </small>
+                      <small class="form-text text-danger " *ngIf="editProfile.controls['email'].errors['email']">
+                       Invalid Email </small>
+
                       <small class="form-text text-danger " *ngIf="editProfile.controls['email'].errors['maxlength']">
                         maximum length
                         is 40</small>
@@ -192,7 +192,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-12 bg-light text-right ">
-                    <button type="button" class="btn btn-dark" style="margin-right: 5px;">Cancel</button>
+                    <a type="button" class="btn btn-dark text-white" style="margin-right: 5px;" routerLink="/profile">Cancel</a>
                     <button type="button" class="btn btn-success" (click)="update()" [disabled]="editProfile.invalid">Save</button>
                   </div>
                 </div>

@@ -14,7 +14,7 @@ export class ArticleDetailsComponent implements OnInit {
   articles:Article[]=[];
   article_details:Article[]=[];
 
-  constructor(private _activatedRoute:ActivatedRoute , private _httpClient:HttpClient,private _articleService:ArticleService,private router:Router) { }
+  constructor(private _activatedRoute:ActivatedRoute,private _httpClient:HttpClient,private _articleService:ArticleService,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -23,7 +23,7 @@ export class ArticleDetailsComponent implements OnInit {
   }
 
     this._activatedRoute.paramMap.subscribe(params=>{
-      
+
       let id=params.get('id');
       console.log(id);
 this._httpClient.get(`http://localhost:8000/api/articles/${id}`)
@@ -31,11 +31,11 @@ this._httpClient.get(`http://localhost:8000/api/articles/${id}`)
   (response:any)=>{
     JSON.stringify(response.data);
     this.article_details=response;
-  console.log(this.article_details) ; 
+  console.log(this.article_details) ;
   },
   (error:any)=>{}
 )
-     
+
     })
 
 
