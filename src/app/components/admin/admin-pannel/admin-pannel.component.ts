@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-admin-pannel',
@@ -10,9 +11,10 @@ import { Router } from '@angular/router';
 export class AdminPannelComponent implements OnInit {
 
   
-  constructor(private _httpClient: HttpClient, private router: Router) { }
+  constructor(private _httpClient: HttpClient, private router: Router, private userService:UserService) { }
 
   ngOnInit(): void {
+    this.userService.isAdmin();
     // if (localStorage.getItem('Token') == null) {
     //   this.router.navigate(['/login']);
     // }
