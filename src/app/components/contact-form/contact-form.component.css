@@ -6,6 +6,9 @@
      box-sizing: border-box;
      font-family: 'Poppins', sans-serif
  }
+ .hh{
+     padding-bottom: 10%;
+ }
 
  .wrapper {
      max-width: 850px;

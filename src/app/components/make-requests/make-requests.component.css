@@ -5,9 +5,10 @@ body {
     background: #f5f6fa;
     position: relative;
     height: 100%;
-    padding-bottom: 5%;
+    padding-bottom: 10%;
     /* font-family: 'Artifika', serif; */
 }
+
 .account-settings .user-profile {
     margin: 0 0 1rem 0;
     padding-bottom: 1rem;

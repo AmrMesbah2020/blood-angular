@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { User } from 'src/app/models/user';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
+import { useAnimation } from '@angular/animations';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm = new FormGroup({});
   user = new User();
   errMsg: any = [];
+
 
   constructor(private _formBuilder: FormBuilder, private _userService: UserService, private _httpClient: HttpClient, private router: Router) {
   }
@@ -33,13 +35,15 @@ export class LoginComponent implements OnInit {
     user.email = this.loginForm.value.email
     user.password = this.loginForm.value.password
 
+    
     this._httpClient.post('http://localhost:8000/api/login', user).subscribe(
       (response: any) => {
 
         console.log(JSON.stringify(response.date));
         console.log(response);
         this._userService.login(response);
-        this.router.navigateByUrl('/home');
+       
+          this.router.navigateByUrl('/home');        
       },
       (error: any) => {
         this.errMsg = error;
@@ -50,6 +54,7 @@ export class LoginComponent implements OnInit {
 
 
   }
+
   isValid(name: string): boolean {
     return this.loginForm.controls[name].valid;
 

@@ -2,7 +2,9 @@ body{
     font-family: 'Artifika', serif;
 }
 
-
+.hh{
+    padding-bottom: 10%;
+}
 .first-part{
     
     /* background-image: url('../../../assets/img/bloodho.png'); */

@@ -13,6 +13,8 @@ import { Article } from '../../../models/article';
 export class ArticlesComponent implements OnInit {
 
   articles: Article[] = [];
+  article_details:Article[]=[];
+
 
   // article =new Article;
   token: any = localStorage.getItem('Token');
