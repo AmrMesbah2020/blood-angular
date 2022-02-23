@@ -45,7 +45,7 @@ export class PostsComponent implements OnInit {
     // get the user
     this._httpClient.get("http://localhost:8000/api/user",
     { headers: this.headers }).subscribe(
-
+    
       (response:any)=>{
          this.user=response.data[0];
          console.log(this.user);
@@ -54,6 +54,7 @@ export class PostsComponent implements OnInit {
         console.log(error);
       }
    )
+   
 
 
    //get liked posts by the user
