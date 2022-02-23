@@ -31,9 +31,9 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
 
 
-    if(localStorage.getItem('Token')==null){
-      this.router.navigate(['/login']);
-  }
+  //   if(localStorage.getItem('Token')==null){
+  //     this.router.navigate(['/login']);
+  // }
     this._httpClient.get("http://localhost:8000/api/user", { headers: this.headers }).subscribe(
 
       (response:any)=>{

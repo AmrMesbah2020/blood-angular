@@ -26,9 +26,6 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.token);
 
-    if (localStorage.getItem('Token') == null) {
-      this.router.navigate(['/login']);
-    }
     this._httpClient.get("http://localhost:8000/api/allposts", { headers: this.headers }).subscribe(
 
       (response: any) => {

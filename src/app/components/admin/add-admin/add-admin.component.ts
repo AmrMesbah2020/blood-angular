@@ -20,9 +20,6 @@ export class AddAdminComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (localStorage.getItem('Token') == null) {
-      this.router.navigate(['/login']);
-    }
 
 
     this.adminForm = this._formBuilder.group({

@@ -19,9 +19,7 @@ export class ArticleDetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(localStorage.getItem('Token')==null){
-      this.router.navigate(['/login']);
-  }
+ 
 
     this._activatedRoute.paramMap.subscribe(params=>{
 
