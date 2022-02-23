@@ -13,6 +13,7 @@ export class ArticleDetailsComponent implements OnInit {
   article:Article=new Article();
   articles:Article[]=[];
   article_details:Article[]=[];
+  lastArticles:Article[]=[];
 
   constructor(private _activatedRoute:ActivatedRoute,private _httpClient:HttpClient,private _articleService:ArticleService,private router:Router) { }
 
@@ -39,12 +40,12 @@ this._httpClient.get(`http://localhost:8000/api/articles/${id}`)
     })
 
 
-    this._articleService.get()
+    this._articleService.getLastArticle()
     .subscribe(
       (response:any)=>{
-       JSON.stringify(response.data);
-        this.articles=response;
-        console.log(this.articles)
+      JSON.stringify(response.data);
+        this.lastArticles=response;
+        console.log(this.lastArticles)
       }
       ,
       (error:any)=>{
