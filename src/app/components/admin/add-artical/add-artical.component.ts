@@ -57,7 +57,7 @@ export class AddArticalComponent implements OnInit {
   }
 
   addArticle() {
-    
+
     let formData = new FormData;
     formData.append('image',this.image,this.image.name);
     formData.append('title',this.addArtical.value.title);
@@ -79,11 +79,12 @@ export class AddArticalComponent implements OnInit {
         console.log(this.errMsg);
 
       }
-    );this.router.navigate(['/admin/adminn/articles-admin'])
-    .then(() => {
-      
-      window.location.reload()
-    })
-  } 
- 
+    );
+    // this.router.navigate(['/admin/adminn/articles-admin'])
+    // .then(() => {
+
+    //   window.location.reload()
+    // })
+  }
+
 }
