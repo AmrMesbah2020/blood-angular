@@ -22,9 +22,9 @@ export class AddArticalComponent implements OnInit {
   }
   ngOnInit(): void {
 
-    if (localStorage.getItem('Token') == null) {
-      this.router.navigate(['/login']);
-    }
+    // if (localStorage.getItem('Token') == null) {
+    //   this.router.navigate(['/login']);
+    // }
 
     this.addArtical = this._formBuilder.group({
       title: ["", [Validators.required, Validators.minLength(6), Validators.maxLength(50), Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
@@ -57,7 +57,7 @@ export class AddArticalComponent implements OnInit {
   }
 
   addArticle() {
-    
+
     let formData = new FormData;
     formData.append('image',this.image,this.image.name);
     formData.append('title',this.addArtical.value.title);
@@ -79,11 +79,12 @@ export class AddArticalComponent implements OnInit {
         console.log(this.errMsg);
 
       }
-    );this.router.navigate(['/admin/adminn/articles-admin'])
+    );
+    this.router.navigate(['/admin/adminn/articles-admin'])
     .then(() => {
-      
+
       window.location.reload()
     })
-  } 
- 
+  }
+
 }

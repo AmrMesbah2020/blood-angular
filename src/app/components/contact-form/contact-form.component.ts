@@ -20,9 +20,9 @@ export class ContactFormComponent implements OnInit {
 
   ngOnInit(): void {
    
-    if(localStorage.getItem('Token')==null){
-      this.router.navigate(['/login']);
-  }
+  //   if(localStorage.getItem('Token')==null){
+  //     this.router.navigate(['/login']);
+  // }
 
     this.contactForm=this._formBuilder.group({
       message:['' , [Validators.required],],

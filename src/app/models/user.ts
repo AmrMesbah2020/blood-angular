@@ -17,6 +17,7 @@ export class User {
   address:string="";
   age:number=0;
   donnation_data=new DonnationData();
+  isAdmin: any;
 
 
 

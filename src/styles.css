@@ -3,6 +3,11 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Artifika&display=swap');
+@import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
+
+/* Bootstrap Icons */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+
 
 *{
     padding: 0px;
@@ -78,3 +83,6 @@ body{
 .mat-form-field + .mat-form-field {
     margin-left: 8px;
   } */
+  .hh{
+    padding-bottom: 10%;
+}

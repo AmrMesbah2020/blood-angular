@@ -24,15 +24,15 @@
           <div class="card-body">
             <div class="user-profile">
               <div class="user-avatar">
-                <img src="http://localhost:8000/storage/{{userInfo.avatar}}" alt=" Admin"
+                <img src="http://localhost:8000/storage/{{userInfo.avatar}}" alt=" "
                   style="width: 100%; height: 100%;">
               </div>
               <br><br>
               <div class="form-group">
-                <label for="img">Upload a different photo. <br>Allowed JPG, GIF or PNG</label><br><br>
+                <label for="avatar">Upload a different photo. <br>Allowed JPG, GIF or PNG</label><br><br>
                 <div class="col-sm-8 img-upload-section">
                   <input formControlName="img" type="file" accept=".gif,.png,.jpg,.jpeg"  (change)="onfile($event)" />
-                  <img id="menu_image" class="preview_img" />
+                  <!-- <img id="menu_image" class="preview_img" /> -->
                 </div>
 
               </div>
@@ -62,7 +62,7 @@
                       length is 3 </small>
                     <small class="form-text text-danger " *ngIf="editProfile.controls['firstName'].errors['maxlength']">
                       maximum length
-                      is 30</small>
+                      is 15</small>
                     <small class="form-text text-danger " *ngIf="editProfile.controls['firstName'].errors['pattern']">
                       only characters
                     </small>
@@ -85,7 +85,7 @@
                         length is 3 </small>
                       <small class="form-text text-danger " *ngIf="editProfile.controls['lastName'].errors['maxlength']">
                         maximum length
-                        is 30</small>
+                        is 15</small>
                       <small class="form-text text-danger " *ngIf="editProfile.controls['lastName'].errors['pattern']">
                         only characters
                       </small>

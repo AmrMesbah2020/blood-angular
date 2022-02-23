@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title> Add Artical </title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./add-artical.component.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
+
 <body>
-  <h1 class="text-center text-uppercase " style="color: red;padding-top: 10px;">
-    add new artical
-  </h1>
+  <div class="d-flex flex-column mt-4 bg-surface-secondary">
+
   <div class="container ">
     <form [formGroup]="addArtical">
       <div class="form-group">
-        <label for="title">Titel : </label>
-        <textarea type="text" class="form-control" formControlName="title" required>
-         </textarea>
+        <label for="title">Title : </label>
+        <input type="text" class="form-control" formControlName="title" required>
+         
         <div *ngIf="addArtical.controls['title'].errors && (addArtical.controls['title'].touched)">
           <small class="form-text text-danger "
             *ngIf="addArtical.controls['title'].errors && addArtical.controls['title'].errors ['required']">Title is
@@ -61,15 +52,15 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="img" id="image">Upload Your photo</label><br>
+        <label for="image" id="image">Upload Your photo</label><br>
 
         <div class="col-sm-8 img-upload-section">
           <input formControlName="image" name="image"  type="file"  id="menu_images" (change)="onfile($event)" />
           <!-- <img  class="preview_img"/> -->
         </div>
-        <div *ngIf="addArtical.controls['img'].errors && (addArtical.controls['img'].touched)">
+        <div *ngIf="addArtical.controls['image'].errors && (addArtical.controls['image'].touched)">
           <small class="form-text text-danger "
-            *ngIf="addArtical.controls['img'].errors && addArtical.controls['img'].errors ['required']"> Upload
+            *ngIf="addArtical.controls['image'].errors && addArtical.controls['image'].errors ['required']"> Upload
             image</small>
         </div>
       </div>
@@ -90,6 +81,6 @@
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
   </script>
+  </div>
 </body>
 
-</html>

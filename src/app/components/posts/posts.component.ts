@@ -35,9 +35,9 @@ export class PostsComponent implements OnInit {
 
     //navigation to login page to unauthorized users
 
-    if(localStorage.getItem('Token')==null){
-      this.router.navigate(['/login']);
-  }
+  //   if(localStorage.getItem('Token')==null){
+  //     this.router.navigate(['/login']);
+  // }
 
     //getAllPosts function calling
     this.getAllPosts();

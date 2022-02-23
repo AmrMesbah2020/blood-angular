@@ -13,6 +13,8 @@ import { Article } from '../../../models/article';
 export class ArticlesComponent implements OnInit {
 
   articles: Article[] = [];
+  article_details:Article[]=[];
+
 
   // article =new Article;
   token: any = localStorage.getItem('Token');
@@ -24,10 +26,7 @@ export class ArticlesComponent implements OnInit {
   ngOnInit(): void {
 
 
-    if (localStorage.getItem('Token') == null) {
-      this.router.navigate(['/login']);
-    }
-
+  
 
     this._httpClient.get("http://localhost:8000/api/allarticles").subscribe(
 

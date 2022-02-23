@@ -13,9 +13,9 @@ export class AdminPannelComponent implements OnInit {
   constructor(private _httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('Token') == null) {
-      this.router.navigate(['/login']);
-    }
+    // if (localStorage.getItem('Token') == null) {
+    //   this.router.navigate(['/login']);
+    // }
   }
 
 }

@@ -25,6 +25,7 @@ const routes: Routes = [
   },
   {
     path:'admin',
+    canActivate:[AuthGuard],
     loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule)
   },
   {
@@ -36,12 +37,14 @@ const routes: Routes = [
   {
     path:'',
     component:LayoutComponent,
+    canActivate:[AuthGuard],
 
     loadChildren: () => import('./components/all-articles/all-articles.module').then(m => m.AllArticlesModule)
   },
   {
     path:'',
     component:LayoutComponent,
+    canActivate:[AuthGuard],
 
     loadChildren: () => import('./components/profile/profile.module').then(m => m.ProfileModule)
   },
@@ -55,16 +58,16 @@ const routes: Routes = [
 
   children:[
 
-  {path:'eligibilty-quiz',component:EligibilityQuizComponent},
+  {path:'eligibilty-quiz',component:EligibilityQuizComponent,canActivate:[AuthGuard]},
   // {path:' ' , redirectTo:'login',pathMatch:'fully'},
-  {path:'posts',component:PostsComponent},
-  {path:'contact-us',component:ContactFormComponent},
-  {path:'donors',component:DonorsComponent},
-  {path:'location',component:LocationComponent},
-  {path:'requests',component:RequestsComponent},
-  {path:'make-request',component:MakeRequestsComponent},
-  {path:'calories-calc',component:CaloriesCalculaterComponent},
-  {path:'profile-page/:id', component:ProfilePageComponent}
+  {path:'posts',component:PostsComponent,canActivate:[AuthGuard]},
+  {path:'contact-us',component:ContactFormComponent,canActivate:[AuthGuard]},
+  {path:'donors',component:DonorsComponent,canActivate:[AuthGuard]},
+  {path:'location',component:LocationComponent,canActivate:[AuthGuard]},
+  {path:'requests',component:RequestsComponent,canActivate:[AuthGuard]},
+  {path:'make-request',component:MakeRequestsComponent,canActivate:[AuthGuard]},
+  {path:'calories-calc',component:CaloriesCalculaterComponent,},
+  {path:'profile-page/:id', component:ProfilePageComponent,canActivate:[AuthGuard]}
   ]}
 
 
