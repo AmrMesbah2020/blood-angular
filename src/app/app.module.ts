@@ -25,6 +25,7 @@ import { UserModule } from './components/user/user.module';
 import { LayoutComponent } from './layout/layout.component';
 import { RequestsComponent } from './components/requests/requests.component';
 import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
+import { CaloriesCalculaterComponent } from './components/calories-calculater/calories-calculater.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 
 
@@ -43,6 +44,8 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     // MaxLengthPipe,
     LocationComponent,
     LayoutComponent,
+    CaloriesCalculaterComponent,
+ 
     ProfilePageComponent,
 
   ],

@@ -152,7 +152,7 @@ export class PostsComponent implements OnInit {
       (response:any)=>{
        JSON.stringify(response.data);
       this.posts=response.data;
-      console.log(this.posts[0].image)
+      console.log(this.posts)
        // this.rate=response.data.rate;
         console.log(this.posts)
       }

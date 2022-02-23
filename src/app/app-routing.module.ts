@@ -1,3 +1,4 @@
+import { CaloriesCalculaterComponent } from './components/calories-calculater/calories-calculater.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { LocationComponent } from './components/location/location.component';
 import { DonorsComponent } from './components/donors/donors.component';
@@ -62,6 +63,7 @@ const routes: Routes = [
   {path:'location',component:LocationComponent},
   {path:'requests',component:RequestsComponent},
   {path:'make-request',component:MakeRequestsComponent},
+  {path:'calories-calc',component:CaloriesCalculaterComponent},
   {path:'profile-page/:id', component:ProfilePageComponent}
   ]}
 

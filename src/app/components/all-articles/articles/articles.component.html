@@ -4,24 +4,26 @@
 
 
 <div class="container d-flex justify-content-center">
-  <div class="row p-5 " *ngIf="lastArticle[2]" >
+  <div class="row p-5 " *ngIf="lastArticle[0]" >
 
-      <div class="col-lg-8 d-flex justify-content-center"><img class="w-100"  src="http://localhost:8000/storage/{{lastArticle[2].image}}" alt=""></div>
+      <div class="col-lg-8 d-flex justify-content-center">
+        <img class="w-100 h-100"  src="http://localhost:8000/storage/{{lastArticle[0].image}}" alt="">
+      </div>
       <div class="col-lg-4">
-        <h6 class="h4">{{lastArticle[2].title}}</h6>
-        <ul class="" >
-          <li class="list_style "><i class="fa fa-user"></i><span class="pink_text">Admin</span> </li>
-          <li class="list_style ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">{{lastArticle[2].date}}</span> </li>
-        </ul>
-        <p>{{lastArticle[2].content | maxLength:300}}</p>
+        <h6 class="h4">{{lastArticle[0].title}}</h6>
+        <div class="" >
+          <!-- <li class="list_style "><i class="fa fa-user"></i><span class="pink_text">Admin</span> </li> -->
+          <li class="list_style "><i class="fa fa-calendar"></i> <span class="pink_text ms-2">{{lastArticle[0].created_at|date}}</span> </li>
+        </div>
+        <p>{{lastArticle[0].content | maxLength:300}}</p>
 
-    <a class="link_decoration pink_text" routerLink="/article/details/{{lastArticle[2].article_id}}">Show More &raquo;</a>
+    <a class="link_decoration pink_text" routerLink="/article/details/{{lastArticle[0].article_id}}">Show More &raquo;</a>
       </div>
 
 </div>
 </div>
 
-<hr class="btmspace-80 m-5 ">
+ <div> <hr class="btmspace-80  ms-5 me-5 "></div>
 
 
 <!-- *********************************************************************** -->
@@ -30,12 +32,13 @@
 <div class="container d-flex justify-content-center ">
   <div class="row p-5 ">
       <div class="col-lg-4 mb-3" *ngFor="let item of articles">
-          <img class="w-100"  src="http://localhost:8000/storage/{{item.image}}"  alt="">
+          <img class="w-100 h-50"  src="http://localhost:8000/storage/{{item.image}}"  alt="">
+      
           <h6 class="h5">{{item.title}}</h6>
-        <ul >
-          <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li>
-          <li class="list_style ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">{{item.date }}</span> </li>
-        </ul>
+        <div >
+          <!-- <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li> -->
+          <li class="list_style"><i class="fa fa-calendar"></i> <span class="pink_text ms-2">{{item.created_at|date }}</span> </li>
+        </div>
         <p>{{item.content | maxLength:200}}</p>
         <a class="link_decoration pink_text" routerLink="/article/details/{{item.article_id}}">Show More  &raquo;</a>
 

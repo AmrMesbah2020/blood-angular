@@ -81,15 +81,13 @@ export class RegisterComponent implements OnInit {
 
       this._httpClient.post('http://localhost:8000/api/register',user).subscribe(
         (response:any)=>{
-        // this.students.push(student)
-        console.log(JSON.stringify(response.date));
+
         console.log(response);
         this.router.navigate(['home']);
         localStorage.setItem("Token",response[1].token)},
         (error:any)=>{
-          console.log();
-          this.errMsg = error.error;
-          console.log(error.error);
+          this.errMsg = error.error.errors.email[0];
+          // console.log(this.errMsg);
         }
       )
 

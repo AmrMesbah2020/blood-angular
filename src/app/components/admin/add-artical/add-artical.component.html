@@ -61,15 +61,15 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="img" id="image">Upload Your photo</label><br>
+        <label for="image" id="image">Upload Your photo</label><br>
 
         <div class="col-sm-8 img-upload-section">
           <input formControlName="image" name="image"  type="file"  id="menu_images" (change)="onfile($event)" />
           <!-- <img  class="preview_img"/> -->
         </div>
-        <div *ngIf="addArtical.controls['img'].errors && (addArtical.controls['img'].touched)">
+        <div *ngIf="addArtical.controls['image'].errors && (addArtical.controls['image'].touched)">
           <small class="form-text text-danger "
-            *ngIf="addArtical.controls['img'].errors && addArtical.controls['img'].errors ['required']"> Upload
+            *ngIf="addArtical.controls['image'].errors && addArtical.controls['image'].errors ['required']"> Upload
             image</small>
         </div>
       </div>
