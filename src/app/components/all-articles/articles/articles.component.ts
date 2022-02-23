@@ -20,9 +20,9 @@ export class ArticlesComponent implements OnInit {
 
   ngOnInit(): void {
   
-    if(localStorage.getItem('Token')==null){
-      this.router.navigate(['/login']);
-  }
+  //   if(localStorage.getItem('Token')==null){
+  //     this.router.navigate(['/login']);
+  // }
 
     this._articleService.get()
     .subscribe(

@@ -19,10 +19,7 @@ export class AllUsersComponent implements OnInit {
   constructor(private _httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('Token') == null) {
-      this.router.navigate(['/login']);
-    }
-
+ 
     this._httpClient.get("http://localhost:8000/api/users",{ headers: this.headers }).subscribe(
 
       (response: any) => {

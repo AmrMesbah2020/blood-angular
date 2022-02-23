@@ -32,7 +32,7 @@
 
 
               <!--start notification-->
-              <li ngbDropdown class="nav-item ">
+              <li ngbDropdown class="nav-item " *ngIf="isLogged">
                 <a class="nav-link dropdown-toggle" (click)="active()"
                 [ngStyle]="{'background-color':isActive? 'transparent' : 'transparent' }"
                 id="navbarDropdownMenuLink" ngbDropdownToggle role="button" data-bs-toggle="dropdown"
@@ -50,7 +50,7 @@
 
 
 
-                <li class="nav-item " ngbDropdown>
+                <li class="nav-item " ngbDropdown  >
                   <a class="nav-link dropdown-toggle" (click)="active()"
                     [ngStyle]="{'background-color':isActive? 'transparent' : 'transparent' }"
                     id="navbarDropdownMenuLink" ngbDropdownToggle role="button" data-bs-toggle="dropdown"

@@ -23,10 +23,7 @@ export class FeedbackComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
-    if (localStorage.getItem('Token') == null) {
-      this.router.navigate(['/login']);
-    }
+ 
     this._httpClient.get("http://localhost:8000/api/all-feedback",{ headers: this.headers }).subscribe(
 
       (response: any) => {

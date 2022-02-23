@@ -1,8 +1,8 @@
 
-  <body class=" w-100 hh" style="overflow: hidden;">
-  <div class="first-part ">
+  <body class=" hh" style="overflow: hidden;">
+  <div class="first-part">
     <div class='container-fluid'>
-      <div class="gray_background w-25 p-5 ">
+      <div class="gray_background  p-4 cont">
       <h2 class="heading_color">
         Can I donate blood?
       </h2>
@@ -111,10 +111,11 @@
           <!-- <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li> -->
           <li class="list_style "><i class="fa fa-calendar"></i> <span class="pink_text ms-2">{{item.created_at|date }}</span> </li>
         </div>
-        <p>{{item.content | slice:0:200}}</p>
+        <p>{{item.content | slice:0:150}}</p>
       <a class="link_decoration pink_text"  routerLink="/article/details/{{item.article_id}}">Show More  &raquo;</a>
 
       </div>
+
   </div>
 </div>
 <div>
@@ -123,7 +124,7 @@
 </div>
 <div class="container d-flex justify-content-center">
   <div class="row p-5">
-      <div class="col-4">
+      <div class="col-lg col-sm-12">
           <img class="w-100" src="../assets/img/person-question.png" alt="">
           <h6 class="h5 mt-3">Can I donate blood?
           </h6>
@@ -132,7 +133,7 @@
         <footer class=""><a class="link_decoration pink_text" routerLink="/faq">Check your eligibility  &raquo;</a></footer>
 
       </div>
-      <div class="col-4">
+      <div class="col-lg col-sm-12">
 
           <img class="w-100" src="../assets/img/call-centre-content.png" alt="">
           <h6 class="h5 mt-3">Contact us</h6>
@@ -142,7 +143,7 @@
         <footer class=""><a class="link_decoration pink_text" href="#">Contact us   &raquo;</a></footer>
 
       </div>
-      <div class="col-4 ">
+      <div class="col-lg col-sm-12">
           <img class="w-100" src="../assets/img/group-blood-content.png" alt="">
           <h6 class="h5 mt-3">Share your information with us </h6>
 

@@ -33,9 +33,6 @@ export class EligibilityQuizComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(localStorage.getItem('Token')==null){
-      this.router.navigate(['/login']);
-  }
 
     this.addDonnerForm=this._formBuilder.group({
       bloodgroup:['' , [Validators.required],],

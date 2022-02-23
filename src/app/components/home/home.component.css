@@ -5,16 +5,24 @@ body{
 .hh{
     padding-bottom: 10%;
 }
+
+.cont{
+    height: 70%;
+    width:35%;
+    overflow:fit-content;
+    opacity: 0.9;
+}
+
 .first-part{
     
     /* background-image: url('../../../assets/img/bloodho.png'); */
     background-image: url('../../../assets/img/pexels-puwadon.jpg');
     background-repeat: no-repeat;
      padding-top: 10%;
-   
-    background-size: 100% 100%;
+   background-size: cover;
+    /* background-size: 100% 100%; */
     margin-bottom: 10%;
-    height: 600px;
+    height: 620px;
     
 }
 .container-fluid > h2{

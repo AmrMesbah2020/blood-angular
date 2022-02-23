@@ -29,9 +29,6 @@ export class RequestsComponent implements OnInit {
   ngOnInit(): void {
 
 
-    if (localStorage.getItem('Token') == null) {
-      this.router.navigate(['/login']);
-    }
     
     this._httpClient.get("http://localhost:8000/api/allrequests").subscribe(
 

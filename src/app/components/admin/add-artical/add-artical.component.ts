@@ -22,9 +22,9 @@ export class AddArticalComponent implements OnInit {
   }
   ngOnInit(): void {
 
-    if (localStorage.getItem('Token') == null) {
-      this.router.navigate(['/login']);
-    }
+    // if (localStorage.getItem('Token') == null) {
+    //   this.router.navigate(['/login']);
+    // }
 
     this.addArtical = this._formBuilder.group({
       title: ["", [Validators.required, Validators.minLength(6), Validators.maxLength(50), Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
