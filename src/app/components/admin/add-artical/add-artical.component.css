@@ -1,13 +1,21 @@
+label{
+  color:black;
+  
+}
 textarea {
     width: 100%;
-    height: 200px;
-    padding: 12px 20px;
+    height: 100px;
+    padding: 15px 25px;
     box-sizing: border-box;
-    border: 2px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 4px;
     background-color: #f8f8f8;
-    font-size: 16px;
+    font-size: 15px;
     resize: none;
+  }
+  .text-2{
+    height: 300px;
+
   }
 
   @import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
