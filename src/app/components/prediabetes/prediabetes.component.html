@@ -1,0 +1,235 @@
+
+<body class="bg-light pb-5">
+  
+<div class="container text-center pt-5 ">
+  <h2 class="fw-bolder   pt-3">
+   " Prediabetes Risk Test "
+
+  </h2>
+</div>
+<form class="container pt-4 "  [formGroup]="formPredibets">  
+
+
+  <div class="shadow-sm p-3 mb-5 bg-body rounded">
+    <h5  class="text-danger">1. How old are you? <br></h5>
+    <div class="form-row">
+      <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
+        <div class="custom-control custom-switch">
+          <input class="custom-control-input" type="radio" name="q1"  #inputold   formControlName="old" id="formCheck-11" value="1">
+          <label class="custom-control-label" for="formCheck-11" value="1"> <span class="ps-3"> Younger than 40 years (0 points) </span><br></label>
+      </div>
+        <div class="custom-control custom-switch">
+          <input class="custom-control-input" type="radio" name="q1"  #inputold   formControlName="old" id="formCheck-11" value="1">
+          <label class="custom-control-label" for="formCheck-11" value="1"> <span class="ps-3"> 40–49 years (1 point) </span><br></label>
+      </div>
+      <div class="custom-control custom-switch">
+        <input class="custom-control-input" type="radio" name="q1"  #inputold   formControlName="old" id="formCheck-11" value="2">
+        <label class="custom-control-label" for="formCheck-11" value="2"> <span class="ps-3"> 50–59 years (2 points) </span><br></label>
+    </div>
+
+    <div class="custom-control custom-switch">
+      <input class="custom-control-input" type="radio" name="q1"  #inputold   formControlName="old" id="formCheck-11" value="3">
+      <label class="custom-control-label" for="formCheck-11" value="3"> <span class="ps-3"> 60 years or older (3 points)</span><br></label>
+  </div>
+      </div>
+  </div>
+    </div>
+
+
+
+
+
+  <div class="shadow-sm p-3 mb-5 bg-body rounded">
+    <h5  class="text-danger">2. Are you a man or a woman? <br></h5>
+    <div class="form-row">
+      <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
+        <div class="custom-control custom-switch">
+          <input class="custom-control-input" type="radio" name="q2"  #inputgender   formControlName="gender" id="formCheck-11" value="1">
+          <label class="custom-control-label" for="formCheck-11" value="1"> <span class="ps-3"> Man (1 point) </span><br></label>
+      </div>
+      </div>
+      <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
+        <div class="custom-control custom-switch">
+          <input class="custom-control-input" type="radio" name="q2"  #inputgender formControlName="gender" id="formCheck-11" value="0">
+          <label class="custom-control-label" for="formCheck-11" value="0"> <span class="ps-3"> Woman (0 points)</span><br></label>
+      </div>
+      </div>
+  </div>
+    </div>
+
+
+
+    <div class="shadow-sm p-3 mb-5 bg-body rounded">
+      <h5  class="text-danger">3. If you are a woman, have you ever been diagnosed with gestational diabetes?
+        <br></h5>
+      <div class="form-row">
+        <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
+          <div class="custom-control custom-switch">
+            <input class="custom-control-input" type="radio" name="q3" id="formCheck-11"  #inputwomen   formControlName="women" value="1">
+            <label class="custom-control-label" for="formCheck-11" value="1"> <span class="ps-3"> Yes (1 point) </span><br></label>
+        </div>
+        </div>
+        <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
+            <div class="custom-control custom-switch">
+                <input class="custom-control-input" type="radio" name="q3" id="formCheck-12"  #inputwomen    formControlName="women" value="0">
+                <label class="custom-control-label" for="formCheck-12" value="0"><span class="ps-3"> No (0 points) </span><br></label>
+            </div>
+        </div>
+    </div>
+      </div>
+  
+  
+
+
+
+  <div class="shadow-sm p-3 mb-5 bg-body rounded">
+    <h5  class="text-danger">4. Do you have a mother, father, sister, or brother with diabetes?<br></h5>
+    <div class="form-row">
+      <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
+        <div class="custom-control custom-switch">
+          <input class="custom-control-input" type="radio" name="q4"  #inputhistory formControlName="history" id="formCheck-11" value="1">
+          <label class="custom-control-label" for="formCheck-11" value="1"> <span class="ps-3"> Yes (1 point)</span><br></label>
+      </div>
+      </div>
+      <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
+        <div class="custom-control custom-switch">
+          <input class="custom-control-input" type="radio" name="q4" id="formCheck-11" #inputhistory   formControlName="history" value="0">
+          <label class="custom-control-label" for="formCheck-11" value="0"> <span class="ps-3">No (0 points)</span><br></label>
+      </div>
+      </div>
+  </div>
+    </div>
+
+
+
+    <div class="shadow-sm p-3 mb-5 bg-body rounded">
+      <h5  class="text-danger">5. Have you ever been diagnosed with hight blood pressure<br></h5>
+      <div class="form-row">
+        <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
+          <div class="custom-control custom-switch">
+            <input class="custom-control-input" type="radio" name="q5"  #inputpressure    formControlName="pressure" id="formCheck-11" value="1">
+            <label class="custom-control-label" for="formCheck-11" value="1"> <span class="ps-3"> Yes (1 point)</span><br></label>
+        </div>
+        </div>
+        <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
+          <div class="custom-control custom-switch">
+            <input class="custom-control-input" type="radio" name="q5" id="formCheck-11" #inputpressure   formControlName="pressure" value="0">
+            <label class="custom-control-label" for="formCheck-11" value="0"> <span class="ps-3">No (0 points)</span><br></label>
+        </div>
+        </div>
+    </div>
+      </div>
+  
+
+      
+
+    <div class="shadow-sm p-3 mb-5 bg-body rounded">
+      <h5  class="text-danger">6. Are you physically active?<br></h5>
+      <div class="form-row">
+        <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
+          <div class="custom-control custom-switch">
+            <input class="custom-control-input" type="radio" name="q6" #inputactive   formControlName="active" id="formCheck-11" value="0">
+            <label class="custom-control-label" for="formCheck-11" value="0"> <span class="ps-3"> Yes (0 point)</span><br></label>
+        </div>
+        </div>
+        <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
+          <div class="custom-control custom-switch">  
+            <input class="custom-control-input" type="radio" name="q6" #inputactive   formControlName="active" id="formCheck-11" value="1">
+            <label class="custom-control-label" for="formCheck-11" value="1"> <span class="ps-3">No (1 points)</span><br></label>
+        </div>
+        </div>
+    </div>
+      </div>
+  
+
+
+
+    <div class="shadow-sm p-3 mb-5 bg-body rounded">
+      <h5  class="text-danger">7. What is your weight category?<br></h5>
+      <div class="form-row">
+        <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
+          <div class="dropdown">
+            <ul >
+                <li  style="list-style-type:none!important">
+                  <select class="form-select" aria-label="Default select example"  name="height" #inputheight  formControlName="height">
+                    <option selected>Select Height</option>
+                        <option value="0">147.32 cm</option>
+                        <option value="0">149.86 cm</option>
+                        <option value="0">152.4 cm</option>
+                        <option value="0">154.94 cm</option>
+                        <option value="0">157.48 cm</option>
+                        <option value="0">160.02 cm</option>
+                        <option value="0">162.56 cm</option>
+                        <option value="0"> 165.1 cm</option>
+                        <option value="0">167.64 cm</option>
+                        <option value="0">170.18 cm</option>
+                        <option value="0">172.72 cm</option>
+                        <option value="0">175.26 cm</option>
+                        <option value="0">177.8 cm</option>
+                        <option value="0"> 180.34 cm</option>
+                        <option value="0">182.88 cm</option>
+                        <option value="0">185.42 cm</option>
+                        <option value="0">187.96 cm</option>
+                        <option value="0">190.5 cm</option>
+                        <option value="0">193.04 cm</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        </div>
+    
+       </div>
+
+       <div class="form-row">
+        <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
+          <div class="dropdown">
+            <ul >
+                <li  style="list-style-type:none!important">
+
+                    <select class="form-select" aria-label="Default select example" #inputweight name="weight" formControlName="weight">
+                        <option  selected>
+                            Select Weight
+                        </option>
+                        <option #inputweight value="1">61.7-73.9</option>
+                        <option #inputweight value="2">74.4-88.9</option>
+                        <option #inputweight value="3">89.4-118.4</option>
+                        <option #inputweight value="4">118.8+</option>
+                      
+                    </select>
+                </li>
+            </ul>
+        </div>
+        </div>
+    
+       </div>
+      </div>
+<div class="m-4 text-center">
+      <button class="btn btn-danger btn-lg w-50 " (click)="getValue(inputold.value,inputgender.value,inputwomen.value,inputhistory.value,inputpressure.value,inputactive.value,inputheight.value,inputweight.value)" >Submit </button>
+    </div>
+<div class="shadow-sm p-3 mb-5 bg-body rounded" *ngIf="isShown">
+
+  <div class="card-body">
+    <div class="row align-items-center no-gutters">
+        <div class="col mr-2" >
+            <h2 id="totalScore" class="text-danger">Total Score: {{ subTotal}}</h2>
+        </div>
+    </div>
+  </div>
+  </div>
+ 
+  <div class="card shadow" *ngIf="isShown">
+    <div class="card-body">
+        <h4 class="card-title text-muted"><strong>If you scored 5 or higher</strong><br></h4>
+        <p class="m-0">
+           You are at increased risk for having prediabetes and are at high risk for type 2 diabetes<br>
+        </p>
+        <p class="m-0">
+            However, only your doctor can tell for sure if you have type 2 diabetes or prediabetes, a condition in which blood sugar levels are higher than normal but not high enough yet to be diagnosed as type 2 diabetes.<br>
+        </p>
+        <h5 class="text-muted">Talk to your doctor to see if additional testing is needed. <br></h5>
+    </div>
+</div>
+</form> 
+
+
+</body>

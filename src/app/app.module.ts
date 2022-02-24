@@ -27,6 +27,7 @@ import { RequestsComponent } from './components/requests/requests.component';
 import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
 import { CaloriesCalculaterComponent } from './components/calories-calculater/calories-calculater.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { PrediabetesComponent } from './components/prediabetes/prediabetes.component';
 
 
 
@@ -47,6 +48,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     CaloriesCalculaterComponent,
  
     ProfilePageComponent,
+      PrediabetesComponent,
 
   ],
   imports: [
