@@ -44,7 +44,14 @@ export class RequestsComponent implements OnInit {
       (error:any)=>{
         console.log(error.error);
         // alert(error.error);
-        this.toast.tosterWarning(error.error,'Hint');
+        if(error.error == 'already applied'){
+          this.toast.tosterWarning(error.error,'Hint');
+
+        }else{
+          this.toast.toastrWarningOnTap(error.error,'Hint','eligibilty-quiz');
+
+        }
+        
       }
     )
   }

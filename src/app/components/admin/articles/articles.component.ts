@@ -69,10 +69,6 @@ export class ArticlesComponent implements OnInit {
       // this.ngOnInit()
     })
   }
-
-
-
-
   }
 
   // viewArticle(id: number): void {

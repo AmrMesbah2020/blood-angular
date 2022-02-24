@@ -30,7 +30,7 @@
           <div class="card-body">
             <div class="user-avatar">
               <div class="d-flex flex-column align-items-center text-center">
-                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=" Admin"
+                <img src="http://localhost:8000/storage/{{user.avatar}}"
                   style="width: 100%; height: 100%;">
 
               </div>
@@ -100,11 +100,11 @@
             </div>
 
             <hr>
-            <div class="row">
+            <div class="row" *ngIf="user.donnation_data">
               <div class="col-sm-3">
                 <h6 class="mb-0">Blood</h6>
               </div>
-              <div class="col-sm-9 text-secondary">
+              <div class="col-sm-9 text-secondary" >
                 {{user.donnation_data.blood_id.blood_group}}{{user.donnation_data.blood_id.rhd}}
               </div>
             </div>
