@@ -11,6 +11,9 @@
 <body class="hh">
 
   <div class="container">
+
+  
+
     <div class="row gutters">
       <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
         <div class="card h-100">
@@ -18,7 +21,7 @@
             <div class="account-settings">
               <div class="user-profile">
                 <div class="user-avatar">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
+                  <img src="http://localhost:8000/storage/{{user.avatar}}" alt="">
                 </div>
                 <h5 class="user-name">{{user.name}}</h5>
                 <h6 class="user-email">{{user.email}}</h6>
@@ -85,6 +88,8 @@
                   formControlName="street" placeholder="Enter Street">
                   <div *ngIf="isInValidAndTouched('street')">
                     <small class="form-text text-danger" *ngIf="isControlHasError('street','required')">Street is Required </small>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('street','maxlength')">Maximum length is 60 </small>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('street','pattern')">No special characters  </small>
                 </div>
 
                 </div>
@@ -97,6 +102,9 @@
                   formControlName="city" id="ciTy" placeholder="Enter City">
                   <div *ngIf="isInValidAndTouched('city')">
                     <small class="form-text text-danger" *ngIf="isControlHasError('city','required')">City is Required</small>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('city','maxlength')">Maximum length is 30</small>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('city','pattern')">Only characters</small>
+
                 </div>
 
 
@@ -110,6 +118,8 @@
                   formControlName="state" id="sTate" placeholder="Enter State">
                   <div *ngIf="isInValidAndTouched('state')">
                     <small class="form-text text-danger" *ngIf="isControlHasError('state','required')">State is Required</small>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('state','maxlength')">Maximum length is 30</small>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('state','pattern')">Only characters</small>
                 </div>
 
 
@@ -123,6 +133,8 @@
                   formControlName="zip" id="zIp" placeholder="Zip Code">
                   <div *ngIf="isInValidAndTouched('zip')">
                     <small class="form-text text-danger" *ngIf="isControlHasError('zip','required')">Zip Code is Required</small>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('zip','pattern')">Zip Code is invalid</small>
+
                 </div>
 
                 </div>
@@ -137,6 +149,8 @@
                   style="height: 100px"></textarea>
                   <div *ngIf="isInValidAndTouched('description')">
                     <small class="form-text text-danger" *ngIf="isControlHasError('description','required')">Description is Required</small>
+                    <small class="form-text text-danger" *ngIf="isControlHasError('description','minlength')">Minimum length is 20</small>
+
                 </div>
 
 
@@ -198,12 +212,17 @@
                   <br>
 
                   <button type="button" id="submit" name="submit" routerLink="/home"  class="btn btn-info">Cancel</button>
-                  <button type="button" id="submit" name="submit" routerLink="/profile" class="btn btn-danger m-2" (click)="onSubmit()">Create Request </button>
+                  <button type="button" id="submit" name="submit" class="btn btn-danger m-2" (click)="onSubmit()">Create Request </button>
 
                 </div>
 
               </div>
             </div>
+
+            <div class="alert alert-danger text-center" role="alert" *ngIf="errMsg[0]">
+              {{errMsg[0]}}
+            </div>
+
           </div>
         </div>
       </div>

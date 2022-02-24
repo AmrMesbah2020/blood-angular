@@ -46,9 +46,9 @@
                   <div class="card mb-2" *ngFor="let item of requests">
                     <div class="card-body p-2 p-sm-3">
                       <div class="media forum-item">
-                        <a routerLink="/profile-page/{{item.owner_details.id}}" routerLinkActive="router-link-active"  data-toggle="collapse" data-target=".forum-content"><img
-                            src="http://localhost:8000/storage/{{item.owner_details.avatar}}" alt="" class="mr-3 rounded-circle"
-                            width="50" alt="User" /></a>
+                        <a routerLink="/profile-page/{{item.owner_details.id}}" routerLinkActive="router-link-active"  data-toggle="collapse" data-target=".forum-content">
+                          <img src="http://localhost:8000/storage/{{item.owner_details.avatar}}" alt="" class="mr-3 rounded-circle"
+                            width="50" /></a>
                         <br>
                         <div class="media-body">
                           <h6 data-toggle="collapse" data-target=".forum-content" class="text-body">{{item.owner_details.name}}</h6>

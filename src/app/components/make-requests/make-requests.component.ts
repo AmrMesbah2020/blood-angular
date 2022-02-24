@@ -18,6 +18,7 @@ export class MakeRequestsComponent implements OnInit {
   formRequest=new FormGroup({});
   request=new Request();
   user=new User;
+  errMsg:any=[];
   token:any=localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   constructor(private _formBuilder: FormBuilder,private _httpClient:HttpClient,private router:Router){}
@@ -36,16 +37,13 @@ export class MakeRequestsComponent implements OnInit {
       }
    )
     this.formRequest = this._formBuilder.group({
-      phone :new FormControl("",
-      [Validators.required,
-       Validators.pattern("^01[0-2,5]{1}[0-9]{8}$")
-    ]),
-      address :new FormControl("",Validators.required),
-      city :new FormControl("",Validators.required),
-      street :new FormControl("",Validators.required),
-      state :new FormControl("",Validators.required),
-      zip :new FormControl("",Validators.required),
-      description :new FormControl("",[Validators.required]),
+      phone :new FormControl("", [Validators.required,Validators.pattern("^01[0-2,5]{1}[0-9]{8}$"),Validators.maxLength(15),Validators.minLength(11)]),
+      // address :new FormControl("",Validators.required),
+      city :new FormControl("",[Validators.required,Validators.maxLength(30),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]),
+      street :new FormControl("",[Validators.required,Validators.maxLength(60),Validators.pattern('[a-zA0-Z9\u0600-\u06FF ]*')]),
+      state :new FormControl("",[Validators.required,Validators.maxLength(30),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]),
+      zip :new FormControl("",[Validators.required,Validators.pattern("^([0-9]{5})([\-]{1}[0-9]{4})?$")]),
+      description :new FormControl("",[Validators.required,Validators.pattern('[a-zA0-Z9\u0600-\u06FF ]*'),Validators.minLength(20)]),
       date: new FormControl("",Validators.required),
       blood_group:new FormControl(),rhd:new FormControl(),quantity:new FormControl()
     })
@@ -89,9 +87,14 @@ export class MakeRequestsComponent implements OnInit {
 
       (response:any)=>{
          console.log(response);
+         this.router.navigate(['/profile']);
       },
       (error:any)=>{
-        console.log(error);
+        this.errMsg.push(error.error.errors.date[0]);
+        console.log(this.errMsg[0]);
+
+        
+
       }
    )
 
