@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { PostService } from './../../services/post.service';
 import { Post } from './../../models/post';
 import { Component, OnInit } from '@angular/core';
@@ -5,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user';
-import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -13,6 +14,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 })
+
 export class PostsComponent implements OnInit {
 
 
@@ -21,12 +23,15 @@ export class PostsComponent implements OnInit {
   posts:Post[]=[];
   topRatePost:Post[]=[];
   liked_posts:number[]=[];
-  image:any;
+  image:any=null;
+  title:string='';
+  content:string='';
 
 
   user=new User;
   token:any=localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+  myNameElem: any;
 
 
 
@@ -41,7 +46,7 @@ export class PostsComponent implements OnInit {
     // get the login user data
     this._httpClient.get("http://localhost:8000/api/user",
     { headers: this.headers }).subscribe(
-    
+
       (response:any)=>{
          this.user=response.data[0];
        //  console.log(this.user);
@@ -50,7 +55,7 @@ export class PostsComponent implements OnInit {
      //   console.log(error);
       }
    )
-   
+
 
 
    //get liked posts by the user
@@ -95,8 +100,8 @@ export class PostsComponent implements OnInit {
    createForm(){
     this.formPost = this._formBuilder.group({
 
-      title:['' , [Validators.required],],
-      content:['' , [Validators.required],],
+      title:['' , [Validators.required,Validators.minLength(10),Validators.maxLength(50)],],
+      content:['' , [Validators.required,Validators.minLength(20),Validators.maxLength(250)],],
       image:[null,]
 
     })
@@ -106,32 +111,29 @@ export class PostsComponent implements OnInit {
   addPost():void{
     let post=new Post();
     let formData=new FormData();
-   formData.append("image",this.image,this.image.name);
+    if(this.image != null){
+   formData.append("image",this.image,this.image.name);}
    formData.append("title",this.formPost.value.title);
    formData.append("content",this.formPost.value.content);
     this._httpClient.post("http://localhost:8000/api/post",formData,{ headers: this.headers }).subscribe(
 
       (response:any)=>{
          console.log(response);
-         if(response==null){
-         this.toastr.success('Thanks, We will review your post and publish it soon','',{
+         
+         this.toastr.success('Our Admins Will Review Your Post','Thank You',{
            timeOut:4000,
            progressBar:true
          })
-        }else{
-          this.toastr.error('Sorry, something wrong happend','',{
-            timeOut:2000,
-            progressBar:true
-          })
-
-         }
-         this.formPost.reset()
+        this.formPost.reset()
       },
       (error:any)=>{
         console.log(error);
       }
 
    )
+   this.title='';
+   this.content="";
+
   }
 
   //form validation functions****************************

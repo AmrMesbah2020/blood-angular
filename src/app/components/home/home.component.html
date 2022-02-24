@@ -102,10 +102,10 @@
 <hr class="btmspace-80 m-5 ">
 <p class="text-center heading_color h4">Latest Articles About Health</p>
 </div>
-<div class="container-fluid d-flex justify-content-center">
-  <div class="row p-5 " >
-      <div class=" col-sm-12 col-lg " *ngFor="let item of lastArticles" >
-          <img class="w-100 h-50  " src="http://localhost:8000/storage/{{item.image}}" alt="">
+<div class="container d-flex justify-content-center">
+  <div class="row p-5 ">
+      <div class="col-4" *ngFor="let item of lastArticles">
+          <img class="w-100 h-50" src="../assets/img/person-question.png" alt="">
           <h6 class="h5">{{item.title}}</h6>
         <div >
           <!-- <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li> -->
@@ -115,7 +115,7 @@
       <a class="link_decoration pink_text"  routerLink="/article/details/{{item.article_id}}">Show More  &raquo;</a>
 
       </div>
-    
+
   </div>
 </div>
 <div>

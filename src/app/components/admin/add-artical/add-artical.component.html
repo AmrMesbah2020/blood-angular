@@ -7,34 +7,23 @@
       <div class="form-group">
         <label for="title" >Title : </label>
         <input type="text" class="form-control" formControlName="title" required>
-         
+
         <div *ngIf="addArtical.controls['title'].errors && (addArtical.controls['title'].touched)">
           <small class="form-text text-danger "
             *ngIf="addArtical.controls['title'].errors && addArtical.controls['title'].errors ['required']">Title is
             requierd</small>
           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['minlength'] "> minimum
-            length is 6 </small>
+            length is 10 </small>
           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['pattern']"> Title should be
             containe only characters</small>
           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['maxlength']"> maximum length
-            is 50</small>
+            is 30</small>
         </div>
       </div>
       <div class="form-group">
         <label for="resources" >Resources : </label>
         <textarea type="text" class="form-control bg-white" formControlName="resources" required>
          </textarea>
-        <div *ngIf="addArtical.controls['resources'].errors && (addArtical.controls['resources'].touched)">
-          <small class="form-text text-danger "
-            *ngIf="addArtical.controls['resources'].errors && addArtical.controls['resources'].errors ['required']">Resources
-            is requierd</small>
-          <small class="form-text text-danger " *ngIf="addArtical.controls['resources'].errors['minlength'] "> minimum
-            length is 6 </small>
-          <!-- <small class="form-text text-danger " *ngIf="addArtical.controls['resources'].errors['pattern']"> resources
-            should be containe only letters</small> -->
-          <small class="form-text text-danger " *ngIf="addArtical.controls['resources'].errors['maxlength']"> Resources
-            length is 100</small>
-        </div>
       </div>
       <div class="form-group">
         <label for="content">Content : </label>
@@ -46,9 +35,7 @@
             *ngIf="addArtical.controls['content'].errors && addArtical.controls['content'].errors ['required']">content
             is requierd</small>
           <small class="form-text text-danger " *ngIf="addArtical.controls['content'].errors['minlength'] "> minimum
-            length is 50 </small>
-          <small class="form-text text-danger " *ngIf="addArtical.controls['content'].errors['maxlength']"> content
-            length is 500</small>
+            length is 100 </small>
         </div>
       </div>
       <div class="form-group  mb-4">

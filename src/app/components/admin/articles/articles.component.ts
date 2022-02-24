@@ -26,7 +26,7 @@ export class ArticlesComponent implements OnInit {
   ngOnInit(): void {
 
 
-  
+
 
     this._httpClient.get("http://localhost:8000/api/allarticles").subscribe(
 
@@ -46,15 +46,14 @@ export class ArticlesComponent implements OnInit {
   }
 
 
-  deleteArticle(id: number): void {
+   async deleteArticle(id: number) {
 
     if(confirm("Are you sure to delete "+id)) {
-    this._httpClient.post(`http://localhost:8000/api/delete-article/` + id, null, { headers: this.headers }).subscribe(
+       await this._httpClient.post(`http://localhost:8000/api/delete-article/` + id, null, { headers: this.headers }).subscribe(
 
 
       (response: any) => {
-        this.articles = response[0];
-        console.log(this.articles);
+        console.log(response);
 
       },
       (error: any) => {
@@ -62,11 +61,17 @@ export class ArticlesComponent implements OnInit {
       }
 
 
-    )}
+    )
     this.router.navigate(['/admin/adminn/articles-admin'])
-      .then(() => {
-        window.location.reload();
-      });
+    .then(() => {
+
+      // window.location.reload()
+      this.ngOnInit()
+    })
+  }
+
+
+
 
   }
 
