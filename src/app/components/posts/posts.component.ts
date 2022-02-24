@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { PostService } from './../../services/post.service';
 import { Post } from './../../models/post';
 import { Component, OnInit } from '@angular/core';
@@ -12,6 +13,7 @@ import { User } from 'src/app/models/user';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 })
+
 export class PostsComponent implements OnInit {
 
 
@@ -20,16 +22,19 @@ export class PostsComponent implements OnInit {
   posts:Post[]=[];
   topRatePost:Post[]=[];
   liked_posts:number[]=[];
-  image:any;
+  image:any=null;
+  title:string='';
+  content:string='';
 
 
   user=new User;
   token:any=localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+  myNameElem: any;
 
 
 
-  constructor(private _activatedRoute:ActivatedRoute , private _httpClient:HttpClient,private _postService:PostService,private _formBuilder: FormBuilder,private router:Router) { }
+  constructor(private _activatedRoute:ActivatedRoute , private _httpClient:HttpClient,private _postService:PostService,private _formBuilder: FormBuilder,private router:Router,private toaster:ToastrService) { }
 
   ngOnInit(): void {
 
@@ -45,7 +50,7 @@ export class PostsComponent implements OnInit {
     // get the user
     this._httpClient.get("http://localhost:8000/api/user",
     { headers: this.headers }).subscribe(
-    
+
       (response:any)=>{
          this.user=response.data[0];
          console.log(this.user);
@@ -54,7 +59,7 @@ export class PostsComponent implements OnInit {
         console.log(error);
       }
    )
-   
+
 
 
    //get liked posts by the user
@@ -101,18 +106,18 @@ export class PostsComponent implements OnInit {
    createForm(){
     this.formPost = this._formBuilder.group({
 
-      title:['' , [Validators.required],],
-      content:['' , [Validators.required],],
+      title:['' , [Validators.required,Validators.minLength(10),Validators.maxLength(50)],],
+      content:['' , [Validators.required,Validators.minLength(20),Validators.maxLength(250)],],
       image:[null,]
 
     })
    }
-
   //add post
   addPost():void{
     let post=new Post();
     let formData=new FormData();
-   formData.append("image",this.image,this.image.name);
+    if(this.image != null){
+   formData.append("image",this.image,this.image.name);}
    formData.append("title",this.formPost.value.title);
    formData.append("content",this.formPost.value.content);
     // post.title=this.formPost.value.title;
@@ -123,11 +128,16 @@ export class PostsComponent implements OnInit {
 
       (response:any)=>{
          console.log(response);
+         this.toaster.success('Our Admins Will Review Your Post','Thank You')
       },
       (error:any)=>{
         console.log(error);
       }
+
    )
+   this.title='';
+   this.content="";
+
   }
 
   //form validation functions

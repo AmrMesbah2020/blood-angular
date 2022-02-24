@@ -9,25 +9,29 @@
                     <a class="link_decoration pink_text" href="#"> {{user.name}}</a>
                 </div>
                 <form class="post" [formGroup]="formPost" accept=".png, .jpg, .jpeg, .svg" enctype="multipart/form-data">
-                    <input type="text" placeholder="Title" class="form-control mt-3"
-                     required formControlName="title"
+                    <input type="text" placeholder="Title" class="form-control mt-3" id="title"
+                     required formControlName="title" [(ngModel)]="title"
                      [class.is-invalid]="isInValidAndTouched('title')"
                      [class.is-valid]="isValidControl('title')">
                      <div *ngIf="isInValidAndTouched('title')">
                         <small class="form-text text-danger" *ngIf="isControlHasError('title','required')">Title is required </small>
+                        <small class="form-text text-danger" *ngIf="isControlHasError('title','minlength')">minimum length is 10 characters </small>
+                        <small class="form-text text-danger" *ngIf="isControlHasError('title','maxlength')">Maximun length is 50 characters </small>
                     </div>
                     <textarea class="form-control mt-3" placeholder="content" rows="4"
                     required formControlName="content"
                     [class.is-invalid]="isInValidAndTouched('content')"
-                    [class.is-valid]="isValidControl('content')"></textarea>
+                    [class.is-valid]="isValidControl('content')" [(ngModel)]="content"></textarea>
                     <div *ngIf="isInValidAndTouched('content')">
                         <small class="form-text text-danger" *ngIf="isControlHasError('content','required')">please add post </small>
+                        <small class="form-text text-danger" *ngIf="isControlHasError('content','minlength')">minimum length is 20 characters </small>
+                        <small class="form-text text-danger" *ngIf="isControlHasError('content','maxlength')">Maximun length is 200 characters </small>
                     </div>
 
                       <label>Post Image</label>
                     <input type="file" class="form-cotrol mt-3" name="image" formControlName="image" (change)="onfile($event)" >
                     <div class="">
-                        <button  (click)="addPost()" class="btn btn-primary mt-3">Post</button>
+                        <input  (click)="addPost()" value="Post" type="submit" [disabled]="formPost.invalid" class="btn btn-primary mt-3">
                     </div>
                   </form>
             </div>
@@ -96,7 +100,7 @@
          <div class="mt-3 h6 card-title">{{item.title}}</div>
          <div class=" mt-3 card-body"> {{item.content}}</div>
          <div >
-         <img class="w-100 mt-3 " src="http://localhost:8000/storage/{{item.image}}" style="height: 330px;">
+         <img class="w-100 mt-3 " src="http://localhost:8000/storage/{{item.image}}" *ngIf="item.image" alt="" style="height: 330px;">
         </div>
          <div class=" mt-3 mb-3">
 

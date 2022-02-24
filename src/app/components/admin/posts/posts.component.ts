@@ -19,7 +19,7 @@ export class PostsComponent implements OnInit {
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   errorMessage: any;
   post = new Post;
- 
+
 
   constructor(private _httpClient: HttpClient, private router: Router) { }
 
@@ -42,18 +42,18 @@ export class PostsComponent implements OnInit {
   }
 
 
-  delete(id: number): void {
-    
+  delete(id: number) {
+
     if(confirm("Are you sure to delete "+id)) {
-    
-    
+
+
     this._httpClient.post(`http://localhost:8000/api/delete-post/`+ id,null,{ headers: this.headers }).subscribe(
 
-   
+
       (response: any) => {
         this.posts = response.data;
-        console.log(this.posts);
-        
+        console.log(response);
+
       },
       (error: any) => {
         console.log(error);
@@ -61,8 +61,9 @@ export class PostsComponent implements OnInit {
     )}
     this.router.navigate(['/admin/adminn/posts-admin'])
     .then(() => {
-      
-      window.location.reload();
+
+      // window.location.reload();
+      this.ngOnInit()
     });
   }
 
@@ -73,11 +74,11 @@ export class PostsComponent implements OnInit {
     this._httpClient.post(`http://localhost:8000/api/publishpost/` + id,null, { headers: this.headers }).subscribe(
 
       (response: any) => {
-        
+
         this.posts = response.data;
         // this.isActive = !this.isActive;
         console.log(this.posts);
-       
+
       },
       (error: any) => {
         console.log(error);
@@ -85,7 +86,8 @@ export class PostsComponent implements OnInit {
     )
     this.router.navigate(['/admin/adminn/posts-admin'])
     .then(() => {
-      window.location.reload();
+      // window.location.reload();
+      this.ngOnInit();
     });
   }
 }
