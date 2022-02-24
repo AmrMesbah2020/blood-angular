@@ -61,6 +61,13 @@ export class NotificationsService {
     })
   }
 
+  tosterSuccess(title:string,content:string){
+    this.toastr.success(title,content,{
+      positionClass:'toast-center-center',
+      
+    })
+  }
+
 
 }
 

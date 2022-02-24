@@ -62,11 +62,11 @@ export class ArticlesComponent implements OnInit {
 
 
     )
-    this.router.navigate(['/admin/adminn/articles-admin'])
+   await this.router.navigate(['/admin/adminn/articles-admin'])
     .then(() => {
 
       // window.location.reload()
-      this.ngOnInit()
+      // this.ngOnInit()
     })
   }
 

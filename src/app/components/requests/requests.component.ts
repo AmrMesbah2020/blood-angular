@@ -38,6 +38,8 @@ export class RequestsComponent implements OnInit {
     this._httpClint.post(`http://127.0.0.1:8000/api/apply/${id}`,null,{headers:this.headers}).subscribe(
       (response:any)=>{
         console.log(response);
+        this.toast.tosterSuccess('','Done...^^')
+        this.ngOnInit()
       },
       (error:any)=>{
         console.log(error.error);

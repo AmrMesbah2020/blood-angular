@@ -44,9 +44,8 @@
                         <small class="form-text text-danger " *ngIf="loginForm.controls['email'].errors['minlength'] ">
                           minimum
                           length is 7 </small>
-                        <small class="form-text text-danger " *ngIf="loginForm.controls['email'].errors['pattern']">
-                          Email should be
-                          containe @ </small>
+                        <small class="form-text text-danger " *ngIf="loginForm.controls['email'].errors['email']">
+                          Email is invalid</small>
                         <small class="form-text text-danger " *ngIf="loginForm.controls['email'].errors['maxlength']">
                           maximum length
                           is 40</small>

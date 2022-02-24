@@ -14,8 +14,10 @@
 <body>
   <section class="h-100 gradient-form">
     <div class="container py-5 h-100">
-      <div class="alert alert-danger text-center" role="alert" *ngIf="errMsg[0]">
-        This Email Already has Account.
+      <div class="alert alert-danger text-center" role="alert" *ngIf="errMsg[0]" >
+        <span *ngIf="errMsg[0].email" class="d-block"> <i class="bi bi-dash-circle-fill"></i> {{errMsg[0].email}}</span>
+        <span *ngIf="errMsg[0].birthdate"  class="d-block"><i class="bi bi-dash-circle-fill"></i> {{errMsg[0].birthdate}}</span>
+
       </div>
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-xl-10">
@@ -48,7 +50,7 @@
                               is 30</small>
                             <small class="form-text text-dark "
                               *ngIf="registerForm.controls['firstName'].errors['pattern']">
-                              only characters
+                              only characters (no white spaces)
                             </small>
                           </div>
                         </div>
@@ -75,7 +77,7 @@
                               is 30</small>
                             <small class="form-text text-dark "
                               *ngIf="registerForm.controls['lastName'].errors['pattern']">
-                              only characters
+                              only characters(no white spaces)
                             </small>
                           </div>
                         </div>
@@ -175,9 +177,9 @@
                       <small class="form-text text-dark " *ngIf="registerForm.controls['email'].errors['minlength'] ">
                         minimum
                         length is 7 </small>
-                      <small class="form-text text-dark " *ngIf="registerForm.controls['email'].errors['pattern']">
-                        Email should be
-                        containe @ </small>
+                      <small class="form-text text-dark " *ngIf="registerForm.controls['email'].errors['email']">
+                        Email is invalid
+                      </small>
                       <small class="form-text text-dark " *ngIf="registerForm.controls['email'].errors['maxlength']">
                         maximum length
                         is 40</small>
@@ -204,7 +206,7 @@
                     </div>
                   </div>
                   <div class="form-outline mb-4" [formGroup]="registerForm">
-                    <label class="form-label" for="street">Address</label><br>
+                    <label class="form-label" for="street">Address Details</label><br>
                     <input type="text" formControlName="street" [class.is-valid]="isValid('street')" requierd
                       class="form-control" />
                     <div *ngIf="registerForm.controls['street'].errors && (registerForm.controls['street'].touched)">
@@ -218,11 +220,11 @@
                         length is 4 </small>
                       <small class="form-text text-dark " *ngIf="registerForm.controls['street'].errors['maxlength']">
                         maximum length
-                        is 50</small>
+                        is 60</small>
                       <small class="form-text text-dark " *ngIf="registerForm.controls['street'].errors['pattern']">
-                        only character </small>
+                        no special characters </small>
                     </div>
-                    <label class="form-label" for="form3Examplev2">Street Address</label>
+                    <label class="form-label" for="form3Examplev2">Street</label>
 
                     <div class="form-group row">
                       <div class="col-md-6 mb-4 pb-2">
@@ -238,11 +240,11 @@
                             <small class="form-text text-dark "
                               *ngIf="registerForm.controls['city'].errors['minlength'] ">
                               minimum
-                              length is 20 </small>
+                              length is 4 </small>
                             <small class="form-text text-dark "
                               *ngIf="registerForm.controls['city'].errors['maxlength']">
                               maximum length
-                              is 50</small>
+                              is 30</small>
                             <small class="form-text text-dark " *ngIf="registerForm.controls['city'].errors['pattern']">
                               only character </small>
                           </div>
@@ -264,11 +266,11 @@
                             <small class="form-text text-dark "
                               *ngIf="registerForm.controls['state'].errors['minlength'] ">
                               minimum
-                              length is 20 </small>
+                              length is 4 </small>
                             <small class="form-text text-dark "
                               *ngIf="registerForm.controls['state'].errors['maxlength']">
                               maximum length
-                              is 50</small>
+                              is 30</small>
                             <small class="form-text text-dark "
                               *ngIf="registerForm.controls['state'].errors['pattern']">
                               only character </small>
@@ -279,15 +281,15 @@
                         </div>
                       </div>
                       <div class="form-check d-flex justify-content-center mb-5">
-                        <input class="form-check-input me-2" type="checkbox" />
-                        <label class="form-check-label" for="Terms">
+                        <input class="form-check-input me-2" type="checkbox" [checked]="checkbox" (change)="checkbox = !checkbox"/>
+                        <label class="form-check-label" for="Terms" >
                           I agree all statements in <a routerLink="/login" class="text-body"><u>Terms of service</u></a>
                         </label>
                       </div>
 
                     </div>
                   </div>
-                  <button type="button" [disabled]="registerForm.invalid" class="btn btn-light btn-lg"
+                  <button type="button" [disabled]="registerForm.invalid || !checkbox "   class="btn btn-light btn-lg"
                     data-mdb-ripple-color="dark" (click)="sign_up()">Register</button>
                   <p class="text-center" style="color:white;">Have already an account? <a routerLink="/login"
                       class="fw-bold text-body"><u>Login here</u></a></p>

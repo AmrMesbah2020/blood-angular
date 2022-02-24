@@ -6,8 +6,8 @@
 <div class="container d-flex justify-content-center">
   <div class="row p-5 " *ngIf="lastArticle[0]" >
 
-      <div class="col-lg-8 d-flex justify-content-center">
-        <img class="w-100 h-100"  src="http://localhost:8000/storage/{{lastArticle[0].image}}" alt="">
+      <div class="col-lg-8 d-flex justify-content-center" *ngIf="lastArticle[0].image">
+        <img class="w-100 h-100" src="http://localhost:8000/storage/{{lastArticle[0].image}}" alt="" >
       </div>
       <div class="col-lg-4">
         <h6 class="h4">{{lastArticle[0].title}}</h6>
@@ -32,7 +32,7 @@
 <div class="container d-flex justify-content-center ">
   <div class="row p-5 ">
       <div class="col-lg-4 mb-3" *ngFor="let item of articles">
-          <img class="w-100 h-50"  src="http://localhost:8000/storage/{{item.image}}"  alt="">
+          <img class="w-100 h-50"  src="http://localhost:8000/storage/{{item.image}}"  alt="" *ngIf="item.image">
       
           <h6 class="h5">{{item.title}}</h6>
         <div >

@@ -74,19 +74,24 @@ export class AddArticalComponent implements OnInit {
     await this._httpClient.post('http://localhost:8000/api/add-article/', formData, { headers: this.headers }).subscribe(
       (response: any) => {
         console.log(response);
+        
+        this.router.navigate(['/admin/adminn/articles-admin'])
+        .then(() => {
+    
+          // window.location.reload()
+        })
       },
       (error: any) => {
-        this.errMsg = error;
+        this.errMsg = error.error.errors.title[0];
         console.log(this.errMsg);
+
+        // console.log(error.error.errors.title[0]);
+        
 
       }
     );
 
-    this.router.navigate(['/admin/adminn/articles-admin'])
-    .then(() => {
-
-      // window.location.reload()
-    })
+ 
   }
 
 }

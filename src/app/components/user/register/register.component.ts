@@ -18,7 +18,8 @@ export class RegisterComponent implements OnInit {
 
   registerForm =new FormGroup({});
   user=new User;
-  errMsg = [];
+  errMsg:any=[];
+  checkbox=false;
 
 
   constructor(private _formBuilder:FormBuilder,private _httpClient:HttpClient,private router: Router){
@@ -26,17 +27,17 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm=this._formBuilder.group({
 
-  firstName:["",[Validators.required,Validators.minLength(3),Validators.maxLength(30),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
-  lastName:["",[Validators.required,Validators.minLength(3),Validators.maxLength(30),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
+  firstName:["",[Validators.required,Validators.minLength(3),Validators.maxLength(15),Validators.pattern('^[A-Za-z][A-Za-z]*$')]],
+  lastName:["",[Validators.required,Validators.minLength(3),Validators.maxLength(15),Validators.pattern('^[A-Za-z][A-Za-z]*$')]],
   birthdate:["",Validators.required],
   gender:["",[Validators.required]],
   password:["",[Validators.required,Validators.minLength(6),Validators.maxLength(20),Validators.pattern("(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$" )]],
   weight:["",[Validators.required,Validators.maxLength(3),Validators.minLength(1),Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-  email:['',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"),Validators.minLength(7),Validators.maxLength(40)]],
+  email:['',[Validators.required,Validators.email,Validators.minLength(7),Validators.maxLength(40)]],
   phone:["",[Validators.required,Validators.pattern("^01[0-2,5]{1}[0-9]{8}$"),Validators.maxLength(15),Validators.minLength(11)]],
-  street:["",[Validators.required,Validators.minLength(4),Validators.maxLength(20),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*') ]],
-  city:["",[Validators.required,Validators.minLength(4),Validators.maxLength(20),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
-  state:["",[Validators.required,Validators.minLength(4),Validators.maxLength(20),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
+  street:["",[Validators.required,Validators.minLength(4),Validators.maxLength(60),Validators.pattern('[a-zA0-Z9\u0600-\u06FF ]*') ]],
+  city:["",[Validators.required,Validators.minLength(4),Validators.maxLength(30),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
+  state:["",[Validators.required,Validators.minLength(4),Validators.maxLength(30),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
 
     });
   }
@@ -86,8 +87,8 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['home']);
         localStorage.setItem("Token",response[1].token)},
         (error:any)=>{
-          this.errMsg = error.error.errors.email[0];
-          // console.log(this.errMsg);
+          this.errMsg.push(error.error.errors);
+          console.log(this.errMsg);
         }
       )
 
