@@ -1,5 +1,6 @@
-import { HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../models/user';
 
@@ -10,10 +11,11 @@ export class UserService {
   token:any=localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   user=new User;
+  admin:any;
 
   logged=new BehaviorSubject<boolean>(this.isLoggedIn());
-  private _httpClient: any;
-  constructor() { }
+  
+  constructor(private _httpClient: HttpClient,private router: Router) { }
   login(token: string) {
     localStorage.setItem("Token", token);
     this.logged.next(true);
@@ -28,23 +30,24 @@ export class UserService {
 
 
   }
-  isAdmin():void{
-    this._httpClient.get("http://localhost:8000/api/user",{ headers: this.headers }).subscribe(
+  isAdmin():any{
 
+    this._httpClient.get("http://localhost:8000/api/user",
+    { headers: this.headers }).subscribe(
+    
       (response:any)=>{
-         this.user=response.data;
-         console.log(this.user);
-      },
+         this.user=response.data[0];
+         this.admin =this.user.isAdmin
+        // console.log(this.admin);
+         if(this.admin==0){
+          this.router.navigate(['/login']);
+        }
+     },
       (error:any)=>{
         console.log(error);
       }
-
-   );  let isAdmin=this.user.isAdmin;
-   if(this.user.isAdmin == 1){
-    
-      isAdmin=1;
-   }  
-  // return isAdmin;
+   )
+  
   }
 
 }

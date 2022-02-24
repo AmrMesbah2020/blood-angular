@@ -5,7 +5,7 @@
   <div class="container ">
     <form [formGroup]="addArtical">
       <div class="form-group">
-        <label for="title">Title : </label>
+        <label for="title" >Title : </label>
         <input type="text" class="form-control" formControlName="title" required>
 
         <div *ngIf="addArtical.controls['title'].errors && (addArtical.controls['title'].touched)">
@@ -21,14 +21,14 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="resources">Resources : </label>
-        <textarea type="text" class="form-control" formControlName="resources" required>
+        <label for="resources" >Resources : </label>
+        <textarea type="text" class="form-control bg-white" formControlName="resources" required>
          </textarea>
       </div>
       <div class="form-group">
         <label for="content">Content : </label>
-        <textarea style="resize: none; resize: vertical; height: 250px;" formControlName="content" type="text"
-          class="form-control">
+        <textarea  formControlName="content" type="text"
+          class="form-control  bg-white text-2" >
          </textarea>
         <div *ngIf="addArtical.controls['content'].errors && (addArtical.controls['content'].touched)">
           <small class="form-text text-danger "
@@ -38,7 +38,7 @@
             length is 100 </small>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group  mb-4">
         <label for="image" id="image">Upload Your photo</label><br>
 
         <div class="col-sm-8 img-upload-section">
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="text-right">
-        <button type="button" class="btn btn-danger btn-lg "   (click)="addArticle()" [disabled]="addArtical.invalid">
+        <button type="button" class="btn btn-danger mb-4 "   (click)="addArticle()" [disabled]="addArtical.invalid">
           + ADD ARTICAL
         </button>
       </div>
