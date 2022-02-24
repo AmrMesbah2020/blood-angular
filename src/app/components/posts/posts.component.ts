@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -29,29 +30,24 @@ export class PostsComponent implements OnInit {
 
 
 
-  constructor(private _activatedRoute:ActivatedRoute , private _httpClient:HttpClient,private _postService:PostService,private _formBuilder: FormBuilder,private router:Router) { }
+  constructor(private _activatedRoute:ActivatedRoute , private _httpClient:HttpClient,private _postService:PostService,private _formBuilder: FormBuilder,private toastr:ToastrService) { }
 
   ngOnInit(): void {
+    
+   this.getAllPosts();    //getAllPosts function calling
+   this.createForm();      //createForm  function calling
+   this.topRatedPost();    //topRatedPost function calling
 
-    //navigation to login page to unauthorized users
-
-  //   if(localStorage.getItem('Token')==null){
-  //     this.router.navigate(['/login']);
-  // }
-
-    //getAllPosts function calling
-    this.getAllPosts();
-   this.createForm();
-    // get the user
+    // get the login user data
     this._httpClient.get("http://localhost:8000/api/user",
     { headers: this.headers }).subscribe(
     
       (response:any)=>{
          this.user=response.data[0];
-         console.log(this.user);
+       //  console.log(this.user);
       },
       (error:any)=>{
-        console.log(error);
+     //   console.log(error);
       }
    )
    
@@ -71,33 +67,31 @@ export class PostsComponent implements OnInit {
      }
   )
 
+  }
 
-
-
-
-  //get top rated post
+  //get top rated post function*************************
+  topRatedPost(){
     this._postService.topRatedPost()
     .subscribe(
       (response:any)=>{
        JSON.stringify(response.data);
         this.topRatePost=response.data;
-        console.log(this.topRatePost)
+       // console.log(this.topRatePost)
       }
       ,
       (error:any)=>{
-        console.log(error);
+       // console.log(error);
       }
     );
-
-
   }
 
-  //post image
+  //get image value***********************************
   onfile(event:any){
     this.image=event.target.files[0];
-    console.log(this.image);
+   // console.log(this.image);
    }
 
+   //create form*********************************************
    createForm(){
     this.formPost = this._formBuilder.group({
 
@@ -108,29 +102,39 @@ export class PostsComponent implements OnInit {
     })
    }
 
-  //add post
+  //add post*********************************************
   addPost():void{
     let post=new Post();
     let formData=new FormData();
    formData.append("image",this.image,this.image.name);
    formData.append("title",this.formPost.value.title);
    formData.append("content",this.formPost.value.content);
-    // post.title=this.formPost.value.title;
-    // post.content=this.formPost.value.content;
-    formData.forEach(file => console.log("File:", file));
-
     this._httpClient.post("http://localhost:8000/api/post",formData,{ headers: this.headers }).subscribe(
 
       (response:any)=>{
          console.log(response);
+         if(response==null){
+         this.toastr.success('Thanks, We will review your post and publish it soon','',{
+           timeOut:4000,
+           progressBar:true
+         })
+        }else{
+          this.toastr.error('Sorry, something wrong happend','',{
+            timeOut:2000,
+            progressBar:true
+          })
+
+         }
+         this.formPost.reset()
       },
       (error:any)=>{
         console.log(error);
       }
+
    )
   }
 
-  //form validation functions
+  //form validation functions****************************
   isValidControl(name:string):boolean
   {
     return this.formPost.controls[name].valid;
@@ -146,7 +150,7 @@ export class PostsComponent implements OnInit {
     return  this.formPost.controls[name].invalid && this.formPost.controls[name].errors?.[error];
   }
 
-//function to get all posts
+//function to get all posts***********************************
   getAllPosts():void{
     this._postService.get()
     .subscribe(
@@ -165,7 +169,7 @@ export class PostsComponent implements OnInit {
   }
 
 
-  //post like function
+  //post like function********************************************
 
    postLike(rate:number,id:number):void {
     let postid=id;
@@ -173,7 +177,7 @@ export class PostsComponent implements OnInit {
        rate--;
        let index = this.liked_posts.findIndex(x => x== postid);
         this.liked_posts.splice(index, 1);
-        console.log(this.liked_posts);
+        //console.log(this.liked_posts);
 
 
 
@@ -181,19 +185,20 @@ export class PostsComponent implements OnInit {
      else{
       rate++;
       this.liked_posts.push(postid);
-      console.log(this.liked_posts);
+     // console.log(this.liked_posts);
      }
 
-     console.log(rate)
+     
 
 
-     console.log(postid)
+    // console.log(postid)
      this._httpClient.post(`http://localhost:8000/api/rate/`+postid,rate,
      { headers: this.headers }).subscribe(
 
       (response:any)=>{
          console.log(response);
-         this.getAllPosts();
+         this.getAllPosts();     //createForm  function calling
+         this.topRatedPost();    //topRatedPost function calling
       },
       (error:any)=>{
         console.log(error);
