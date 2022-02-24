@@ -131,8 +131,7 @@ export class PostsComponent implements OnInit {
       }
 
    )
-   this.title='';
-   this.content="";
+
 
   }
 
