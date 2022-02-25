@@ -16,6 +16,7 @@ import { Session } from 'inspector';
 })
 export class HeaderComponent implements OnInit {
   isOpen:boolean= false;
+  user: any;
 
   toggleNavbar(){
     this.isOpen=!this.isOpen
@@ -37,7 +38,7 @@ export class HeaderComponent implements OnInit {
     }
   }
   isLogged:boolean=false;
-  // isAdmin:boolean=false;
+  admin:any;
 
   flag:any='';
   notificationInfo=new Request();
@@ -49,6 +50,24 @@ export class HeaderComponent implements OnInit {
   constructor(private toastr: NotificationsService,private router:Router,private _userService:UserService,private _httpClint:HttpClient) { }
 
   ngOnInit(): void {
+
+
+
+    this._httpClint.get("http://localhost:8000/api/user",
+    { headers: this.headers }).subscribe(
+    
+      (response:any)=>{
+         this.user=response.data[0];
+         this.admin =this.user.isAdmin
+        // console.log(this.admin);
+        
+     }
+      
+   );
+  
+  
+
+
 
 
     this._userService.logged.subscribe(status=>{
