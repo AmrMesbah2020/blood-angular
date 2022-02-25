@@ -38,14 +38,14 @@ export class EditProfileComponent implements OnInit {
 
 
 this.editProfile=this. _formBuilder.group({
-  firstName:[name[0],[Validators.required,Validators.minLength(3),Validators.maxLength(15),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
-  lastName:[name[1],[Validators.required,Validators.minLength(3),Validators.maxLength(15),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
+  firstName:[name[0],[Validators.required,Validators.minLength(3),Validators.maxLength(15),Validators.pattern('^[A-Za-z][A-Za-z]*$')]],
+  lastName:[name[1],[Validators.required,Validators.minLength(3),Validators.maxLength(15),Validators.pattern('^[A-Za-z][A-Za-z]*$')]],
   phone:[this.userInfo.phone,[Validators.required,Validators.pattern("^01[0-2,5]{1}[0-9]{8}$"),Validators.maxLength(15),Validators.minLength(11)]],
   email:[this.userInfo.email,[Validators.required,Validators.email,Validators.minLength(7),Validators.maxLength(40)]],
   weight:[this.userInfo.wieght,[Validators.required,Validators.maxLength(3),Validators.minLength(1),Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
   address:[this.userInfo.address,[Validators.required,Validators.minLength(20),Validators.maxLength(150),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*') ]],
   // avatar:[]
-  img:new FormControl()
+  // img:new FormControl()
 })
 
 }
@@ -73,7 +73,9 @@ update():void{
   user.address=this.editProfile.value.address
 
   let data=new FormData();
-  data.append('avatar',this.image,this.image.name);
+  if(this.image != null){
+    data.append('avatar',this.image,this.image.name);
+  }
   data.append('name',user.name);
   data.append('email',user.email);
   data.append('phone',user.phone);

@@ -2,6 +2,15 @@
 <body>
   <div class="d-flex flex-column mt-4 bg-surface-secondary">
 
+    <div class="alert alert-danger d-flex align-items-center text-center" role="alert" *ngIf="errMsg">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+      <div class="text-center">
+           {{errMsg}}
+      </div>
+    </div>
+    
+
+
   <div class="container ">
     <form [formGroup]="addArtical">
       <div class="form-group">
@@ -17,8 +26,10 @@
           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['pattern']"> Title should be
             containe only characters</small>
           <small class="form-text text-danger " *ngIf="addArtical.controls['title'].errors['maxlength']"> maximum length
-            is 30</small>
+            is 30</small> 
         </div>
+
+
       </div>
       <div class="form-group">
         <label for="resources" >Resources : </label>

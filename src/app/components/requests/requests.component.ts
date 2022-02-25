@@ -38,11 +38,20 @@ export class RequestsComponent implements OnInit {
     this._httpClint.post(`http://127.0.0.1:8000/api/apply/${id}`,null,{headers:this.headers}).subscribe(
       (response:any)=>{
         console.log(response);
+        this.toast.tosterSuccess('','Done...^^')
+        this.ngOnInit()
       },
       (error:any)=>{
         console.log(error.error);
         // alert(error.error);
-        this.toast.tosterWarning(error.error,'Hint');
+        if(error.error == 'already applied'){
+          this.toast.tosterWarning(error.error,'Hint');
+
+        }else{
+          this.toast.toastrWarningOnTap(error.error,'Hint','eligibilty-quiz');
+
+        }
+        
       }
     )
   }
