@@ -12,6 +12,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { LayoutComponent } from './layout/layout.component';
 import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
 import { RequestsComponent } from './components/requests/requests.component';
+import { PrediabetesComponent } from './components/prediabetes/prediabetes.component';
 
 
 // lazy load //
@@ -67,6 +68,7 @@ const routes: Routes = [
   {path:'requests',component:RequestsComponent,canActivate:[AuthGuard]},
   {path:'make-request',component:MakeRequestsComponent,canActivate:[AuthGuard]},
   {path:'calories-calc',component:CaloriesCalculaterComponent,},
+  {path:'prediabetes-test',component:PrediabetesComponent,},
   {path:'profile-page/:id', component:ProfilePageComponent,canActivate:[AuthGuard]}
   ]}
 

@@ -37,6 +37,8 @@ export class HeaderComponent implements OnInit {
     }
   }
   isLogged:boolean=false;
+  // isAdmin:boolean=false;
+
   flag:any='';
   notificationInfo=new Request();
   token:any=localStorage.getItem("Token");
@@ -52,6 +54,11 @@ export class HeaderComponent implements OnInit {
     this._userService.logged.subscribe(status=>{
       this.isLogged=status;
     });
+    // this._userService.issadmin.subscribe(status=>{
+    //   this.isAdmin=status;
+    // });
+ 
+ 
 
 this.GetNotification();
 
