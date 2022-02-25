@@ -30,7 +30,7 @@ export class UserService {
 
 
   }
-    issadmin=new BehaviorSubject<boolean>(this.isAdmin());
+    // issadmin=new BehaviorSubject<boolean>(this.isAdmin());
 
   isAdmin():any{
 
