@@ -17,6 +17,7 @@ import {GlobalsService} from '../../services/globals.service'
 })
 export class HeaderComponent implements OnInit {
   isOpen:boolean= false;
+  user: any;
 
   toggleNavbar(){
     this.isOpen=!this.isOpen
@@ -30,7 +31,7 @@ export class HeaderComponent implements OnInit {
 
   navbarfixed:boolean = false;
   @HostListener('window:scroll',['$event'])onScroll(){
-    if(window.scrollY >50){
+    if(window.scrollY >60){
       this.navbarfixed = true;
     }
     else{
@@ -38,7 +39,7 @@ export class HeaderComponent implements OnInit {
     }
   }
   isLogged:boolean=false;
-  // isAdmin:boolean=false;
+  admin:any;
 
   flag:any='';
   notificationInfo=new Request();
@@ -50,6 +51,24 @@ export class HeaderComponent implements OnInit {
   constructor(private toastr: NotificationsService,private router:Router,private _userService:UserService,private _httpClint:HttpClient,private global:GlobalsService) { }
 
   ngOnInit(): void {
+
+
+
+    this._httpClint.get("http://localhost:8000/api/user",
+    { headers: this.headers }).subscribe(
+    
+      (response:any)=>{
+         this.user=response.data[0];
+         this.admin =this.user.isAdmin
+        // console.log(this.admin);
+        
+     }
+      
+   );
+  
+  
+
+
 
 
     this._userService.logged.subscribe(status=>{

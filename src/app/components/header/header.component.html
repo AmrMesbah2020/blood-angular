@@ -96,14 +96,14 @@
 
             <li class="nav-item"><a class="nav-link scrollto" routerLink="contact-us"> Contact Us </a></li>
 
-            <ul class="nav me-2">
+            <!-- <ul class="nav me-2"> -->
               <li class="nav-item" *ngIf="!isLogged"><a class="nav-link scrollto" routerLink="/login"> Log in</a></li>
               <li class="nav-item" *ngIf="isLogged"><a class="nav-link scrollto" routerLink="/logout"> Log out</a></li>
               <li class="nav-item"><a class="nav-link scrollto" routerLink="profile"
                   routerLinkActive="active"><i class="bi bi-person-fill"></i></a></li>
-                  <li class="nav-item" ><a class="nav-link scrollto" routerLink="admin/adminn/dashboard"
+                  <li class="nav-item" *ngIf="admin==1" ><a class="nav-link scrollto" routerLink="admin/adminn/dashboard"
                     routerLinkActive="active"><i class="bi bi-speedometer2"></i></a></li>
-            </ul>
+            <!-- </ul> -->
 
 
 
