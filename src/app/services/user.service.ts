@@ -30,6 +30,8 @@ export class UserService {
 
 
   }
+    // issadmin=new BehaviorSubject<boolean>(this.isAdmin());
+
   isAdmin():any{
 
     this._httpClient.get("http://localhost:8000/api/user",

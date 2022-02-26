@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders, } from '@angular/common/http';
 import { json } from 'stream/consumers';
 import { Request } from 'src/app/models/request';
 import { Session } from 'inspector';
+import {GlobalsService} from '../../services/globals.service'
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,7 @@ import { Session } from 'inspector';
 })
 export class HeaderComponent implements OnInit {
   isOpen:boolean= false;
+  user: any;
 
   toggleNavbar(){
     this.isOpen=!this.isOpen
@@ -29,7 +31,7 @@ export class HeaderComponent implements OnInit {
 
   navbarfixed:boolean = false;
   @HostListener('window:scroll',['$event'])onScroll(){
-    if(window.scrollY >50){
+    if(window.scrollY >60){
       this.navbarfixed = true;
     }
     else{
@@ -37,6 +39,8 @@ export class HeaderComponent implements OnInit {
     }
   }
   isLogged:boolean=false;
+  admin:any;
+
   flag:any='';
   notificationInfo=new Request();
   token:any=localStorage.getItem("Token");
@@ -44,17 +48,42 @@ export class HeaderComponent implements OnInit {
   listOfNotification:any=[];
   numberOfNotification:number=0;
 
-  constructor(private toastr: NotificationsService,private router:Router,private _userService:UserService,private _httpClint:HttpClient) { }
+  constructor(private toastr: NotificationsService,private router:Router,private _userService:UserService,private _httpClint:HttpClient,private global:GlobalsService) { }
 
   ngOnInit(): void {
+
+
+
+    this._httpClint.get("http://localhost:8000/api/user",
+    { headers: this.headers }).subscribe(
+    
+      (response:any)=>{
+         this.user=response.data[0];
+         this.admin =this.user.isAdmin
+        // console.log(this.admin);
+        
+     }
+      
+   );
+  
+  
+
+
 
 
     this._userService.logged.subscribe(status=>{
       this.isLogged=status;
     });
+    console.log(this.headers);
 
+    // this._userService.issadmin.subscribe(status=>{
+    //   this.isAdmin=status;
+    // });
+
+
+if(this.isLogged){
 this.GetNotification();
-
+}
   }
 
 
@@ -79,6 +108,7 @@ this.GetNotification();
 
 
  notification:any=setInterval(()=>{
+   if(this.isLogged){
   this._httpClint.get(`http://127.0.0.1:8000/api/getUserNotification`,{headers:this.headers}).subscribe(
     (response:any)=>{
 
@@ -95,11 +125,11 @@ this.GetNotification();
       // console.log(response.data);
         this.notificationInfo=JSON.parse(response.data).data;
         // console.log(this.notificationInfo);
-        if(this.flag ==this.notificationInfo.id){}else{
+        if(this.global.flag ==this.notificationInfo.id){}else{
         let title:string=this.notificationInfo.owner_details.name+' need blood of type '+this.notificationInfo.blood.blood_group+this.notificationInfo.blood.rhd;
         let content:string=this.notificationInfo.description;
         this.toastr.toastrInfoOnTap(content,title,'/requests');
-        this.flag=this.notificationInfo.id;
+        this.global.flag=this.notificationInfo.id;
         }
 
     },
@@ -107,8 +137,9 @@ this.GetNotification();
 
     }
   )
- }, 10000);
 
+   }
+ }, 10000);
 
 
 
@@ -116,6 +147,7 @@ this.GetNotification();
    this._httpClint.post('http://127.0.0.1:8000/api/mark-as-read',null,{headers:this.headers}).subscribe(
      (response:any)=>{
        console.log(response);
+       this.GetNotification();
      },
      (error:any)=>{
        console.log(error);

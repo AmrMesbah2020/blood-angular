@@ -29,54 +29,22 @@ export class ProfilePageComponent implements OnInit {
   .subscribe(
     (response:any)=>{
       console.log(response);
-      this.user=response.data;
+      this.user=response[0];
+      this.posts=response[1];
+      this.requests=response[2]
+      this.applies=response[3]
+
 
     },
     (error:any)=>{}
   )
-
-   //posts count
-   this._httpClient.get(`http://localhost:8000/api/posts-count/${id}`).subscribe(
-    (response:any)=>{
-    // console.log(response);
-    this.posts=response;
-
-    },
-    (error:any)=>{
-
-    }
-    )
-
-    //requests count
-    this._httpClient.get(`http://localhost:8000/api/requests-count/${id}`).subscribe(
-      (response:any)=>{
-      // console.log(response);
-      this.requests=response;
-  
-      },
-      (error:any)=>{
-  
-      }
-      )
-
-      //applies count
-      this._httpClient.get(`http://localhost:8000/api/apply-count/${id}`).subscribe(
-        (response:any)=>{
-        // console.log(response);
-        this.applies=response;
-    
-        },
-        (error:any)=>{
-    
-        }
-        )
 
 
       })
 
 
 
-      
+
 
 
 

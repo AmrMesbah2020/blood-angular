@@ -17,6 +17,7 @@
                         <small class="form-text text-danger" *ngIf="isControlHasError('title','required')">Title is required </small>
                         <small class="form-text text-danger" *ngIf="isControlHasError('title','minlength')">minimum length is 10 characters </small>
                         <small class="form-text text-danger" *ngIf="isControlHasError('title','maxlength')">Maximun length is 50 characters </small>
+                        <small class="form-text text-danger" *ngIf="isControlHasError('title','pattern')">No Special characters </small>
                     </div>
                     <textarea class="form-control mt-3" placeholder="content" rows="4"
                     required formControlName="content"
@@ -25,7 +26,8 @@
                     <div *ngIf="isInValidAndTouched('content')">
                         <small class="form-text text-danger" *ngIf="isControlHasError('content','required')">please add post </small>
                         <small class="form-text text-danger" *ngIf="isControlHasError('content','minlength')">minimum length is 20 characters </small>
-                        <small class="form-text text-danger" *ngIf="isControlHasError('content','maxlength')">Maximun length is 200 characters </small>
+                        <small class="form-text text-danger" *ngIf="isControlHasError('content','maxlength')">Maximun length is 300 characters </small>
+                        <small class="form-text text-danger" *ngIf="isControlHasError('content','pattern')">No Special characters </small>
                     </div>
 
                       <label>Post Image</label>
@@ -45,18 +47,18 @@
 <p class="h3 pink_text text-center mt-3 mb-4">Top Rated Post</p>
 <div class="row d-flex justify-content-center "*ngFor="let item of topRatePost">
    <div class="card border gray w-75">
-    <div class="row p-2 mt-3 mb-3 w-100" >
+    <div class="row p-2 mt-3 mb-3 w-100">
 
         <div class="col-lg-6 d-flex justify-content-center">
-            <img class="w-100 h-100" src="http://localhost:8000/storage/{{item.image}}" alt="">
+            <img class="w-100 h-100" src="http://localhost:8000/storage/{{item.image}}" alt="" *ngIf="item.image">
         </div>
         <div class="col-lg-6">
             <div class="row" >
                 <div class="col-lg">
-                     <img class="profile_img" src="http://localhost:8000/storage/{{item.owner.avatar}}" alt="profile picture" >
+                     <img class="profile_img m-3" src="http://localhost:8000/storage/{{item.owner.avatar}}" alt="profile picture" >
                      <ul class=" ms-5">
                          <li class="list_type_none ms-3"> {{item.owner.name}}</li>
-                         <li class="list_type_none ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">03 Dec 2020</span></li>
+                         <li class="list_type_none ms-3"><i class="fa fa-calendar"></i> <span class="pink_text "> {{item.created_at |date: 'medium'}} </span></li>
                      </ul>
 
                 </div>
@@ -90,7 +92,7 @@
               <img class="profile_img " src="http://localhost:8000/storage/{{item.owner.avatar}}" alt="profile picture">
               <ul class="mt-4 ms-5">
                   <li class="list_type_none ms-3"> {{item.owner.name}}</li>
-                  <li class="list_type_none ms-3"><i class="fa fa-calendar"></i> <span class="pink_text ">03 Dec 2020</span></li>
+                  <li class="list_type_none ms-3"><i class="fa fa-calendar"></i>  <span class="pink_text "> {{item.created_at |date: 'medium'}} </span></li>
               </ul>
 
          </div>

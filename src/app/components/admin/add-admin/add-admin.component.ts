@@ -16,6 +16,8 @@ export class AddAdminComponent implements OnInit {
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   admin = new User()
   email: string = '';
+  done:boolean=false;
+  errorMsg:any=[];
   constructor(private _formBuilder: FormBuilder, private _httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
@@ -52,9 +54,13 @@ export class AddAdminComponent implements OnInit {
     this._httpClient.post('http://localhost:8000/api/add-admin', admin, { headers: this.headers }).subscribe(
       (response: any) => {
         console.log(response);
+        this.done=true
+        console.log(this.done);
+
       },
       (error: any) => {
         this.errMsg = error;
+        this.errorMsg.push(error.error);
         console.log(this.errMsg);
 
       }

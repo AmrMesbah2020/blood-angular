@@ -38,7 +38,7 @@ export class PostsComponent implements OnInit {
   constructor(private _activatedRoute:ActivatedRoute , private _httpClient:HttpClient,private _postService:PostService,private _formBuilder: FormBuilder,private toastr:ToastrService) { }
 
   ngOnInit(): void {
-    
+
    this.getAllPosts();    //getAllPosts function calling
    this.createForm();      //createForm  function calling
    this.topRatedPost();    //topRatedPost function calling
@@ -100,8 +100,8 @@ export class PostsComponent implements OnInit {
    createForm(){
     this.formPost = this._formBuilder.group({
 
-      title:['' , [Validators.required,Validators.minLength(10),Validators.maxLength(50)],],
-      content:['' , [Validators.required,Validators.minLength(20),Validators.maxLength(250)],],
+      title:['' , [Validators.required,Validators.minLength(10),Validators.maxLength(50),Validators.pattern('[a-zA0-Z9\u0600-\u06FF ]*')],],
+      content:['' , [Validators.required,Validators.minLength(20),Validators.maxLength(300)],],
       image:[null,]
 
     })
@@ -119,7 +119,7 @@ export class PostsComponent implements OnInit {
 
       (response:any)=>{
          console.log(response);
-         
+
          this.toastr.success('Our Admins Will Review Your Post','Thank You',{
            timeOut:4000,
            progressBar:true
@@ -189,7 +189,7 @@ export class PostsComponent implements OnInit {
      // console.log(this.liked_posts);
      }
 
-     
+
 
 
     // console.log(postid)

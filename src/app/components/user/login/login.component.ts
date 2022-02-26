@@ -35,15 +35,14 @@ export class LoginComponent implements OnInit {
     user.email = this.loginForm.value.email
     user.password = this.loginForm.value.password
 
-    
+
     this._httpClient.post('http://localhost:8000/api/login', user).subscribe(
       (response: any) => {
 
-        console.log(JSON.stringify(response.date));
         console.log(response);
         this._userService.login(response);
-       
-          this.router.navigateByUrl('/home');        
+
+          this.router.navigateByUrl('/home');
       },
       (error: any) => {
         this.errMsg = error;
