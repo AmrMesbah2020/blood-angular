@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 
 import { Router } from '@angular/router';
 import { DonnationData } from './../../models/donnationData';
@@ -5,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { HttpClient,HttpHeaders} from '@angular/common/http';
 import { NotificationsService } from 'src/app/services/notifications.service';
+import { take } from 'rxjs';
 
 class DonnerData{
   last_date_of_donnation=new Date(10);
@@ -26,10 +28,11 @@ export class EligibilityQuizComponent implements OnInit {
   addDonnerForm=new FormGroup({});
   donnatinData=new DonnationData();
   errMsg:string='';
+  updateData=new DonnerData();
 
   token:any=localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
-  constructor(private _formBuilder: FormBuilder,private _httpClient:HttpClient,private router:Router,private toast:NotificationsService){}
+  constructor(private _formBuilder: FormBuilder,private _httpClient:HttpClient,private router:Router,private toast:NotificationsService,private onTaptoast:ToastrService){}
 
   ngOnInit(): void {
 
@@ -53,12 +56,25 @@ export class EligibilityQuizComponent implements OnInit {
    donnatinData.blood_group=this.addDonnerForm.value.bloodgroup;
    donnatinData.rhd=this.addDonnerForm.value.bloodrh;
 
+   this.updateData=donnatinData
+
 
    this._httpClient.post("http://localhost:8000/api/donnation",donnatinData,{headers:this.headers}).subscribe(
 
       (response:any)=>{
          console.log((response));
-         this.router.navigate(['/requests'])
+        if (response=='done'){
+          this.router.navigate(['/requests'])
+        }else{
+          this.onTaptoast.show('if you want to modify your donnation data click Here!! ',response,{
+            positionClass:'toast-center-center',
+            timeOut:9000
+          }).onTap
+          .pipe(take(1))
+          .subscribe(() => this.modifyDonnationData());
+        }
+
+
 
       },
       (error:any)=>{
@@ -68,6 +84,23 @@ export class EligibilityQuizComponent implements OnInit {
         this.toast.tosterError(this.errMsg,'Sorry');
       }
    )
+  }
+
+
+  modifyDonnationData(){
+
+    this._httpClient.post("http://localhost:8000/api/modify-donnation",this.updateData,{headers:this.headers}).subscribe(
+
+      (response:any)=>{
+        console.log(response);
+        this.router.navigate(['/requests'])
+
+      },
+      (error:any)=>{
+        console.log(error);
+
+      })
+
   }
 
 

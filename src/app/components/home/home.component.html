@@ -105,7 +105,7 @@
 <div class="container d-flex justify-content-center">
   <div class="row p-5 ">
       <div class="col-lg col-sm-12" *ngFor="let item of lastArticles">
-          <img class="w-100 h-50" src="../assets/img/person-question.png" alt="">
+          <img class="w-100 h-50" src="http://localhost:8000/storage/{{item.image}}" alt="" *ngIf="item.image">
           <h6 class="h5">{{item.title}}</h6>
         <div >
           <!-- <li class="list_style"><i class="fa fa-user"></i> <span class="pink_text ">Admin</span></li> -->
@@ -130,7 +130,7 @@
           </h6>
         <p>See if you are eligible to donate blood today, or find answers to frequently asked questions.</p>
 
-        <footer class=""><a class="link_decoration pink_text" routerLink="/faq">Check your eligibility  &raquo;</a></footer>
+        <footer class=""><a class="link_decoration pink_text" routerLink="/eligibilty-quiz">Check your eligibility  &raquo;</a></footer>
 
       </div>
       <div class="col-lg col-sm-12">
@@ -140,7 +140,7 @@
 
         <p>Couldn’t find what you were looking for in our FAQs? That’s OK — our team can help. Just get in touch.</p>
 
-        <footer class=""><a class="link_decoration pink_text" href="#">Contact us   &raquo;</a></footer>
+        <footer class=""><a class="link_decoration pink_text" routerLink="/contact-us">Contact us   &raquo;</a></footer>
 
       </div>
       <div class="col-lg col-sm-12">

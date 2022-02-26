@@ -43,7 +43,7 @@ this.editProfile=this. _formBuilder.group({
   phone:[this.userInfo.phone,[Validators.required,Validators.pattern("^01[0-2,5]{1}[0-9]{8}$"),Validators.maxLength(15),Validators.minLength(11)]],
   email:[this.userInfo.email,[Validators.required,Validators.email,Validators.minLength(7),Validators.maxLength(40)]],
   weight:[this.userInfo.wieght,[Validators.required,Validators.maxLength(3),Validators.minLength(1),Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-  address:[this.userInfo.address,[Validators.required,Validators.minLength(20),Validators.maxLength(150),Validators.pattern('[a-zA-Z\u0600-\u06FF ]*') ]],
+  address:[this.userInfo.address,[Validators.required,Validators.minLength(20),Validators.maxLength(135),Validators.pattern('[a-zA0-Z9\u0600-\u06FF ]*') ]],
   // avatar:[]
   // img:new FormControl()
 })

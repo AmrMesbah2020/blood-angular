@@ -38,7 +38,7 @@ export class RequestsComponent implements OnInit {
     this._httpClint.post(`http://127.0.0.1:8000/api/apply/${id}`,null,{headers:this.headers}).subscribe(
       (response:any)=>{
         console.log(response);
-        this.toast.tosterSuccess('','Done...^^')
+        this.toast.tosterSuccess(response,'')
         this.ngOnInit()
       },
       (error:any)=>{
@@ -51,7 +51,7 @@ export class RequestsComponent implements OnInit {
           this.toast.toastrWarningOnTap(error.error,'Hint','eligibilty-quiz');
 
         }
-        
+
       }
     )
   }

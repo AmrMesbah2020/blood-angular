@@ -160,12 +160,12 @@
 
       <div class="my-3 p-3 bg-white rounded box-shadow " *ngFor="let post of userPosts">
         <div class="media text-muted pt-3">
-          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="mr-2 rounded" width="32"
-            height="32">
+          <img src="http://localhost:8000/storage/{{user.avatar}}" alt="" class="mr-2 rounded" width="32"
+            height="32" *ngIf="user.avatar">
           <p class="media-body pb-3 mb-0  lh-125 border-bottom border-gray">
             <!-- <small class="text-muted">{{posts}}</small> -->
             <strong class="d-block text-info">{{post.title}}</strong>
-            <img src="{{post.image}}">
+            <img src="http://localhost:8000/storage/{{post.image}}" style="width: 200px;height: 200px;" *ngIf="post.image">
               {{post.content}}
           </p>
           <strong class="d-block text-danger"><i class="bi bi-heart-fill"></i> {{post.rate}}</strong>
@@ -175,6 +175,6 @@
 
     </main>
     </div>
- 
+
 </div>
 </body>

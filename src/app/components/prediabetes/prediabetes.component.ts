@@ -31,18 +31,18 @@ export class PrediabetesComponent implements OnInit {
     // this.subtotal=this.old1.value+this.old2.value+this.old3.value;
     // console.log(this.formPredibets.value);
 
-    
+
 
   }
   getValue(vall:any,val1:any,val2:any,val3:any,val4:any,val5:any,val6:any,val7:any){
     // console.log(parseInt(vall));
    this.subTotal=parseInt(val1)+parseInt(val2)+parseInt(val3)+parseInt(val4)+parseInt(val5)+parseInt(val6)+parseInt(val7);
   //  console.log(this.subTotal);
- 
+
   this.isShown = ! this.isShown;
 
 
   }
- 
- 
+
+
 }

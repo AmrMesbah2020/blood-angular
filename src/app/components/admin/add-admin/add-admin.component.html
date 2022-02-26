@@ -5,7 +5,12 @@
     <!-- Card stats -->
 
 
-
+    <div class="alert alert-success" role="alert" *ngIf="done">
+      You Added New Admin Successfully.
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="errorMsg[0]">
+      {{errorMsg[0]}}
+    </div>
     <form [formGroup]="adminForm">
 
       <div class="form-group mb-3">

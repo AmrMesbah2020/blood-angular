@@ -27,7 +27,7 @@ export class AddArticalComponent implements OnInit {
     // }
 
     this.addArtical = this._formBuilder.group({
-      title: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(30), Validators.pattern('[a-zA-Z\u0600-\u06FF ]*')]],
+      title: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(50), Validators.pattern('[a-zA0-Z9\u0600-\u06FF ]*')]],
       resources: ["", ],
       content: ["", [Validators.required, Validators.minLength(100)]],
       image: [null,],
@@ -74,24 +74,26 @@ export class AddArticalComponent implements OnInit {
     await this._httpClient.post('http://localhost:8000/api/add-article/', formData, { headers: this.headers }).subscribe(
       (response: any) => {
         console.log(response);
-        
+
         this.router.navigate(['/admin/adminn/articles-admin'])
         .then(() => {
-    
+
           // window.location.reload()
         })
       },
       (error: any) => {
+        console.log(error);
+
         this.errMsg = error.error.errors.title[0];
         console.log(this.errMsg);
 
         // console.log(error.error.errors.title[0]);
-        
+
 
       }
     );
 
- 
+
   }
 
 }
