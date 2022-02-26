@@ -8,7 +8,7 @@
     <div class="alert alert-success" role="alert" *ngIf="done">
       You Added New Admin Successfully.
     </div>
-    <div class="alert alert-danger" role="alert" *ngIf="errorMsg[0]">
+    <div class="alert alert-danger" role="alert" *ngIf="errorMsg[0] && !done">
       {{errorMsg[0]}}
     </div>
     <form [formGroup]="adminForm">
