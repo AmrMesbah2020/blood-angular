@@ -46,7 +46,7 @@ import { PrediabetesComponent } from './components/prediabetes/prediabetes.compo
     LocationComponent,
     LayoutComponent,
     CaloriesCalculaterComponent,
- 
+
     ProfilePageComponent,
       PrediabetesComponent,
 
