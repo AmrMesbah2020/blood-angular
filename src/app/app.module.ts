@@ -28,6 +28,7 @@ import { MakeRequestsComponent } from './components/make-requests/make-requests.
 import { CaloriesCalculaterComponent } from './components/calories-calculater/calories-calculater.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { PrediabetesComponent } from './components/prediabetes/prediabetes.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 
 
@@ -41,6 +42,7 @@ import { PrediabetesComponent } from './components/prediabetes/prediabetes.compo
     EligibilityQuizComponent,
     DonorsComponent,
     PostsComponent,
+    ChatComponent,
     ContactFormComponent,
     // MaxLengthPipe,
     LocationComponent,
@@ -49,6 +51,7 @@ import { PrediabetesComponent } from './components/prediabetes/prediabetes.compo
 
     ProfilePageComponent,
       PrediabetesComponent,
+      ChatComponent,
 
   ],
   imports: [

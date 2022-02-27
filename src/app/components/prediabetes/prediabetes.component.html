@@ -19,8 +19,8 @@
     <div class="form-row">
       <div class="col-sm-12 col-lg-6 col-xl-6" style="height: auto;">
         <div class="custom-control custom-switch">
-          <input class="custom-control-input" type="radio" name="q1"  #inputold   formControlName="old" id="formCheck-11" value="1">
-          <label class="custom-control-label" for="formCheck-11" value="1"> <span class="ps-3"> Younger than 40 years (0 points) </span><br></label>
+          <input class="custom-control-input" type="radio" name="q1"  #inputold   formControlName="old" id="formCheck-11" value="0">
+          <label class="custom-control-label" for="formCheck-11" value="0"> <span class="ps-3"> Younger than 40 years (0 points) </span><br></label>
       </div>
         <div class="custom-control custom-switch">
           <input class="custom-control-input" type="radio" name="q1"  #inputold   formControlName="old" id="formCheck-11" value="1">
@@ -170,7 +170,7 @@
                         <option value="0">172.72 cm</option>
                         <option value="0">175.26 cm</option>
                         <option value="0">177.8 cm</option>
-                        <option value="0"> 180.34 cm</option>
+                        <option value="0">180.34 cm</option>
                         <option value="0">182.88 cm</option>
                         <option value="0">185.42 cm</option>
                         <option value="0">187.96 cm</option>
@@ -208,14 +208,14 @@
        </div>
       </div>
 <div class="m-4 text-center">
-      <button class="btn btn-danger btn-lg w-50 " (click)="getValue(inputold.value,inputgender.value,inputwomen.value,inputhistory.value,inputpressure.value,inputactive.value,inputheight.value,inputweight.value)" >Submit </button>
+      <button class="btn btn-danger btn-lg w-50 " [disabled]="formPredibets.invalid" (click)= "onsubmit()">Submit </button>
     </div>
 <div class="shadow-sm p-3 mb-5 bg-body rounded" *ngIf="isShown">
 
   <div class="card-body">
     <div class="row align-items-center no-gutters">
         <div class="col mr-2" >
-            <h2 id="totalScore" class="text-danger">Total Score: {{ subTotal}}</h2>
+            <h2 id="totalScore" class="text-danger">Total Score: {{ subTotal |  number}}</h2>
         </div>
     </div>
   </div>
