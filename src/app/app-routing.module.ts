@@ -14,7 +14,6 @@ import { MakeRequestsComponent } from './components/make-requests/make-requests.
 import { RequestsComponent } from './components/requests/requests.component';
 import { PrediabetesComponent } from './components/prediabetes/prediabetes.component';
 
-
 // lazy load //
 const routes: Routes = [
   {
@@ -53,6 +52,7 @@ const routes: Routes = [
     path:'',
     loadChildren: () => import('./components/user/user.module').then(m => m.UserModule)
   },
+
 
   { path:'',
   component:LayoutComponent,
