@@ -13,6 +13,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { MakeRequestsComponent } from './components/make-requests/make-requests.component';
 import { RequestsComponent } from './components/requests/requests.component';
 import { PrediabetesComponent } from './components/prediabetes/prediabetes.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 
 // lazy load //
@@ -69,7 +70,9 @@ const routes: Routes = [
   {path:'make-request',component:MakeRequestsComponent,canActivate:[AuthGuard]},
   {path:'calories-calc',component:CaloriesCalculaterComponent,},
   {path:'prediabetes-test',component:PrediabetesComponent,},
-  {path:'profile-page/:id', component:ProfilePageComponent,canActivate:[AuthGuard]}
+  {path:'profile-page/:id', component:ProfilePageComponent,canActivate:[AuthGuard]},
+  {path:'chat',component:ChatComponent,},
+
   ]}
 
 
