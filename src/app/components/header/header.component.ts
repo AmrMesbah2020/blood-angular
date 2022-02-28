@@ -50,28 +50,28 @@ export class HeaderComponent implements OnInit {
 
   constructor(private toastr: NotificationsService,private router:Router,private _userService:UserService,private _httpClint:HttpClient,private global:GlobalsService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(){
 
 
 
-    this._httpClint.get("http://localhost:8000/api/user",
+   await this._httpClint.get("http://localhost:8000/api/user",
     { headers: this.headers }).subscribe(
-    
+
       (response:any)=>{
          this.user=response.data[0];
          this.admin =this.user.isAdmin
         // console.log(this.admin);
-        
+
      }
-      
+
    );
-  
-  
 
 
 
 
-    this._userService.logged.subscribe(status=>{
+
+
+    await this._userService.logged.subscribe(status=>{
       this.isLogged=status;
     });
     console.log(this.headers);

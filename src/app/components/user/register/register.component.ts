@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/services/user.service';
 
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -22,7 +23,7 @@ export class RegisterComponent implements OnInit {
   checkbox=false;
 
 
-  constructor(private _formBuilder:FormBuilder,private _httpClient:HttpClient,private router: Router){
+  constructor(private _formBuilder:FormBuilder,private _httpClient:HttpClient,private router: Router,private _userService:UserService){
   }
   ngOnInit(): void {
     this.registerForm=this._formBuilder.group({
@@ -84,8 +85,11 @@ export class RegisterComponent implements OnInit {
         (response:any)=>{
 
         console.log(response);
+        this._userService.login(response[1].token);
+
         this.router.navigate(['home']);
-        localStorage.setItem("Token",response[1].token)},
+
+      },
         (error:any)=>{
           this.errMsg.push(error.error.errors);
           console.log(this.errMsg);
