@@ -12,9 +12,10 @@ export class UserService {
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   user=new User;
   admin:any;
+  verified:any;
 
   logged=new BehaviorSubject<boolean>(this.isLoggedIn());
-  
+
   constructor(private _httpClient: HttpClient,private router: Router) { }
   login(token: string) {
     localStorage.setItem("Token", token);
@@ -36,7 +37,7 @@ export class UserService {
 
     this._httpClient.get("http://localhost:8000/api/user",
     { headers: this.headers }).subscribe(
-    
+
       (response:any)=>{
          this.user=response.data[0];
          this.admin =this.user.isAdmin
@@ -49,7 +50,19 @@ export class UserService {
         console.log(error);
       }
    )
-  
+
+  }
+
+
+  isVerified():any{
+    this._httpClient.get('http://127.0.0.1:8000/api/verified',{ headers: this.headers }).subscribe(
+      (response:any)=>{
+        this.verified=response;
+      },
+      (error:any)=>{
+
+      }
+    )
   }
 
 }

@@ -8,27 +8,29 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container"> 
-    <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white">
-        <div class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
-          <input class="fs-5 fw-semibold" [(ngModel)]="username"/>
-        </div>
-        <div class="list-group list-group-flush border-bottom scrollarea">
-          <div class="list-group-item list-group-item-action py-3 lh-tight" *ngFor="let msg of messages">
-            <div class="d-flex w-100 align-items-center justify-content-between">
-              <strong class="mb-1">{{msg.username}}</strong>
+    <div class="container">
+    <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white mx-3">
+        <div class="list-group list-group-flush border-bottom scrollarea" style="height: 65vh; max-height: 65vh; overflow:auto;">
+          <div class="list-group-item list-group-item-action py-3 lh-tight justify-content-around" *ngFor="let msg of messages">
+            <div class="d-flex w-100 align-items-center ">
+              <strong class="mb-1" style="opacity: 0.6;color: red;">{{msg.sender}}</strong>
+
             </div>
-            <div class="col-10 mb-1 small">{{msg.message}}</div>
+            <div class="d-flex justify-content-between">
+              <div class="col-10 m-1 small d-block"> {{msg.message}}</div>
+              <div class="mb-1 small"> {{msg.created_at | date:'short'}}</div>
+            </div>
+
+
         </div>
-       
+
         </div>
       </div>
-   
-      <div >
-          <textarea class="form-control" placeholder="Write a message" [(ngModel)]="message"></textarea>
-          
-          <button  (click)="submit()">submit</button>
-          <!-- [(ngModel)]="message" -->
+
+      <div class="d-flex mb-3">
+          <input class="form-control" type="text" style="flex: 1;" placeholder="Write a message" (keydown.enter)="send()" [(ngModel)]="message">
+
+          <button class="btn btn-primary"  (click)="send()" ><i class="bi bi-send-fill"></i></button>
       </div>
 
     </div>

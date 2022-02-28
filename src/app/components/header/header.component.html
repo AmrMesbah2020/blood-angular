@@ -71,6 +71,7 @@
                 aria-expanded="false">
                 Health Care </a>
               <ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
+                <li><a class="dropdown-item" ngbDropdownItem routerLink="articles"> Articles</a></li>
                 <li><a class="dropdown-item" ngbDropdownItem routerLink="/faq">Frequently questions</a></li>
                 <li><a class="dropdown-item" ngbDropdownItem routerLink="/calories-calc">Calories Calculater</a></li>
                 <li><a class="dropdown-item" ngbDropdownItem routerLink="/prediabetes-test">Prediabetes Risk Test
@@ -87,10 +88,10 @@
               [ngStyle]="{'background-color':isActive? 'transparent' : 'transparent' }"
               id="navbarDropdownMenuLink" ngbDropdownToggle role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-                Articles & Posts </a>
+                Social Section </a>
               <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" ngbDropdownItem routerLink="articles"> Articles</a></li>
-                <li><a class="dropdown-item" ngbDropdownItem routerLink="posts"> Posts</a></li>
+                <li><a class="dropdown-item" ngbDropdownItem routerLink="chat"> Chat </a></li>
+                <li><a class="dropdown-item" ngbDropdownItem routerLink="posts"> Posts </a></li>
               </ul>
             </li>
 

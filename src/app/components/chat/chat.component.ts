@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import Pusher from 'pusher-js';
 
@@ -9,7 +9,8 @@ import Pusher from 'pusher-js';
 })
 export class ChatComponent implements OnInit {
 
-  username:string='username';
+  token:any=localStorage.getItem('Token');
+  headers=new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   message:string='';
   messages:any=[];
   // data:any;
@@ -17,6 +18,17 @@ export class ChatComponent implements OnInit {
   constructor(private _httpClient: HttpClient) { }
 
   ngOnInit(): void {
+
+    this._httpClient.get('http://localhost:8000/api/get-messages').subscribe(
+      (response:any)=>{
+        console.log(response.data);
+
+        this.messages=response.data;
+      },
+      (error:any)=>{
+        console.log(error);
+      }
+    )
 
     // Pusher.logToConsole = true;
 
@@ -27,16 +39,19 @@ export class ChatComponent implements OnInit {
     const channel = pusher.subscribe('chat');
     channel.bind('message', (data: any) => {
       console.log(data);
-       this.messages.push(data)
+       this.messages.splice(0,0,data);
+       console.log(this.messages)
     });
   }
 
-  submit():void{
-    console.log(this.username,this.message)
+  send():void{
+    // console.log(this.username,this.message)
   this._httpClient.post('http://localhost:8000/api/messages',{
-    username:this.username,
     message:this.message
-  }).subscribe(()=> this.message ='');
+  },{headers:this.headers}).subscribe(
+    (response:any)=> {this.message=''},
+    (error:any)=>{console.log(error);}
+  );
   }
 
 }
