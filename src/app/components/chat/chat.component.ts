@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import Pusher from 'pusher-js';
@@ -13,9 +15,9 @@ export class ChatComponent implements OnInit {
   headers=new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   message:string='';
   messages:any=[];
-  // data:any;
+  verifier:boolean=false;
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient,private _toaster:ToastrService,private _router:Router) { }
 
   ngOnInit(): void {
 

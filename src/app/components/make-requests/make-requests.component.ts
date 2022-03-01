@@ -30,7 +30,7 @@ export class MakeRequestsComponent implements OnInit {
 
       (response:any)=>{
          this.user=response.data[0];
-         console.log(this.user);
+        //  console.log(this.user);
       },
       (error:any)=>{
         console.log(error);
@@ -90,10 +90,11 @@ export class MakeRequestsComponent implements OnInit {
          this.router.navigate(['/profile']);
       },
       (error:any)=>{
+        console.log(error);
         this.errMsg.push(error.error.errors.date[0]);
         console.log(this.errMsg[0]);
 
-        
+
 
       }
    )

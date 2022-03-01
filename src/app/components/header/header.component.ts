@@ -9,6 +9,7 @@ import { json } from 'stream/consumers';
 import { Request } from 'src/app/models/request';
 import { Session } from 'inspector';
 import {GlobalsService} from '../../services/globals.service'
+import Pusher from 'pusher-js';
 
 @Component({
   selector: 'app-header',
@@ -51,6 +52,15 @@ export class HeaderComponent implements OnInit {
   constructor(private toastr: NotificationsService,private router:Router,private _userService:UserService,private _httpClint:HttpClient,private global:GlobalsService) { }
 
   async ngOnInit(){
+    Pusher.logToConsole = true;
+    const pusher = new Pusher('b1d153cd6eda8af1ca13', {
+      cluster: 'eu'
+    });
+
+   const channel =await  pusher.subscribe('chat');
+   await channel.bind('request', (data: any) => {
+      this.toastr.toastrInfoOnTap(data.content,'Request for Blood','/requests');
+    });
 
 
 
@@ -74,7 +84,7 @@ export class HeaderComponent implements OnInit {
     await this._userService.logged.subscribe(status=>{
       this.isLogged=status;
     });
-    console.log(this.headers);
+    // console.log(this.headers);
 
     // this._userService.issadmin.subscribe(status=>{
     //   this.isAdmin=status;
@@ -120,23 +130,23 @@ this.GetNotification();
     }
   )
 
-  this._httpClint.get(`http://localhost:8000/api/getRequestNotification`).subscribe(
-    (response:any)=>{
-      // console.log(response.data);
-        this.notificationInfo=JSON.parse(response.data).data;
-        // console.log(this.notificationInfo);
-        if(this.global.flag ==this.notificationInfo.id){}else{
-        let title:string=this.notificationInfo.owner_details.name+' need blood of type '+this.notificationInfo.blood.blood_group+this.notificationInfo.blood.rhd;
-        let content:string=this.notificationInfo.description;
-        this.toastr.toastrInfoOnTap(content,title,'/requests');
-        this.global.flag=this.notificationInfo.id;
-        }
+  // this._httpClint.get(`http://localhost:8000/api/getRequestNotification`).subscribe(
+  //   (response:any)=>{
+  //     // console.log(response.data);
+  //       this.notificationInfo=JSON.parse(response.data).data;
+  //       // console.log(this.notificationInfo);
+  //       if(this.global.flag ==this.notificationInfo.id){}else{
+  //       let title:string=this.notificationInfo.owner_details.name+' need blood of type '+this.notificationInfo.blood.blood_group+this.notificationInfo.blood.rhd;
+  //       let content:string=this.notificationInfo.description;
+  //       this.toastr.toastrInfoOnTap(content,title,'/requests');
+  //       this.global.flag=this.notificationInfo.id;
+  //       }
 
-    },
-    (error:any)=>{
+  //   },
+  //   (error:any)=>{
 
-    }
-  )
+  //   }
+  // )
 
    }
  }, 10000);

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../models/user';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class UserService {
 
   logged=new BehaviorSubject<boolean>(this.isLoggedIn());
 
-  constructor(private _httpClient: HttpClient,private router: Router) { }
+  constructor(private _httpClient: HttpClient,private router: Router,private toaster:ToastrService) { }
   login(token: string) {
     localStorage.setItem("Token", token);
     this.logged.next(true);
@@ -54,13 +55,20 @@ export class UserService {
   }
 
 
-  isVerified():any{
+  isVerified():any {
     this._httpClient.get('http://127.0.0.1:8000/api/verified',{ headers: this.headers }).subscribe(
       (response:any)=>{
-        this.verified=response;
+        console.log(response);
+        if(response==null){
+          this.toaster.warning('Please Verify Your Email','Sorry')
+          this.router.navigate(['/home']);
+        }else{
+          this.router.navigate(['/chat']);
+        }
+
       },
       (error:any)=>{
-
+        console.log(error);
       }
     )
   }

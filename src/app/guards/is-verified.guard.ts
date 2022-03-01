@@ -13,11 +13,8 @@ export class IsVerifiedGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       let verified=this._userService.isVerified();
-      if(!verified)
-      this.toaster.warning('Please Verify Your Email','Sorry')
-      this._router.navigateByUrl('/home');
 
-        return verified;
+      return true;
   }
 
 }
