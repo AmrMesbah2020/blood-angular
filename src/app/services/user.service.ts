@@ -13,7 +13,7 @@ export class UserService {
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   user=new User;
   admin:any;
-  verified:any;
+  verified:boolean=false;
 
   logged=new BehaviorSubject<boolean>(this.isLoggedIn());
 
@@ -55,22 +55,12 @@ export class UserService {
   }
 
 
-  isVerified():any {
-    this._httpClient.get('http://127.0.0.1:8000/api/verified',{ headers: this.headers }).subscribe(
-      (response:any)=>{
-        console.log(response);
-        if(response==null){
-          this.toaster.warning('Please Verify Your Email','Sorry')
-          this.router.navigate(['/home']);
-        }else{
-          this.router.navigate(['/chat']);
-        }
+ async  isVerified() {
+    const response=await this._httpClient.get('http://127.0.0.1:8000/api/verified',{ headers: this.headers }).toPromise()
+      //  this.verified=
+      console.log(response);
+      return response;
 
-      },
-      (error:any)=>{
-        console.log(error);
-      }
-    )
   }
 
 }

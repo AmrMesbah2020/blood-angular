@@ -12,7 +12,8 @@ export class IsVerifiedGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      let verified=this._userService.isVerified();
+
+
 
       return true;
   }

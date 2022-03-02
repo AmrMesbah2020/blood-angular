@@ -91,15 +91,15 @@ export class HeaderComponent implements OnInit {
     // });
 
 
-if(this.isLogged){
-this.GetNotification();
-}
+    if(this.isLogged){
+    this.GetNotification();
+    }
   }
 
 
 
- GetNotification():void{
-   this._httpClint.get(`http://127.0.0.1:8000/api/getUserNotification`,{headers:this.headers}).subscribe(
+ async GetNotification(){
+   await this._httpClint.get(`http://127.0.0.1:8000/api/getUserNotification`,{headers:this.headers}).subscribe(
   (response:any)=>{
 
           //  console.log(response[1]);

@@ -81,7 +81,7 @@ export class RegisterComponent implements OnInit {
 
       // console.log(user);
 
-      this._httpClient.post('http://localhost:8000/api/register',user).subscribe(
+      this._httpClient.post('http://donnatelife.herokuapp.com/api/register',user).subscribe(
         (response:any)=>{
 
         console.log(response);
@@ -92,7 +92,7 @@ export class RegisterComponent implements OnInit {
       },
         (error:any)=>{
           this.errMsg.push(error.error.errors);
-          console.log(this.errMsg);
+          console.log(error);
         }
       )
 
