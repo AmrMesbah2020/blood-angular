@@ -63,7 +63,7 @@ const routes: Routes = [
 
   {path:'eligibilty-quiz',component:EligibilityQuizComponent,canActivate:[AuthGuard]},
   // {path:' ' , redirectTo:'login',pathMatch:'fully'},
-  {path:'posts',component:PostsComponent,canActivate:[AuthGuard]},
+  {path:'posts',component:PostsComponent,canActivate:[AuthGuard,IsVerifiedGuard]},
   {path:'contact-us',component:ContactFormComponent,canActivate:[AuthGuard]},
   {path:'donors',component:DonorsComponent,canActivate:[AuthGuard]},
   {path:'location',component:LocationComponent,canActivate:[AuthGuard]},
