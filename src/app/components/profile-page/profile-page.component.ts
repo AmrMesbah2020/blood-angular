@@ -25,7 +25,7 @@ export class ProfilePageComponent implements OnInit {
         console.log(id);
 
    //user data
-  this._httpClient.get(`http://localhost:8000/api/profile/${id}`)
+  this._httpClient.get(`http://donnatelife.herokuapp.com/api/profile/${id}`)
   .subscribe(
     (response:any)=>{
       console.log(response);

@@ -64,7 +64,7 @@ export class HeaderComponent implements OnInit {
 
 
 
-   await this._httpClint.get("http://localhost:8000/api/user",
+   await this._httpClint.get("http://donnatelife.herokuapp.com/api/user",
     { headers: this.headers }).subscribe(
 
       (response:any)=>{
@@ -99,7 +99,7 @@ export class HeaderComponent implements OnInit {
 
 
  async GetNotification(){
-   await this._httpClint.get(`http://127.0.0.1:8000/api/getUserNotification`,{headers:this.headers}).subscribe(
+   await this._httpClint.get(`http://donnatelife.herokuapp.com/api/getUserNotification`,{headers:this.headers}).subscribe(
   (response:any)=>{
 
           //  console.log(response[1]);
@@ -119,7 +119,7 @@ export class HeaderComponent implements OnInit {
 
  notification:any=setInterval(()=>{
    if(this.isLogged){
-  this._httpClint.get(`http://127.0.0.1:8000/api/getUserNotification`,{headers:this.headers}).subscribe(
+  this._httpClint.get(`http://donnatelife.herokuapp.com/api/getUserNotification`,{headers:this.headers}).subscribe(
     (response:any)=>{
 
              this.listOfNotification=response[0];
@@ -154,7 +154,7 @@ export class HeaderComponent implements OnInit {
 
 
  markAsRead(){
-   this._httpClint.post('http://127.0.0.1:8000/api/mark-as-read',null,{headers:this.headers}).subscribe(
+   this._httpClint.post('http://donnatelife.herokuapp.com/api/mark-as-read',null,{headers:this.headers}).subscribe(
      (response:any)=>{
        console.log(response);
        this.GetNotification();

@@ -26,7 +26,7 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.token);
 
-    this._httpClient.get("http://localhost:8000/api/allposts", { headers: this.headers }).subscribe(
+    this._httpClient.get("http://donnatelife.herokuapp.com/api/allposts", { headers: this.headers }).subscribe(
 
       (response: any) => {
         this.posts = response.data;
@@ -47,7 +47,7 @@ export class PostsComponent implements OnInit {
     if(confirm("Are you sure to delete "+id)) {
 
 
-    this._httpClient.post(`http://localhost:8000/api/delete-post/`+ id,null,{ headers: this.headers }).subscribe(
+    this._httpClient.post(`http://donnatelife.herokuapp.com/api/delete-post/`+ id,null,{ headers: this.headers }).subscribe(
 
 
       (response: any) => {
@@ -71,7 +71,7 @@ export class PostsComponent implements OnInit {
   puplish(id: number): void {
 
 
-    this._httpClient.post(`http://localhost:8000/api/publishpost/` + id,null, { headers: this.headers }).subscribe(
+    this._httpClient.post(`http://donnatelife.herokuapp.com/api/publishpost/` + id,null, { headers: this.headers }).subscribe(
 
       (response: any) => {
 

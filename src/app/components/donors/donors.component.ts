@@ -17,7 +17,7 @@ export class DonorsComponent implements OnInit {
   constructor(private _httpClint:HttpClient) { }
 
   ngOnInit(): void {
-    this._httpClint.get('http://127.0.0.1:8000/api/donners').subscribe(
+    this._httpClint.get('http://donnatelife.herokuapp.com/api/donners').subscribe(
       (response:any)=>{
         console.log(response.data);
           this.donners=response.data;

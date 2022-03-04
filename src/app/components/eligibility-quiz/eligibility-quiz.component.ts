@@ -59,7 +59,7 @@ export class EligibilityQuizComponent implements OnInit {
    this.updateData=donnatinData
 
 
-   this._httpClient.post("http://localhost:8000/api/donnation",donnatinData,{headers:this.headers}).subscribe(
+   this._httpClient.post("http://donnatelife.herokuapp.com/api/donnation",donnatinData,{headers:this.headers}).subscribe(
 
       (response:any)=>{
          console.log((response));
@@ -89,7 +89,7 @@ export class EligibilityQuizComponent implements OnInit {
 
   modifyDonnationData(){
 
-    this._httpClient.post("http://localhost:8000/api/modify-donnation",this.updateData,{headers:this.headers}).subscribe(
+    this._httpClient.post("http://donnatelife.herokuapp.com/api/modify-donnation",this.updateData,{headers:this.headers}).subscribe(
 
       (response:any)=>{
         console.log(response);

@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     user.password = this.loginForm.value.password
 
 
-    await this._httpClient.post('http://localhost:8000/api/login', user).subscribe(
+    await this._httpClient.post('http://donnatelife.herokuapp.com/api/login', user).subscribe(
       async (response: any) =>{
 
         console.log(response);

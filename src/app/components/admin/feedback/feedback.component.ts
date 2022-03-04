@@ -17,14 +17,14 @@ export class FeedbackComponent implements OnInit {
   token: any = localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   feedback = new Feedback;
-  
+
 
   constructor(private _httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
 
- 
-    this._httpClient.get("http://localhost:8000/api/all-feedback",{ headers: this.headers }).subscribe(
+
+    this._httpClient.get("http://donnatelife.herokuapp.com/api/all-feedback",{ headers: this.headers }).subscribe(
 
       (response: any) => {
         this.feedbacks = response;

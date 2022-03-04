@@ -19,13 +19,13 @@ export class ArticleDetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
- 
+
 
     this._activatedRoute.paramMap.subscribe(params=>{
 
       let id=params.get('id');
       console.log(id);
-this._httpClient.get(`http://localhost:8000/api/articles/${id}`)
+this._httpClient.get(`http://donnatelife.herokuapp.com/api/articles/${id}`)
 .subscribe(
   (response:any)=>{
     JSON.stringify(response.data);

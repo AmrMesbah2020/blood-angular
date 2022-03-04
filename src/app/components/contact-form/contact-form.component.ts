@@ -19,7 +19,7 @@ export class ContactFormComponent implements OnInit {
   constructor(private _formBuilder:FormBuilder,private _httpClient:HttpClient,private router:Router) { }
 
   ngOnInit(): void {
-   
+
   //   if(localStorage.getItem('Token')==null){
   //     this.router.navigate(['/login']);
   // }
@@ -48,7 +48,7 @@ export class ContactFormComponent implements OnInit {
   }
 
   feedback(flag:string):void{
-  
+
    let feedback=new Feedback();
 
 
@@ -57,15 +57,15 @@ export class ContactFormComponent implements OnInit {
    feedback.email=this.contactForm.value.email;
    feedback.name=this.contactForm.value.name;
 
-   this._httpClient.post("http://localhost:8000/api/feedback",feedback).subscribe(
+   this._httpClient.post("http://donnatelife.herokuapp.com/api/feedback",feedback).subscribe(
 
       (response:any)=>{
-        
+
          console.log(JSON.stringify(response));
-         
+
       },
       (error:any)=>{
-         
+
       }
    )
    this.flagList=flag;

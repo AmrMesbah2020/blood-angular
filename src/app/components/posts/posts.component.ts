@@ -44,7 +44,7 @@ export class PostsComponent implements OnInit {
    this.topRatedPost();    //topRatedPost function calling
 
     // get the login user data
-    this._httpClient.get("http://localhost:8000/api/user",
+    this._httpClient.get("http://donnatelife.herokuapp.com/api/user",
     { headers: this.headers }).subscribe(
 
       (response:any)=>{
@@ -60,7 +60,7 @@ export class PostsComponent implements OnInit {
 
    //get liked posts by the user
 
-   this._httpClient.get("http://localhost:8000/api/liked-posts",
+   this._httpClient.get("http://donnatelife.herokuapp.com/api/liked-posts",
    { headers: this.headers }).subscribe(
 
      (response:any)=>{
@@ -115,7 +115,7 @@ export class PostsComponent implements OnInit {
    formData.append("image",this.image,this.image.name);}
    formData.append("title",this.formPost.value.title);
    formData.append("content",this.formPost.value.content);
-    this._httpClient.post("http://localhost:8000/api/post",formData,{ headers: this.headers }).subscribe(
+    this._httpClient.post("http://donnatelife.herokuapp.com/api/post",formData,{ headers: this.headers }).subscribe(
 
       (response:any)=>{
          console.log(response);
@@ -193,7 +193,7 @@ export class PostsComponent implements OnInit {
 
 
     // console.log(postid)
-     this._httpClient.post(`http://localhost:8000/api/rate/`+postid,rate,
+     this._httpClient.post(`http://donnatelife.herokuapp.com/api/rate/`+postid,rate,
      { headers: this.headers }).subscribe(
 
       (response:any)=>{

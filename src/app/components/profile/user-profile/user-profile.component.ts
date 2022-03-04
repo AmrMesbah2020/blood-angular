@@ -34,7 +34,7 @@ export class UserProfileComponent implements OnInit {
   //   if(localStorage.getItem('Token')==null){
   //     this.router.navigate(['/login']);
   // }
-    this._httpClient.get("http://localhost:8000/api/user", { headers: this.headers }).subscribe(
+    this._httpClient.get("http://donnatelife.herokuapp.com/api/user", { headers: this.headers }).subscribe(
 
       (response:any)=>{
          this.user=response.data[0];
@@ -47,7 +47,7 @@ export class UserProfileComponent implements OnInit {
       }
    )
 
-   this._httpClient.get("http://localhost:8000/api/userposts", { headers: this.headers }).subscribe(
+   this._httpClient.get("http://donnatelife.herokuapp.com/api/userposts", { headers: this.headers }).subscribe(
 
     (response:any)=>{
       this.userPosts=response[0];
@@ -62,7 +62,7 @@ export class UserProfileComponent implements OnInit {
     }
  )
 
- this._httpClient.get("http://localhost:8000/api/userrequests", { headers: this.headers }).subscribe(
+ this._httpClient.get("http://donnatelife.herokuapp.com/api/userrequests", { headers: this.headers }).subscribe(
 
   (response:any)=>{
     this.userRequests=response[0];
@@ -76,7 +76,7 @@ export class UserProfileComponent implements OnInit {
   }
 )
 
-this._httpClient.get("http://localhost:8000/api/donner-applies", { headers: this.headers }).subscribe(
+this._httpClient.get("http://donnatelife.herokuapp.com/api/donner-applies", { headers: this.headers }).subscribe(
 
   (response:any)=>{
     this.numberOfDonnation=response;

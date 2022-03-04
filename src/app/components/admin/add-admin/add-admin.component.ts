@@ -51,7 +51,7 @@ export class AddAdminComponent implements OnInit {
     let admin = new User()
     admin.email = this.adminForm.value.email;
 
-    this._httpClient.post('http://localhost:8000/api/add-admin', admin, { headers: this.headers }).subscribe(
+    this._httpClient.post('http://donnatelife.herokuapp.com/api/add-admin', admin, { headers: this.headers }).subscribe(
       (response: any) => {
         console.log(response);
         this.done=true

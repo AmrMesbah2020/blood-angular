@@ -36,7 +36,7 @@ export class UserService {
 
   isAdmin():any{
 
-    this._httpClient.get("http://localhost:8000/api/user",
+    this._httpClient.get("http://donnatelife.herokuapp.com/api/user",
     { headers: this.headers }).subscribe(
 
       (response:any)=>{
@@ -56,7 +56,7 @@ export class UserService {
 
 
  async  isVerified() {
-    const response=await this._httpClient.get('http://127.0.0.1:8000/api/verified',{ headers: this.headers }).toPromise()
+    const response=await this._httpClient.get('http://donnatelife.herokuapp.com/api/verified',{ headers: this.headers }).toPromise()
       //  this.verified=
       console.log(response);
       return response;
