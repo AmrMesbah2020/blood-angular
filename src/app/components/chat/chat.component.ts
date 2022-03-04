@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import Pusher from 'pusher-js';
@@ -13,13 +15,13 @@ export class ChatComponent implements OnInit {
   headers=new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   message:string='';
   messages:any=[];
-  // data:any;
+  verifier:boolean=false;
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient,private _toaster:ToastrService,private _router:Router) { }
 
   ngOnInit(): void {
 
-    this._httpClient.get('http://localhost:8000/api/get-messages').subscribe(
+    this._httpClient.get('http://donnatelife.herokuapp.com/api/get-messages').subscribe(
       (response:any)=>{
         console.log(response.data);
 
@@ -46,7 +48,7 @@ export class ChatComponent implements OnInit {
 
   send():void{
     // console.log(this.username,this.message)
-  this._httpClient.post('http://localhost:8000/api/messages',{
+  this._httpClient.post('http://donnatelife.herokuapp.com/api/messages',{
     message:this.message
   },{headers:this.headers}).subscribe(
     (response:any)=> {this.message=''},

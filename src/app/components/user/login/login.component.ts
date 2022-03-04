@@ -29,18 +29,18 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login(): void {
+  async login() {
 
     let user = new User();
     user.email = this.loginForm.value.email
     user.password = this.loginForm.value.password
 
 
-    this._httpClient.post('http://localhost:8000/api/login', user).subscribe(
-      (response: any) => {
+    await this._httpClient.post('http://donnatelife.herokuapp.com/api/login', user).subscribe(
+      async (response: any) =>{
 
         console.log(response);
-        this._userService.login(response);
+        await this._userService.login(response);
 
           this.router.navigateByUrl('/home');
       },

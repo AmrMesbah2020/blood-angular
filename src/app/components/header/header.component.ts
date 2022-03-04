@@ -9,6 +9,7 @@ import { json } from 'stream/consumers';
 import { Request } from 'src/app/models/request';
 import { Session } from 'inspector';
 import {GlobalsService} from '../../services/globals.service'
+import Pusher from 'pusher-js';
 
 @Component({
   selector: 'app-header',
@@ -51,10 +52,19 @@ export class HeaderComponent implements OnInit {
   constructor(private toastr: NotificationsService,private router:Router,private _userService:UserService,private _httpClint:HttpClient,private global:GlobalsService) { }
 
   async ngOnInit(){
+    Pusher.logToConsole = true;
+    const pusher = new Pusher('b1d153cd6eda8af1ca13', {
+      cluster: 'eu'
+    });
+
+   const channel =await  pusher.subscribe('chat');
+   await channel.bind('request', (data: any) => {
+      this.toastr.toastrInfoOnTap(data.content,'Request for Blood','/requests');
+    });
 
 
 
-   await this._httpClint.get("http://localhost:8000/api/user",
+   await this._httpClint.get("http://donnatelife.herokuapp.com/api/user",
     { headers: this.headers }).subscribe(
 
       (response:any)=>{
@@ -74,22 +84,22 @@ export class HeaderComponent implements OnInit {
     await this._userService.logged.subscribe(status=>{
       this.isLogged=status;
     });
-    console.log(this.headers);
+    // console.log(this.headers);
 
     // this._userService.issadmin.subscribe(status=>{
     //   this.isAdmin=status;
     // });
 
 
-if(this.isLogged){
-this.GetNotification();
-}
+    if(this.isLogged){
+    this.GetNotification();
+    }
   }
 
 
 
- GetNotification():void{
-   this._httpClint.get(`http://127.0.0.1:8000/api/getUserNotification`,{headers:this.headers}).subscribe(
+ async GetNotification(){
+   await this._httpClint.get(`http://donnatelife.herokuapp.com/api/getUserNotification`,{headers:this.headers}).subscribe(
   (response:any)=>{
 
           //  console.log(response[1]);
@@ -109,7 +119,7 @@ this.GetNotification();
 
  notification:any=setInterval(()=>{
    if(this.isLogged){
-  this._httpClint.get(`http://127.0.0.1:8000/api/getUserNotification`,{headers:this.headers}).subscribe(
+  this._httpClint.get(`http://donnatelife.herokuapp.com/api/getUserNotification`,{headers:this.headers}).subscribe(
     (response:any)=>{
 
              this.listOfNotification=response[0];
@@ -120,23 +130,23 @@ this.GetNotification();
     }
   )
 
-  this._httpClint.get(`http://localhost:8000/api/getRequestNotification`).subscribe(
-    (response:any)=>{
-      // console.log(response.data);
-        this.notificationInfo=JSON.parse(response.data).data;
-        // console.log(this.notificationInfo);
-        if(this.global.flag ==this.notificationInfo.id){}else{
-        let title:string=this.notificationInfo.owner_details.name+' need blood of type '+this.notificationInfo.blood.blood_group+this.notificationInfo.blood.rhd;
-        let content:string=this.notificationInfo.description;
-        this.toastr.toastrInfoOnTap(content,title,'/requests');
-        this.global.flag=this.notificationInfo.id;
-        }
+  // this._httpClint.get(`http://localhost:8000/api/getRequestNotification`).subscribe(
+  //   (response:any)=>{
+  //     // console.log(response.data);
+  //       this.notificationInfo=JSON.parse(response.data).data;
+  //       // console.log(this.notificationInfo);
+  //       if(this.global.flag ==this.notificationInfo.id){}else{
+  //       let title:string=this.notificationInfo.owner_details.name+' need blood of type '+this.notificationInfo.blood.blood_group+this.notificationInfo.blood.rhd;
+  //       let content:string=this.notificationInfo.description;
+  //       this.toastr.toastrInfoOnTap(content,title,'/requests');
+  //       this.global.flag=this.notificationInfo.id;
+  //       }
 
-    },
-    (error:any)=>{
+  //   },
+  //   (error:any)=>{
 
-    }
-  )
+  //   }
+  // )
 
    }
  }, 10000);
@@ -144,7 +154,7 @@ this.GetNotification();
 
 
  markAsRead(){
-   this._httpClint.post('http://127.0.0.1:8000/api/mark-as-read',null,{headers:this.headers}).subscribe(
+   this._httpClint.post('http://donnatelife.herokuapp.com/api/mark-as-read',null,{headers:this.headers}).subscribe(
      (response:any)=>{
        console.log(response);
        this.GetNotification();

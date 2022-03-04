@@ -21,7 +21,7 @@ export class RequestsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._httpClint.get('http://127.0.0.1:8000/api/allrequests').subscribe(
+    this._httpClint.get('http://donnatelife.herokuapp.com/api/allrequests').subscribe(
       (response:any)=>{
         this.requests=response.data
         console.log(this.requests);
@@ -35,14 +35,14 @@ export class RequestsComponent implements OnInit {
   }
 
   apply(id:number):void{
-    this._httpClint.post(`http://127.0.0.1:8000/api/apply/${id}`,null,{headers:this.headers}).subscribe(
+    this._httpClint.post(`http://donnatelife.herokuapp.com/api/apply/${id}`,null,{headers:this.headers}).subscribe(
       (response:any)=>{
         console.log(response);
         this.toast.tosterSuccess(response,'')
         this.ngOnInit()
       },
       (error:any)=>{
-        console.log(error.error);
+        console.log(error);
         // alert(error.error);
         if(error.error == 'already applied'){
           this.toast.tosterWarning(error.error,'Hint');

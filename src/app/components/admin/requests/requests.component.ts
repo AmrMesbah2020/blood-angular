@@ -20,17 +20,17 @@ export class RequestsComponent implements OnInit {
   request = new Request;
 
   blood=new Blood;
-  
 
- 
+
+
 
   constructor(private _httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
 
 
-    
-    this._httpClient.get("http://localhost:8000/api/allrequests").subscribe(
+
+    this._httpClient.get("http://donnatelife.herokuapp.com/api/allrequests").subscribe(
 
       (response: any) => {
         this.requests = response.data;

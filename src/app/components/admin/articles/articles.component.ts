@@ -28,7 +28,7 @@ export class ArticlesComponent implements OnInit {
 
 
 
-    this._httpClient.get("http://localhost:8000/api/allarticles").subscribe(
+    this._httpClient.get("http://donnatelife.herokuapp.com/api/allarticles").subscribe(
 
       (response: any) => {
         this.articles = response;
@@ -49,7 +49,7 @@ export class ArticlesComponent implements OnInit {
    async deleteArticle(id: number) {
 
     if(confirm("Are you sure to delete "+id)) {
-       await this._httpClient.post(`http://localhost:8000/api/delete-article/` + id, null, { headers: this.headers }).subscribe(
+       await this._httpClient.post(`http://donnatelife.herokuapp.com/api/delete-article/` + id, null, { headers: this.headers }).subscribe(
 
 
       (response: any) => {

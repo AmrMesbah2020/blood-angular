@@ -71,7 +71,7 @@ export class AddArticalComponent implements OnInit {
     // article.content = this.addArtical.value.content;
     formData.forEach(file => console.log("File:", file));
 
-    await this._httpClient.post('http://localhost:8000/api/add-article/', formData, { headers: this.headers }).subscribe(
+    await this._httpClient.post('http://donnatelife.herokuapp.com/api/add-article', formData, { headers: this.headers }).subscribe(
       (response: any) => {
         console.log(response);
 

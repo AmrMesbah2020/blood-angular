@@ -15,12 +15,12 @@ export class AllUsersComponent implements OnInit {
   token: any = localStorage.getItem('Token');
   headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   user = new User;
-  
+
   constructor(private _httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
- 
-    this._httpClient.get("http://localhost:8000/api/users",{ headers: this.headers }).subscribe(
+
+    this._httpClient.get("http://donnatelife.herokuapp.com/api/users",{ headers: this.headers }).subscribe(
 
       (response: any) => {
         this.users = response;

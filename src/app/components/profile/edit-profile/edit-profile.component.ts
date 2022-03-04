@@ -23,7 +23,7 @@ export class EditProfileComponent implements OnInit {
 
  async ngOnInit() {
 
-    const res:any=await this._httpClient.get('http://localhost:8000/api/user',{headers:this.headers}).toPromise()
+    const res:any=await this._httpClient.get('http://donnatelife.herokuapp.com/api/user',{headers:this.headers}).toPromise()
 
     // .subscribe(
     //   (response:any)=>{
@@ -87,7 +87,7 @@ update():void{
   console.log(this.image);
 
 
-  this._httpClient.post('http://localhost:8000/api/update-profile',data,{headers:this.headers}).subscribe(
+  this._httpClient.post('http://donnatelife.herokuapp.com/api/update-profile',data,{headers:this.headers}).subscribe(
     (response:any)=>{
       console.log(response)
     },

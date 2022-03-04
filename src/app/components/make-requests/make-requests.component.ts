@@ -26,11 +26,11 @@ export class MakeRequestsComponent implements OnInit {
   ngOnInit(): void {
 
 
-    this._httpClient.get("http://localhost:8000/api/user", { headers: this.headers }).subscribe(
+    this._httpClient.get("http://donnatelife.herokuapp.com/api/user", { headers: this.headers }).subscribe(
 
       (response:any)=>{
          this.user=response.data[0];
-         console.log(this.user);
+        //  console.log(this.user);
       },
       (error:any)=>{
         console.log(error);
@@ -83,17 +83,18 @@ export class MakeRequestsComponent implements OnInit {
     request.address=request.getAddress();
 
     console.log(request);
-    this._httpClient.post("http://localhost:8000/api/request",request, { headers: this.headers }).subscribe(
+    this._httpClient.post("http://donnatelife.herokuapp.com/api/request",request, { headers: this.headers }).subscribe(
 
       (response:any)=>{
          console.log(response);
          this.router.navigate(['/profile']);
       },
       (error:any)=>{
+        console.log(error);
         this.errMsg.push(error.error.errors.date[0]);
         console.log(this.errMsg[0]);
 
-        
+
 
       }
    )

@@ -17,14 +17,14 @@ export class DashCounterComponent implements OnInit {
   constructor(private _httpClint:HttpClient) { }
 
   ngOnInit(): void {
-    this._httpClint.get('http://127.0.0.1:8000/api/overall-requests').subscribe(
+    this._httpClint.get('http://donnatelife.herokuapp.com/api/overall-requests').subscribe(
       (response:any)=>{
         this.donatelifecount=response;
       },
       (error:any)=>{
       }
     )
-    this._httpClint.get('http://127.0.0.1:8000/api/blood-availability').subscribe(
+    this._httpClint.get('http://donnatelife.herokuapp.com/api/blood-availability').subscribe(
       (response:any)=>{
         this.Blood=response.data[response.data.length-1].blood_group+response.data[response.data.length-1].rhd;
       },
@@ -58,7 +58,7 @@ export class DashCounterComponent implements OnInit {
 
 
   donatelifecountstop:any = setInterval(()=>{
-    this._httpClint.get('http://127.0.0.1:8000/api/blood-availability').subscribe(
+    this._httpClint.get('http://donnatelife.herokuapp.com/api/blood-availability').subscribe(
       (response:any)=>{
         this.Blood=response.data[response.data.length-1].blood_group+response.data[response.data.length-1].rhd;
       },
@@ -66,7 +66,7 @@ export class DashCounterComponent implements OnInit {
       }
     )
 
-    this._httpClint.get('http://127.0.0.1:8000/api/overall-requests').subscribe(
+    this._httpClint.get('http://donnatelife.herokuapp.com/api/overall-requests').subscribe(
       (response:any)=>{
         this.donatelifecount=response;
       },
