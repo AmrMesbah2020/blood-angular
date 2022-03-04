@@ -24,7 +24,7 @@ rejected:number=0;
 
       let id=params.get('id');
       console.log(id);
-this._httpClient.get(`http://localhost:8000/api/profile/${id}`)
+this._httpClient.get(`http://donnatelife.herokuapp.com/api/profile/${id}`)
 .subscribe(
   (response:any)=>{
     JSON.stringify(response.data);
