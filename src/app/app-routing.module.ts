@@ -63,7 +63,7 @@ const routes: Routes = [
 
   {path:'eligibilty-quiz',component:EligibilityQuizComponent,canActivate:[AuthGuard]},
   // {path:' ' , redirectTo:'login',pathMatch:'fully'},
-  {path:'posts',component:PostsComponent,canActivate:[AuthGuard,IsVerifiedGuard]},
+  {path:'posts',component:PostsComponent,},
   {path:'contact-us',component:ContactFormComponent,canActivate:[AuthGuard]},
   {path:'donors',component:DonorsComponent,canActivate:[AuthGuard]},
   {path:'location',component:LocationComponent,canActivate:[AuthGuard]},
@@ -72,7 +72,7 @@ const routes: Routes = [
   {path:'calories-calc',component:CaloriesCalculaterComponent,},
   {path:'prediabetes-test',component:PrediabetesComponent,},
   {path:'profile-page/:id', component:ProfilePageComponent,canActivate:[AuthGuard]},
-  {path:'chat',component:ChatComponent,canActivate:[AuthGuard,IsVerifiedGuard]},
+  {path:'chat',component:ChatComponent,},
 
   ]}
 

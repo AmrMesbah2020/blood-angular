@@ -17,6 +17,17 @@
 </head>
 <body style="overflow:hidden">
   <div class="container mt-3 mb-4">
+
+    <!-- Search form -->
+ <div class="form-group mt-5">
+  <div class="md-form mb-5 form-group">
+   <!-- (input)="getSearch($event)" -->
+   <input class="form-control bg-transparent border-none" type="text" (input)="getSearch($event)" name="search" class="form-control form-control"
+   placeholder="Search on Blood Group" aria-label="Search" >
+   <!-- <button (ngSubmit)='performSearch($event)' >click</button> -->
+  </div>
+  </div>
+  
     <div class="col-xxlg-9 mt-4 mt-lg-0">
       <div class="row">
         <div class="col-md-12">
@@ -34,8 +45,9 @@
                   <th>BLOOD GROUP</th>
                 </tr>
               </thead>
-              <tbody>
-
+              
+              <tbody *ngIf="search == 0">
+                
                 <tr class="candidates-list" *ngFor="let item of donners">
                   <td  class="candidate-list-favourite-time">
 
@@ -69,14 +81,53 @@
                     <span class="candidate-list-time order-1"> {{item.blood_id.blood_group}} {{item.blood_id.rhd}} </span>
                   </td>
                 </tr>
+                
+              </tbody>
+                <tbody *ngIf="search == 1">
+                  <tr class="candidates-list" *ngFor="let s of searchResults">
+                    <td  class="candidate-list-favourite-time">
+  
+  
+                      <div class="thumb">
+                        <img width="40" class="rounded-circle" src="http://localhost:8000/storage/{{s.avatar}}" alt="" *ngIf="s.avatar">
+                      </div>
+                      <div class="candidate-list-details">
+                        <div class="candidate-list-info">
+                          <div class="candidate-list-title">
+                            <h5 class="mb-0">{{s.name}} </h5>
+                          </div>
+                          <div class="candidate-list-option">
+                            <ul class="list-unstyled">
+                              <li>
+                                <i class="bi bi-envelope-fill"></i> {{s.email}}
+                              </li>
+                              <li>
+                                <i class="bi bi-phone-fill"></i> {{s.phone}}
+  
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="candidate-list-favourite-time" style="word-break: break-all;">
+                    {{s.address}}
+                    </td>
+                    <td class="candidate-list-favourite-time text-center">
+                      <span class="candidate-list-time order-1"> {{s.blood_group}} {{s.rhd}} </span>
+                    </td>
+                  </tr>
+                  
               </tbody>
               <br>
             </table>
           </div>
+          
         </div>
       </div>
     </div>
   </div>
+
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">

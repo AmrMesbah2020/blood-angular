@@ -11,6 +11,7 @@ import { AddAdminComponent } from './add-admin/add-admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AllUsersComponent } from './all-users/all-users.component';
 import { AddArticalComponent } from './add-artical/add-artical.component';
+import { SendEmailComponent } from './send-email/send-email.component';
 // import { HttpClientModule } from '@angular/common/http';
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
         { path: 'add-admin', component: AddAdminComponent },
         {path: 'users-admin',component:AllUsersComponent},
         {path:'add-article',component:AddArticalComponent},
+        {path:'send/email/:id',component:SendEmailComponent},
       ]},
 
 
@@ -46,7 +48,8 @@ const routes: Routes = [
     AddAdminComponent,
     DashboardComponent,
     AllUsersComponent,
-    AddArticalComponent
+    AddArticalComponent,
+    SendEmailComponent
   ],
   imports: [
 

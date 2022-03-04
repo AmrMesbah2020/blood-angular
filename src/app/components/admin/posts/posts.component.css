@@ -4,3 +4,6 @@
 /* Bootstrap Icons */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
 
+.disabled:disabled{
+  color: black;
+}

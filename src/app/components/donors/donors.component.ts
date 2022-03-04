@@ -13,6 +13,8 @@ export class DonorsComponent implements OnInit {
   blood=new Blood();
   // donner=new User();
   donners: any[]=[];
+  searchResults:any[]=[];
+  search:number=0;
 
   constructor(private _httpClint:HttpClient) { }
 
@@ -29,5 +31,24 @@ export class DonorsComponent implements OnInit {
 
 
   }
+  getSearch(name:any){
+    let keyWord=name.target.value;
+    console.log(keyWord);
+    
+    
+    this._httpClint.get(`http://donnatelife.herokuapp.com/api/search/${keyWord}`).subscribe(
+    (response:any)=>{
+    console.log(response);
+    this.searchResults=response;
+ },
+    (error:any)=>{
+    
+    }
+    )
+    if(!keyWord){
+      this.search=0
+    }
+    else{this.search=1}
+   }
 
 }

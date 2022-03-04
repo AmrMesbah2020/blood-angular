@@ -157,7 +157,7 @@
               <tr class="ms-3">
                 <th scope="col">id</th>
                 <th scope="col">title</th>
-                <th scope="col"> Publish</th>
+                <!-- <th scope="col"> Publish</th> -->
                 <th scope="col "> Content</th>
                 <th cope="col  "> Action</th>
               </tr>
@@ -170,17 +170,20 @@
                 <td>
                   {{post.title}}
                 </td>
-                <td>
-                  <a class="btn-sm btn-neutral badge-dot btn" 
-                  (click)="puplish(post.id) " >
-                    <i [style.background]="post.access == 0 ? 'red':'green'"></i> publish
-                  </a>
-                </td>
+               
                 <td >
                    {{post.content}}
                    </td>
                    <td>
-                  <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"
+                    <a class="btn-sm btn-neutral badge-dot btn" 
+                    (click)="puplish(post.id) " >
+                      <i [style.background]="post.access == 0 ? 'red':'green'"></i> publish
+                    </a>
+                    <button class="btn-sm btn-outline-dark badge-dot btn ms-3" 
+                    routerLink="/admin/adminn/send/email/{{post.owner.id}}" [class.disabled]="post.access == 1" >
+                     reject
+                    </button>
+                  <button type="button" class="btn btn-sm btn-square btn-outline-danger ms-3"
                 (click)="delete(post.id)">  
                     <i class="bi bi-trash" ></i>
                   </button>
