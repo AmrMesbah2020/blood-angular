@@ -96,7 +96,7 @@ update():void{
 
     }
   )
-this.router.navigate(['/profile'])
+// this.router.navigate(['/profile'])
 
 }
 

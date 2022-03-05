@@ -27,7 +27,7 @@
    <!-- <button (ngSubmit)='performSearch($event)' >click</button> -->
   </div>
   </div>
-  
+
     <div class="col-xxlg-9 mt-4 mt-lg-0">
       <div class="row">
         <div class="col-md-12">
@@ -45,15 +45,15 @@
                   <th>BLOOD GROUP</th>
                 </tr>
               </thead>
-              
+
               <tbody *ngIf="search == 0">
-                
+
                 <tr class="candidates-list" *ngFor="let item of donners">
                   <td  class="candidate-list-favourite-time">
 
 
                     <div class="thumb">
-                      <img width="40" class="rounded-circle" src="http://localhost:8000/storage/{{item.donner_data.avatar}}" alt="" *ngIf="item.donner_data.avatar">
+                      <img width="40" class="rounded-circle" src="{{item.donner_data.avatar}}" alt="" *ngIf="item.donner_data.avatar">
                     </div>
                     <div class="candidate-list-details">
                       <div class="candidate-list-info">
@@ -81,15 +81,15 @@
                     <span class="candidate-list-time order-1"> {{item.blood_id.blood_group}} {{item.blood_id.rhd}} </span>
                   </td>
                 </tr>
-                
+
               </tbody>
                 <tbody *ngIf="search == 1">
                   <tr class="candidates-list" *ngFor="let s of searchResults">
                     <td  class="candidate-list-favourite-time">
-  
-  
+
+
                       <div class="thumb">
-                        <img width="40" class="rounded-circle" src="http://localhost:8000/storage/{{s.avatar}}" alt="" *ngIf="s.avatar">
+                        <img width="40" class="rounded-circle" src="{{s.avatar}}" alt="" *ngIf="s.avatar">
                       </div>
                       <div class="candidate-list-details">
                         <div class="candidate-list-info">
@@ -103,7 +103,7 @@
                               </li>
                               <li>
                                 <i class="bi bi-phone-fill"></i> {{s.phone}}
-  
+
                               </li>
                             </ul>
                           </div>
@@ -117,12 +117,12 @@
                       <span class="candidate-list-time order-1"> {{s.blood_group}} {{s.rhd}} </span>
                     </td>
                   </tr>
-                  
+
               </tbody>
               <br>
             </table>
           </div>
-          
+
         </div>
       </div>
     </div>

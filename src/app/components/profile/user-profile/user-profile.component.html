@@ -67,7 +67,7 @@
         </div>
         <div class="col-lg-6 ">
           <div class="about-avatar">
-            <img src="http://donnatelife.herokuapp.com/app/public/{{user.avatar}}" alt="" *ngIf="user.avatar">
+            <img src="{{user.avatar}}" alt="" *ngIf="user.avatar">
           </div>
         </div>
       </div>
@@ -160,12 +160,12 @@
 
       <div class="my-3 p-3 bg-white rounded box-shadow " *ngFor="let post of userPosts">
         <div class="media text-muted pt-3">
-          <img src="http://donnatelife.herokuapp.com/storage/{{user.avatar}}" alt="" class="mr-2 rounded" width="32"
+          <img src="{{user.avatar}}" alt="" class="mr-2 rounded" width="32"
             height="32" *ngIf="user.avatar">
           <p class="media-body pb-3 mb-0  lh-125 border-bottom border-gray">
             <!-- <small class="text-muted">{{posts}}</small> -->
             <strong class="d-block text-info">{{post.title}}</strong>
-            <img src="http://donnatelife.herokuapp.com/storage/{{post.image}}" style="width: 200px;height: 200px;" *ngIf="post.image">
+            <img src="{{post.image}}" style="width: 200px;height: 200px;" *ngIf="post.image">
               {{post.content}}
           </p>
           <strong class="d-block text-danger"><i class="bi bi-heart-fill"></i> {{post.rate}}</strong>

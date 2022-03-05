@@ -65,8 +65,8 @@ export class ArticlesComponent implements OnInit {
    await this.router.navigate(['/admin/adminn/articles-admin'])
     .then(() => {
 
-      window.location.reload()
-      // this.ngOnInit()
+      // window.location.reload()
+      this.ngOnInit()
     })
   }
   }
