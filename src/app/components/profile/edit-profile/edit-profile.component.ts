@@ -59,7 +59,7 @@ onfile(event:any){
 this.image=event.target.files[0];
 }
 
-update():void{
+async update(){
 
   let user=new User();
 
@@ -87,7 +87,7 @@ update():void{
   console.log(this.image);
 
 
-  this._httpClient.post('http://donnatelife.herokuapp.com/api/update-profile',data,{headers:this.headers}).subscribe(
+ await this._httpClient.post('http://donnatelife.herokuapp.com/api/update-profile',data,{headers:this.headers}).subscribe(
     (response:any)=>{
       console.log(response)
     },
@@ -96,7 +96,7 @@ update():void{
 
     }
   )
-// this.router.navigate(['/profile'])
+this.router.navigate(['/profile'])
 
 }
 
