@@ -47,13 +47,20 @@ export class ChatComponent implements OnInit {
   }
 
   send():void{
-    // console.log(this.username,this.message)
+    if(this.message == null || this.message == ""){
+       this._toaster.show('Please enter message...','Empty Message..!',{
+        positionClass:'toast-center-center',
+
+       })
+
+    }else{
   this._httpClient.post('http://donnatelife.herokuapp.com/api/messages',{
     message:this.message
   },{headers:this.headers}).subscribe(
     (response:any)=> {this.message=''},
     (error:any)=>{console.log(error);}
   );
+  }
   }
 
 }
