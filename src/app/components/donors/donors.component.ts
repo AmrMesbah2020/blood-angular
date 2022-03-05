@@ -60,6 +60,7 @@ export class DonorsComponent implements OnInit {
     )
     if(!keyWord){
       this.search=0
+      
     }
     else{this.search=1}
    }

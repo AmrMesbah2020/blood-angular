@@ -21,10 +21,13 @@
     <!-- Search form  search-->
  <div class="form-group mt-5" [formGroup]="searchForm">
   <div class="md-form mb-5 form-group">
-   
-   <input class="form-control bg-transparent border-none" type="text" (input)="getSearch($event)"  class="form-control form-control"
-   placeholder="Search on Blood Group" aria-label="Search" 
-   name="searchval" formControlName="searchval"  [class.is-invalid]="isInValidAndTouched('searchval')" >
+  
+   <input class="form-control bg-transparent border-none" type="text" (keyUp.enter)="getSearch($event)"  class="form-control form-control"
+   placeholder="Search on Blood Group" aria-label="Search" maxlength="2"
+   name="searchval" formControlName="searchval"  [class.is-invalid]="isInValidAndTouched('searchval')" 
+    >
+
+ 
   <div *ngIf="isInValidAndTouched('searchval')">
     <small class="form-text text-danger" *ngIf="isControlHasError('searchval','maxlength')">you can search in blood group and rhd </small>
 
@@ -34,7 +37,8 @@
 
 </div>
   <!-- ///// -->
- 
+
+
 
   
     <div class="col-xxlg-9 mt-4 mt-lg-0">
@@ -55,7 +59,7 @@
                 </tr>
               </thead>
 
-              <tbody *ngIf="search == 0">
+              <tbody *ngIf="search == 0 ">
 
                 <tr class="candidates-list" *ngFor="let item of donners">
                   <td  class="candidate-list-favourite-time">
