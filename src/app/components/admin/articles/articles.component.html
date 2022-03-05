@@ -195,9 +195,9 @@
                     {{article.resources }}
                   </td>
                   <td class="text-end">
-                    <a  class="btn btn-sm btn-neutral" routerLink="/article/details/{{article.article_id}}" >View</a>
-                    <button type="button" class="btn btn-sm btn-square btn-neutral
-                     text-danger-hover" (click)="deleteArticle(article.article_id)">
+                    <a  class="btn btn-sm btn-neutral " routerLink="/article/details/{{article.article_id}}" >View</a>
+                    <button type="button" class="btn btn-sm btn-square ms-2 btn-outline-danger"
+                     (click)="deleteArticle(article.article_id)">
                       <i class="bi bi-trash"></i>
                     </button>
                   </td>

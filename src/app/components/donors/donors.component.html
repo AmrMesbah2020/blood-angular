@@ -18,15 +18,24 @@
 <body style="overflow:hidden">
   <div class="container mt-3 mb-4">
 
-    <!-- Search form -->
- <div class="form-group mt-5">
+    <!-- Search form  search-->
+ <div class="form-group mt-5" [formGroup]="searchForm">
   <div class="md-form mb-5 form-group">
-   <!-- (input)="getSearch($event)" -->
-   <input class="form-control bg-transparent border-none" type="text" (input)="getSearch($event)" name="search" class="form-control form-control"
-   placeholder="Search on Blood Group" aria-label="Search" >
-   <!-- <button (ngSubmit)='performSearch($event)' >click</button> -->
+   
+   <input class="form-control bg-transparent border-none" type="text" (input)="getSearch($event)"  class="form-control form-control"
+   placeholder="Search on Blood Group" aria-label="Search" 
+   name="searchval" formControlName="searchval"  [class.is-invalid]="isInValidAndTouched('searchval')" >
+  <div *ngIf="isInValidAndTouched('searchval')">
+    <small class="form-text text-danger" *ngIf="isControlHasError('searchval','maxlength')">you can search in blood group and rhd </small>
+
+</div>
+
   </div>
-  </div>
+
+</div>
+  <!-- ///// -->
+ 
+
   
     <div class="col-xxlg-9 mt-4 mt-lg-0">
       <div class="row">
