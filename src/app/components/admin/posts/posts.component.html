@@ -2,59 +2,57 @@
   <!-- Vertical Navbar -->
   <div class="h-screen flex-grow-1 overflow">
 
-  <!-- Main content -->
+    <!-- Main content -->
     <!-- Header -->
     <header class="bg-surface-primary border-bottom pt-6">
       <div class="container-fluid">
-          <div class="mb-npx">
-              <div class="row align-items-center">
-                  <div class="col-sm-6 col-12 mb-4 mb-sm-0">
-                      <!-- Title -->
-                      <h1 class="h2 mb-0 ls-tight">Dashboard</h1>
-                  </div>
-                  <!-- Actions -->
-              </div>
-              <!-- Nav -->
-              <ul class="nav nav-tabs mt-4 overflow-x border-0">
-                  <li class="nav-item ">
-                      <a href="#" class="nav-link active">All files</a>
-                  </li>
-              </ul>
+        <div class="mb-npx">
+          <div class="row align-items-center">
+            <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+              <!-- Title -->
+              <h1 class="h2 mb-0 ls-tight">Dashboard</h1>
+            </div>
+            <!-- Actions -->
           </div>
+          <!-- Nav -->
+          <ul class="nav nav-tabs mt-4 overflow-x border-0">
+            <li class="nav-item ">
+              <a href="#" class="nav-link active">All files</a>
+            </li>
+          </ul>
+        </div>
       </div>
-  </header>
+    </header>
     <!-- Main -->
     <main class="py-6 bg-surface-secondary">
-<div class="container">
-  <div class="card-deck" >
-    <div class="row">
-    <div class="card col-lg  col-sm-12 m-2 " *ngFor="let post of posts" >
-      <img class="card-img-top col w-100 h-100" src="{{post.image}}" alt="post image">
-      <div class="card-body">
-        <h5 class="card-title">  {{post.id}} - {{post.title}}</h5>
-        <p class="card-text">  {{post.content}}</p>
+      <div class="container">
+        <div class="card-deck">
+          <div class="row">
+            <div class="card col-lg-4  mt-4 col-sm-12  " *ngFor="let post of posts" >
+              <img class="card-img-top col w-100 h-100" src="{{post.image}}" alt="post image">
+              <div class="card-body">
+                <h5 class="card-title"> {{post.id}} - {{post.title}}</h5>
+                <p class="card-text"> {{post.content}}</p>
+              </div>
+              <div class="card-footer">
+                <a class="btn-sm btn-neutral badge-dot btn" (click)="puplish(post.id) ">
+                  <i [style.background]="post.access == 0 ? 'red':'green'"></i> publish
+                </a>
+                <button class="btn-sm btn-outline-dark badge-dot btn ms-3"
+                  routerLink="/admin/adminn/send/email/{{post.owner.id}}" [class.disabled]="post.access == 1">
+                  reject
+                </button>
+                <button type="button" class="btn btn-sm btn-square btn-outline-danger ms-3" (click)="delete(post.id)">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer border-0 py-6">
+          <span class="text-muted text-lg">showing {{posts.length}} posts</span>
+        </div>
       </div>
-      <div class="card-footer">
-        <a class="btn-sm btn-neutral badge-dot btn" 
-                    (click)="puplish(post.id) " >
-                      <i [style.background]="post.access == 0 ? 'red':'green'"></i> publish
-                    </a>
-                    <button class="btn-sm btn-outline-dark badge-dot btn ms-3" 
-                    routerLink="/admin/adminn/send/email/{{post.owner.id}}" [class.disabled]="post.access == 1" >
-                     reject
-                    </button>
-                    <button type="button" class="btn btn-sm btn-square btn-outline-danger ms-3"
-                    (click)="delete(post.id)">  
-                        <i class="bi bi-trash" ></i>
-                      </button>
-      </div>
-    </div>
-  </div>
-  </div>
-  <div class="card-footer border-0 py-6">
-    <span class="text-muted text-lg">showing {{posts.length}} posts</span>
-  </div>
-</div>
     </main>
   </div>
 </div>
