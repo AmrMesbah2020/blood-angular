@@ -129,7 +129,7 @@ export class PostsComponent implements OnInit {
       },
       (error:any)=>{
         console.log(error);
-        this.errMsg.push(error.errors.image);
+        this.errMsg.push(error.error.errors.image);
       }
 
    )
