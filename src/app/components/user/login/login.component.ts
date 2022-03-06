@@ -38,9 +38,9 @@ export class LoginComponent implements OnInit {
 
     await this._httpClient.post('http://donnatelife.herokuapp.com/api/login', user).subscribe(
       async (response: any) =>{
-
-        console.log(response);
         await this._userService.login(response);
+        console.log(response);
+
 
           this.router.navigateByUrl('/home');
       },

@@ -2,17 +2,17 @@
     <div class="bg-white p-5 border border-dark">
         <div>User Name: {{user.name}}</div>
        <div>User Email: {{user.email}}</div>
-    
+
 </div>
 
     <div class="form mt-5" [formGroup]="emailForm">
-        
+
         <!-- <label class="form-label">User Email</label>
         <input type="text" class="form-control" formControlName="email" value="{{user.email}}" > -->
         <label class="form-label">Email Subject</label>
         <input type="text" class="form-control" formControlName="subject">
         <label class="form-label ">Email Message</label>
         <textarea  type="text" class="form-control" formControlName="message"></textarea>
-        <a class="btn btn-dark mt-5" (click)="sendEmail()">Send</a>
+        <button class="btn btn-dark mt-5" (click)="sendEmail()" [disabled]="emailForm.invalid">Send </button>
     </div>
 </div>
