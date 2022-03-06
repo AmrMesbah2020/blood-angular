@@ -29,22 +29,22 @@
   <div class="card-deck" >
     <div class="row">
     <div class="card col-lg  col-sm-12 m-2 " *ngFor="let post of posts" >
-      <img class="card-img-top col w-100 h-100" src="{{post.image}}" alt="post image">
+      <img class="card-img-top col w-100 h-100" src="{{post.image}}" alt="post image" *ngIf="post.image">
       <div class="card-body">
         <h5 class="card-title">  {{post.id}} - {{post.title}}</h5>
         <p class="card-text">  {{post.content}}</p>
       </div>
       <div class="card-footer">
-        <a class="btn-sm btn-neutral badge-dot btn" 
+        <a class="btn-sm btn-neutral badge-dot btn"
                     (click)="puplish(post.id) " >
                       <i [style.background]="post.access == 0 ? 'red':'green'"></i> publish
                     </a>
-                    <button class="btn-sm btn-outline-dark badge-dot btn ms-3" 
+                    <button class="btn-sm btn-outline-dark badge-dot btn ms-3"
                     routerLink="/admin/adminn/send/email/{{post.owner.id}}" [class.disabled]="post.access == 1" >
                      reject
                     </button>
                     <button type="button" class="btn btn-sm btn-square btn-outline-danger ms-3"
-                    (click)="delete(post.id)">  
+                    (click)="delete(post.id)">
                         <i class="bi bi-trash" ></i>
                       </button>
       </div>
