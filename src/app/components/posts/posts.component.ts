@@ -126,6 +126,7 @@ export class PostsComponent implements OnInit {
            progressBar:true
          })
         this.formPost.reset()
+        this.errMsg[0]=null;
       },
       (error:any)=>{
         console.log(error);

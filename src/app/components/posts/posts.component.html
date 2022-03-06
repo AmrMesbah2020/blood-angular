@@ -32,6 +32,7 @@
 
                       <label>Post Image</label>
                     <input type="file" class="form-cotrol mt-3" name="image" formControlName="image" (change)="onfile($event)" >
+                    <br>
                     <small class="form-text text-danger" *ngIf="errMsg[0]">{{errMsg[0]}}</small>
                     <div class="">
                         <input  (click)="addPost()" value="Post" type="submit" [disabled]="formPost.invalid" class="btn btn-primary mt-3">
