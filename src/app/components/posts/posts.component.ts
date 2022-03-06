@@ -26,6 +26,7 @@ export class PostsComponent implements OnInit {
   image:any=null;
   title:string='';
   content:string='';
+  errMsg:any=[];
 
 
   user=new User;
@@ -128,6 +129,7 @@ export class PostsComponent implements OnInit {
       },
       (error:any)=>{
         console.log(error);
+        this.errMsg.push(error.errors.image);
       }
 
    )
