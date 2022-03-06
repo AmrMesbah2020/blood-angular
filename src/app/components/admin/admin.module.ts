@@ -19,18 +19,20 @@ const routes: Routes = [
   {
     path: 'adminn',
     children: [
-      { path: '', component: AdminPannelComponent 
-      ,children:[
-        { path: 'dashboard', component: DashboardComponent },
-        { path: 'posts-admin', component: PostsComponent },
-        { path: 'articles-admin', component: ArticlesComponent },
-        { path: 'requests-admin', component: RequestsComponent },
-        { path: 'feedback-admin', component: FeedbackComponent },
-        { path: 'add-admin', component: AddAdminComponent },
-        {path: 'users-admin',component:AllUsersComponent},
-        {path:'add-article',component:AddArticalComponent},
-        {path:'send/email/:id',component:SendEmailComponent},
-      ]},
+      {
+        path: '', component: AdminPannelComponent
+        , children: [
+          { path: 'dashboard', component: DashboardComponent },
+          { path: 'posts-admin', component: PostsComponent },
+          { path: 'articles-admin', component: ArticlesComponent },
+          { path: 'requests-admin', component: RequestsComponent },
+          { path: 'feedback-admin', component: FeedbackComponent },
+          { path: 'add-admin', component: AddAdminComponent },
+          { path: 'users-admin', component: AllUsersComponent },
+          { path: 'add-article', component: AddArticalComponent },
+          { path: 'send/email/:id', component: SendEmailComponent },
+        ]
+      },
 
 
     ]
@@ -58,8 +60,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     // HttpClientModule,
-    
-    
+
+
 
   ]
 })

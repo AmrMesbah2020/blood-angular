@@ -1,32 +1,30 @@
-<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
-
-  <!-- Vertical Navbar -->
-  <div class="h-screen flex-grow-1 overflow">
+<!-- Vertical Navbar -->
+<div class="h-screen flex-grow-1 overflow">
 
   <!-- Main content -->
-    <!-- Header -->
-    <header class="bg-surface-primary border-bottom pt-6">
-      <div class="container-fluid">
-          <div class="mb-npx">
-              <div class="row align-items-center">
-                  <div class="col-sm-6 col-12 mb-4 mb-sm-0">
-                      <!-- Title -->
-                      <h1 class="h2 mb-0 ls-tight">Dashboard</h1>
-                  </div>
-                  <!-- Actions -->
-              </div>
-              <!-- Nav -->
-              <ul class="nav nav-tabs mt-4 overflow-x border-0">
-                  <li class="nav-item ">
-                      <a href="#" class="nav-link active">All files</a>
-                  </li>
-              </ul>
+  <!-- Header -->
+  <header class="bg-surface-primary border-bottom pt-6">
+    <div class="container">
+      <div class="mb">
+        <div class="row align-items-center">
+          <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+            <!-- Title -->
+            <h1 class="h2 mb-0 ls-tight">Dashboard</h1>
           </div>
+          <!-- Actions -->
+        </div>
+        <!-- Nav -->
+        <ul class="nav nav-tabs mt-4 overflow-x border-0">
+          <li class="nav-item ">
+            <a href="#" class="nav-link active">All files</a>
+          </li>
+        </ul>
       </div>
+    </div>
   </header>
-    <!-- Main -->
-    <main class="py-6 bg-surface-secondary">
-      <div class="container-fluid">
+  <!-- Main -->
+  <main class="py-6 bg-surface-secondary">
+    <div class="container-fluid">
       <!-- Card stats -->
       <div class="row g-6 mb-6">
         <div class="col-xl-3 col-sm-6 col-12">
@@ -165,7 +163,7 @@
             <tbody>
               <tr *ngFor="let request of requests">
                 <td>
-                 {{request.id}}
+                  {{request.id}}
                 </td>
                 <td>
                   {{request.phone}}
@@ -177,7 +175,7 @@
                 </td>
                 <td>
                   {{request.blood.blood_group}}
-                
+
                 </td>
                 <td>
                   {{request.blood.rhd}}
@@ -187,9 +185,9 @@
                   {{request.description}}
 
                 </td>
-               
+
               </tr>
-          
+
             </tbody>
           </table>
         </div>
@@ -197,7 +195,6 @@
           <span class="text-muted text-sm">Showing {{requests.length}} request</span>
         </div>
       </div>
-</div>
-    </main>
-  </div>
+    </div>
+  </main>
 </div>

@@ -1,11 +1,11 @@
 <!-- Banner -->
-<a  class="btn w-full btn-danger text-truncate rounded-0 py-2 border-0 position-relative" 
-[routerLink]="['/home']"   style="z-index: 1000;">
-    <strong>Hello Admin </strong> from donatelife website →
+<a class="btn w-full btn-danger text-truncate rounded-0 py-2 border-0 position-relative" [routerLink]="['/home']"
+  style="z-index: 1000;">
+  <strong>Hello Admin </strong> from donatelife website →
 </a>
 
 <!-- Dashboard -->
-<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+<div class="d-flex h-screen  flex-lg-row h-lg-full bg-surface-secondary ">
   <!-- Vertical Navbar -->
   <nav
     class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
@@ -17,10 +17,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Brand -->
-      <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-4 fs-4 me-1 fw-bold text-danger" href="#">
+      <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-4 fs-3 me-1 fw-bold text-danger">
         <i class="bi bi-chat-right-heart "></i> donatelife
       </a>
-      <!-- User menu (mobile) -->
 
       <!-- Collapse -->
       <div class="collapse navbar-collapse" id="sidebarCollapse">
@@ -32,29 +31,25 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link collapsed" routerLink="/admin/adminn/posts-admin" data-toggle="collapse"
-              data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+            <a class="nav-link collapsed" routerLink="/admin/adminn/posts-admin">
               <i class="bi bi-bar-chart"></i>
               <span>posts</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link collapsed" routerLink="/admin/adminn/articles-admin" data-target="#collapsePages"
-              aria-expanded="true" aria-controls="collapsePages">
+            <a class="nav-link collapsed" routerLink="/admin/adminn/articles-admin">
               <i class="bi bi-chat"></i> <span> Articles </span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link collapsed" routerLink="/admin/adminn/requests-admin" data-target="#collapsePages"
-              aria-expanded="true" aria-controls="collapsePages">
+            <a class="nav-link collapsed" routerLink="/admin/adminn/requests-admin">
               <i class="bi bi-bookmarks"></i> <span> Requests </span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link collapsed" routerLink="/admin/adminn/feedback-admin" data-target="#collapsePages"
-              aria-expanded="true" aria-controls="collapsePages">
+            <a class="nav-link collapsed" routerLink="/admin/adminn/feedback-admin">
               <i class="bi bi-broadcast"></i> <span> Feedback </span>
             </a>
           </li>
@@ -71,15 +66,14 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link collapsed" routerLink="/admin/adminn/add-admin" data-target="#collapsePages"
-              aria-expanded="true" aria-controls="collapsePages">
+            <a class="nav-link collapsed" routerLink="/admin/adminn/add-admin">
               <i class="bi bi-plus-circle"></i><span> Add New Admin </span>
             </a>
           </li>
         </ul>
         <!-- Divider -->
         <hr class="navbar-divider my-5 opacity-20">
-     
+
         <!-- User (md) -->
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -87,20 +81,18 @@
               <i class="bi bi-person-square"></i> Account
             </a>
           </li>
-          <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-box-arrow-left"></i> Logout
-                        </a>
-                    </li> -->
+
         </ul>
       </div>
     </div>
   </nav>
-  
-  <!-- Main content -->
-<div class="h-screen flex-grow-1 overflow">
-<router-outlet></router-outlet>
 
+  <!-- Main content -->
+  <div class="flex-grow h-auto overflow col-10">
+
+    <router-outlet></router-outlet>
+  </div>
   <!-- <script src="../../../../assets/customjs/custom.js">
   </script> -->
 
+</div>

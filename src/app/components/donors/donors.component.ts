@@ -19,8 +19,8 @@ export class DonorsComponent implements OnInit {
   searchForm=new FormGroup({});
 
   searchval:string = '';
-
-
+  
+  
   constructor(private _formBuilder:FormBuilder,private _httpClint:HttpClient) { }
 
   
@@ -60,7 +60,7 @@ export class DonorsComponent implements OnInit {
     )
     if(!keyWord){
       this.search=0
-      
+
     }
     else{this.search=1}
    }
