@@ -28,7 +28,7 @@
         <div class="card-deck">
           <div class="row">
             <div class="card col-lg-4  mt-4 col-sm-12  " *ngFor="let post of posts" >
-              <img class="card-img-top col w-100 h-100" src="{{post.image}}" alt="post image">
+              <img class="card-img-top col w-100 h-100" src="{{post.image}}" alt="post image" *ngIf="post.image">
               <div class="card-body">
                 <h5 class="card-title"> {{post.id}} - {{post.title}}</h5>
                 <p class="card-text"> {{post.content}}</p>
