@@ -8,7 +8,6 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "heroku-postbuild": "ng build --aot --prod "
-
   },
   "private": true,
   "dependencies": {
@@ -55,11 +54,8 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.5.5"
   },
-
   "engines": {
-    "node": "16.13.2",
+    "node": "16.x",
     "npm": "8.1.2"
   }
-
-
 }
