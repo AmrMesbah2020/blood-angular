@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     
-   this.userService.isAdmin();
+  //  this.userService.isAdmin();
   //   this._httpClient.get("http://localhost:8000/api/user",
   //   { headers: this.headers }).subscribe(
     

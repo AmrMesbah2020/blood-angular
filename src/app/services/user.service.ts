@@ -32,27 +32,7 @@ export class UserService {
 
 
   }
-    // issadmin=new BehaviorSubject<boolean>(this.isAdmin());
 
-  isAdmin():any{
-
-    this._httpClient.get("http://donnatelife.herokuapp.com/api/user",
-    { headers: this.headers }).subscribe(
-
-      (response:any)=>{
-         this.user=response.data[0];
-         this.admin =this.user.isAdmin
-        // console.log(this.admin);
-         if(this.admin==0){
-          this.router.navigate(['/login']);
-        }
-     },
-      (error:any)=>{
-        console.log(error);
-      }
-   )
-
-  }
 
 
  async  isVerified() {

@@ -1,3 +1,4 @@
+import { IsadminGuard } from './guards/isadmin.guard';
 import { CaloriesCalculaterComponent } from './components/calories-calculater/calories-calculater.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { LocationComponent } from './components/location/location.component';
@@ -27,7 +28,8 @@ const routes: Routes = [
   },
   {
     path:'admin',
-    canActivate:[AuthGuard],
+    // canActivate:[AuthGuard],
+    canActivate:[AuthGuard,IsadminGuard],
     loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule)
   },
   {
