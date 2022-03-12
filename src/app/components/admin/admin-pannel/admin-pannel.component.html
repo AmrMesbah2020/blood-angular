@@ -1,14 +1,15 @@
 <!-- Banner -->
+
 <a class="btn w-full btn-danger text-truncate rounded-0 py-2 border-0 position-relative" [routerLink]="['/home']"
   style="z-index: 1000;">
   <strong>Hello Admin </strong> from donatelife website →
 </a>
 
 <!-- Dashboard -->
-<div class="d-flex h-screen  flex-lg-row h-lg-full bg-surface-secondary ">
+<div class="d-flex h-screen flex-column  flex-lg-row h-lg-full bg-surface-secondary ">
   <!-- Vertical Navbar -->
   <nav
-    class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
+    class="navbar show navbar-vertical h-lg-screen col-lg navbar-expand-lg px-0 py-2 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
     id="navbarVertical">
     <div class="container-fluid">
       <!-- Toggler -->
@@ -88,9 +89,9 @@
   </nav>
 
   <!-- Main content -->
-  <div class="flex-grow h-auto overflow col-10">
-
+  <div class="flex-grow h-auto overflow  col-lg-10  col-sm-12">
     <router-outlet></router-outlet>
+
   </div>
   <!-- <script src="../../../../assets/customjs/custom.js">
   </script> -->

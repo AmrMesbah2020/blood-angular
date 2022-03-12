@@ -1,12 +1,12 @@
   <!-- Vertical Navbar -->
-  <div class="h-screen ">
+  <div class="h-screen flex-grow-1 overflow">
 
     <!-- Main content -->
     <!-- Header -->
     <header class="bg-surface-primary border-bottom pt-6">
       <div class="container-fluid">
         <div class="mb-npx">
-          <div class="row align-items-center">
+          <div class="row align-items-center ">
             <div class="col-sm-6 col-12 mb-4 mb-sm-0">
               <!-- Title -->
               <h1 class="h2 mb-0 ls-tight">Dashboard</h1>
@@ -33,15 +33,15 @@
                 <h5 class="card-title"> {{post.id}} - {{post.title}}</h5>
                 <p class="card-text"> {{post.content}}</p>
               </div>
-              <div class="card-footer">
-                <a class="btn-sm btn-neutral badge-dot btn" (click)="puplish(post.id) ">
+              <div class="card-footer col-sm-11">
+                <a class="btn-sm btn-neutral badge-dot btn ms-1 " (click)="puplish(post.id) ">
                   <i [style.background]="post.access == 0 ? 'red':'green'"></i> publish
                 </a>
-                <button class="btn-sm btn-outline-dark badge-dot btn ms-3"
+                <button class="btn-sm btn-outline-dark badge-dot btn ms-1"
                   routerLink="/admin/adminn/send/email/{{post.owner.id}}" [class.disabled]="post.access == 1">
                   reject
                 </button>
-                <button type="button" class="btn btn-sm btn-square btn-outline-danger ms-3" (click)="delete(post.id)">
+                <button type="button" class="btn btn-sm btn-square btn-outline-danger ms-1" (click)="delete(post.id)">
                   <i class="bi bi-trash"></i>
                 </button>
               </div>
